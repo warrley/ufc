@@ -1,0 +1,47 @@
+Laboratório 02: Programação no IAS
+
+Em duplas, escreva um programa para o IAS (use o simulador) que consiga realizar o seguinte algoritmo...
+
+while(--arr_index >= 0) {
+
+     temp = (*vetor1) * (*vetor2);
+
+     result += temp;
+
+     vetor1++;
+
+     vetor2++;
+
+}
+
+Onde os vetores contém os 6 dígitos da matrícula de cada integrante da dupla. Por exemplo:
+
+Matrícula 1: 457418
+
+    100 4
+    101 5
+    102 7
+    103 4
+    104 1
+    105 8
+
+Matrícula 2: 589571
+
+    110 5
+    111 8
+    ...
+
+Para isso, algumas dicas:
+
+    Primeiro, faça um código como somar os elementos de um vetor!
+    Defina o vetor na memória, o índice e o resultado
+    Use o conceito de repetição e de verificação de condição, bem como de modificação de endereços
+
+Para entregar, mande o código e um print da tela do simulador da seguinte forma, mostrando o espaço de instruções (começando em 000) e de dados (começando em 100), de forma a mostrar o valor final de result (selecione com o mouse a posição):
+
+A equipe deve enviar (apenas uma das pessoas envia): 
+
+    Nome e matrícula dos integrantes
+    Print da tela
+    Programa simbólico
+    Programa hexadecimal
