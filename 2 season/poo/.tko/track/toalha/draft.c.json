@@ -1,0 +1,9 @@
+{
+    "patches": [
+        {
+            "label": "2025-07-20_20-18-42",
+            "content": "#include <stdio.h>\n\nint main() {\n    puts(\"qxcode\");\n    return 0;\n}\n\n",
+            "lines": "7"
+        }
+    ]
+}

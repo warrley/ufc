@@ -1,0 +1,40 @@
+2026-02-01 15:01:55, MOVE, v:1, k:ed@pintando, mode:DOWN
+2026-02-01 15:05:02, MOVE, v:1, k:ed@pintando, mode:PICK
+2026-02-01 15:05:03, EXEC, v:1, k:ed@pintando, mode:FREE, size:5
+2026-02-01 15:12:41, EXEC, v:1, k:ed@pintando, mode:FULL, rate:75, size:9
+2026-02-01 15:12:56, EXEC, v:1, k:ed@pintando, mode:FULL, rate:100, size:9
+2026-02-01 15:13:25, MOVE, v:1, k:ed@mumia, mode:DOWN
+2026-02-01 15:17:54, MOVE, v:1, k:ed@mumia, mode:PICK
+2026-02-01 15:17:54, EXEC, v:1, k:ed@mumia, mode:FREE, size:13
+2026-02-01 15:18:27, EXEC, v:1, k:ed@mumia, mode:FULL, rate:100
+2026-02-01 15:19:21, MOVE, v:1, k:ed@mumia, mode:BACK
+2026-02-01 15:19:22, MOVE, v:1, k:ed@fuga, mode:DOWN
+2026-02-01 15:19:43, MOVE, v:1, k:ed@fuga, mode:DOWN
+2026-02-01 15:49:46, MOVE, v:1, k:ed@fuga, mode:PICK
+2026-02-01 15:49:47, EXEC, v:1, k:ed@fuga, mode:FULL, rate:0, size:13
+2026-02-01 15:50:36, EXEC, v:1, k:ed@fuga, mode:FULL, rate:0, size:13
+2026-02-01 15:50:47, EXEC, v:1, k:ed@fuga, mode:FULL, rate:100, size:13
+2026-02-01 15:51:06, MOVE, v:1, k:ed@fuga, mode:BACK
+2026-02-01 15:51:08, MOVE, v:1, k:ed@pedra, mode:DOWN
+2026-02-01 16:09:13, MOVE, v:1, k:ed@pedra, mode:PICK
+2026-02-01 16:09:14, EXEC, v:1, k:ed@pedra, mode:FREE, size:18
+2026-02-01 16:19:41, MOVE, v:1, k:ed@pedra, mode:PICK
+2026-02-01 16:19:42, EXEC, v:1, k:ed@pedra, mode:FULL, rate:0, size:21
+2026-02-01 16:19:44, EXEC, v:1, k:ed@pedra, mode:FREE
+2026-02-01 16:21:32, EXEC, v:1, k:ed@pedra, mode:FULL, rate:0, size:21
+2026-02-01 16:21:37, EXEC, v:1, k:ed@pedra, mode:FULL, rate:75, size:21
+2026-02-01 16:22:13, EXEC, v:1, k:ed@pedra, mode:FULL, rate:100, size:23
+2026-02-01 16:23:48, MOVE, v:1, k:ed@pedra, mode:BACK
+2026-02-01 16:23:50, MOVE, v:1, k:ed@casais, mode:DOWN
+2026-02-01 16:24:08, MOVE, v:1, k:ed@baruel, mode:DOWN
+2026-02-01 16:37:37, MOVE, v:1, k:ed@pedra, mode:PICK
+2026-02-01 16:37:38, EXEC, v:1, k:ed@pedra, mode:FULL, rate:0, size:39
+2026-02-01 16:37:48, MOVE, v:1, k:ed@pedra, mode:BACK
+2026-02-01 16:37:57, MOVE, v:1, k:ed@pedra, mode:PICK
+2026-02-01 16:37:58, EXEC, v:1, k:ed@pedra, mode:FULL, rate:100, size:39
+2026-02-01 16:38:08, MOVE, v:1, k:ed@pedra, mode:BACK
+2026-02-01 16:38:11, MOVE, v:1, k:ed@pintando, mode:PICK
+2026-02-01 16:38:12, EXEC, v:1, k:ed@pintando, mode:FULL, rate:100
+2026-02-01 16:38:12, MOVE, v:1, k:ed@pintando, mode:BACK
+2026-02-01 18:54:36, MOVE, v:1, k:ed@casais, mode:PICK
+2026-02-01 18:54:37, EXEC, v:1, k:ed@casais, mode:FREE, size:15

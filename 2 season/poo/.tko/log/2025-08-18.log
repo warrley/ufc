@@ -1,0 +1,22 @@
+2025-08-18 21:40:25, MOVE, v:1, k:calculadora, mode:PICK
+2025-08-18 21:40:29, EXEC, v:1, k:calculadora, mode:FULL, rate:81
+2025-08-18 21:40:50, MOVE, v:1, k:calculadora, mode:BACK
+2025-08-18 21:43:49, MOVE, v:1, k:enxugar, mode:PICK
+2025-08-18 21:43:51, EXEC, v:1, k:enxugar, mode:FULL, rate:100
+2025-08-18 21:43:54, MOVE, v:1, k:enxugar, mode:BACK
+2025-08-18 21:55:34, MOVE, v:1, k:chinela, mode:PICK
+2025-08-18 21:55:43, EXEC, v:1, k:chinela, mode:FREE, size:34
+2025-08-18 21:56:13, EXEC, v:1, k:chinela, mode:FREE, size:34
+2025-08-18 21:59:28, EXEC, v:1, k:chinela, mode:FREE, size:40
+2025-08-18 22:01:37, EXEC, v:1, k:chinela, mode:FREE, size:36
+2025-08-18 22:01:55, EXEC, v:1, k:chinela, mode:FREE
+2025-08-18 22:02:24, MOVE, v:1, k:chinela, mode:BACK
+2025-08-18 22:02:25, MOVE, v:1, k:chinela, mode:PICK
+2025-08-18 22:02:26, EXEC, v:1, k:chinela, mode:LOCK, rate:0
+2025-08-18 22:07:54, EXEC, v:1, k:chinela, mode:LOCK, rate:0, size:38
+2025-08-18 22:08:08, EXEC, v:1, k:chinela, mode:LOCK, rate:0, size:38
+2025-08-18 22:09:06, MOVE, v:1, k:chinela, mode:BACK
+2025-08-18 22:09:08, MOVE, v:1, k:camisa, mode:DOWN
+2025-08-18 22:26:08, MOVE, v:1, k:camisa, mode:PICK
+2025-08-18 22:26:09, EXEC, v:1, k:camisa, mode:LOCK, rate:0, size:37
+2025-08-18 22:26:11, MOVE, v:1, k:camisa, mode:BACK

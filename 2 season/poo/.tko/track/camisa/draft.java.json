@@ -1,0 +1,9 @@
+{
+    "patches": [
+        {
+            "label": "2025-08-18_22-26-09",
+            "content": "import java.util.Scanner;\n\npublic class draft {\n    public static void main(String args[]) {\n        Roupa camisa = new Roupa();\n        Scanner input = new Scanner(System.in);\n\n        while (camisa.getTamanho() == null) {\n            System.out.println(\"Escolha um tamanho\");\n            camisa.setTamanho(input.nextLine());\n        }\n\n        input.close();\n    }\n\n    static class Roupa {\n        private String tamanho;\n\n        public Roupa() {\n            this.tamanho = null;\n        }\n\n        public void setTamanho(String novo) {\n            if (novo.equals(\"PP\") || novo.equals(\"P\") || novo.equals(\"M\") \n                || novo.equals(\"G\") || novo.equals(\"GG\") || novo.equals(\"XG\")) {\n                this.tamanho = novo;\n            } else {\n                System.out.println(\"Valores permitidos: PP, P, M, G, GG, XG\");\n            }\n\n        }\n\n        public String getTamanho() {\n            return this.tamanho;\n        }\n    }\n}",
+            "lines": "37"
+        }
+    ]
+}

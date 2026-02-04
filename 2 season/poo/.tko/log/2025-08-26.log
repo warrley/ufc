@@ -1,0 +1,16 @@
+2025-08-26 09:06:58, MOVE, v:1, k:pula-pula, mode:DOWN
+2025-08-26 09:40:23, MOVE, v:1, k:array, mode:PICK
+2025-08-26 09:40:23, EXEC, v:1, k:array, mode:FREE, size:103
+2025-08-26 10:07:06, MOVE, v:1, k:array, mode:BACK
+2025-08-26 10:07:09, MOVE, v:1, k:pula-pula, mode:PICK
+2025-08-26 10:07:09, EXEC, v:1, k:pula-pula, mode:FREE, size:123
+2025-08-26 10:41:03, MOVE, v:1, k:pula-pula, mode:PICK
+2025-08-26 10:41:03, EXEC, v:1, k:pula-pula, mode:FREE, size:157
+2025-08-26 11:11:29, EXEC, v:1, k:pula-pula, mode:FULL, rate:50, size:158
+2025-08-26 11:14:02, EXEC, v:1, k:pula-pula, mode:FULL, rate:60, size:158
+2025-08-26 11:15:06, EXEC, v:1, k:pula-pula, mode:FULL, rate:60, size:160
+2025-08-26 11:15:56, EXEC, v:1, k:pula-pula, mode:FULL, rate:70, size:161
+2025-08-26 11:17:21, EXEC, v:1, k:pula-pula, mode:FREE, size:163
+2025-08-26 11:18:09, EXEC, v:1, k:pula-pula, mode:FULL, rate:90, size:163
+2025-08-26 11:20:00, EXEC, v:1, k:pula-pula, mode:FULL, rate:100, size:167
+2025-08-26 11:20:08, MOVE, v:1, k:pula-pula, mode:BACK

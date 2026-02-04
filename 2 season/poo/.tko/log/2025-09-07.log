@@ -1,0 +1,32 @@
+2025-09-07 18:24:02, MOVE, v:1, k:agiota, mode:PICK
+2025-09-07 18:24:14, EXEC, v:1, k:agiota, mode:FULL, rate:60, size:276
+2025-09-07 18:40:33, EXEC, v:1, k:agiota, mode:FULL, rate:60, size:272
+2025-09-07 18:41:44, EXEC, v:1, k:agiota, mode:FULL, rate:60, size:274
+2025-09-07 18:46:12, EXEC, v:1, k:agiota, mode:FULL, rate:60, size:285
+2025-09-07 18:47:00, EXEC, v:1, k:agiota, mode:FULL, rate:60, size:285
+2025-09-07 18:47:22, EXEC, v:1, k:agiota, mode:FULL, rate:60, size:285
+2025-09-07 18:48:36, EXEC, v:1, k:agiota, mode:FULL, rate:60, size:281
+2025-09-07 18:49:42, EXEC, v:1, k:agiota, mode:FULL, rate:60, size:283
+2025-09-07 18:50:46, EXEC, v:1, k:agiota, mode:FULL, rate:60, size:284
+2025-09-07 18:53:08, EXEC, v:1, k:agiota, mode:FULL, rate:60, size:284
+2025-09-07 18:54:14, EXEC, v:1, k:agiota, mode:FULL, rate:60, size:284
+2025-09-07 18:55:17, EXEC, v:1, k:agiota, mode:FULL, rate:60, size:282
+2025-09-07 18:59:06, EXEC, v:1, k:agiota, mode:FULL, rate:60, size:282
+2025-09-07 18:59:49, EXEC, v:1, k:agiota, mode:FULL, rate:60, size:282
+2025-09-07 19:00:07, EXEC, v:1, k:agiota, mode:FULL, rate:70, size:275
+2025-09-07 19:05:14, EXEC, v:1, k:agiota, mode:FULL, rate:70, size:275
+2025-09-07 19:05:24, EXEC, v:1, k:agiota, mode:FULL, rate:70, size:275
+2025-09-07 19:07:01, EXEC, v:1, k:agiota, mode:FULL, rate:70, size:276
+2025-09-07 19:09:50, EXEC, v:1, k:agiota, mode:FULL, rate:70, size:276
+2025-09-07 19:10:47, EXEC, v:1, k:agiota, mode:FULL, rate:70, size:276
+2025-09-07 19:11:28, EXEC, v:1, k:agiota, mode:FULL, rate:60, size:276
+2025-09-07 19:11:48, EXEC, v:1, k:agiota, mode:FULL, rate:60, size:276
+2025-09-07 19:11:54, EXEC, v:1, k:agiota, mode:FULL, rate:60, size:276
+2025-09-07 19:13:13, EXEC, v:1, k:agiota, mode:FULL, rate:70, size:276
+2025-09-07 22:55:12, MOVE, v:1, k:agiota, mode:PICK
+2025-09-07 22:55:21, EXEC, v:1, k:agiota, mode:FULL, rate:70, size:276
+2025-09-07 23:01:05, EXEC, v:1, k:agiota, mode:FULL, rate:70, size:281
+2025-09-07 23:05:00, EXEC, v:1, k:agiota, mode:FULL, rate:70, size:281
+2025-09-07 23:06:03, EXEC, v:1, k:agiota, mode:FULL, rate:70, size:281
+2025-09-07 23:06:19, MOVE, v:1, k:agiota, mode:PICK
+2025-09-07 23:06:23, EXEC, v:1, k:agiota, mode:FULL, rate:70

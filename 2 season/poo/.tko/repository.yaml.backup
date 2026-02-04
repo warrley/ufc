@@ -1,0 +1,52 @@
+version: '0.2'
+sources:
+- database: database
+  link: https://github.com/qxcodepoo/arcade/blob/master/Readme.md
+  type: remote
+  branch: master
+  cache_path: ''
+  cache_timestamp: '2026-01-25 13:26:26'
+  filters: null
+- database: local
+  link: ''
+  type: local
+  branch: master
+  cache_path: ''
+  cache_timestamp: ''
+  filters: null
+expanded:
+- configuracao-e-aquecimento
+- campanha-principal
+- bloco_d-crud-com-mapas-e-enumerações
+- bloco_f-herança-i
+tasks:
+  animal: '{rate:100}'
+  carro: '{rate:100}'
+  calculadora: '{rate:81}'
+  enxugar: '{rate:100}'
+  roupa: '{rate:100}'
+  relogio: '{rate:100}'
+  motoca: '{rate:100}'
+  grafite: '{rate:100}'
+  motouber: '{rate:100}'
+  charger: '{rate:100}'
+  budega: '{rate:100}'
+  lapiseira: '{rate:100}'
+  pula-pula: '{rate:100}'
+  cinema: '{rate:100}'
+  tabuleiro: '{rate:100}'
+  contato: '{rate:100}'
+  agiota: '{rate:100}'
+  porquinho: '{rate:100}'
+  tarifas: '{rate:100}'
+  estacionamento: '{rate:100}'
+  cofre: '{rate:100}'
+  cadastro: '{rate:100}'
+flags:
+  quests: 0
+  tracks: 0
+  tasks: 2
+  graph: 1
+  xray: 0
+lang: java
+selected: configuracao-e-aquecimento

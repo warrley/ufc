@@ -1,0 +1,64 @@
+{
+    "patches": [
+        {
+            "label": "2025-08-22_17-49-50",
+            "content": "@@ -117,40 +117,8 @@\n AQUI\n-%0A        Moto moto = new Moto();\n %0A%0A  \n@@ -372,32 +372,35 @@\n    %7D%0A           \n+ //\n  else if (cmd.eq\n@@ -418,32 +418,35 @@\n )) %7B%0A           \n+ //\n      // CRIE SUA\n@@ -459,32 +459,35 @@\n AQUI%0A           \n+ //\n      var power =\n@@ -529,61 +529,27 @@\n     \n-  \n-  moto = new Moto(power);%0A            %7D%0A           \n+// %7D%0A            //\n  els\n@@ -580,36 +580,39 @@\n ) %7B%0A            \n+//\n     \n+ \n // MOSTRE SUA MO\n@@ -635,74 +635,27 @@\n     \n-    System.out.println(moto.toString());%0A            %7D%0A           \n+// %7D%0A            //\n  els\n@@ -691,28 +691,31 @@\n             \n+//\n     \n+ \n // CRIE UM O\n@@ -740,28 +740,31 @@\n             \n+//\n     \n+ \n // DEPOIS IN\n@@ -779,32 +779,35 @@\n MOTO%0A           \n+ //\n      var name = \n@@ -817,32 +817,35 @@\n %5B1%5D;%0A           \n+ //\n      var age = I\n@@ -872,32 +872,35 @@\n 2%5D);%0A           \n+ //\n  %7D%0A            e\n@@ -889,32 +889,35 @@\n // %7D%0A           \n+ //\n  else if (cmd.eq\n@@ -945,20 +945,23 @@\n         \n+//\n     \n+ \n // RETIR\n@@ -991,20 +991,23 @@\n         \n+//\n     \n+ \n // MOSTR\n@@ -1034,32 +1034,35 @@\n AQUI%0A           \n+ //\n  %7D%0A            e\n@@ -1051,32 +1051,35 @@\n // %7D%0A           \n+ //\n  else if (cmd.eq\n@@ -1096,32 +1096,35 @@\n )) %7B%0A           \n+ //\n      // COMPRE T\n@@ -1131,32 +1131,35 @@\n EMPO%0A           \n+ //\n      var time = \n@@ -1187,32 +1187,35 @@\n 1%5D);%0A           \n+ //\n  %7D%0A            e\n@@ -1204,32 +1204,35 @@\n // %7D%0A           \n+ //\n  else if (cmd.eq\n@@ -1251,32 +1251,35 @@\n )) %7B%0A           \n+ //\n      // DIRIJA A\n@@ -1291,24 +1291,27 @@\n %0A           \n+ //\n      var tim\n@@ -1343,32 +1343,35 @@\n 1%5D);%0A           \n+ //\n  %7D%0A            e\n@@ -1364,24 +1364,27 @@\n %0A           \n+ //\n  else if (cm\n@@ -1410,24 +1410,27 @@\n %0A           \n+ //\n      // BUZI\n@@ -1435,32 +1435,35 @@\n ZINE%0A           \n+ //\n  %7D%0A            e\n@@ -2277,92 +2277,8 @@\n    %7D\n-%0A        %0A        public Moto(int power) %7B%0A            this.power = power;%0A        %7D\n %0A%0A  \n@@ -3735,24 +3735,24 @@\n intln(%22e%22);%0A\n+\n             \n@@ -3766,218 +3766,8 @@\n    %7D\n-%0A%0A        public String toString() %7B%0A            String person = (this.person == null) ? %22empty%22 : this.person.toString();%0A            return %22power:%22+this.power+%22, time%22+this.time+%22, person:%22+person;%0A        %7D\n %0A   \n",
+            "lines": "135"
+        },
+        {
+            "label": "2025-08-22_17-55-05",
+            "content": "@@ -962,106 +962,8 @@\n %5D);%0A\n-                Person person = new Person(name, age);%0A                moto.insertPerson(person);%0A\n     \n@@ -1079,148 +1079,40 @@\n     \n-Person person = moto.removePerson();%0A                // MOSTRE A PESSOA RETIRADA AQUI%0A                System.out.println(person.toString());\n+// MOSTRE A PESSOA RETIRADA AQUI\n %0A   \n@@ -1253,44 +1253,8 @@\n %5D);%0A\n-                moto.buyTime(time);%0A\n     \n@@ -1397,42 +1397,8 @@\n %5D);%0A\n-                moto.drive(time);%0A\n     \n@@ -1480,37 +1480,8 @@\n INE%0A\n-                moto.honk();%0A\n     \n@@ -2738,16 +2738,29 @@\n ePerson(\n+Person person\n ) %7B%0A    \n@@ -4056,17 +4056,16 @@\n +%22, time\n-:\n %22+this.t\n@@ -4082,17 +4082,16 @@\n son:\n-(\n %22+person\n +%22)%22\n@@ -4090,12 +4090,8 @@\n rson\n-+%22)%22\n ;%0A  \n",
+            "lines": "147"
+        },
+        {
+            "label": "2025-08-22_17-58-09",
+            "content": "@@ -4069,43 +4069,8 @@\n ) %7B%0A\n-            System.out.print(%22P%22);%0A\n     \n@@ -4147,16 +4147,18 @@\n ut.print\n+ln\n (%22e%22);%0A \n@@ -4174,43 +4174,8 @@\n   %7D%0A\n-            System.out.print(%22m%22);%0A\n     \n",
+            "lines": "154"
+        },
+        {
+            "label": "2025-08-22_18-01-00",
+            "content": "@@ -3428,29 +3428,24 @@\n          if(\n-this.\n time %3C 0) %7B%0A\n",
+            "lines": "156"
+        },
+        {
+            "label": "2025-08-22_18-05-40",
+            "content": "@@ -3439,25 +3439,24 @@\n (this.time %3C\n-=\n  0) %7B%0A      \n",
+            "lines": "156"
+        },
+        {
+            "label": "2025-08-22_18-06-03",
+            "content": "@@ -3442,17 +3442,17 @@\n is.time \n-=\n+%3C\n = 0) %7B%0A \n",
+            "lines": "156"
+        },
+        {
+            "label": "2025-08-22_18-06-15",
+            "content": "@@ -3201,50 +3201,8 @@\n e %7B%0A\n-                Person tmp = this.person;%0A\n     \n@@ -3260,11 +3260,14 @@\n urn \n-tmp\n+person\n ;%0A  \n",
+            "lines": "156"
+        },
+        {
+            "label": "2025-08-22_18-08-17",
+            "content": "@@ -4276,18 +4276,16 @@\n ut.print\n-ln\n (%22m%22);%0A \n",
+            "lines": "157"
+        },
+        {
+            "label": "2025-08-22_18-09-12",
+            "content": "@@ -2698,67 +2698,8 @@\n er;%0A\n-            this.time = 0;%0A            this.person = null;%0A\n     \n",
+            "lines": "157"
+        },
+        {
+            "label": "2025-08-22_18-13-03",
+            "content": "@@ -1904,33 +1904,8 @@\n   %7D%0A\n-        scanner.close();%0A\n     \n@@ -4576,11 +4576,10 @@\n %7D%0A    %7D%0A\n-%0A\n %7D%0A\n",
+            "lines": "159"
+        },
+        {
+            "label": "2025-08-22_18-18-00",
+            "content": "@@ -1263,49 +1263,8 @@\n QUI%0A\n-                if(person != null) %7B%0A    \n     \n@@ -1314,34 +1314,16 @@\n ing());%0A\n-                %7D%0A\n         \n",
+            "lines": "161"
+        },
+        {
+            "label": "2025-08-22_18-20-18",
+            "content": "import java.util.*;\n\npublic class Shell{\n    \n    public static void main(String[] args) {\n        // CRIE SUA MOTO AQUI\n        Moto moto = new Moto();\n\n        while(true) {\n            var line = scanner.nextLine();\n            System.out.println(\"$\" + line);\n\n            var par = line.split(\" \");\n            var cmd = par[0];\n\n            if (cmd.equals(\"end\")) {\n                break;\n            }\n            else if (cmd.equals(\"init\")) {\n                // CRIE SUA MOTO AQUI\n                var power = Integer.parseInt(par[1]);\n                moto = new Moto(power);\n            }\n            else if (cmd.equals(\"show\")) {\n                // MOSTRE SUA MOTO AQUI\n                System.out.println(moto.toString());\n            }\n            else if (cmd.equals(\"enter\")) {\n                // CRIE UM OBJETO PESSOA AQUI\n                // DEPOIS INSIRA NA MOTO\n                var name = par[1];\n                var age = Integer.parseInt(par[2]);\n                Person person = new Person(name, age);\n                moto.insertPerson(person);\n            }\n            else if (cmd.equals(\"leave\")) {\n                // RETIRE A PESSOA DA MOTO\n                Person person = moto.removePerson();\n                // MOSTRE A PESSOA RETIRADA AQUI\n                if(person != null) {\n                    System.out.println(person.toString());\n                }\n            }\n            else if (cmd.equals(\"buy\")) {\n                // COMPRE TEMPO\n                var time = Integer.parseInt(par[1]);\n                moto.buyTime(time);\n            }\n            else if (cmd.equals(\"drive\")) {\n                // DIRIJA A MOTO\n                var time = Integer.parseInt(par[1]);\n                moto.drive(time);\n            }\n            else if (cmd.equals(\"honk\")) {\n                // BUZINE\n                moto.honk();\n            }\n            else {\n                System.out.println(\"fail: comando invalido\");\n            }\n        }\n        scanner.close();\n    }\n\n    static Scanner scanner = new Scanner(System.in);\n\n    static class Person {\n        private String name;\n        private int age;\n\n        public Person(String name, int age) {\n            this.name = name;\n            this.age = age;\n        }\n\n        public String getName() {\n            return name;\n        }\n\n        public int getAge() {\n            return age;\n        }\n\n        public String toString() {\n            return name + \":\" + age;\n        }\n        \n    }\n\n    static class Moto {\n        private int power;\n        private int time;\n        private Person person;\n\n        public Moto() {\n            this.power = 1;\n            this.time = 0;\n            this.person = null;\n        }\n        \n        public Moto(int power) {\n            this.power = power;\n            this.time = 0;\n            this.person = null;\n        }\n\n        public boolean insertPerson(Person person) {\n            if(this.person != null) {\n                System.out.println(\"fail: busy motorcycle\");\n                return false;\n            } else {\n                this.person = person;\n                return true;\n            }\n        }\n        \n        public Person removePerson() {\n            if(this.person == null) {\n                System.out.println(\"fail: empty motorcycle\");\n                return null;\n            } else {\n                Person tmp = this.person;\n                this.person = null;\n                return tmp;\n            }\n        }\n\n        public void buyTime(int time) {\n            this.time += time;\n        }\n        \n        public void drive(int time) {\n            if(this.time == 0) {\n                System.out.println(\"fail: buy time first\");\n            } else if (this.person == null) {\n                System.out.println(\"fail: empty motorcycle\");\n            } else if (this.person.getAge() > 10) {\n                System.out.println(\"fail: too old to drive\");\n            } else {\n                if(this.time - time <= 0) {\n                    System.out.println(\"fail: time finished after \" + this.time + \" minutes\");\n                    this.time = 0;\n                } else {\n                    this.time -= time;\n                }\n            }\n        }\n        \n        public void honk() {\n            System.out.print(\"P\");\n            for(int i = 0; i < this.power; i++) {\n                System.out.print(\"e\");\n            }\n            System.out.println(\"m\");\n        }\n\n        public String toString() {\n            String person = (this.person == null) ? \"empty\" : this.person.toString();\n            return \"power:\"+this.power+\", time:\"+this.time+\", person:(\"+person+\")\";\n        }\n    }\n\n}\n",
+            "lines": "163"
+        }
+    ]
+}

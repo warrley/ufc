@@ -1,0 +1,6 @@
+2025-08-29 16:14:36, MOVE, v:1, k:cinema, mode:DOWN
+2025-08-29 16:42:42, MOVE, v:1, k:cinema, mode:PICK
+2025-08-29 16:42:43, EXEC, v:1, k:cinema, mode:FREE, size:114
+2025-08-29 17:00:02, MOVE, v:1, k:cinema, mode:BACK
+2025-08-29 17:00:06, MOVE, v:1, k:cinema, mode:PICK
+2025-08-29 17:00:10, EXEC, v:1, k:cinema, mode:FREE, size:123

@@ -1,0 +1,36 @@
+2026-01-12 08:54:23, MOVE, v:1, k:cadastro, mode:DOWN
+2026-01-12 09:43:23, MOVE, v:1, k:cadastro, mode:PICK
+2026-01-12 09:43:32, EXEC, v:1, k:cadastro, mode:FREE, size:168
+2026-01-12 09:44:17, MOVE, v:1, k:cadastro, mode:PICK
+2026-01-12 09:44:18, EXEC, v:1, k:cadastro, mode:FREE, size:169
+2026-01-12 09:45:30, MOVE, v:1, k:cadastro, mode:PICK
+2026-01-12 09:45:39, EXEC, v:1, k:cadastro, mode:FREE, size:170
+2026-01-12 09:59:04, MOVE, v:1, k:cadastro, mode:PICK
+2026-01-12 09:59:07, EXEC, v:1, k:cadastro, mode:FREE, size:193
+2026-01-12 10:02:15, MOVE, v:1, k:cadastro, mode:PICK
+2026-01-12 10:02:34, EXEC, v:1, k:cadastro, mode:FREE, size:193
+2026-01-12 10:21:07, EXEC, v:1, k:cadastro, mode:FREE, size:233
+2026-01-12 11:55:28, MOVE, v:1, k:cadastro, mode:PICK
+2026-01-12 11:55:29, EXEC, v:1, k:cadastro, mode:FULL, rate:0, size:233
+2026-01-12 11:57:43, EXEC, v:1, k:cadastro, mode:FULL, rate:0, size:233
+2026-01-12 12:04:21, EXEC, v:1, k:cadastro, mode:FULL, rate:0, size:235
+2026-01-12 12:09:09, EXEC, v:1, k:cadastro, mode:FULL, rate:0, size:242
+2026-01-12 12:12:44, EXEC, v:1, k:cadastro, mode:FULL, rate:0, size:245
+2026-01-12 12:14:05, EXEC, v:1, k:cadastro, mode:FULL, rate:0
+2026-01-12 12:14:10, EXEC, v:1, k:cadastro, mode:FULL, rate:100, size:245
+2026-01-12 12:14:14, MOVE, v:1, k:cadastro, mode:BACK
+2026-01-12 12:18:19, MOVE, v:1, k:cofre, mode:DOWN
+2026-01-12 13:08:33, MOVE, v:1, k:cofre, mode:PICK
+2026-01-12 13:08:34, EXEC, v:1, k:cofre, mode:FREE, size:197
+2026-01-12 19:46:51, MOVE, v:1, k:cofre, mode:PICK
+2026-01-12 19:46:54, EXEC, v:1, k:cofre, mode:FREE, size:232
+2026-01-12 19:55:04, MOVE, v:1, k:cofre, mode:PICK
+2026-01-12 19:55:06, EXEC, v:1, k:cofre, mode:FULL, rate:30, size:229
+2026-01-12 21:52:35, MOVE, v:1, k:cofre, mode:PICK
+2026-01-12 21:52:37, EXEC, v:1, k:cofre, mode:FULL, rate:30, size:226
+2026-01-12 21:54:02, EXEC, v:1, k:cofre, mode:FULL, rate:40, size:227
+2026-01-12 22:00:59, EXEC, v:1, k:cofre, mode:FULL, rate:30, size:239
+2026-01-12 22:01:24, EXEC, v:1, k:cofre, mode:FULL, rate:20, size:239
+2026-01-12 22:01:34, EXEC, v:1, k:cofre, mode:FULL, rate:30, size:239
+2026-01-12 22:02:52, EXEC, v:1, k:cofre, mode:FULL, rate:20, size:240
+2026-01-12 22:03:41, EXEC, v:1, k:cofre, mode:FULL, rate:100, size:239

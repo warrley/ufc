@@ -1,0 +1,33 @@
+version: '0.2'
+sources:
+- database: local
+  link: ''
+  type: local
+  branch: master
+  cache_path: ''
+  cache_timestamp: ''
+  filters: null
+- database: ed
+  link: https://github.com/qxcodeed/arcade.git
+  type: clone
+  branch: master
+  cache_path: ''
+  cache_timestamp: '2026-02-02 12:38:55'
+  filters: null
+expanded:
+- ed@main-quest
+- ed@revisão
+tasks:
+  ed@pintando: '{rate:100}'
+  ed@mumia: '{rate:100}'
+  ed@fuga: '{rate:100}'
+  ed@pedra: '{rate:100}'
+  ed@casais: '{rate:100}'
+flags:
+  quests: 0
+  tracks: 2
+  tasks: 0
+  graph: 1
+  xray: 0
+lang: py
+selected: ed@casais

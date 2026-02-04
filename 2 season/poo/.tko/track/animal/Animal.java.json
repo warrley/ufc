@@ -1,0 +1,39 @@
+{
+    "patches": [
+        {
+            "label": "2025-07-28_21-52-28",
+            "content": "@@ -1,35 +1,4 @@\n-package database.animal.java;%0A%0A\n publ\n@@ -145,16 +145,29 @@\n  barulho\n+, int estagio\n ) %7B%0A    \n",
+            "lines": "33"
+        },
+        {
+            "label": "2025-07-28_22-00-27",
+            "content": "@@ -14,13 +14,8 @@\n ase.\n-java.\n anim\n@@ -340,16 +340,17 @@\n urn %22---\n+-\n %22;%0A     \n@@ -631,15 +631,15 @@\n  + %22\n- \n morreu\n+.\n %22);%0A\n",
+            "lines": "35"
+        },
+        {
+            "label": "2025-07-28_22-07-49",
+            "content": "@@ -10,16 +10,21 @@\n atabase.\n+java.\n animal.j\n",
+            "lines": "35"
+        },
+        {
+            "label": "2025-07-28_22-08-14",
+            "content": "@@ -1,16 +1,25 @@\n package \n+database.\n animal.j\n",
+            "lines": "35"
+        },
+        {
+            "label": "2025-07-28_22-15-47",
+            "content": "@@ -5,17 +5,8 @@\n age \n-database.\n anim\n@@ -442,24 +442,25 @@\n ulho;%0A    %7D%0A\n+%0A\n     public v\n",
+            "lines": "35"
+        },
+        {
+            "label": "2025-07-29_10-11-06",
+            "content": "@@ -1,6 +1,4 @@\n-//\n pack\n",
+            "lines": "34"
+        },
+        {
+            "label": "2025-07-29_10-11-34",
+            "content": "//package database.animal.java;\n\npublic class Animal {\n    private String especie;\n    private String barulho;\n    private int estagio;\n\n    public Animal(String especie, String barulho) {\n        this.especie = especie;\n        this.barulho = barulho;\n    }\n\n    public String fazerBarulho() {\n        if(this.estagio == 0){\n            return \"---\";\n        }\n        if(this.estagio == 4){\n            return \"RIP\";\n        }\n        return this.barulho;\n    }\n    public void envelhecer(int value) {\n        if(this.estagio + value >= 4){\n            this.estagio = 4;\n            System.out.println(\"warning: \" + this.especie + \" morreu\");\n            return;\n        }\n        this.estagio += value;\n    }\n\n    public String toString() {\n        return this.especie + \":\" + this.estagio + \":\" + this.barulho;\n    }\n}",
+            "lines": "34"
+        }
+    ]
+}

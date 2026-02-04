@@ -1,0 +1,49 @@
+{
+    "patches": [
+        {
+            "label": "2025-08-02_07-37-10",
+            "content": "@@ -89,18 +89,16 @@\n %5B%5D a) %7B%0A\n-//\n         \n@@ -594,24 +594,30 @@\n             \n+Towel \n toalha = new\n@@ -625,16 +625,18 @@\n Towel(co\n+lo\n r, taman\n@@ -1481,46 +1481,9 @@\n wel(\n-) %7B%0A%0A        %7D%0A%0A        public Towel(S\n+s\n trin\n@@ -1491,17 +1491,17 @@\n  color, \n-S\n+s\n tring si\n@@ -1822,34 +1822,16 @@\n  == %22P%22)\n- %7B%0A               \n  return \n@@ -1846,23 +1846,16 @@\n         \n-%7D else \n if(size \n@@ -1861,34 +1861,16 @@\n  == %22M%22)\n- %7B%0A               \n  return \n@@ -1889,57 +1889,34 @@\n     \n-%7D else %7B%0A                return 30;%0A            %7D\n+if(size == %22G%22) return 30;\n %0A   \n@@ -1983,34 +1983,16 @@\n ess %3E 0)\n- %7B%0A               \n  return \n@@ -1995,17 +1995,16 @@\n urn true\n-;\n %0A       \n@@ -2011,18 +2011,14 @@\n     \n- %7D\n  else \n-%7B%0A\n     \n@@ -2024,21 +2024,16 @@\n         \n-     \n return f\n@@ -2038,30 +2038,16 @@\n  false;%0A\n-            %7D%0A\n         \n@@ -2049,18 +2049,16 @@\n      %7D%0A%0A\n-//\n         \n@@ -2088,13 +2088,9 @@\n ) %7B%0A\n-//%0A//\n+%0A\n     \n",
+            "lines": "84"
+        },
+        {
+            "label": "2025-08-02_07-42-41",
+            "content": "@@ -2298,18 +2298,17 @@\n ut.print\n-ln\n+f\n (%22Cor: %22\n",
+            "lines": "95"
+        },
+        {
+            "label": "2025-08-02_07-43-08",
+            "content": "@@ -1059,10 +1059,8 @@\n (%22%25s\n-%5Cn\n %22, (\n",
+            "lines": "95"
+        },
+        {
+            "label": "2025-08-02_07-43-26",
+            "content": "@@ -2082,10 +2082,9 @@\n ess \n-%3C=\n+%3E\n  0) \n",
+            "lines": "95"
+        },
+        {
+            "label": "2025-08-02_07-44-57",
+            "content": "@@ -1696,162 +1696,26 @@\n     \n-if(wetness + amount %3C= getMaxWetness()) %7B%0A                wetness += amount;%0A            %7D else %7B%0A                wetness = getMaxWetness();%0A            %7D\n+wetness += amount;\n %0A   \n",
+            "lines": "95"
+        },
+        {
+            "label": "2025-08-02_07-56-05",
+            "content": "@@ -1794,65 +1794,8 @@\n e %7B%0A\n-                System.out.println(%22toalha encharcada%22);%0A\n     \n",
+            "lines": "99"
+        },
+        {
+            "label": "2025-08-02_07-56-37",
+            "content": "@@ -1713,16 +1713,17 @@\n amount %3C\n+=\n  getMaxW\n",
+            "lines": "100"
+        },
+        {
+            "label": "2025-08-02_07-57-36",
+            "content": "@@ -2043,21 +2043,16 @@\n size\n-.equals(\n+ == \n %22P%22)\n-)\n  %7B%0A \n@@ -2107,21 +2107,16 @@\n size\n-.equals(\n+ == \n %22M%22)\n-)\n  %7B%0A \n",
+            "lines": "100"
+        },
+        {
+            "label": "2025-08-02_08-01-21",
+            "content": "import java.util.Scanner;\n\n\npublic class Shell {\n    \n    public static void main(String[] a) {\n//         CRIE SUA TOALHA AQUI\n         Towel toalha = new Towel();\n        \n        while (true) {\n            var line = scanner.nextLine();\n            System.out.println(\"$\" + line);\n\n            var par = line.split(\" \");\n            var cmd = par[0];\n\n            if (cmd.equals(\"end\")) {\n                break;\n            }\n            else if (cmd.equals(\"criar\")) { // ATUALIZE SUA TOALHA USANDO O CONSTRUTOR\n                 var cor = par[1];\n                 var tamanho = par[2];\n                 toalha = new Towel(cor, tamanho);\n            }\n            else if (cmd.equals(\"mostrar\")) { // MOSTRE SUA TOALHA\n                toalha.show();\n            }\n            else if (cmd.equals(\"enxugar\")) { // ENXUGUE\n                var quantidade = Integer.parseInt(par[1]);\n                toalha.dry(quantidade);\n            }\n            else if (cmd.equals(\"seca\")) { // OBTENHA SE ESTA SECA E IMPRIMA SIM OU NAO\n                System.out.printf(\"%s\\n\", (toalha.isDry()) ? (\"sim\") : (\"nao\"));\n            }\n            else if (cmd.equals(\"torcer\")) { // CHAME O METODO TORCER\n                toalha.wringOut();\n            }\n            else {\n                System.out.println(\"comando invalido\");\n            }\n        }\n    }\n\n    static class Towel {\n        private String color;\n        private String size;\n        private int wetness;\n\n        public Towel() {\n\n        }\n\n        public Towel(String color, String size) {\n            this.color = color;\n            this.size = size;\n            this.wetness = 0;\n        }\n\n        public void dry(int amount) {\n            if(wetness + amount < getMaxWetness()) {\n                wetness += amount;\n            } else {\n                System.out.println(\"toalha encharcada\");\n                wetness = getMaxWetness();\n            }\n        }\n\n        public void wringOut() {\n            wetness = 0;\n        }\n\n        public int getMaxWetness() {\n            if(size.equals(\"P\")) {\n                return 10;\n            } else if(size.equals(\"M\")) {\n                return 20;\n            } else {\n                return 30;\n            }\n        }\n\n        public boolean isDry() {\n            if(wetness <= 0) {\n                return true;\n            } else {\n                return false;\n            }\n        }\n\n//        public String toString() {\n//\n//        }\n\n        public void show() {\n            System.out.println(\"Cor: \" + color + \", Tamanho: \" + size + \", Umidade: \" + wetness);\n        }\n    }\n\n    private static Scanner scanner = new Scanner(System.in);\n}\n",
+            "lines": "100"
+        }
+    ]
+}

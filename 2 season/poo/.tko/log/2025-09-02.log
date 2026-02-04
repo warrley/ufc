@@ -1,0 +1,22 @@
+2025-09-02 12:28:52, MOVE, v:1, k:enumeracao, mode:DOWN
+2025-09-02 12:29:45, MOVE, v:1, k:enumeracao, mode:PICK
+2025-09-02 12:30:02, MOVE, v:1, k:enumeracao, mode:BACK
+2025-09-02 12:30:03, MOVE, v:1, k:enumeracao, mode:DOWN
+2025-09-02 12:33:15, MOVE, v:1, k:enumeracao, mode:PICK
+2025-09-02 12:33:16, EXEC, v:1, k:enumeracao, mode:FREE, size:18
+2025-09-02 12:33:52, MOVE, v:1, k:enumeracao, mode:BACK
+2025-09-02 12:35:17, MOVE, v:1, k:porquinho, mode:DOWN
+2025-09-02 15:08:17, MOVE, v:1, k:porquinho, mode:PICK
+2025-09-02 15:08:18, EXEC, v:1, k:porquinho, mode:FREE, size:164
+2025-09-02 16:10:52, EXEC, v:1, k:porquinho, mode:FULL, rate:70, size:249
+2025-09-02 16:13:28, EXEC, v:1, k:porquinho, mode:FULL, rate:20, size:250
+2025-09-02 16:14:19, EXEC, v:1, k:porquinho, mode:FULL, rate:100, size:250
+2025-09-02 16:14:26, MOVE, v:1, k:porquinho, mode:BACK
+2025-09-02 18:54:28, MOVE, v:1, k:tarifas, mode:DOWN
+2025-09-02 19:42:03, MOVE, v:1, k:tarifas, mode:PICK
+2025-09-02 19:42:03, EXEC, v:1, k:tarifas, mode:FREE, size:156
+2025-09-02 20:16:04, EXEC, v:1, k:tarifas, mode:FULL, rate:38, size:191
+2025-09-02 20:21:30, EXEC, v:1, k:tarifas, mode:FULL, rate:38, size:193
+2025-09-02 20:22:21, EXEC, v:1, k:tarifas, mode:FULL, rate:53, size:193
+2025-09-02 20:28:54, MOVE, v:1, k:tarifas, mode:PICK
+2025-09-02 20:28:55, EXEC, v:1, k:tarifas, mode:FREE, size:194

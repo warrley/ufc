@@ -1,0 +1,74 @@
+{
+    "patches": [
+        {
+            "label": "2026-02-02_12-38-48",
+            "content": "@@ -86,18 +86,16 @@\n ().split\n-()\n ))%0A%0Aalbu\n@@ -181,58 +181,74 @@\n or i\n- in range(total_baruel):%0A    for j in range(total_\n+, sticker in enumerate(stickers):%0A    for j, already in enumerate(\n albu\n@@ -273,16 +273,8 @@\n cker\n-s%5Bi%5D - 1\n  == \n@@ -295,25 +295,19 @@\n  if \n-album%5Bj%5D == False\n+not already\n :%0A  \n@@ -397,219 +397,49 @@\n cker\n-s%5Bi%5D%0A%0Afor i in range(total_baruel):%0A        if duplicates%5Bi%5D != 0: print(duplicates%5Bi%5D, end=%22 %22)        %0Aprint(%22%5Cn%22)%0A%0Afor i in range(total_album):%0A    if album%5Bi%5D == False:%0A        print(i + 1, end=%22 %22)%0Aprint(%22%5Cn%22)%0A\n+%0A%0Aprint(sticker, album, duplicates)%0A%0A        \n",
+            "lines": "18"
+        },
+        {
+            "label": "2026-02-02_12-55-32",
+            "content": "@@ -403,83 +403,116 @@\n i%5D%0A%0A\n-if duplicates:%0A    print(%22 %22.join(map(str, duplicates)))%0Aelse:%0A\n+for i in range(total_baruel):%0A        if duplicates%5Bi%5D != 0: print(duplicates%5Bi%5D, end=%22 %22)    \n     \n+%0A\n print(%22\n-N\n+%5Cn\n %22)%0A%0A\n",
+            "lines": "23"
+        },
+        {
+            "label": "2026-02-02_13-00-57",
+            "content": "@@ -140,24 +140,8 @@\n m)%5D%0A\n-missing = True;%0A\n dupl\n@@ -176,27 +176,8 @@\n 01)%5D\n-%0Aduplicate = False;\n %0A%0Afo\n@@ -401,41 +401,8 @@\n s%5Bi%5D\n-%0A                duplicate = True\n %0A%0Aif\n@@ -415,116 +415,52 @@\n cate\n+s\n :%0A    \n-for i in range(total_baruel):%0A            if duplicates%5Bi%5D != 0: print(duplicates%5Bi%5D, end=%22 %22)        \n+print(%22 %22.join(map(str, duplicates)))\n %0Aels\n@@ -563,8 +563,20 @@\n nd=%22 %22)%0A\n+print(%22%5Cn%22)%0A\n",
+            "lines": "24"
+        },
+        {
+            "label": "2026-02-02_13-06-32",
+            "content": "@@ -590,20 +590,8 @@\n     \n-%0A    print()\n  %0Ael\n",
+            "lines": "27"
+        },
+        {
+            "label": "2026-02-02_13-07-06",
+            "content": "@@ -711,15 +711,4 @@\n  %22)%0A\n-print(%22%5Cn%22)\n",
+            "lines": "28"
+        },
+        {
+            "label": "2026-02-02_13-07-44",
+            "content": "@@ -689,46 +689,37 @@\n     \n-if i != 0: print(%22 %22)%0A        \n+print(i + 1, end=%22 %22)%0A\n print(\n-i + 1\n+%22%5Cn%22\n )\n",
+            "lines": "29"
+        },
+        {
+            "label": "2026-02-02_13-08-32",
+            "content": "@@ -730,13 +730,5 @@\n  + 1\n-, end=%22%22\n )\n",
+            "lines": "29"
+        },
+        {
+            "label": "2026-02-02_13-09-43",
+            "content": "@@ -708,16 +708,8 @@\n t(%22 \n-%22, end=%22\n %22)%0A \n",
+            "lines": "29"
+        },
+        {
+            "label": "2026-02-02_13-09-55",
+            "content": "@@ -519,50 +519,8 @@\n l):%0A\n-            if i != 0: print(%22 %22, end=%22%22)%0A\n     \n",
+            "lines": "29"
+        },
+        {
+            "label": "2026-02-02_13-10-37",
+            "content": "@@ -527,69 +527,22 @@\n     \n-if duplicates%5Bi%5D != 0:%0A            if i != 0:%0A               \n+    if i != 0:\n  pri\n@@ -564,24 +564,47 @@\n %0A           \n+ if duplicates%5Bi%5D != 0:\n  print(dupli\n@@ -614,26 +614,34 @@\n es%5Bi%5D, end=%22\n+ \n %22)\n+       \n %0A    print()\n@@ -640,16 +640,17 @@\n  print()\n+ \n %0Aelse:%0A \n",
+            "lines": "30"
+        },
+        {
+            "label": "2026-02-02_13-13-00",
+            "content": "@@ -683,21 +683,8 @@\n %22)%0A%0A\n-first = True%0A\n for \n@@ -719,20 +719,16 @@\n  if \n-not \n album%5Bi%5D\n :%0A  \n@@ -727,43 +727,37 @@\n m%5Bi%5D\n-:%0A        if not first:%0A           \n+ == False:%0A        if i != 0:\n  pri\n@@ -804,71 +804,4 @@\n =%22%22)\n-%0A        first = False%0A%0Aif first: %0A    print(%22N%22, end=%22%22)%0A%0Aprint()%0A\n",
+            "lines": "32"
+        },
+        {
+            "label": "2026-02-02_13-13-39",
+            "content": "@@ -485,25 +485,8 @@\n te:%0A\n-    first = True%0A\n     \n@@ -511,24 +511,24 @@\n al_baruel):%0A\n+\n         if d\n@@ -557,33 +557,30 @@\n          if \n-not first\n+i != 0\n :%0A          \n@@ -649,34 +649,8 @@\n %22%22)%0A\n-            first = False%0A\n     \n@@ -659,24 +659,24 @@\n int()%0Aelse:%0A\n+\n     print(%22N\n@@ -679,17 +679,16 @@\n t(%22N%22)%0A%0A\n-%0A\n first = \n",
+            "lines": "40"
+        },
+        {
+            "label": "2026-02-02_13-14-45",
+            "content": "@@ -1,14 +1,12 @@\n-# \n total_album \n@@ -20,18 +20,16 @@\n nput())%0A\n-# \n total_ba\n@@ -48,18 +48,16 @@\n nput())%0A\n-# \n stickers\n@@ -92,18 +92,16 @@\n it()))%0A%0A\n-# \n album = \n@@ -136,18 +136,32 @@\n album)%5D%0A\n-# \n+missing = True;%0A\n duplicat\n@@ -189,18 +189,16 @@\n e(101)%5D%0A\n-# \n duplicat\n@@ -209,18 +209,16 @@\n False;%0A%0A\n-# \n for i in\n@@ -235,26 +235,24 @@\n al_baruel):%0A\n-# \n     for j in\n@@ -272,25 +272,24 @@\n album):%0A\n-#\n         \n  if stic\n@@ -280,17 +280,16 @@\n         \n- \n if stick\n@@ -305,18 +305,16 @@\n 1 == j:%0A\n-# \n         \n@@ -335,25 +335,24 @@\n %5D == False:%0A\n-#\n             \n@@ -351,25 +351,24 @@\n             \n- \n album%5Bj%5D = T\n@@ -367,25 +367,24 @@\n m%5Bj%5D = True%0A\n-#\n             \n@@ -383,24 +383,22 @@\n         \n- \n else:%0A\n-#\n         \n@@ -397,33 +397,32 @@\n                 \n- \n duplicates%5Bi%5D = \n@@ -433,18 +433,16 @@\n kers%5Bi%5D%0A\n-# \n         \n@@ -467,18 +467,16 @@\n = True%0A%0A\n-# \n if dupli\n@@ -481,22 +481,20 @@\n licate:%0A\n-#\n     \n- \n first = \n@@ -498,22 +498,20 @@\n  = True%0A\n-#\n     \n- \n for i in\n@@ -532,25 +532,24 @@\n aruel):%0A\n-#\n         \n  if dupl\n@@ -540,17 +540,16 @@\n         \n- \n if dupli\n@@ -563,17 +563,16 @@\n %5D != 0:%0A\n-#\n         \n@@ -567,33 +567,32 @@\n  0:%0A            \n- \n if not first:%0A# \n@@ -581,34 +581,32 @@\n   if not first:%0A\n-# \n                 \n@@ -616,33 +616,32 @@\n nt(%22 %22, end=%22%22)%0A\n-#\n              pri\n@@ -632,25 +632,24 @@\n             \n- \n print(duplic\n@@ -657,33 +657,32 @@\n tes%5Bi%5D, end=%22%22)%0A\n-#\n              fir\n@@ -669,33 +669,32 @@\n %22%22)%0A            \n- \n first = False%0A# \n@@ -695,22 +695,20 @@\n lse%0A\n-#\n     \n- \n print()%0A\n # el\n@@ -707,18 +707,14 @@\n t()%0A\n-# \n else:%0A\n-# \n     \n@@ -726,18 +726,16 @@\n (%22N%22)%0A%0A%0A\n-# \n first = \n@@ -739,18 +739,16 @@\n  = True%0A\n-# \n for i in\n@@ -768,18 +768,16 @@\n album):%0A\n-# \n     if n\n@@ -789,18 +789,16 @@\n bum%5Bi%5D:%0A\n-# \n         \n@@ -811,18 +811,16 @@\n  first:%0A\n-# \n         \n@@ -834,34 +834,32 @@\n nt(%22 %22, end=%22%22)%0A\n-# \n         print(i \n@@ -871,18 +871,16 @@\n end=%22%22)%0A\n-# \n         \n@@ -894,18 +894,16 @@\n  False%0A%0A\n-# \n if first\n@@ -905,18 +905,16 @@\n first: %0A\n-# \n     prin\n@@ -933,18 +933,16 @@\n %22)%0A%0A\n-# \n print()%0A\n %0A# p\n@@ -941,412 +941,4 @@\n t()%0A\n-%0A# pythonic%0A%0An = int(input())%0Am = int(input())%0Astickers = list(map(int, input().split()))%0A%0Aalbum = %5BFalse%5D * n%0Arepetidas = %5B%5D%0A%0Afor s in stickers:%0A    i = s - 1%0A    if album%5Bi%5D:%0A        repetidas.append(s)%0A    else:%0A        album%5Bi%5D = True%0A%0Afaltantes = %5Bstr(i + 1) for i in range(n) if not album%5Bi%5D%5D%0A%0Aprint(%22 %22.join(map(str, repetidas)) if repetidas else %22N%22)%0Aprint(%22 %22.join(faltantes) if faltantes else %22N%22)%0A\n",
+            "lines": "43"
+        },
+        {
+            "label": "2026-02-02_13-16-52",
+            "content": "# total_album = int(input())\n# total_baruel = int(input())\n# stickers = list(map(int, input().split()))\n\n# album = [False for _ in range(total_album)]\n# duplicates = [0 for _ in range(101)]\n# duplicate = False;\n\n# for i in range(total_baruel):\n#     for j in range(total_album):\n#         if stickers[i] - 1 == j:\n#             if album[j] == False:\n#                 album[j] = True\n#             else:\n#                 duplicates[i] = stickers[i]\n#                 duplicate = True\n\n# if duplicate:\n#     first = True\n#     for i in range(total_baruel):\n#         if duplicates[i] != 0:\n#             if not first:\n#                 print(\" \", end=\"\")\n#             print(duplicates[i], end=\"\")\n#             first = False\n#     print()\n# else:\n#     print(\"N\")\n\n\n# first = True\n# for i in range(total_album):\n#     if not album[i]:\n#         if not first:\n#             print(\" \", end=\"\")\n#         print(i + 1, end=\"\")\n#         first = False\n\n# if first: \n#     print(\"N\", end=\"\")\n\n# print()\n\n# pythonic\n\nn = int(input())\nm = int(input())\nstickers = list(map(int, input().split()))\n\nalbum = [False] * n\nrepetidas = []\n\nfor s in stickers:\n    i = s - 1\n    if album[i]:\n        repetidas.append(s)\n    else:\n        album[i] = True\n\nfaltantes = [str(i + 1) for i in range(n) if not album[i]]\n\nprint(\" \".join(map(str, repetidas)) if repetidas else \"N\")\nprint(\" \".join(faltantes) if faltantes else \"N\")\n",
+            "lines": "63"
+        }
+    ]
+}

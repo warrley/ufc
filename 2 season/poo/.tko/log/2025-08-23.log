@@ -1,0 +1,17 @@
+2025-08-23 12:38:21, MOVE, v:1, k:motouber, mode:DOWN
+2025-08-23 12:52:32, MOVE, v:1, k:motouber, mode:PICK
+2025-08-23 12:52:33, EXEC, v:1, k:motouber, mode:FREE, size:110
+2025-08-23 13:10:16, EXEC, v:1, k:motouber, mode:FULL, rate:75, size:139
+2025-08-23 13:11:23, EXEC, v:1, k:motouber, mode:FULL, rate:100, size:140
+2025-08-23 13:11:28, MOVE, v:1, k:motouber, mode:BACK
+2025-08-23 13:11:32, MOVE, v:1, k:tamagotchi, mode:DOWN
+2025-08-23 13:13:15, MOVE, v:1, k:tamagotchi, mode:DOWN
+2025-08-23 13:31:25, MOVE, v:1, k:tamagotchi, mode:PICK
+2025-08-23 13:31:25, EXEC, v:1, k:tamagotchi, mode:FREE, size:105
+2025-08-23 13:53:59, EXEC, v:1, k:tamagotchi, mode:FULL, rate:25, size:162
+2025-08-23 13:54:53, EXEC, v:1, k:tamagotchi, mode:FULL, rate:62, size:162
+2025-08-23 13:56:54, EXEC, v:1, k:tamagotchi, mode:FULL, rate:75, size:165
+2025-08-23 13:57:48, EXEC, v:1, k:tamagotchi, mode:FULL, rate:87, size:165
+2025-08-23 14:01:36, EXEC, v:1, k:tamagotchi, mode:FULL, rate:87, size:167
+2025-08-23 14:02:50, EXEC, v:1, k:tamagotchi, mode:FULL, rate:100, size:170
+2025-08-23 14:02:55, EXEC, v:1, k:tamagotchi, mode:FULL, rate:100, size:169

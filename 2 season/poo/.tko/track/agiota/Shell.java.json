@@ -1,0 +1,204 @@
+{
+    "patches": [
+        {
+            "label": "2025-09-04_20-11-12",
+            "content": "@@ -18,80 +18,8 @@\n *;%0A%0A\n-// DIAGRAMA ERRADO ? -%3E addOperation em Cliente nao %C3%A9 passado o objeto%0A%0A\n publ\n@@ -1011,32 +1011,35 @@\n %0A               \n+ //\n  String name = p\n@@ -1058,24 +1058,27 @@\n             \n+ //\n  int value =\n@@ -1110,50 +1110,8 @@\n %5D);%0A\n-                agiota.give(name, value);%0A\n     \n@@ -1955,34 +1955,8 @@\n ();%0A\n-            nextOpId = 0;%0A\n     \n@@ -2029,44 +2029,9 @@\n %22%22;%0A\n-            %0A            int i = 0;\n %0A\n+\n     \n@@ -2091,250 +2091,30 @@\n     \n-if(i != 0) sb += %22%5Cn%22; %0A                sb += %22:) %22 + alive.toString();%0A                i++;%0A            %7D%0A            %0A            for(Operation operation : alive_oper) %7B%0A                sb += %22%5Cn%22 + operation.toString();%0A                i++\n+sb += alive.toString()\n ;%0A  \n@@ -2142,27 +2142,8 @@\n    %0A\n-            i = 0;%0A\n     \n@@ -2203,99 +2203,30 @@\n     \n-if(i != 0) sb += %22%5Cn%22; %0A                sb += %22:) %22 + death.toString();%0A                i++\n+sb += death.toString()\n ;%0A  \n@@ -2811,607 +2811,9 @@\n ) %7B%0A\n-            int index = searchClient(name);%0A            if(index == -1) %7B%0A                System.out.println(%22fail: cliente nao existe%22);%0A            %7D else %7B%0A                if(alive_list.get(index).getBalance() + value %3E alive_list.get(index).getLimite()) %7B%0A                    System.out.println(%22fail: limite excedido%22);%0A                %7D else %7B%0A                    Operation op = new Operation(nextOpId, name, Label.GIVE, value);%0A                    alive_oper.add(op);%0A                    alive_list.get(index).addOperation(op);%0A                    nextOpId++;%0A                %7D%0A            %7D\n %0A\n+\n     \n@@ -3387,16 +3387,25 @@\n tions;%0A%0A\n+        %0A\n         \n@@ -3750,275 +3750,16 @@\n     \n-int total = 0;%0A            for(Operation operation : operations) %7B%0A                if(operation.getLabel() == Label.GIVE) total += operation.value;%0A                else                                   total -= operation.value;%0A            %7D%0A            return total\n+return 0\n ;%0A  \n@@ -4064,69 +4064,47 @@\n ion(\n-Operation operation) %7B%0A            operations.add(operation);\n+String name, Label label, int value) %7B%0A\n %0A   \n@@ -4107,24 +4107,25 @@\n %0A        %7D%0A%0A\n+%0A\n     %7D%0A%0A    s\n@@ -4527,65 +4527,10 @@\n urn \n-String.format(%22+ id:%25d %25s:%25s %25d%22, id, label, name, value)\n+%22%22\n ;%0A  \n@@ -4823,16 +4823,16 @@\n   TAKE,%0A\n+\n         \n@@ -4839,101 +4839,8 @@\n PLUS\n-;%0A%0A        public String toString() %7B%0A            return this.name().toLowerCase();%0A        %7D\n %0A   \n",
+            "lines": "195"
+        },
+        {
+            "label": "2025-09-04_21-48-08",
+            "content": "@@ -4738,28 +4738,17 @@\n , name, \n-getBalance()\n+0\n , getLim\n",
+            "lines": "229"
+        },
+        {
+            "label": "2025-09-04_21-50-09",
+            "content": "@@ -883,32 +883,35 @@\n %0A               \n+ //\n  String name = p\n@@ -923,405 +923,8 @@\n 1%5D;%0A\n-                Client cli = agiota.getClient(name);%0A                if(cli == null) %7B%0A                    System.out.println(%22fail: cliente nao existe%22);%0A                %7D else %7B%0A                    System.out.println(cli.toString());%0A                    for(Operation op : cli.getOperations()) %7B%0A                        System.out.println(op.toString());%0A                    %7D%0A                %7D%0A\n     \n@@ -983,32 +983,35 @@\n %0A               \n+ //\n  String name = p\n@@ -1023,43 +1023,8 @@\n 1%5D;%0A\n-                agiota.kill(name);%0A\n     \n@@ -1278,32 +1278,35 @@\n %0A               \n+ //\n  String name = p\n@@ -1321,32 +1321,35 @@\n %0A               \n+ //\n  int value = Int\n@@ -1377,50 +1377,8 @@\n %5D);%0A\n-                agiota.take(name, value);%0A\n     \n@@ -2453,19 +2453,16 @@\n b += %22%5Cn\n- + \n %22 + oper\n@@ -2471,32 +2471,53 @@\n ion.toString();%0A\n+                i++;%0A\n             %7D%0A  \n@@ -2519,32 +2519,51 @@\n  %7D%0A            %0A\n+            i = 0;%0A\n             for(\n@@ -2611,41 +2611,31 @@\n     \n-sb += %22%5Cn:( %22 + death.toString();\n+if(i != 0) sb += %22%5Cn%22; \n %0A   \n@@ -2645,117 +2645,65 @@\n     \n-  %7D%0A%0A\n       \n-      for(Operation operation : death_oper) %7B%0A                sb += %22%5Cn - %22 + operation.toString()\n+sb += %22:) %22 + death.toString();%0A                i++\n ;%0A  \n@@ -2912,80 +2912,19 @@\n     \n-int index = searchClient(name);%0A            return alive_list.get(index)\n+return null\n ;%0A  \n@@ -3949,772 +3949,60 @@\n ) %7B%0A\n-            int index = searchClient(name);%0A            if(index == - 1) %7B%0A                System.out.println(%22fail: cliente nao existe%22);%0A            %7D else %7B%0A                Operation op = new Operation(nextOpId, name, Label.TAKE, value);%0A                alive_oper.add(op);%0A                alive_list.get(index).addOperation(op);%0A            %7D%0A        %7D%0A%0A        public void kill(String name) %7B%0A            int index = searchClient(name);%0A            Client cli = getClient(name);%0A%0A            for(Operation op : alive_oper) %7B%0A                if(op.getName().equals(name)) %7B%0A                    death_oper.add(op);%0A                    alive_oper.remove(op);%0A                %7D%0A            %7D%0A%0A            alive_list.remove(index);%0A            death_list.add(cli);\n+%0A        %7D%0A%0A        public void kill(String name) %7B%0A\n %0A   \n@@ -5895,16 +5895,18 @@\n format(%22\n++ \n id:%25d %25s\n",
+            "lines": "229"
+        },
+        {
+            "label": "2025-09-04_22-16-26",
+            "content": "@@ -2915,16 +2915,17 @@\n b += %22%5Cn\n+ \n + %22 + op\n@@ -3158,16 +3158,17 @@\n b += %22%5Cn\n+ \n - %22 + op\n@@ -4830,36 +4830,8 @@\n p);%0A\n-                nextOpId++;%0A\n     \n@@ -5130,19 +5130,16 @@\n         \n- //\n  alive_o\n@@ -5191,238 +5191,8 @@\n  %7D%0A%0A\n-            // for(Operation op : alive_oper) %7B%0A            //     if(op.getName().equals(name)) %7B%0A            //         // death_oper.add(op);%0A            //         alive_oper.remove(op);%0A            //     %7D%0A            // %7D%0A%0A\n     \n",
+            "lines": "259"
+        },
+        {
+            "label": "2025-09-04_22-20-08",
+            "content": "@@ -5232,78 +5232,40 @@\n     \n-int size = alive_oper.size();%0A            for(int i = 0; i %3C size; i++\n+// for(Operation op : alive_oper\n ) %7B%0A\n@@ -5271,32 +5271,35 @@\n %0A           \n+ //\n      if(\n alive_list.g\n@@ -5286,33 +5286,18 @@\n      if(\n-alive_list.get(i)\n+op\n .getName\n@@ -5327,24 +5327,26 @@\n         \n+//\n         \n // death\n@@ -5337,16 +5337,17 @@\n         \n+ \n // death\n@@ -5364,32 +5364,35 @@\n op);%0A           \n+ //\n          alive_o\n@@ -5402,17 +5402,18 @@\n .remove(\n-i\n+op\n );%0A     \n@@ -5410,32 +5410,35 @@\n op);%0A           \n+ //\n      %7D%0A         \n@@ -5431,32 +5431,35 @@\n    %7D%0A           \n+ //\n  %7D%0A%0A            \n",
+            "lines": "267"
+        },
+        {
+            "label": "2025-09-04_22-25-30",
+            "content": "@@ -1896,39 +1896,8 @@\n ) %7B%0A\n-                agiota.plus();%0A\n     \n@@ -5231,48 +5231,8 @@\n     \n- //ACESSANDO VALORES FORA%0A            //\n  int\n@@ -5269,19 +5269,16 @@\n         \n- //\n  for(int\n@@ -5309,27 +5309,24 @@\n %0A           \n- //\n      if(aliv\n@@ -5368,35 +5368,32 @@\n )) %7B%0A           \n- //\n          // deat\n@@ -5415,27 +5415,24 @@\n %0A           \n- //\n          ali\n@@ -5461,19 +5461,16 @@\n         \n- //\n      %7D%0A \n@@ -5479,19 +5479,16 @@\n         \n- //\n  %7D%0A%0A    \n@@ -5598,275 +5598,8 @@\n ) %7B%0A\n-            for(Client cli : alive_list) %7B%0A                Operation op = new Operation(nextOpId, cli.getName(), Label.PLUS, (cli.getBalance() * 101/100));%0A                alive_oper.add(op);%0A                cli.addOperation(op);%0A            %7D%0A            nextOpId++;\n %0A   \n",
+            "lines": "268"
+        },
+        {
+            "label": "2025-09-04_22-33-10",
+            "content": "@@ -5830,16 +5830,17 @@\n e() * 10\n+1\n /100));%0A\n",
+            "lines": "275"
+        },
+        {
+            "label": "2025-09-04_22-36-39",
+            "content": "@@ -6939,25 +6939,25 @@\n       total \n-+\n+-\n = operation.\n",
+            "lines": "275"
+        },
+        {
+            "label": "2025-09-04_22-37-22",
+            "content": "@@ -6858,46 +6858,8 @@\n GIVE\n- %7C%7C operation.getLabel() == Label.PLUS\n ) to\n@@ -6943,17 +6943,17 @@\n   total \n--\n++\n = operat\n",
+            "lines": "275"
+        },
+        {
+            "label": "2025-09-04_22-37-50",
+            "content": "@@ -5916,84 +5916,8 @@\n p);%0A\n-                if(cli.getBalance() %3E cli.getLimite()) kill(cli.getName());%0A\n     \n",
+            "lines": "275"
+        },
+        {
+            "label": "2025-09-04_22-39-40",
+            "content": "@@ -8371,8 +8371,9 @@\n %0A    %7D%0A%7D\n+%0A\n",
+            "lines": "276"
+        },
+        {
+            "label": "2025-09-07_18-24-14",
+            "content": "@@ -5300,44 +5300,150 @@\n     \n-for(Operation operation : alive_oper\n+// int size = alive_oper.size();%0A            // for(int i = 0; i %3C size; i++) %7B%0A            //     if(alive_list.get(i).getName().equals(name)\n ) %7B%0A\n@@ -5443,38 +5443,48 @@\n me)) %7B%0A         \n+   //\n       \n+   //\n  death_oper.add(\n@@ -5481,31 +5481,24 @@\n _oper.add(op\n-eration\n );%0A         \n@@ -5491,32 +5491,101 @@\n op);%0A           \n+ //         alive_oper.remove(i);%0A            //     %7D%0A            //\n  %7D%0A%0A            \n",
+            "lines": "276"
+        },
+        {
+            "label": "2025-09-07_18-40-33",
+            "content": "@@ -5340,61 +5340,8 @@\n ) %7B%0A\n-                if(operation.getId() == index) %7B%0A    \n     \n@@ -5379,34 +5379,16 @@\n ation);%0A\n-                %7D%0A\n         \n",
+            "lines": "272"
+        },
+        {
+            "label": "2025-09-07_18-41-44",
+            "content": "@@ -5239,32 +5239,69 @@\n %0A            %7D%0A%0A\n+            //ACESSANDO VALORES FORA%0A\n             for(\n@@ -5328,32 +5328,32 @@\n : alive_oper) %7B%0A\n-\n                 \n@@ -5424,32 +5424,32 @@\n add(operation);%0A\n+\n                 \n@@ -5469,387 +5469,8 @@\n  %7D%0A%0A\n-            ArrayList%3COperation%3E tmp = new ArrayList%3C%3E();%0A            for(Operation operation : alive_oper) %7B%0A                if(operation.getId() != index) %7B%0A                    tmp.add(operation);%0A                %7D%0A            %7D%0A            alive_oper.clear();%0A            %0A            for(Operation operation : tmp) %7B%0A                alive_oper.add(operation);%0A            %7D%0A%0A\n     \n",
+            "lines": "274"
+        },
+        {
+            "label": "2025-09-07_18-46-12",
+            "content": "@@ -5715,19 +5715,16 @@\n         \n- //\n  for(Ope\n@@ -5765,15 +5765,12 @@\n     \n-//\n     \n- \n aliv\n@@ -5803,19 +5803,16 @@\n         \n- //\n  %7D%0A%0A    \n",
+            "lines": "285"
+        },
+        {
+            "label": "2025-09-07_18-47-00",
+            "content": "@@ -5707,32 +5707,35 @@\n     %0A           \n+ //\n  for(Operation o\n@@ -5756,36 +5756,39 @@\n ) %7B%0A            \n+//\n     \n+ \n alive_oper.add(o\n@@ -5801,32 +5801,35 @@\n on);%0A           \n+ //\n  %7D%0A%0A            \n",
+            "lines": "285"
+        },
+        {
+            "label": "2025-09-07_18-47-22",
+            "content": "@@ -5251,66 +5251,8 @@\n  %7D%0A%0A\n-            ArrayList%3COperation%3E tmp = new ArrayList%3C%3E();%0A\n     \n@@ -5404,37 +5404,204 @@\n                %7D\n- else\n+%0A            %7D%0A%0A            ArrayList%3COperation%3E tmp = new ArrayList%3C%3E();%0A            for(Operation operation : alive_oper) %7B%0A                if(operation.getId() != index)\n  %7B%0A             \n",
+            "lines": "285"
+        },
+        {
+            "label": "2025-09-07_18-48-36",
+            "content": "@@ -5565,42 +5565,8 @@\n     \n- alive_oper = tmp;%0A%0A            //\n  ali\n@@ -5606,19 +5606,16 @@\n         \n- //\n  for(Ope\n@@ -5651,19 +5651,16 @@\n         \n- //\n      ali\n@@ -5694,19 +5694,16 @@\n         \n- //\n  %7D%0A%0A    \n",
+            "lines": "281"
+        },
+        {
+            "label": "2025-09-07_18-49-42",
+            "content": "@@ -5482,95 +5482,8 @@\n e %7B%0A\n-                    System.out.println(%22id: %22 + operation.id + %22person id: %22 + index);%0A\n     \n",
+            "lines": "283"
+        },
+        {
+            "label": "2025-09-07_18-50-46",
+            "content": "@@ -5393,36 +5393,21 @@\n .get\n-Name().equals(cli.getName())\n+Id() == index\n ) %7B%0A\n@@ -5536,25 +5536,18 @@\n eration.\n-getName()\n+id\n  + %22pers\n@@ -5557,29 +5557,21 @@\n id: %22 + \n-cli.getName()\n+index\n );%0A     \n",
+            "lines": "284"
+        },
+        {
+            "label": "2025-09-07_18-53-08",
+            "content": "@@ -5395,36 +5395,45 @@\n etName().equals(\n-n\n+cli.getN\n ame\n+()\n )) %7B%0A           \n@@ -5564,17 +5564,16 @@\n me() + %22\n- \n person i\n@@ -5579,20 +5579,29 @@\n id: %22 + \n-n\n+cli.getN\n ame\n+()\n );%0A     \n",
+            "lines": "284"
+        },
+        {
+            "label": "2025-09-07_18-54-14",
+            "content": "@@ -5503,19 +5503,16 @@\n         \n- //\n  System.\n@@ -5653,32 +5653,66 @@\n    %7D%0A           \n+ alive_oper = tmp;%0A%0A            //\n  alive_oper.clea\n@@ -5732,32 +5732,35 @@\n     %0A           \n+ //\n  for(Operation o\n@@ -5780,32 +5780,35 @@\n p) %7B%0A           \n+ //\n      alive_oper.\n@@ -5826,32 +5826,35 @@\n on);%0A           \n+ //\n  %7D%0A%0A            \n",
+            "lines": "284"
+        },
+        {
+            "label": "2025-09-07_18-55-17",
+            "content": "@@ -5709,19 +5709,16 @@\n         \n- //\n  for(Ope\n@@ -5759,15 +5759,12 @@\n     \n-//\n     \n- \n aliv\n@@ -5797,19 +5797,16 @@\n         \n- //\n  %7D%0A%0A    \n",
+            "lines": "282"
+        },
+        {
+            "label": "2025-09-07_18-59-06",
+            "content": "@@ -5701,32 +5701,35 @@\n     %0A           \n+ //\n  for(Operation o\n@@ -5750,36 +5750,39 @@\n ) %7B%0A            \n+//\n     \n+ \n alive_oper.add(o\n@@ -5795,32 +5795,35 @@\n on);%0A           \n+ //\n  %7D%0A%0A            \n",
+            "lines": "282"
+        },
+        {
+            "label": "2025-09-07_18-59-49",
+            "content": "@@ -5031,24 +5031,236 @@\n ent(name);%0A%0A\n+            for(Operation op : alive_oper) %7B%0A                if(op.getName().equals(name)) %7B%0A                    death_oper.add(op);%0A                    // alive_oper.remove(op);%0A                %7D%0A            %7D%0A%0A\n             \n",
+            "lines": "282"
+        },
+        {
+            "label": "2025-09-07_19-00-07",
+            "content": "@@ -5944,19 +5944,16 @@\n         \n- //\n  if(cli.\n",
+            "lines": "275"
+        },
+        {
+            "label": "2025-09-07_19-05-14",
+            "content": "@@ -5940,24 +5940,27 @@\n             \n+ //\n  if(cli.getB\n",
+            "lines": "275"
+        },
+        {
+            "label": "2025-09-07_19-05-24",
+            "content": "@@ -4912,395 +4912,8 @@\n  %7D%0A%0A\n-        public void plus() %7B%0A            for(Client cli : alive_list) %7B%0A                Operation op = new Operation(nextOpId, cli.getName(), Label.PLUS, (cli.getBalance() * 10/100));%0A                alive_oper.add(op);%0A                cli.addOperation(op);%0A                if(cli.getBalance() %3E cli.getLimite()) kill(cli.getName());%0A                nextOpId++;%0A            %7D%0A        %7D%0A%0A\n     \n@@ -5671,16 +5671,398 @@\n      %7D%0A%0A\n+        public void plus() %7B%0A            for(Client cli : alive_list) %7B%0A                Operation op = new Operation(nextOpId, cli.getName(), Label.PLUS, (cli.getBalance() * 10/100));%0A                alive_oper.add(op);%0A                cli.addOperation(op);%0A                if(cli.getBalance() %3E cli.getLimite()) kill(cli.getName());%0A            %7D%0A            nextOpId++;%0A        %7D%0A\n %0A       \n",
+            "lines": "275"
+        },
+        {
+            "label": "2025-09-07_19-07-01",
+            "content": "@@ -5181,19 +5181,16 @@\n         \n- //\n  if(cli.\n",
+            "lines": "276"
+        },
+        {
+            "label": "2025-09-07_19-09-50",
+            "content": "@@ -5177,24 +5177,27 @@\n             \n+ //\n  if(cli.getB\n",
+            "lines": "276"
+        },
+        {
+            "label": "2025-09-07_19-10-47",
+            "content": "@@ -5987,19 +5987,16 @@\n         \n- //\n  alive_l\n@@ -6025,19 +6025,16 @@\n         \n- //\n  death_l\n",
+            "lines": "276"
+        },
+        {
+            "label": "2025-09-07_19-11-28",
+            "content": "@@ -5979,32 +5979,35 @@\n   %7D%0A%0A           \n+ //\n  alive_list.remo\n",
+            "lines": "276"
+        },
+        {
+            "label": "2025-09-07_19-11-48",
+            "content": "@@ -5987,19 +5987,16 @@\n         \n- //\n  alive_l\n@@ -6021,24 +6021,27 @@\n %0A           \n+ //\n  death_list.\n",
+            "lines": "276"
+        },
+        {
+            "label": "2025-09-07_19-11-54",
+            "content": "@@ -5404,36 +5404,30 @@\n t cli = \n-alive_list.get(index\n+getClient(name\n );%0A%0A    \n@@ -5979,32 +5979,35 @@\n   %7D%0A%0A           \n+ //\n  alive_list.remo\n",
+            "lines": "276"
+        },
+        {
+            "label": "2025-09-07_19-13-13",
+            "content": "@@ -5404,30 +5404,36 @@\n t cli = \n-getClient(name\n+alive_list.get(index\n );%0A%0A    \n",
+            "lines": "276"
+        },
+        {
+            "label": "2025-09-07_22-55-21",
+            "content": "@@ -4941,66 +4941,8 @@\n ) %7B%0A\n-            ArrayList%3CString%3E deaths = new ArrayList%3C%3E();%0A\n     \n@@ -5225,18 +5225,12 @@\n ()) \n-deaths.add\n+kill\n (cli\n@@ -5287,93 +5287,8 @@\n    %7D\n-%0A%0A            for(String death : deaths) %7B%0A                kill(death);%0A            %7D\n %0A   \n",
+            "lines": "276"
+        },
+        {
+            "label": "2025-09-07_23-01-05",
+            "content": "@@ -5124,23 +5124,8 @@\n US, \n-(int) Math.ceil\n (cli\n",
+            "lines": "281"
+        },
+        {
+            "label": "2025-09-07_23-05-00",
+            "content": "@@ -5161,17 +5161,11 @@\n * 10\n-.0 / 100.\n+/10\n 0));\n",
+            "lines": "281"
+        },
+        {
+            "label": "2025-09-07_23-06-03",
+            "content": "@@ -2628,177 +2628,8 @@\n ) %7B%0A\n-            this.alive_list.sort((p1, p2) -%3E p1.getName().compareTo(p2.getName()));%0A            this.death_list.sort((p1, p2) -%3E p1.getName().compareTo(p2.getName()));%0A%0A\n     \n",
+            "lines": "281"
+        },
+        {
+            "label": "2025-12-22_09-49-58",
+            "content": "import java.util.*;\n\n// DIAGRAMA ERRADO ? -> addOperation em Cliente nao \u00e9 passado o objeto\n\npublic class Shell {\n    static Scanner scanner = new Scanner(System.in);\n    public static void main(String[] args) {\n        Agiota agiota = new Agiota();\n\n        while (true) {\n            String line = scanner.nextLine();\n            System.out.println(\"$\" + line);\n\n            String[] parts = line.split(\" \");\n            String cmd = parts[0];\n\n            if (cmd.equals(\"end\")) {\n                break;\n            }\n            else if (cmd.equals(\"show\")) {\n                System.out.println(agiota.toString());\n            }\n            else if (cmd.equals(\"addCli\")) {\n                String name = parts[1];\n                int limite = Integer.parseInt(parts[2]);\n                agiota.addClient(name, limite);\n            }\n            else if (cmd.equals(\"showCli\")) {\n                String name = parts[1];\n                Client cli = agiota.getClient(name);\n                if(cli == null) {\n                    System.out.println(\"fail: cliente nao existe\");\n                } else {\n                    System.out.println(cli.toString());\n                    for(Operation op : cli.getOperations()) {\n                        System.out.println(op.toString());\n                    }\n                }\n            }\n            else if (cmd.equals(\"kill\")) {\n                String name = parts[1];\n                agiota.kill(name);\n            }\n            else if (cmd.equals(\"give\")) {\n                String name = parts[1];\n                int value = Integer.parseInt(parts[2]);\n                agiota.give(name, value);\n            }\n            else if (cmd.equals(\"take\")) {\n                String name = parts[1];\n                int value = Integer.parseInt(parts[2]);\n                agiota.take(name, value);\n            }\n            else if (cmd.equals(\"plus\")) {\n                agiota.plus();\n            }\n            else {\n                System.out.println(\"fail: comando invalido\");\n            }\n        }\n    }\n\n    static class Agiota {\n        private ArrayList<Client> alive_list;\n        private ArrayList<Client> death_list;\n        private ArrayList<Operation> alive_oper;\n        private ArrayList<Operation> death_oper;\n        private int nextOpId;\n    \n        public Agiota() {\n            this.alive_list = new ArrayList<Client>();\n            this.death_list = new ArrayList<Client>();\n            this.alive_oper = new ArrayList<Operation>();\n            this.death_oper = new ArrayList<Operation>();\n            nextOpId = 0;\n        }\n\n        public String toString() {\n            this.alive_list.sort((p1, p2) -> p1.getName().compareTo(p2.getName()));\n            this.death_list.sort((p1, p2) -> p1.getName().compareTo(p2.getName()));\n\n            String sb = \"\";\n            \n            int i = 0;\n            for(Client alive : alive_list) {\n                if(i != 0) sb += \"\\n\"; \n                sb += \":) \" + alive.toString();\n                i++;\n            }\n            \n            for(Operation operation : alive_oper) {\n                sb += \"\\n+ \" + operation.toString();\n            }\n            \n            for(Client death : death_list) {\n                sb += \"\\n:( \" + death.toString();\n            }\n\n            for(Operation operation : death_oper) {\n                sb += \"\\n- \" + operation.toString();\n            }\n\n            return sb;\n        }\n\n        public void pushOperation(Client client, String name, Label label, int value) {\n\n        }\n\n        public Client getClient(String name) {\n            int index = searchClient(name);\n            return alive_list.get(index);\n        }\n\n        public void addClient(String name, int limite) {\n            if(searchClient(name) != -1) {\n                System.out.println(\"fail: cliente ja existe\");\n            } else {\n                Client cli = new Client(name, limite);\n                alive_list.add(cli);\n            }\n        }\n\n        public void give(String name, int value) {\n            int index = searchClient(name);\n            if(index == -1) {\n                System.out.println(\"fail: cliente nao existe\");\n            } else {\n                if(alive_list.get(index).getBalance() + value > alive_list.get(index).getLimite()) {\n                    System.out.println(\"fail: limite excedido\");\n                } else {\n                    Operation op = new Operation(nextOpId, name, Label.GIVE, value);\n                    alive_oper.add(op);\n                    alive_list.get(index).addOperation(op);\n                    nextOpId++;\n                }\n            }\n        }\n\n        public void take(String name, int value) {\n            int index = searchClient(name);\n            if(index == - 1) {\n                System.out.println(\"fail: cliente nao existe\");\n            } else {\n                Operation op = new Operation(nextOpId, name, Label.TAKE, value);\n                alive_oper.add(op);\n                alive_list.get(index).addOperation(op);\n                nextOpId++;\n            }\n        }\n\n        public void plus() {\n            ArrayList<String> deaths = new ArrayList<>();\n            for(Client cli : alive_list) {\n                Operation op = new Operation(nextOpId, cli.getName(), Label.PLUS, (int) Math.ceil(cli.getBalance() * 10.0 / 100.0));\n                alive_oper.add(op);\n                cli.addOperation(op);\n                if(cli.getBalance() > cli.getLimite()) deaths.add(cli.getName());\n                nextOpId++;\n            }\n\n            for(String death : deaths) {\n                kill(death);\n            }\n        }\n\n        public void kill(String name) {\n            int index = searchClient(name);\n            Client cli = getClient(name);\n\n            ArrayList<Operation> tmp = new ArrayList<>();\n            for(Operation operation : alive_oper) {\n                if(operation.getName().equals(name)) {\n                    death_oper.add(operation);\n                } else {\n                    // System.out.println(\"id: \" + operation.getName() + \" person id: \" + name);\n                    tmp.add(operation);\n                }\n            }\n            alive_oper.clear();\n            \n            for(Operation operation : tmp) {\n                alive_oper.add(operation);\n            }\n\n            alive_list.remove(index);\n            death_list.add(cli);\n        }\n\n\n        public int searchClient(String name) {\n            for(int i = 0; i < alive_list.size(); i++) {\n                if(alive_list.get(i).getName().equals(name)) {\n                    return i;\n                }\n            }\n            return -1;\n        }\n\n        \n    }\n\n    static class Client {\n        private String name;\n        private int limite;\n        private ArrayList<Operation> operations;\n\n        public Client(String name, int limite) {\n            this.name = name;\n            this.limite = limite;\n            this.operations = new ArrayList<Operation>();\n        }\n        \n        public String toString() {\n            return String.format(\"%s %d/%d\", name, getBalance(), getLimite());\n        }\n\n        public int getBalance() {\n            int total = 0;\n            for(Operation operation : operations) {\n                if(operation.getLabel() == Label.GIVE || operation.getLabel() == Label.PLUS) total += operation.value;\n                else                                   total -= operation.value;\n            }\n            return total;\n        }\n        \n        public String getName() {\n            return this.name;\n        }\n\n        public int getLimite() {\n            return this.limite;\n        }\n\n        public ArrayList<Operation> getOperations() {\n            return this.operations;\n        }\n\n        public void addOperation(Operation operation) {\n            operations.add(operation);\n        }\n\n    }\n\n    static class Operation {\n        private int id;\n        private String name;\n        private Label label;\n        private int value;\n        \n        public Operation(int id, String name, Label label, int value) {\n            this.id = id;\n            this.name = name;\n            this.label = label;\n            this.value = value;\n        }\n\n        public String toString() {\n            return String.format(\"id:%d %s:%s %d\", id, label, name, value);\n        }\n\n        public int getId() {\n            return this.id;\n        }\n    \n        public String getName() {\n            return this.name;\n        }\n    \n        public Label getLabel() {\n            return this.label;\n        }\n    }\n\n    static enum Label {\n        GIVE,\n        TAKE,\n        PLUS;\n\n        public String toString() {\n            return this.name().toLowerCase();\n        }\n    }\n}",
+            "lines": "284"
+        }
+    ]
+}

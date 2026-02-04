@@ -1,0 +1,9 @@
+{
+    "patches": [
+        {
+            "label": "2026-01-13_09-00-09",
+            "content": "package database.pagamento;\n\nimport java.util.ArrayList;\n\npublic class draft {\n    public static void main(String args[]) {\n        System.out.println(\"qxcode\");\n    }\n\n    public static class Client {\n        private ArrayList<Pagamento> pagamentos;\n\n        public void processar_pagamento(Pagamento p) {\n            \n        }\n    }\n\n    public static class Boleto extends Pagamento {\n        private String codigo_barras;\n        private String vencimento;\n        \n        @Override\n        public void processar() {\n    \n        }\n    }\n\n    public static class Pix extends Pagamento {\n        private String chave;\n        private String banco;\n\n        @Override\n        public void processar() {\n    \n        }\n    }\n\n    public static class CartaoCredito extends Pagamento {\n        private String numero;\n        private String nome_titular;\n        private double limite_disponivel;\n\n        @Override\n        public void processar() {\n\n        }\n    }\n\n    public static abstract class Pagamento {\n        private double valor;\n        private String descricao;\n\n        public void resumo() {\n            System.out.println(\"Pagamento de R$ <valor>: <descricao>\");\n        }\n\n        public void validar_valor() {\n\n        }\n    \n        public abstract void processar();\n    }\n\n    public static class MsgException extends Exception {\n        public MsgException(String msg) {\n            super(msg);\n        }\n    }\n}",
+            "lines": "69"
+        }
+    ]
+}

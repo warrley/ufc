@@ -1,0 +1,54 @@
+{
+    "patches": [
+        {
+            "label": "2025-07-29_11-03-06",
+            "content": "@@ -1572,16 +1572,20 @@\n pass:%22 +\n+ %22%7B%22\n  + pass \n@@ -1583,24 +1583,25 @@\n %22 + pass + %22\n+%7D\n , %22 + %22gas:%22\n@@ -1602,16 +1602,20 @@\n %22gas:%22 +\n+ %22%7B%22\n  + gas +\n@@ -1616,16 +1616,17 @@\n  gas + %22\n+%7D\n , %22 + %22k\n@@ -1633,16 +1633,22 @@\n m:%22 + km\n+ + %22%7D%22\n ;%0A      \n",
+            "lines": "108"
+        },
+        {
+            "label": "2025-07-29_11-03-48",
+            "content": "@@ -1617,17 +1617,16 @@\n %22 + %22km:\n- \n %22 + km;%0A\n",
+            "lines": "108"
+        },
+        {
+            "label": "2025-07-29_11-04-04",
+            "content": "@@ -1569,17 +1569,16 @@\n   %22pass:\n- \n %22 + + pa\n",
+            "lines": "108"
+        },
+        {
+            "label": "2025-07-29_11-04-24",
+            "content": "@@ -1595,17 +1595,16 @@\n  + %22gas:\n- \n %22 + + ga\n",
+            "lines": "108"
+        },
+        {
+            "label": "2025-07-29_11-04-29",
+            "content": "@@ -1952,36 +1952,36 @@\n tln(%22fail: n\n-%C3%A3o h%C3%A1\n+ao ha\n  ningu\n-%C3%A9\n+e\n m no carro%22)\n",
+            "lines": "108"
+        },
+        {
+            "label": "2025-07-29_11-05-26",
+            "content": "@@ -1952,36 +1952,36 @@\n tln(%22fail: n\n-ao ha\n+%C3%A3o h%C3%A1\n  ningu\n-e\n+%C3%A9\n m no carro%22)\n@@ -2459,20 +2459,20 @@\n l: n\n-ao ha\n+%C3%A3o h%C3%A1\n  ningu\n-e\n+%C3%A9\n m no\n",
+            "lines": "108"
+        },
+        {
+            "label": "2025-07-29_11-06-41",
+            "content": "@@ -2612,18 +2612,16 @@\n    if(km\n-Qt\n  %3C= gas)\n",
+            "lines": "108"
+        },
+        {
+            "label": "2025-07-29_11-08-11",
+            "content": "@@ -2067,20 +2067,19 @@\n  public \n-void\n+int\n  fuel(in\n@@ -2085,24 +2085,26 @@\n nt gasQt) %7B%0A\n+//\n             \n@@ -2107,22 +2107,39 @@\n     \n+if(\n gas +\n-=\n  gasQt\n-;%0A\n+ %3E gasMax) %7B%0A//  \n     \n@@ -2150,28 +2150,49 @@\n     \n-if (\n+  \n gas \n-%3E\n+=\n  gasMax\n-)\n+;%0A//            %7D else\n  %7B%0A\n+//\n     \n@@ -2211,31 +2211,135 @@\n gas \n++\n = gas\n-Max;%0A            %7D\n+Qt;%0A//            %7D%0A%0A            int currentGas = gas += gasQt;%0A%0A            return (gas %3E gasMax) ? gasMax : currentGas;\n %0A   \n",
+            "lines": "108"
+        },
+        {
+            "label": "2025-07-29_11-09-01",
+            "content": "@@ -2342,32 +2342,8 @@\n %22);%0A\n-                return;%0A\n     \n@@ -2441,32 +2441,8 @@\n %22);%0A\n-                return;%0A\n     \n",
+            "lines": "103"
+        },
+        {
+            "label": "2025-07-29_11-10-06",
+            "content": "import java.util.*;\n\npublic class Shell {\n    \n    public static void main(String[] a) {\n\n        Carro carro = new Carro(0, 2, 0, 100, 0);\n\n        while (true) {\n            var line = scanner.nextLine();\n            System.out.println(\"$\" + line);\n\n            var par = line.split(\" \");\n            var cmd = par[0];\n\n            if (cmd.equals(\"end\")) {\n                break;\n            }\n            else if (cmd.equals(\"show\")) {\n                System.out.println(carro.toString());\n            }\n            else if (cmd.equals(\"enter\")) {\n                carro.oneMore();\n            }\n            else if (cmd.equals(\"leave\")) {\n                carro.oneLess();\n            }\n            else if (cmd.equals(\"fuel\")) {\n                 int increment = Integer.parseInt(par[1]);\n                carro.fuel(increment);\n            }\n            else if (cmd.equals(\"drive\")) {\n                 int distance = Integer.parseInt(par[1]);\n                 carro.drive(distance);\n            }  \n            else {\n                System.out.println(\"fail: comando invalido\");\n            }\n        }   \n    }\n\n    static class Carro {\n        private int pass;\n        private int passMax;\n        private int gas;\n        private int gasMax;\n        private int km;\n\n        public Carro(int pass, int passMax, int gas, int gasMax, int km) {\n            this.pass = pass;\n            this.passMax = passMax;\n            this.gas = gas;\n            this.gasMax = gasMax;\n            this.km = km;\n        }\n\n        public String toString() {\n            return  \"pass: \" + + pass + \", \" + \"gas: \" + + gas + \", \" + \"km: \" + km;\n        }\n\n        public void oneMore() {\n            if(pass + 1 > passMax) {\n                System.out.println(\"fail: limite de pessoas atingido\");\n            } else {\n                pass++;\n            }\n        }\n\n        public void oneLess() {\n            if(pass - 1 < 0) {\n                System.out.println(\"fail: nao ha ninguem no carro\");\n            } else {\n                pass--;\n            }\n        }\n\n        public void fuel(int gasQt) {\n            gas += gasQt;\n            if (gas > gasMax) {\n                gas = gasMax;\n            }\n        }\n\n        public void drive(int kmQt) {\n            if(pass <= 0) {\n                System.out.println(\"fail: nao ha ninguem no carro\");\n                return;\n            }\n            if(gas <= 0) {\n                System.out.println(\"fail: tanque vazio\");\n                return;\n            }\n\n            if(kmQt <= gas) {\n                gas -= kmQt;\n                km += kmQt;\n            } else {\n                km += gas;\n                System.out.println(\"fail: tanque vazio apos andar \" + gas + \" km\");\n                gas = 0;\n            }\n        }\n    }\n    private static Scanner scanner = new Scanner(System.in);\n}\n",
+            "lines": "105"
+        }
+    ]
+}

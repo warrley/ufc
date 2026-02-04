@@ -1,0 +1,25 @@
+2025-08-24 17:57:38, MOVE, v:1, k:array, mode:DOWN
+2025-08-24 18:02:33, MOVE, v:1, k:array, mode:PICK
+2025-08-24 18:02:33, EXEC, v:1, k:array, mode:FREE, size:10
+2025-08-24 18:08:44, EXEC, v:1, k:array, mode:LOCK, rate:0, size:24
+2025-08-24 18:09:19, MOVE, v:1, k:array, mode:BACK
+2025-08-24 18:09:21, MOVE, v:1, k:budega, mode:DOWN
+2025-08-24 18:23:24, MOVE, v:1, k:array, mode:PICK
+2025-08-24 18:23:25, EXEC, v:1, k:array, mode:FREE, size:37
+2025-08-24 18:48:39, MOVE, v:1, k:array, mode:BACK
+2025-08-24 18:48:41, MOVE, v:1, k:budega, mode:DOWN
+2025-08-24 21:23:50, MOVE, v:1, k:budega, mode:PICK
+2025-08-24 21:23:50, EXEC, v:1, k:budega, mode:FREE, size:109
+2025-08-24 21:43:44, MOVE, v:1, k:budega, mode:PICK
+2025-08-24 21:43:45, EXEC, v:1, k:budega, mode:FREE, size:108
+2025-08-24 21:51:32, MOVE, v:1, k:budega, mode:PICK
+2025-08-24 21:51:33, EXEC, v:1, k:budega, mode:FREE, size:108
+2025-08-24 21:52:09, MOVE, v:1, k:budega, mode:PICK
+2025-08-24 21:52:09, EXEC, v:1, k:budega, mode:FREE, size:108
+2025-08-24 22:04:24, MOVE, v:1, k:budega, mode:PICK
+2025-08-24 22:04:24, EXEC, v:1, k:budega, mode:FREE, size:131
+2025-08-24 22:13:22, MOVE, v:1, k:budega, mode:PICK
+2025-08-24 22:13:23, EXEC, v:1, k:budega, mode:FREE, size:140
+2025-08-24 22:15:24, MOVE, v:1, k:budega, mode:PICK
+2025-08-24 22:15:24, EXEC, v:1, k:budega, mode:FREE, size:140
+2025-08-24 22:15:55, EXEC, v:1, k:budega, mode:FULL, rate:100

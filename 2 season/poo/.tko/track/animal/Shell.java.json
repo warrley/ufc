@@ -1,0 +1,69 @@
+{
+    "patches": [
+        {
+            "label": "2025-07-28_21-28-23",
+            "content": "@@ -96,16 +96,18 @@\n         \n+//\n  Animal \n@@ -458,43 +458,129 @@\n     \n-animal = new Animal(par%5B1%5D,\n+// INICIE O ANIMAL UTILIZANDO O CONSTRUTOR%0A                // var species = par%5B1%5D;%0A                // var noise =\n  par%5B2%5D\n-)\n ;%0A  \n@@ -590,17 +590,16 @@\n        %7D\n- \n %0A       \n@@ -654,35 +654,26 @@\n     \n-System.out.println(animal);\n+// MOSTRE O ANIMAL\n %0A   \n@@ -674,32 +674,33 @@\n AL%0A            %7D\n+ \n %0A            els\n@@ -748,64 +748,46 @@\n     \n-System.out.println(animal.fazerBarulho());%0A            %7D\n+// OBTER O BARULHO DO ANIMAL E IMPRIMA\n %0A   \n@@ -786,32 +786,34 @@\n RIMA%0A           \n+ %7D\n  else if (cmd.eq\n@@ -824,36 +824,48 @@\n (%22grow%22)\n+ \n ) %7B\n-%0A                \n+/* AUMENTE A IDADE DO ANIMAL\n  var inc\n@@ -902,83 +902,12 @@\n 1%5D);\n-%0A                 animal.envelhecer(increment);%0A            %7D  %0A           \n+ */%7D\n  els\n",
+            "lines": "35"
+        },
+        {
+            "label": "2025-07-28_21-52-28",
+            "content": "@@ -1,34 +1,4 @@\n-package database.animal.java;%0A\n impo\n",
+            "lines": "38"
+        },
+        {
+            "label": "2025-07-28_22-00-27",
+            "content": "@@ -1,6 +1,4 @@\n-//\n pack\n@@ -1035,917 +1035,8 @@\n  %7D%0A%0A\n-    static class Animal %7B%0A        private String especie;%0A        private String barulho;%0A        private int estagio;%0A%0A        public Animal(String especie, String barulho) %7B%0A            this.especie = especie;%0A            this.barulho = barulho;%0A        %7D%0A%0A        public String fazerBarulho() %7B%0A            if(this.estagio == 0)%7B%0A                return %22----%22;%0A            %7D%0A            if(this.estagio == 4)%7B%0A                return %22RIP%22;%0A            %7D%0A            return this.barulho;%0A        %7D%0A%0A        public void envelhecer(int value) %7B%0A            if(this.estagio + value %3E= 4)%7B%0A                this.estagio = 4;%0A                System.out.println(%22warning: %22 + this.especie + %22morreu.%22);%0A                return;%0A            %7D%0A            this.estagio += value;%0A        %7D%0A%0A        public String toString() %7B%0A            return this.especie + %22:%22 + this.estagio + %22:%22 + this.barulho;%0A        %7D%0A    %7D%0A%0A\n     \n",
+            "lines": "39"
+        },
+        {
+            "label": "2025-07-28_22-03-27",
+            "content": "@@ -1,8 +1,40 @@\n+//package database.animal.java;%0A\n import j\n@@ -128,18 +128,16 @@\n         \n-//\n  Animal \n@@ -488,51 +488,48 @@\n     \n-// INICIE O ANIMAL UTILIZANDO O CONSTRUTOR%0A\n+animal = new Animal(par%5B1%5D, par%5B2%5D);%0A   \n     \n@@ -537,77 +537,96 @@\n     \n- \n+%7D %0A\n       \n-// var species = par%5B1%5D;%0A                // var noise = par%5B2%5D\n+      else if (cmd.equals(%22show%22)) %7B%0A                System.out.println(animal)\n ;%0A  \n@@ -628,33 +628,32 @@\n );%0A            %7D\n- \n %0A            els\n@@ -662,36 +662,37 @@\n if (cmd.equals(%22\n-show\n+noise\n %22)) %7B%0A          \n@@ -701,26 +701,50 @@\n     \n-// MOSTRE O ANIMAL\n+System.out.println(animal.fazerBarulho());\n %0A   \n@@ -745,33 +745,32 @@\n );%0A            %7D\n- \n %0A            els\n@@ -779,37 +779,36 @@\n if (cmd.equals(%22\n-noise\n+grow\n %22)) %7B%0A          \n@@ -817,46 +817,97 @@\n     \n-// OBTER O BARULHO DO ANIMAL E IMPRIMA\n+ var increment = Integer.parseInt(par%5B1%5D);%0A                 animal.envelhecer(increment);\n %0A   \n@@ -909,32 +909,33 @@\n ;%0A            %7D \n+ \n %0A            els\n@@ -940,35 +940,75 @@\n lse \n-if (cmd.equals(%22grow%22) ) %7B%0A\n+%7B%0A                System.out.println(%22fail: comando invalido%5Cn%22);%0A \n     \n@@ -1017,102 +1017,516 @@\n     \n+ %7D%0A\n       \n-// AUMENTE A IDADE DO ANIMAL%0A                // var increment = Integer.parseInt(par%5B1%5D)\n+  %7D%0A    %7D%0A%0A    static class Animal %7B%0A        private String especie;%0A        private String barulho;%0A        private int estagio;%0A%0A        public Animal(String especie, String barulho) %7B%0A            this.especie = especie;%0A            this.barulho = barulho;%0A        %7D%0A%0A        public String fazerBarulho() %7B%0A            if(this.estagio == 0)%7B%0A                return %22----%22;%0A            %7D%0A            if(this.estagio == 4)%7B%0A                return %22RIP%22;%0A            %7D%0A            return this.barulho\n ;%0A  \n@@ -1535,112 +1535,401 @@\n     \n+%7D%0A%0A\n     \n-%7D  %0A            else %7B%0A                System.out.println(%22fail: comando invalido%5Cn%22);%0A            %7D\n+    public void envelhecer(int value) %7B%0A            if(this.estagio + value %3E= 4)%7B%0A                this.estagio = 4;%0A                System.out.println(%22warning: %22 + this.especie + %22morreu.%22);%0A                return;%0A            %7D%0A            this.estagio += value;%0A        %7D%0A%0A        public String toString() %7B%0A            return this.especie + %22:%22 + this.estagio + %22:%22 + this.barulho;\n %0A   \n",
+            "lines": "73"
+        },
+        {
+            "label": "2025-07-28_22-04-10",
+            "content": "@@ -1,36 +1,4 @@\n-//package database.animal.java;%0A\n impo\n@@ -95,16 +95,19 @@\n %0A       \n+ //\n  Animal \n@@ -351,24 +351,25 @@\n (%22end%22)  ) %7B\n+ \n %0A           \n@@ -458,48 +458,51 @@\n     \n-animal = new Animal(par%5B1%5D, par%5B2%5D);%0A   \n+// INICIE O ANIMAL UTILIZANDO O CONSTRUTOR%0A\n     \n@@ -510,95 +510,77 @@\n     \n-%7D%0A\n        \n-     else if (cmd.equals(%22show%22)) %7B%0A                System.out.println(animal)\n+// var species = par%5B1%5D;%0A                // var noise = par%5B2%5D\n ;%0A  \n@@ -582,32 +582,33 @@\n %5D;%0A            %7D\n+ \n %0A            els\n@@ -625,21 +625,20 @@\n equals(%22\n-noise\n+show\n %22)) %7B%0A  \n@@ -655,50 +655,26 @@\n     \n-System.out.println(animal.fazerBarulho());\n+// MOSTRE O ANIMAL\n %0A   \n@@ -675,32 +675,33 @@\n AL%0A            %7D\n+ \n %0A            els\n@@ -722,12 +722,13 @@\n ls(%22\n-grow\n+noise\n %22)) \n@@ -749,95 +749,46 @@\n     \n-var increment = Integer.parseInt(par%5B1%5D);%0A                animal.envelhecer(increment);\n+// OBTER O BARULHO DO ANIMAL E IMPRIMA\n %0A   \n@@ -789,32 +789,33 @@\n MA%0A            %7D\n+ \n %0A            els\n@@ -820,593 +820,139 @@\n lse \n-%7B%0A                System.out.println(%22fail: comando invalido%5Cn%22);%0A            %7D%0A        %7D%0A    %7D%0A%0A    static class Animal %7B%0A        private String especie;%0A        private String barulho;%0A        private int estagio;%0A%0A        public Animal(String especie, String barulho) %7B%0A            this.especie = especie;%0A            this.barulho = barulho;%0A        %7D%0A%0A        public String fazerBarulho() %7B%0A            if(this.estagio == 0)%7B%0A                return %22----%22;%0A            %7D%0A            if(this.estagio == 4)%7B%0A                return %22RIP%22;%0A            %7D%0A            return this.barulho\n+if (cmd.equals(%22grow%22) ) %7B%0A                // AUMENTE A IDADE DO ANIMAL%0A                // var increment = Integer.parseInt(par%5B1%5D)\n ;%0A  \n@@ -961,401 +961,112 @@\n     \n-%7D%0A%0A\n     \n-    public void envelhecer(int value) %7B%0A            if(this.estagio + value %3E= 4)%7B%0A                this.estagio = 4;%0A                System.out.println(%22warning: %22 + this.especie + %22morreu.%22);%0A                return;%0A            %7D%0A            this.estagio += value;%0A        %7D%0A%0A        public String toString() %7B%0A            return this.especie + %22:%22 + this.estagio + %22:%22 + this.barulho;\n+%7D  %0A            else %7B%0A                System.out.println(%22fail: comando invalido%5Cn%22);%0A            %7D\n %0A   \n",
+            "lines": "40"
+        },
+        {
+            "label": "2025-07-28_22-04-17",
+            "content": "@@ -1713,17 +1713,16 @@\n ecie + %22\n- \n morreu.%22\n",
+            "lines": "73"
+        },
+        {
+            "label": "2025-07-28_22-04-40",
+            "content": "@@ -1720,16 +1720,17 @@\n %22 morreu\n+.\n %22);%0A    \n",
+            "lines": "73"
+        },
+        {
+            "label": "2025-07-28_22-04-51",
+            "content": "@@ -1386,16 +1386,17 @@\n urn %22---\n+-\n %22;%0A     \n",
+            "lines": "73"
+        },
+        {
+            "label": "2025-07-28_22-05-13",
+            "content": "@@ -1,8 +1,10 @@\n+//\n package \n@@ -12,21 +12,16 @@\n atabase.\n-java.\n animal.j\n@@ -1026,16 +1026,924 @@\n %0A    %7D%0A%0A\n+    static class Animal %7B%0A        private String especie;%0A        private String barulho;%0A        private int estagio;%0A%0A        public Animal(String especie, String barulho) %7B%0A            this.especie = especie;%0A            this.barulho = barulho;%0A        %7D%0A%0A        public String fazerBarulho() %7B%0A            if(this.estagio == 0)%7B%0A                return %22---%22;%0A            %7D%0A            if(this.estagio == 4)%7B%0A                return %22RIP%22;%0A            %7D%0A            return this.barulho;%0A        %7D%0A%0A        public void envelhecer(int value) %7B%0A            if(this.estagio + value %3E= 4)%7B%0A                this.estagio = 4;%0A                System.out.println(%22warning: %22 + this.especie + %22 morreu%22);%0A                return;%0A            %7D%0A            this.estagio += value;%0A        %7D%0A%0A        public String toString() %7B%0A            return this.especie + %22:%22 + this.estagio + %22:%22 + this.barulho;%0A        %7D%0A    %7D%0A%0A\n     stat\n",
+            "lines": "73"
+        },
+        {
+            "label": "2025-07-28_22-07-49",
+            "content": "@@ -10,16 +10,21 @@\n atabase.\n+java.\n animal.j\n",
+            "lines": "39"
+        },
+        {
+            "label": "2025-07-28_22-08-14",
+            "content": "@@ -1,16 +1,25 @@\n package \n+database.\n animal.j\n",
+            "lines": "39"
+        },
+        {
+            "label": "2025-07-28_22-15-47",
+            "content": "@@ -1,8 +1,29 @@\n+package animal.java;%0A\n import j\n@@ -1019,915 +1019,8 @@\n  %7D%0A%0A\n-    static class Animal %7B%0A        private String especie;%0A        private String barulho;%0A        private int estagio;%0A%0A        public Animal(String especie, String barulho) %7B%0A            this.especie = especie;%0A            this.barulho = barulho;%0A        %7D%0A%0A        public String fazerBarulho() %7B%0A            if(this.estagio == 0)%7B%0A                return %22---%22;%0A            %7D%0A            if(this.estagio == 4)%7B%0A                return %22RIP%22;%0A            %7D%0A            return this.barulho;%0A        %7D%0A        public void envelhecer(int value) %7B%0A            if(this.estagio + value %3E= 4)%7B%0A                this.estagio = 4;%0A                System.out.println(%22warning: %22 + this.especie + %22 morreu%22);%0A                return;%0A            %7D%0A            this.estagio += value;%0A        %7D%0A%0A        public String toString() %7B%0A            return this.especie + %22:%22 + this.estagio + %22:%22 + this.barulho;%0A        %7D%0A    %7D%0A%0A\n     \n",
+            "lines": "39"
+        },
+        {
+            "label": "2025-07-29_10-11-06",
+            "content": "import java.util.Scanner;\n\npublic class Shell {\n\n    public static void main(String[] _args) {\n        Animal animal = new Animal(\"\", \"\");\n\n        while (true) {\n            var line = scanner.nextLine();\n            System.out.println(\"$\" + line);\n\n            var par = line.split(\" \");\n            var cmd = par[0];\n\n            if (cmd.equals(\"end\")  ) {\n                break;\n            }\n            else if (cmd.equals(\"init\") ) {\n                animal = new Animal(par[1], par[2]);\n            }\n            else if (cmd.equals(\"show\")) {\n                System.out.println(animal);\n            }\n            else if (cmd.equals(\"noise\")) {\n                System.out.println(animal.fazerBarulho());\n            }\n            else if (cmd.equals(\"grow\")) {\n                var increment = Integer.parseInt(par[1]);\n                animal.envelhecer(increment);\n            }\n            else {\n                System.out.println(\"fail: comando invalido\\n\");\n            }\n        }\n    }\n\n    static class Animal {\n        private String especie;\n        private String barulho;\n        private int estagio;\n\n        public Animal(String especie, String barulho) {\n            this.especie = especie;\n            this.barulho = barulho;\n        }\n\n        public String fazerBarulho() {\n            if(this.estagio == 0){\n                return \"---\";\n            }\n            if(this.estagio == 4){\n                return \"RIP\";\n            }\n            return this.barulho;\n        }\n        public void envelhecer(int value) {\n            if(this.estagio + value >= 4){\n                this.estagio = 4;\n                System.out.println(\"warning: \" + this.especie + \" morreu\");\n                return;\n            }\n            this.estagio += value;\n        }\n\n        public String toString() {\n            return this.especie + \":\" + this.estagio + \":\" + this.barulho;\n        }\n    }\n\n    static Scanner scanner = new Scanner(System.in);\n}\n",
+            "lines": "71"
+        }
+    ]
+}

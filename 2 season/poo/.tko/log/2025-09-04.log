@@ -1,0 +1,72 @@
+2025-09-04 13:10:22, MOVE, v:1, k:tarifas, mode:PICK
+2025-09-04 13:10:28, MOVE, v:1, k:tarifas, mode:BACK
+2025-09-04 13:10:32, MOVE, v:1, k:tarifas, mode:PICK
+2025-09-04 13:10:34, EXEC, v:1, k:tarifas, mode:FREE, size:193
+2025-09-04 13:10:43, EXEC, v:1, k:tarifas, mode:FULL, rate:53
+2025-09-04 13:14:57, MOVE, v:1, k:tarifas, mode:BACK
+2025-09-04 13:15:06, MOVE, v:1, k:tarifas, mode:PICK
+2025-09-04 13:15:08, EXEC, v:1, k:tarifas, mode:FULL, rate:53, size:191
+2025-09-04 13:16:47, EXEC, v:1, k:tarifas, mode:FULL, rate:53, size:191
+2025-09-04 13:19:37, EXEC, v:1, k:tarifas, mode:FULL, rate:53, size:192
+2025-09-04 13:27:04, EXEC, v:1, k:tarifas, mode:FREE, size:194
+2025-09-04 13:37:23, EXEC, v:1, k:tarifas, mode:FULL, rate:53, size:211
+2025-09-04 13:39:09, EXEC, v:1, k:tarifas, mode:FULL, rate:53, size:211
+2025-09-04 13:40:59, EXEC, v:1, k:tarifas, mode:FULL, rate:53, size:210
+2025-09-04 13:41:36, EXEC, v:1, k:tarifas, mode:FULL, rate:53, size:209
+2025-09-04 13:42:01, EXEC, v:1, k:tarifas, mode:FULL, rate:53, size:209
+2025-09-04 13:42:24, EXEC, v:1, k:tarifas, mode:FULL, rate:53, size:209
+2025-09-04 13:43:28, EXEC, v:1, k:tarifas, mode:FULL, rate:53, size:209
+2025-09-04 13:44:22, EXEC, v:1, k:tarifas, mode:FULL, rate:69, size:209
+2025-09-04 13:46:01, MOVE, v:1, k:tarifas, mode:BACK
+2025-09-04 13:58:06, MOVE, v:1, k:tarifas, mode:PICK
+2025-09-04 13:58:06, EXEC, v:1, k:tarifas, mode:FREE
+2025-09-04 13:58:52, EXEC, v:1, k:tarifas, mode:FULL, rate:69
+2025-09-04 14:00:08, EXEC, v:1, k:tarifas, mode:FULL, rate:69
+2025-09-04 14:00:08, EXEC, v:1, k:tarifas, mode:FREE
+2025-09-04 14:03:32, EXEC, v:1, k:tarifas, mode:FULL, rate:53, size:209
+2025-09-04 14:04:59, EXEC, v:1, k:tarifas, mode:FULL, rate:76, size:210
+2025-09-04 14:16:11, EXEC, v:1, k:tarifas, mode:FULL, rate:84, size:223
+2025-09-04 14:16:43, EXEC, v:1, k:tarifas, mode:FULL, rate:92, size:223
+2025-09-04 14:18:05, EXEC, v:1, k:tarifas, mode:FULL, rate:53, size:229
+2025-09-04 14:18:25, EXEC, v:1, k:tarifas, mode:FULL, rate:53, size:229
+2025-09-04 14:18:41, EXEC, v:1, k:tarifas, mode:FULL, rate:100, size:229
+2025-09-04 14:18:54, MOVE, v:1, k:tarifas, mode:BACK
+2025-09-04 15:38:56, MOVE, v:1, k:contato, mode:DOWN
+2025-09-04 15:54:02, MOVE, v:1, k:contato, mode:PICK
+2025-09-04 15:54:02, EXEC, v:1, k:contato, mode:FREE, size:129
+2025-09-04 16:14:19, EXEC, v:1, k:contato, mode:FULL, rate:100, size:139
+2025-09-04 16:14:23, MOVE, v:1, k:contato, mode:BACK
+2025-09-04 17:20:46, MOVE, v:1, k:agiota, mode:DOWN
+2025-09-04 17:21:01, MOVE, v:1, k:agenda, mode:DOWN
+2025-09-04 17:32:10, MOVE, v:1, k:agenda, mode:PICK
+2025-09-04 17:32:12, EXEC, v:1, k:agenda, mode:FREE, size:192
+2025-09-04 17:46:05, MOVE, v:1, k:agenda, mode:PICK
+2025-09-04 17:46:06, EXEC, v:1, k:agenda, mode:FREE, size:208
+2025-09-04 18:23:00, EXEC, v:1, k:agenda, mode:FULL, rate:0, size:223
+2025-09-04 18:24:37, EXEC, v:1, k:agenda, mode:FULL, rate:0, size:223
+2025-09-04 18:40:32, EXEC, v:1, k:agenda, mode:FULL, rate:0, size:240
+2025-09-04 18:43:04, EXEC, v:1, k:agenda, mode:FULL, rate:0, size:240
+2025-09-04 18:43:54, EXEC, v:1, k:agenda, mode:FULL, rate:0, size:240
+2025-09-04 18:44:22, EXEC, v:1, k:agenda, mode:FULL, rate:0, size:240
+2025-09-04 18:44:38, EXEC, v:1, k:agenda, mode:FULL, rate:0, size:240
+2025-09-04 18:44:46, EXEC, v:1, k:agenda, mode:FULL, rate:0, size:240
+2025-09-04 18:46:16, EXEC, v:1, k:agenda, mode:FULL, rate:0, size:240
+2025-09-04 18:47:06, EXEC, v:1, k:agenda, mode:FULL, rate:0, size:240
+2025-09-04 18:48:52, EXEC, v:1, k:agenda, mode:FULL, rate:0, size:241
+2025-09-04 18:51:18, EXEC, v:1, k:agenda, mode:FULL, rate:0, size:246
+2025-09-04 18:54:18, EXEC, v:1, k:agenda, mode:FULL, rate:0, size:246
+2025-09-04 19:01:41, EXEC, v:1, k:agenda, mode:FULL, rate:0, size:252
+2025-09-04 19:41:23, MOVE, v:1, k:agiota, mode:DOWN
+2025-09-04 20:11:07, MOVE, v:1, k:agiota, mode:PICK
+2025-09-04 20:11:12, EXEC, v:1, k:agiota, mode:FREE, size:195
+2025-09-04 21:48:08, EXEC, v:1, k:agiota, mode:FULL, rate:30, size:229
+2025-09-04 21:50:09, EXEC, v:1, k:agiota, mode:FREE, size:229
+2025-09-04 22:16:26, EXEC, v:1, k:agiota, mode:FULL, rate:20, size:259
+2025-09-04 22:20:08, EXEC, v:1, k:agiota, mode:FULL, rate:60, size:267
+2025-09-04 22:25:30, EXEC, v:1, k:agiota, mode:FULL, rate:50, size:268
+2025-09-04 22:33:11, EXEC, v:1, k:agiota, mode:FULL, rate:60, size:275
+2025-09-04 22:36:39, EXEC, v:1, k:agiota, mode:FULL, rate:60, size:275
+2025-09-04 22:37:22, EXEC, v:1, k:agiota, mode:FULL, rate:40, size:275
+2025-09-04 22:37:50, EXEC, v:1, k:agiota, mode:FULL, rate:60, size:275
+2025-09-04 22:39:40, EXEC, v:1, k:agiota, mode:FULL, rate:60, size:276
+2025-09-04 22:40:05, MOVE, v:1, k:agiota, mode:BACK

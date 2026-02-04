@@ -1,0 +1,13 @@
+2025-08-28 17:29:34, MOVE, v:1, k:cinema, mode:DOWN
+2025-08-28 17:30:06, MOVE, v:1, k:charger, mode:DOWN
+2025-08-28 17:34:13, MOVE, v:1, k:charger, mode:PICK
+2025-08-28 17:34:14, EXEC, v:1, k:charger, mode:FREE, size:163
+2025-08-28 17:45:22, MOVE, v:1, k:charger, mode:PICK
+2025-08-28 17:45:24, EXEC, v:1, k:charger, mode:FREE, size:170
+2025-08-28 20:00:45, EXEC, v:1, k:charger, mode:FULL, rate:25, size:199
+2025-08-28 20:01:53, EXEC, v:1, k:charger, mode:FULL, rate:55, size:199
+2025-08-28 20:03:59, EXEC, v:1, k:charger, mode:FULL, size:198, fail:COMP
+2025-08-28 20:04:17, EXEC, v:1, k:charger, mode:FULL, rate:80, size:198
+2025-08-28 20:05:33, EXEC, v:1, k:charger, mode:FULL, rate:95, size:198
+2025-08-28 20:07:42, EXEC, v:1, k:charger, mode:FULL, rate:100, size:199
+2025-08-28 20:07:48, MOVE, v:1, k:charger, mode:BACK

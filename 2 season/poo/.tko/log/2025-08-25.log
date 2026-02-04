@@ -1,0 +1,21 @@
+2025-08-25 08:04:17, MOVE, v:1, k:budega, mode:PICK
+2025-08-25 08:04:18, EXEC, v:1, k:budega, mode:FULL, rate:100, size:136
+2025-08-25 08:04:20, MOVE, v:1, k:budega, mode:BACK
+2025-08-25 13:26:45, MOVE, v:1, k:lapiseira, mode:DOWN
+2025-08-25 13:38:17, MOVE, v:1, k:lapiseira, mode:PICK
+2025-08-25 13:38:17, EXEC, v:1, k:lapiseira, mode:FREE, size:154
+2025-08-25 13:54:49, EXEC, v:1, k:lapiseira, mode:FULL, rate:7, size:160
+2025-08-25 13:55:14, EXEC, v:1, k:lapiseira, mode:FULL, rate:14, size:160
+2025-08-25 13:55:26, EXEC, v:1, k:lapiseira, mode:FULL, rate:57, size:160
+2025-08-25 13:55:52, EXEC, v:1, k:lapiseira, mode:FULL, rate:100, size:160
+2025-08-25 14:19:22, MOVE, v:1, k:lapiseira, mode:BACK
+2025-08-25 14:19:24, MOVE, v:1, k:tabuleiro, mode:DOWN
+2025-08-25 14:40:42, MOVE, v:1, k:tabuleiro, mode:PICK
+2025-08-25 14:40:42, EXEC, v:1, k:tabuleiro, mode:FREE, size:128
+2025-08-25 15:57:45, EXEC, v:1, k:tabuleiro, mode:FULL, rate:0, size:169
+2025-08-25 15:58:38, EXEC, v:1, k:tabuleiro, mode:FULL, rate:70, size:169
+2025-08-25 16:00:08, EXEC, v:1, k:tabuleiro, mode:FULL, rate:80, size:170
+2025-08-25 16:01:05, EXEC, v:1, k:tabuleiro, mode:FULL, rate:80, size:171
+2025-08-25 16:01:18, EXEC, v:1, k:tabuleiro, mode:FULL, rate:100, size:171
+2025-08-25 16:01:25, MOVE, v:1, k:tabuleiro, mode:BACK
+2025-08-25 19:30:18, MOVE, v:1, k:calculadora, mode:PICK

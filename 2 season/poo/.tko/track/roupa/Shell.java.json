@@ -1,0 +1,19 @@
+{
+    "patches": [
+        {
+            "label": "2025-08-20_07-53-37",
+            "content": "@@ -1330,22 +1330,16 @@\n rintln(%22\n-fail: \n Valor in\n",
+            "lines": "52"
+        },
+        {
+            "label": "2025-08-20_07-54-58",
+            "content": "@@ -546,12 +546,8 @@\n     \n-if(!\n cami\n@@ -569,122 +569,9 @@\n ize)\n-) %7B%0A                    System.out.println(%22fail: Valor inv%C3%A1lido, tente PP, P, M, G, GG ou XG%22);%0A                %7D\n+;\n %0A   \n@@ -1053,15 +1053,12 @@\n lic \n-Boolean\n+void\n  set\n@@ -1289,74 +1289,104 @@\n     \n-    return true;%0A            %7D else %7B%0A                return false\n+%7D else %7B%0A                System.out.println(%22fail: Valor inv%C3%A1lido, tente PP, P, M, G, GG ou XG%22)\n ;%0A  \n",
+            "lines": "52"
+        },
+        {
+            "label": "2025-08-20_07-58-21",
+            "content": "import java.util.*;\n\npublic class Shell {    \n    public static void main(String[] args) {\n        Roupa camisa = new Roupa();\n        \n        while (true) {\n            var line = scanner.nextLine();\n            System.out.println(\"$\" + line);\n            \n            var par = line.split(\" \");\n            var cmd = par[0];\n            \n            if (cmd.equals(\"end\")) {\n                break;\n            }\n            else if (cmd.equals(\"size\")) { // TENTE ATRIBUIR UM TAMANHO A ROUPA\n                String size = par[1];\n                if(!camisa.setTamanho(size)) {\n                    System.out.println(\"fail: Valor inv\u00e1lido, tente PP, P, M, G, GG ou XG\");\n                }\n            }\n            else if (cmd.equals(\"show\")) { // MOSTRE A ROUPA\n                System.out.println(\"size: \" + \"(\" + camisa.getTamanho() + \")\");\n            }\n            else {\n                System.out.println(\"fail: Comando inv\u00e1lido\");\n            }\n        }\n    }\n    private static Scanner scanner = new Scanner(System.in);\n\n    static class Roupa {\n        private String tamanho;\n\n        public Roupa() {\n            this.tamanho = \"\";\n        }\n\n        public Boolean setTamanho(String novo) {\n            if (novo.equals(\"PP\") || novo.equals(\"P\") || novo.equals(\"M\") \n                || novo.equals(\"G\") || novo.equals(\"GG\") || novo.equals(\"XG\")) {\n                this.tamanho = novo;\n                return true;\n            } else {\n                return false;\n            }\n\n        }\n\n        public String getTamanho() {\n            return this.tamanho;\n        }\n    }\n}",
+            "lines": "55"
+        }
+    ]
+}

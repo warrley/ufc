@@ -1,0 +1,14 @@
+2025-12-22 09:49:56, MOVE, v:1, k:agiota, mode:PICK
+2025-12-22 09:49:58, EXEC, v:1, k:agiota, mode:FULL, rate:100, size:284
+2025-12-22 09:50:51, MOVE, v:1, k:agiota, mode:BACK
+2025-12-22 09:50:57, MOVE, v:1, k:agenda, mode:PICK
+2025-12-22 09:50:58, EXEC, v:1, k:agenda, mode:FULL, rate:0
+2025-12-22 09:52:11, EXEC, v:1, k:agenda, mode:FULL, rate:12, size:254
+2025-12-22 09:52:58, MOVE, v:1, k:agenda, mode:PICK
+2025-12-22 09:53:00, EXEC, v:1, k:agenda, mode:FULL, rate:12
+2025-12-22 09:53:08, EXEC, v:1, k:agenda, mode:FULL, rate:0, size:254
+2025-12-22 09:53:36, EXEC, v:1, k:agenda, mode:FULL, rate:12, size:254
+2025-12-22 09:56:18, EXEC, v:1, k:agenda, mode:FREE
+2025-12-22 09:56:28, MOVE, v:1, k:agenda, mode:PICK
+2025-12-22 09:56:45, EXEC, v:1, k:agenda, mode:FULL, rate:0, size:254
+2025-12-22 09:57:36, EXEC, v:1, k:agenda, mode:FULL, rate:12, size:254

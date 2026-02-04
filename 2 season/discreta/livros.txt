@@ -1,0 +1,3 @@
+### Livros usados
+- Rosen, Discrete Mathematics and Its Applications, 8th edition
+- https://rmmostak.wordpress.com/wp-content/uploads/2017/10/solution-of-discrete-math.pdf 

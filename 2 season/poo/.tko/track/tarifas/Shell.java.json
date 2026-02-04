@@ -1,0 +1,129 @@
+{
+    "patches": [
+        {
+            "label": "2025-09-02_19-42-03",
+            "content": "@@ -684,32 +684,35 @@\n %0A               \n+ //\n  var value = Int\n@@ -739,45 +739,8 @@\n %5D);%0A\n-                acc.withdraw(value);%0A\n     \n@@ -786,32 +786,35 @@\n %0A               \n+ //\n  var value = Int\n@@ -841,40 +841,8 @@\n %5D);%0A\n-                acc.fee(value);%0A\n     \n@@ -896,24 +896,27 @@\n             \n+ //\n  var value =\n@@ -947,44 +947,8 @@\n %5D);%0A\n-                acc.deposit(value);%0A\n     \n@@ -1192,24 +1192,27 @@\n             \n+ //\n  var qtdOp =\n@@ -1243,93 +1243,8 @@\n %5D);%0A\n-                System.out.println(acc.balanceManager.getExtract(qtdOp).toString());%0A\n     \n@@ -1644,67 +1644,8 @@\n ();%0A\n-            balanceManager.addOperation(Label.OPENING, 0);%0A\n     \n@@ -1808,988 +1808,29 @@\n oid \n-fee(int value) %7B%0A            balanceManager.balance -= value;%0A            balanceManager.addOperation(Label.FEE, value);%0A        %7D%0A        %0A        public void withdraw(int value) %7B%0A            if(value %3C 0) %7B%0A                System.out.println(%22fail: invalid value%22);%0A            %7D else if(value %3E balanceManager.balance) %7B%0A                System.out.println(%22fail: insufficent balance%22);%0A                balanceManager.addOperation(Label.ERROR, -value);%0A            %7D else %7B%0A                balanceManager.balance -= value;%0A                balanceManager.addOperation(Label.WITHDRAW, -value);%0A            %7D%0A        %7D%0A        %0A        %0A        public void deposit(int value) %7B%0A            if(value %3C 0) %7B%0A                System.out.println(%22fail: invalid value%22);%0A                balanceManager.addOperation(Label.ERROR, value);%0A            %7D else %7B%0A                balanceManager.balance += value;%0A                balanceManager.addOperation(Label.DEPOSIT, value);%0A            %7D\n+deposit(int value) %7B%0A\n %0A   \n@@ -2386,23 +2386,9 @@\n ue, \n-balance - value\n+0\n ));%0A\n@@ -2588,243 +2588,17 @@\n     \n-String s = %22%22;%0A%0A            for(int i = 0; i %3C extract.size(); i++) %7B%0A                s += String.format(%22%25d: %25s: %25d: %25d%22, i, extract.get(i).getLabel(), extract.get(i).value, extract.get(i).balance);%0A            %7D%0A%0A            return s\n+return %22%22\n ;%0A  \n",
+            "lines": "156"
+        },
+        {
+            "label": "2025-09-02_20-16-04",
+            "content": "@@ -1352,35 +1352,27 @@\n     \n-ArrayList%3COperation%3E ops = \n+System.out.println(\n acc.\n@@ -1407,48 +1407,8 @@\n dOp)\n-;%0A                System.out.println(ops\n .toS\n@@ -2414,16 +2414,17 @@\n : insuff\n+i\n cent bal\n@@ -3889,32 +3889,114 @@\n  += \n-extract.get(i).toString(\n+String.format(%22%25d: %25s: %25d: %25d%22, i, extract.get(i).getLabel(), extract.get(i).value, extract.get(i).balance\n );%0A \n@@ -4498,16 +4498,25 @@\n lance;%0A%0A\n+        %0A\n         \n@@ -4772,130 +4772,8 @@\n ) %7B%0A\n-            String s = %22%22;%0A            s += String.format(%22%25d: %25s: %25d: %25d%22, index, getLabel(), getValue(), getBalance());%0A\n     \n@@ -4779,33 +4779,34 @@\n          return \n-s\n+%22%22\n ;%0A        %7D%0A    \n",
+            "lines": "191"
+        },
+        {
+            "label": "2025-09-02_20-21-30",
+            "content": "@@ -2466,11 +2466,9 @@\n suff\n-ici\n+c\n ent \n",
+            "lines": "193"
+        },
+        {
+            "label": "2025-09-02_20-22-21",
+            "content": "@@ -4081,59 +4081,8 @@\n ) %7B%0A\n-            if(qtdOp == 0) qtdOp = extract.size();%0A\n     \n@@ -5247,17 +5247,17 @@\n EPOSIT(%22\n-d\n+D\n eposit%22)\n@@ -5271,17 +5271,17 @@\n    FEE(%22\n-f\n+F\n ee%22),%0A  \n@@ -5295,17 +5295,17 @@\n PENING(%22\n-o\n+O\n pening%22)\n@@ -5323,17 +5323,17 @@\n EVERSE(%22\n-r\n+R\n everse%22)\n@@ -5352,17 +5352,17 @@\n THDRAW(%22\n-w\n+W\n ithdraw%22\n@@ -5379,17 +5379,17 @@\n  ERROR(%22\n-e\n+E\n rror%22);%0A\n",
+            "lines": "193"
+        },
+        {
+            "label": "2025-09-02_20-28-55",
+            "content": "@@ -2710,32 +2710,41 @@\n      %7D%0A        %0A\n+        %0A\n         public v\n@@ -4854,10 +4854,8 @@\n : %25d\n-%5Cn\n %22, i\n",
+            "lines": "194"
+        },
+        {
+            "label": "2025-09-04_13-10-34",
+            "content": "@@ -2487,35 +2487,32 @@\n %0A               \n- //\n  balanceManager.\n@@ -2861,19 +2861,16 @@\n         \n- //\n  balance\n@@ -5449,16 +5449,22 @@\n private \n+final \n String l\n@@ -5470,16 +5470,39 @@\n label;%0A%0A\n+        // Constructor%0A\n         \n@@ -5558,32 +5558,50 @@\n bel;%0A        %7D%0A%0A\n+        // Getter%0A\n         public S\n",
+            "lines": "193"
+        },
+        {
+            "label": "2025-09-04_13-15-08",
+            "content": "@@ -3632,17 +3632,17 @@\n balance \n-+\n+-\n  value))\n",
+            "lines": "191"
+        },
+        {
+            "label": "2025-09-04_13-16-47",
+            "content": "@@ -2605,44 +2605,24 @@\n ger.\n-addOperation(Label.WITHDRAW, -\n+balance -= \n value\n-)\n ;%0A  \n@@ -2650,32 +2650,52 @@\n Manager.\n-balance -= \n+addOperation(Label.WITHDRAW, -\n value\n+)\n ;%0A      \n@@ -2973,42 +2973,24 @@\n ger.\n-addOperation(Label.DEPOSIT,\n+balance +=\n  value\n-)\n ;%0A  \n@@ -3018,32 +3018,50 @@\n Manager.\n-balance +=\n+addOperation(Label.DEPOSIT,\n  value\n+)\n ;%0A      \n@@ -3568,64 +3568,8 @@\n ) %7B%0A\n-            // int realValue = (value %3E 0) ? value : 0;%0A\n     \n",
+            "lines": "191"
+        },
+        {
+            "label": "2025-09-04_13-19-37",
+            "content": "@@ -1417,66 +1417,8 @@\n p);%0A\n-                for(int i = 0; i %3C ops.size(); i++) %7B%0A    \n     \n@@ -1452,23 +1452,16 @@\n tln(ops.\n-get(i).\n toString\n@@ -1469,26 +1469,8 @@\n ));%0A\n-                %7D%0A\n     \n@@ -2137,38 +2137,24 @@\n ger.\n-addOperation(Label.FEE,\n+balance -=\n  value\n-)\n ;%0A  \n@@ -2178,32 +2178,46 @@\n Manager.\n-balance -=\n+addOperation(Label.FEE,\n  value\n+)\n ;%0A      \n",
+            "lines": "192"
+        },
+        {
+            "label": "2025-09-04_13-27-04",
+            "content": "@@ -4936,118 +4936,13 @@\n ing \n-clabel = %22%22;%0A            for(int i = 0; i %3C 9 - getLabel().label.length(); i++) %7B%0A                clabel +\n+s \n = %22\n- \n %22;%0A \n@@ -4956,533 +4956,113 @@\n     \n-%7D%0A            clabel += getLabel();%0A%0A            String cvalue = %22%22;%0A            for(int i = 0; i %3C 5 - String.valueOf(getValue()).length(); i++) %7B%0A                cvalue += %22 %22;%0A            %7D%0A            cvalue += getLabel();%0A%0A            String cbalance = %22%22;%0A            for(int i = 0; i %3C 5 - String.valueOf(getBalance()).length(); i++) %7B%0A                cbalance += %22 %22;%0A            %7D%0A            cbalance += getBalance();%0A%0A            %0A            return String.format(%22%25d: %25s: %25s: %25s%22, index, clabel, cvalue, cbalance)\n+s += String.format(%22%25d: %25s: %25d: %25d%5Cn%22, index, getLabel(), getValue(), getBalance());%0A            return s\n ;%0A  \n",
+            "lines": "194"
+        },
+        {
+            "label": "2025-09-04_13-37-23",
+            "content": "@@ -2240,17 +2240,16 @@\n el.FEE, \n--\n value);%0A\n@@ -5091,22 +5091,16 @@\n tLabel()\n-.label\n ;%0A%0A     \n@@ -5275,21 +5275,21 @@\n e += get\n-Value\n+Label\n ();%0A%0A   \n",
+            "lines": "211"
+        },
+        {
+            "label": "2025-09-04_13-39-09",
+            "content": "@@ -4365,32 +4365,14 @@\n i = \n-extract.size() - 1\n+0\n ; i %3C\n-=\n  qtd\n@@ -4429,32 +4429,33 @@\n ;%0A            %7D%0A\n+%0A\n             retu\n@@ -5540,17 +5540,16 @@\n format(%22\n- \n %25d: %25s: \n",
+            "lines": "211"
+        },
+        {
+            "label": "2025-09-04_13-40-59",
+            "content": "@@ -4210,24 +4210,75 @@\n nt qtdOp) %7B%0A\n+            if(qtdOp == 0) qtdOp = extract.size();%0A\n             \n",
+            "lines": "210"
+        },
+        {
+            "label": "2025-09-04_13-41-36",
+            "content": "@@ -4332,17 +4332,17 @@\n  - 1; i \n-%3E\n+%3C\n = qtdOp;\n",
+            "lines": "209"
+        },
+        {
+            "label": "2025-09-04_13-42-01",
+            "content": "@@ -4347,10 +4347,10 @@\n p; i\n---\n+++\n ) %7B%0A\n",
+            "lines": "209"
+        },
+        {
+            "label": "2025-09-04_13-42-24",
+            "content": "@@ -1440,16 +1440,23 @@\n (int i =\n+ 0; i %3C\n  ops.siz\n@@ -1462,25 +1462,13 @@\n ze()\n- - 1; i %3E= 0; i--\n+; i++\n ) %7B%0A\n",
+            "lines": "209"
+        },
+        {
+            "label": "2025-09-04_13-43-28",
+            "content": "@@ -4952,9 +4952,9 @@\n i %3C \n-8\n+9\n  - g\n@@ -5127,33 +5127,33 @@\n (int i = 0; i %3C \n-4\n+5\n  - String.valueO\n@@ -5332,9 +5332,9 @@\n i %3C \n-4\n+5\n  - S\n",
+            "lines": "209"
+        },
+        {
+            "label": "2025-09-04_13-44-22",
+            "content": "@@ -4343,29 +4343,8 @@\n i %3E=\n- extract.size() - 1 -\n  qtd\n",
+            "lines": "209"
+        },
+        {
+            "label": "2025-09-04_14-03-32",
+            "content": "@@ -4295,67 +4295,8 @@\n p);%0A\n-            qtdOp = (qtdOp == 0) ? extract.size() : qtdOp;%0A\n     \n@@ -4356,16 +4356,20 @@\n size() -\n+ 1 -\n  qtdOp; \n",
+            "lines": "209"
+        },
+        {
+            "label": "2025-09-04_14-04-59",
+            "content": "@@ -1098,24 +1098,27 @@\n             \n+ //\n  for (int i \n@@ -1153,32 +1153,35 @@\n %0A               \n+ //\n      var index =\n@@ -1228,47 +1228,10 @@\n     \n-    acc.reverse(index);%0A               \n+//\n  %7D%0A \n@@ -2161,576 +2161,8 @@\n  %7D%0A%0A\n-        public void reverse(int index) %7B%0A            if(index %3E= balanceManager.nextId) %7B%0A                System.out.println(%22fail: index %22 + index + %22 invalid%22);%0A            %7D else if(!balanceManager.extract.get(index).getLabel().label.equals(%22fee%22)) %7B%0A                System.out.println(%22fail: index %22 + index + %22 is not a fee%22);%0A            %7D else %7B%0A                int value = balanceManager.extract.get(index).getValue();%0A                balanceManager.addOperation(Label.REVERSE, value);%0A                balanceManager.balance += value;%0A            %7D%0A        %7D%0A%0A\n     \n",
+            "lines": "210"
+        },
+        {
+            "label": "2025-09-04_14-16-11",
+            "content": "@@ -2569,17 +2569,16 @@\n value = \n--\n balanceM\n",
+            "lines": "223"
+        },
+        {
+            "label": "2025-09-04_14-16-43",
+            "content": "@@ -5565,217 +5565,8 @@\n ) %7B%0A\n-            String cindex = %22%22;%0A            for(int i = 0; i %3C 1 - String.valueOf(getIndex()).length(); i++) %7B%0A                cindex += %22 %22;%0A            %7D%0A            cindex += getLabel().label;%0A            %0A\n     \n@@ -6187,18 +6187,19 @@\n format(%22\n-%25s\n+ %25d\n : %25s: %25s\n@@ -6205,17 +6205,16 @@\n s: %25s%22, \n-c\n index, c\n",
+            "lines": "223"
+        },
+        {
+            "label": "2025-09-04_14-18-05",
+            "content": "@@ -5742,23 +5742,29 @@\n x += get\n-Index()\n+Label().label\n ;%0A      \n",
+            "lines": "229"
+        },
+        {
+            "label": "2025-09-04_14-18-25",
+            "content": "@@ -5628,9 +5628,9 @@\n i %3C \n-2\n+1\n  - S\n",
+            "lines": "229"
+        },
+        {
+            "label": "2025-09-04_14-18-41",
+            "content": "import java.util.ArrayList;\nimport java.util.Scanner;\n\npublic class Shell{\n    public static void main(String[] _args) {\n        Account acc = new Account(0);\n\n        while (true) {\n            var line = scanner.nextLine();\n            var args = line.split(\" \");\n            var cmd = args[0];\n            System.out.println(\"$\" + line);\n\n            if (cmd.equals(\"end\")) {\n                break;\n            } else if (cmd.equals(\"show\")) {\n                System.out.println(acc.toString());\n            } else if (cmd.equals(\"init\")) {\n                var id = Integer.parseInt(args[1]);\n                acc = new Account(id);\n            } else if (cmd.equals(\"withdraw\")) {\n                var value = Integer.parseInt(args[1]);\n                acc.withdraw(value);\n            } else if (cmd.equals(\"fee\")) {\n                var value = Integer.parseInt(args[1]);\n                acc.fee(value);\n            } else if (cmd.equals(\"deposit\")) {\n                var value = Integer.parseInt(args[1]);\n                acc.deposit(value);\n            } else if (cmd.equals(\"reverse\")) {\n                for (int i = 1; i < args.length; i++) {\n                    var index = Integer.parseInt(args[i]);\n                    acc.reverse(index);\n                }\n            } else if (cmd.equals(\"extract\")) {\n                var qtdOp = Integer.parseInt(args[1]);\n                ArrayList<Operation> ops = acc.balanceManager.getExtract(qtdOp);\n                for(int i = ops.size() - 1; i >= 0; i--) {\n                    System.out.println(ops.get(i).toString());\n                }\n            }\n            else {\n                System.out.println(\"fail: comando invalido\");\n            }\n        }\n    }\n\n    static Scanner scanner = new Scanner(System.in);\n\n    public static class Account {\n        private BalanceManager balanceManager;\n        private int id;\n\n        public Account(int id) {\n            this.id = id;\n            this.balanceManager = new BalanceManager();\n            balanceManager.addOperation(Label.OPENING, 0);\n        }\n\n        public String toString() {\n            return String.format(\"account:%d balance:%d\", id, balanceManager.balance);\n        }\n\n        public void reverse(int index) {\n            if(index >= balanceManager.nextId) {\n                System.out.println(\"fail: index \" + index + \" invalid\");\n            } else if(!balanceManager.extract.get(index).getLabel().label.equals(\"fee\")) {\n                System.out.println(\"fail: index \" + index + \" is not a fee\");\n            } else {\n                int value = -balanceManager.extract.get(index).getValue();\n                balanceManager.addOperation(Label.REVERSE, value);\n                balanceManager.balance += value;\n            }\n        }\n\n        public void fee(int value) {\n            balanceManager.addOperation(Label.FEE, -value);\n            balanceManager.balance -= value;\n        }\n        \n        public void withdraw(int value) {\n            if(value < 0) {\n                System.out.println(\"fail: invalid value\");\n            } else if(value > balanceManager.balance) {\n                System.out.println(\"fail: insufficient balance\");\n                // balanceManager.addOperation(Label.ERROR, -value);\n            } else {\n                balanceManager.addOperation(Label.WITHDRAW, -value);\n                balanceManager.balance -= value;\n            }\n        }\n        \n        public void deposit(int value) {\n            if(value < 0) {\n                System.out.println(\"fail: invalid value\");\n                // balanceManager.addOperation(Label.ERROR, value);\n            } else {\n                balanceManager.addOperation(Label.DEPOSIT, value);\n                balanceManager.balance += value;\n            }\n        }\n\n        public BalanceManager getBalanceManager() {\n            return balanceManager;\n        }\n    } \n\n    public static class BalanceManager {\n        private int balance;\n        private ArrayList<Operation> extract;\n        private int nextId;\n        \n        public BalanceManager() {\n            this.balance = 0;\n            this.extract = new ArrayList<Operation>(0);\n            this.nextId = 0;\n        }\n        \n        public void addOperation(Label label, int value) {\n            // int realValue = (value > 0) ? value : 0;\n            extract.add(new Operation(nextId, label, value, balance + value));\n            nextId++;\n        }\n        \n        public Operation getOperation(int index) {\n            return extract.get(index);\n        }\n        \n        public String toString() {\n            String s = \"\";\n\n            for(int i = 0; i < extract.size(); i++) {\n                s += extract.get(i).toString();\n            }\n\n            return s;\n        }\n        \n        public ArrayList<Operation> getExtract(int qtdOp) {\n            ArrayList<Operation> tmp = new ArrayList<Operation>(qtdOp);\n            qtdOp = (qtdOp == 0) ? extract.size() : qtdOp;\n            for(int i = extract.size() - 1; i >= extract.size() - qtdOp; i--) {\n                tmp.add(extract.get(i));\n            }\n            return tmp;\n        }\n\n    }\n\n    public static class Operation {\n        private final int index;\n        private final Label label;\n        private final int value;\n        private final int balance;\n\n        public Operation(int index, Label label, int value, int balance) {\n            this.index = index;\n            this.label = label;\n            this.value = value;\n            this.balance = balance;\n        }\n        \n        public String toString() {\n            String cindex = \"\";\n            for(int i = 0; i < 2 - String.valueOf(getIndex()).length(); i++) {\n                cindex += \" \";\n            }\n            cindex += getIndex();\n            \n            String clabel = \"\";\n            for(int i = 0; i < 8 - getLabel().label.length(); i++) {\n                clabel += \" \";\n            }\n            clabel += getLabel().label;\n\n            String cvalue = \"\";\n            for(int i = 0; i < 4 - String.valueOf(getValue()).length(); i++) {\n                cvalue += \" \";\n            }\n            cvalue += getValue();\n\n            String cbalance = \"\";\n            for(int i = 0; i < 4 - String.valueOf(getBalance()).length(); i++) {\n                cbalance += \" \";\n            }\n            cbalance += getBalance();\n\n            \n            return String.format(\"%s: %s: %s: %s\", cindex, clabel, cvalue, cbalance);\n        }\n        \n        public int getIndex() {\n            return this.index;\n        }\n\n        public Label getLabel() {\n            return this.label;\n        }\n\n        public int getValue() {\n            return this.value;\n        }\n\n        public int getBalance() {\n            return this.balance;\n        }\n        \n    }\n\n    public enum Label {\n        DEPOSIT(\"deposit\"),\n        FEE(\"fee\"),\n        OPENING(\"opening\"),\n        REVERSE(\"reverse\"),\n        WITHDRAW(\"withdraw\"),\n        ERROR(\"error\");\n\n        private String label;\n\n        Label(String label) {\n            this.label = label;\n        }\n\n        public String getLabel() {\n            return label;\n        }\n    }\n\n}\n",
+            "lines": "229"
+        }
+    ]
+}
