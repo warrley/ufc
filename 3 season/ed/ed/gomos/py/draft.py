@@ -36,7 +36,8 @@ q = int(q)
 
 # coords = [
 #     (coords[0][0] + dx, coords[0][1] + dy),
-#     *coords[:-1]
+#     *coords[:-1] # * = unpacking
+# atualiza a cabeca, tira a cauda e coloca o resto na lista
 # ]
 
 # for x, y in coords:
