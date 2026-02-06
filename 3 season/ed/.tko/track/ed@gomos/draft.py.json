@@ -1,0 +1,24 @@
+{
+    "patches": [
+        {
+            "label": "2026-02-06_12-06-27",
+            "content": "@@ -127,124 +127,8 @@\n ))%0A%0A\n-if d == %22U%22:%0A    for i in range(q-1, 0, -1):%0A        coords%5Bi%5D = coords%5Bi-1%5D%0A    # coords%5B0%5D%5B1%5D = coords%5B0%5D%5B1%5D + 1%0A%0A\n prin\n@@ -136,9 +136,8 @@\n (coords)\n-%0A\n",
+            "lines": "7"
+        },
+        {
+            "label": "2026-02-06_12-22-41",
+            "content": "@@ -123,16 +123,33 @@\n x, y))%0A%0A\n+if d == %22U%22:%0A    \n for i in\n@@ -176,109 +176,8 @@\n     \n-coords%5Bi%5D = coords%5Bi-1%5D%0Aif d == %22U%22:%0A    coords%5B0%5D = (coords%5B0%5D%5B0%5D, coords%5B0%5D%5B1%5D - 1)%0Aelif d == %22D%22:%0A\n     \n@@ -187,216 +187,74 @@\n rds%5B\n-0\n+i\n %5D = \n-(\n coords%5B\n-0%5D%5B0%5D, coords%5B0%5D%5B1%5D + 1)%0Aelif d == %22R%22:%0A    coords%5B0%5D = (coords%5B0%5D%5B0%5D + 1, coords%5B0%5D%5B1%5D)%0Aelif d == %22L%22:%0A    coords%5B0%5D = (coords%5B0%5D%5B0%5D - 1, coords%5B0%5D%5B1%5D)%0A%0Afor pos in coords:%0A    print(pos%5B0%5D, pos%5B1%5D\n+i-1%5D%0A    # coords%5B0%5D%5B1%5D = coords%5B0%5D%5B1%5D + 1%0A%0Aprint(coords\n )%0A\n",
+            "lines": "12"
+        },
+        {
+            "label": "2026-02-06_12-27-47",
+            "content": "@@ -28,18 +28,16 @@\n  int(q)%0A\n-# \n coords =\n@@ -40,18 +40,16 @@\n ds = %5B%5D%0A\n-# \n for _ in\n@@ -59,18 +59,16 @@\n nge(q):%0A\n-# \n     x, y\n@@ -96,18 +96,16 @@\n plit())%0A\n-# \n     coor\n@@ -123,18 +123,16 @@\n x, y))%0A%0A\n-# \n for i in\n@@ -151,22 +151,20 @@\n 0, -1):%0A\n-#\n     \n- \n coords%5Bi\n@@ -179,18 +179,16 @@\n ds%5Bi-1%5D%0A\n-# \n if d == \n@@ -192,18 +192,16 @@\n == %22U%22:%0A\n-# \n     coor\n@@ -237,26 +237,24 @@\n %5B0%5D%5B1%5D - 1)%0A\n-# \n elif d == %22D\n@@ -256,18 +256,16 @@\n == %22D%22:%0A\n-# \n     coor\n@@ -305,18 +305,16 @@\n 1%5D + 1)%0A\n-# \n elif d =\n@@ -320,18 +320,16 @@\n == %22R%22:%0A\n-# \n     coor\n@@ -369,18 +369,16 @@\n %5B0%5D%5B1%5D)%0A\n-# \n elif d =\n@@ -384,18 +384,16 @@\n == %22L%22:%0A\n-# \n     coor\n@@ -434,18 +434,16 @@\n 0%5D%5B1%5D)%0A%0A\n-# \n for pos \n@@ -453,18 +453,16 @@\n coords:%0A\n-# \n     prin\n@@ -483,320 +483,4 @@\n 1%5D)%0A\n-%0A# q, d = input().split()%0A# q = int(q)%0A%0Acoords = %5Btuple(map(int, input().split())) for _ in range(q)%5D%0A%0Amoves = %7B%0A    %22U%22: (0, -1),%0A    %22D%22: (0, 1),%0A    %22L%22: (-1, 0),%0A    %22R%22: (1, 0),%0A%7D%0A%0Adx, dy = moves%5Bd%5D%0A%0Acoords = %5B%0A    (coords%5B0%5D%5B0%5D + dx, coords%5B0%5D%5B1%5D + dy),%0A    *coords%5B:-1%5D%0A%5D%0A%0Afor x, y in coords:%0A    print(x, y)%0A\n",
+            "lines": "19"
+        },
+        {
+            "label": "2026-02-06_12-30-13",
+            "content": "q, d = input().split(); q = int(q)\n# coords = []\n# for _ in range(q):\n#     x, y = map(int, input().split())\n#     coords.append((x, y))\n\n# for i in range(q-1, 0, -1):\n#     coords[i] = coords[i-1]\n# if d == \"U\":\n#     coords[0] = (coords[0][0], coords[0][1] - 1)\n# elif d == \"D\":\n#     coords[0] = (coords[0][0], coords[0][1] + 1)\n# elif d == \"R\":\n#     coords[0] = (coords[0][0] + 1, coords[0][1])\n# elif d == \"L\":\n#     coords[0] = (coords[0][0] - 1, coords[0][1])\n\n# for pos in coords:\n#     print(pos[0], pos[1])\n\n# q, d = input().split()\n# q = int(q)\n\ncoords = [tuple(map(int, input().split())) for _ in range(q)]\n\nmoves = {\n    \"U\": (0, -1),\n    \"D\": (0, 1),\n    \"L\": (-1, 0),\n    \"R\": (1, 0),\n}\n\ndx, dy = moves[d]\n\ncoords = [\n    (coords[0][0] + dx, coords[0][1] + dy),\n    *coords[:-1]\n]\n\nfor x, y in coords:\n    print(x, y)\n",
+            "lines": "41"
+        }
+    ]
+}

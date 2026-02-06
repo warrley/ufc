@@ -1,0 +1,11 @@
+2026-02-06 11:46:54, MOVE, v:1, k:ed@gomos, mode:DOWN
+2026-02-06 12:06:26, MOVE, v:1, k:ed@gomos, mode:PICK
+2026-02-06 12:06:27, EXEC, v:1, k:ed@gomos, mode:FREE, size:7
+2026-02-06 12:22:40, MOVE, v:1, k:ed@gomos, mode:PICK
+2026-02-06 12:22:41, EXEC, v:1, k:ed@gomos, mode:FREE, size:12
+2026-02-06 12:27:47, EXEC, v:1, k:ed@gomos, mode:FULL, rate:100, size:19
+2026-02-06 12:30:13, EXEC, v:1, k:ed@gomos, mode:FULL, rate:100, size:41
+2026-02-06 12:32:37, MOVE, v:1, k:ed@gomos, mode:BACK
+2026-02-06 12:32:40, MOVE, v:1, k:ed@baruel, mode:PICK
+2026-02-06 12:32:40, EXEC, v:1, k:ed@baruel, mode:FULL, rate:100, size:63
+2026-02-06 12:32:41, MOVE, v:1, k:ed@baruel, mode:BACK
