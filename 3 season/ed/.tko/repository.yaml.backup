@@ -12,7 +12,7 @@ sources:
   type: clone
   branch: master
   cache_path: ''
-  cache_timestamp: '2026-02-12 08:58:59'
+  cache_timestamp: '2026-02-12 19:31:15'
   filters: null
 expanded:
 - ed@main-quest
@@ -33,6 +33,8 @@ tasks:
   ed@casais: '{rate:100}'
   ed@baruel: '{rate:100}'
   ed@gomos: '{rate:100}'
+  ed@princesa: '{rate:100}'
+  ed@apagando: '{rate:100}'
 flags:
   quests: 0
   tracks: 2
@@ -40,4 +42,4 @@ flags:
   graph: 1
   xray: 0
 lang: py
-selected: ed@apagando
+selected: ed@manipulacao
