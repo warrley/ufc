@@ -12,11 +12,19 @@ sources:
   type: clone
   branch: master
   cache_path: ''
-  cache_timestamp: '2026-02-06 11:46:45'
+  cache_timestamp: '2026-02-11 19:53:19'
   filters: null
 expanded:
 - ed@main-quest
 - ed@análise
+- ed@recursão
+- ed@busca-em-profundidade
+- ed@busca-em-largura
+- ed@backtracking
+- ed@vetor
+- ed@lista
+- ed@árvore
+- ed@deque-pilha-e-fila
 tasks:
   ed@pintando: '{rate:100}'
   ed@mumia: '{rate:100}'
@@ -32,4 +40,4 @@ flags:
   graph: 1
   xray: 0
 lang: py
-selected: ed@analise
+selected: ed@princesa

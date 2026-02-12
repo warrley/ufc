@@ -1,0 +1,14 @@
+{
+    "patches": [
+        {
+            "label": "2026-02-11_20-25-11",
+            "content": "@@ -36,447 +36,24 @@\n t())\n-; sword -= 1%0Avector = %5Bi for i in range(1, size+1)%5D%0A%0Adef printv():%0A    print(%22%5B %22, end=%22%22)%0A    for i in range(size):%0A        print(vector%5Bi%5D, end=%22%22)%0A        if i == sword:%0A            print(%22%3E%22, end=%22%22)%0A        print(%22 %22, end=%22%22)%0A    print(%22%5D%22)%0A%0Awhile size %3E= 1:%0A    printv()%0A%0A    dead = (sword+1) %25 size%0A    for i in range(dead, size-1):%0A        vector%5Bi%5D = vector%5Bi+1%5D%0A%0A    vector.pop()%0A    size -= 1%0A%0A    if size != 0: sword = dead %25 size%0A\n+%0A%0Aprint(size, sword)\n",
+            "lines": "3"
+        },
+        {
+            "label": "2026-02-11_22-02-43",
+            "content": "size, sword = map(int, input().split()); sword -= 1\nvector = [i for i in range(1, size+1)]\n\ndef printv():\n    print(\"[ \", end=\"\")\n    for i in range(size):\n        print(vector[i], end=\"\")\n        if i == sword:\n            print(\">\", end=\"\")\n        print(\" \", end=\"\")\n    print(\"]\")\n\nwhile size >= 1:\n    printv()\n\n    dead = (sword+1) % size\n    for i in range(dead, size-1):\n        vector[i] = vector[i+1]\n\n    vector.pop()\n    size -= 1\n\n    if size != 0: sword = dead % size\n",
+            "lines": "23"
+        }
+    ]
+}
