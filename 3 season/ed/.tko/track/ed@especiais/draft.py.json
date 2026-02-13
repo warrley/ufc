@@ -1,0 +1,194 @@
+{
+    "patches": [
+        {
+            "label": "2026-02-13_08-20-07",
+            "content": "@@ -12,168 +12,8 @@\n v):%0A\n-    uniques = set(v)%0A    res = %5B%5D%0A%0A    for u in uniques:%0A        count = 0%0A        for n in v:%0A            if u == n: count += 1%0A        res.append((u,count))%0A%0A\n     \n@@ -22,11 +22,9 @@\n int(\n-res\n+v\n )%0A%0Aw\n",
+            "lines": "10"
+        },
+        {
+            "label": "2026-02-13_08-49-42",
+            "content": "@@ -87,35 +87,8 @@\n = 0%0A\n-        if u %3C 0: continue%0A\n     \n@@ -122,24 +122,14 @@\n  if \n-abs(u) == abs(n)\n+u == n\n : co\n@@ -161,14 +161,9 @@\n nd((\n-abs(u)\n+u\n ,cou\n@@ -294,16 +294,16 @@\n : break%0A\n+\n     elif\n@@ -382,87 +382,4 @@\n ))))\n-%0A    elif args%5B0%5D == %22teams%22: teams(list(map(int, args%5B1%5D.strip(%22%5B%5D%22).split(%22,%22))))\n",
+            "lines": "19"
+        },
+        {
+            "label": "2026-02-13_08-53-04",
+            "content": "@@ -77,36 +77,44 @@\n     \n-u = abs(u)%0A        count = 0\n+count = 0%0A        if u %3C 0: continue\n %0A   \n@@ -428,10 +428,8 @@\n %0A   \n- #\n  eli\n",
+            "lines": "21"
+        },
+        {
+            "label": "2026-02-13_08-54-01",
+            "content": "@@ -138,40 +138,27 @@\n     \n-n =\n+if\n  abs(\n-n)%0A            if u == n\n+u) == abs(n)\n : co\n",
+            "lines": "21"
+        },
+        {
+            "label": "2026-02-13_08-54-27",
+            "content": "@@ -1,212 +1,4 @@\n-def order(v):%0A    for i in range(len(v)):%0A        for j in range(len(v)):%0A            if v%5Bi%5D%5B0%5D %3C v%5Bj%5D%5B0%5D:%0A                aux = v%5Bi%5D%0A                v%5Bi%5D = v%5Bj%5D%0A                v%5Bj%5D = aux%0A    %0A    print(v)%0A\n def \n@@ -514,87 +514,4 @@\n ))))\n-%0A    elif args%5B0%5D == %22order%22: order(list(map(int, args%5B1%5D.strip(%22%5B%5D%22).split(%22,%22))))\n",
+            "lines": "22"
+        },
+        {
+            "label": "2026-02-13_08-58-24",
+            "content": "@@ -6,20 +6,13 @@\n rder\n-_tuples\n (v):%0A\n+\n     \n@@ -188,16 +188,29 @@\n ux%0A    %0A\n+    print(v)%0A\n def occu\n@@ -422,20 +422,16 @@\n count))%0A\n-    \n %0A    pri\n@@ -437,25 +437,11 @@\n int(\n-order_tuples(res)\n+res\n )%0A%0Aw\n@@ -699,28 +699,110 @@\n %5D.strip(%22%5B%5D%22).split(%22,%22))))%0A\n+    elif args%5B0%5D == %22order%22: order(list(map(int, args%5B1%5D.strip(%22%5B%5D%22).split(%22,%22))))\n",
+            "lines": "32"
+        },
+        {
+            "label": "2026-02-13_09-02-30",
+            "content": "@@ -198,16 +198,8 @@\n     \n-return v\n %0Adef\n@@ -232,24 +232,8 @@\n set(\n-abs(x) for x in \n v)%0A \n@@ -267,16 +267,35 @@\n niques:%0A\n+        u = abs(u)%0A\n         \n@@ -401,17 +401,22 @@\n append((\n-u\n+abs(u)\n ,count))\n",
+            "lines": "30"
+        },
+        {
+            "label": "2026-02-13_09-08-17",
+            "content": "@@ -101,9 +101,9 @@\n %5B0%5D \n-%3E\n+%3C\n  v%5Bj\n@@ -455,137 +455,8 @@\n ))%0A%0A\n-def teams(v):%0A    # absolutes = %5Babs(x) for x in v%5D%0A%0A    # for a in absolutes:%0A    #     count = 0%0A    #     for %0A%0A    print(v)%0A%0A\n whil\n@@ -645,24 +645,26 @@\n (%22,%22))))%0A   \n+ #\n  elif args%5B0\n",
+            "lines": "29"
+        },
+        {
+            "label": "2026-02-13_09-14-48",
+            "content": "@@ -97,17 +97,17 @@\n v%5Bi%5D%5B0%5D \n-%3C\n+%3E\n  v%5Bj%5D%5B0%5D\n@@ -468,16 +468,18 @@\n (v):%0A   \n+ #\n  absolut\n@@ -507,109 +507,24 @@\n  v%5D%0A\n-    res = %5B%5D%0A    i = 0%0A    while i %3C len(absolutes):%0A        count = 0%0A       \n+%0A    #\n  for \n-j\n+a\n  in \n-range(i, len(\n abso\n@@ -532,191 +532,58 @@\n utes\n-))\n :%0A    \n-   \n+#\n     \n- if absolutes%5Bi%5D == absolutes%5Bj%5D:\n  count \n-+\n = \n-1\n+0\n %0A    \n-   \n+#\n      \n-else: continue%0A            j_i = j%0A            print(f%22i=%7Bi%7D j=%7Bj%7D c=%7Bcount%7D%22)%0A \n+for %0A%0A\n     \n-   \n print(\n-j_i)%0A        i+= 1\n+v)\n %0A%0Awh\n",
+            "lines": "38"
+        },
+        {
+            "label": "2026-02-13_09-38-03",
+            "content": "@@ -689,18 +689,25 @@\n   else: \n+continue\n %0A\n- \n         \n@@ -714,42 +714,16 @@\n     \n-   \n+j_\n i = j%0A\n-                continue%0A\n     \n@@ -761,16 +761,49 @@\n count%7D%22)\n+%0A        print(j_i)%0A        i+= 1\n %0A%0Awhile \n",
+            "lines": "43"
+        },
+        {
+            "label": "2026-02-13_09-39-36",
+            "content": "@@ -693,17 +693,11 @@\n se: \n-continue%0A\n+%0A  \n     \n@@ -708,16 +708,41 @@\n     \n-j_\n+  \n i = j%0A\n+                continue%0A\n     \n@@ -784,42 +784,8 @@\n t%7D%22)\n-%0A        print(j_i)%0A        i += 1\n %0A%0Awh\n",
+            "lines": "42"
+        },
+        {
+            "label": "2026-02-13_09-40-51",
+            "content": "@@ -792,60 +792,8 @@\n     \n- if i %3E j_i: i += 1 %0A        else: i = j_i%0A        #\n  i +\n",
+            "lines": "43"
+        },
+        {
+            "label": "2026-02-13_09-44-08",
+            "content": "@@ -774,20 +774,87 @@\n     \n-i = j_\n+print(j_i)%0A        if i %3E j_i: i += 1 %0A        else: i = j_i%0A        # \n i +\n+=\n  1%0A\n+%0A\n whil\n",
+            "lines": "45"
+        },
+        {
+            "label": "2026-02-13_09-48-15",
+            "content": "@@ -733,10 +733,8 @@\n     \n- #\n  pri\n@@ -774,81 +774,19 @@\n     \n-res.append((absolutes%5Bi%5D, count))%0A        i = j_i + 1%0A    %0A    print(res)\n+i = j_i + 1\n %0Awhi\n",
+            "lines": "41"
+        },
+        {
+            "label": "2026-02-13_09-50-34",
+            "content": "@@ -960,46 +960,8 @@\n eak%0A\n-    elif args%5B1%5D == %22%5B%5D%22: print(%22%5B%5D%22)%0A\n     \n",
+            "lines": "44"
+        },
+        {
+            "label": "2026-02-13_09-51-22",
+            "content": "@@ -576,24 +576,8 @@\n = 0%0A\n-        j_i = 0%0A\n     \n@@ -729,16 +729,18 @@\n         \n+ #\n  print(f\n",
+            "lines": "45"
+        },
+        {
+            "label": "2026-02-13_09-52-46",
+            "content": "@@ -514,21 +514,16 @@\n es = %5B%5D%0A\n-    %0A\n     i = \n@@ -520,24 +520,24 @@\n %5D%0A    i = 0%0A\n+\n     while i \n@@ -558,22 +558,8 @@\n s):%0A\n-        j = i%0A\n     \n@@ -584,36 +584,73 @@\n     \n-while j %3C len(absolutes) and\n+j_i = 0%0A        for j in range(i, len(absolutes)):%0A            if\n  abs\n@@ -675,16 +675,27 @@\n utes%5Bj%5D:\n+ count += 1\n %0A       \n@@ -698,27 +698,51 @@\n         \n+ else:\n  co\n-u\n nt\n+inue%0A            j_i\n  \n-+\n = \n-1\n+j\n %0A       \n@@ -750,15 +750,39 @@\n     \n-j += 1%0A\n+print(f%22i=%7Bi%7D j=%7Bj%7D c=%7Bcount%7D%22)\n %0A   \n@@ -833,17 +833,27 @@\n    i = j\n-%0A\n+_i + 1%0A    \n %0A    pri\n",
+            "lines": "46"
+        },
+        {
+            "label": "2026-02-13_14-39-10",
+            "content": "@@ -776,65 +776,8 @@\n res)\n-%0A%0Adef mnext(v):%0A    res = %5B0%5D*len(v)%0A%0A%0A%0A    print(res)%0A%0A%0A\n %0Awhi\n@@ -1093,87 +1093,4 @@\n )))%0A\n-    elif args%5B0%5D == %22mnext%22: mnext(list(map(int, args%5B1%5D.strip(%22%5B%5D%22).split(%22,%22))))%0A\n",
+            "lines": "46"
+        },
+        {
+            "label": "2026-02-13_14-47-06",
+            "content": "@@ -813,218 +813,9 @@\n (v)%0A\n-    %0A    for i in range(len(res)):%0A        count = 0%0A        if i %3E 0 and res%5Bi-1%5D %3C 0: count += 1%0A        if i %3C len(res)-1 and res%5Bi+1%5D %3C 0: count += 1%0A        print(f%22i=%7Bi%7D c=%7Bcount%7D%22)%0A        res%5Bi%5D = count\n+%0A\n %0A%0A  \n",
+            "lines": "57"
+        },
+        {
+            "label": "2026-02-13_14-52-18",
+            "content": "@@ -848,38 +848,8 @@\n )):%0A\n-        if v%5Bi%5D %3C 0: continue%0A\n     \n@@ -883,17 +883,19 @@\n %3E 0 and \n-v\n+res\n %5Bi-1%5D %3C \n@@ -938,17 +938,19 @@\n )-1 and \n-v\n+res\n %5Bi+1%5D %3C \n@@ -974,10 +974,8 @@\n     \n- #\n  pri\n",
+            "lines": "62"
+        },
+        {
+            "label": "2026-02-13_14-57-04",
+            "content": "@@ -1069,304 +1069,8 @@\n s)%0A%0A\n-def alone(v):%0A    res = %5B%5D%0A    %0A    for i in range(len(res)):%0A        if v%5Bi%5D %3C 0: continue%0A        count = 2%0A        if i %3E 0 and v%5Bi-1%5D %3C 0: count += 1%0A        if i %3C len(res)-1 and v%5Bi+1%5D %3C 0: count += 1%0A        # print(f%22i=%7Bi%7D c=%7Bcount%7D%22)%0A        res%5Bi%5D = count%0A%0A    print(res)%0A%0A%0A    print(v)\n %0A%0Awh\n",
+            "lines": "63"
+        },
+        {
+            "label": "2026-02-13_14-58-26",
+            "content": "@@ -1086,33 +1086,25 @@\n %0A    res = %5B\n-0%5D*len(v)\n+%5D\n %0A    %0A    fo\n@@ -1112,33 +1112,35 @@\n  i in range(len(\n-v\n+res\n )):%0A        if v\n@@ -1149,32 +1149,50 @@\n %5D %3C 0: continue%0A\n+        count = 2%0A\n         if i == \n@@ -1188,18 +1188,17 @@\n    if i \n-==\n+%3E\n  0 and v\n@@ -1199,32 +1199,32 @@\n  and v%5Bi\n-+1%5D %3E\n+-1%5D %3C\n  0: \n-res%5Bi%5D \n+count +\n = 1%0A    \n@@ -1231,23 +1231,22 @@\n     \n-el\n if i \n-==\n+%3C\n  len(\n-v\n+res\n )-1 \n@@ -1256,24 +1256,24 @@\n  v%5Bi\n--1%5D %3E\n++1%5D %3C\n  0: \n-res%5Bi%5D \n+count +\n = 1%0A\n@@ -1284,39 +1284,43 @@\n     \n-elif v%5Bi-1%5D %3E 0 and v%5Bi+1%5D %3E 0:\n+# print(f%22i=%7Bi%7D c=%7Bcount%7D%22)%0A       \n  res\n@@ -1325,17 +1325,21 @@\n es%5Bi%5D = \n-1\n+count\n %0A%0A    pr\n@@ -1349,16 +1349,30 @@\n (res)%0A%0A%0A\n+    print(v)%0A%0A\n while Tr\n@@ -1766,87 +1766,4 @@\n )))%0A\n-    elif args%5B0%5D == %22alone%22: alone(list(map(int, args%5B1%5D.strip(%22%5B%5D%22).split(%22,%22))))%0A\n",
+            "lines": "77"
+        },
+        {
+            "label": "2026-02-13_15-08-07",
+            "content": "@@ -1108,58 +1108,8 @@\n     \n-if len(v) == 1:%0A        res%5B0%5D = 1%0A        exit()%0A\n %0A   \n",
+            "lines": "74"
+        },
+        {
+            "label": "2026-02-13_15-09-04",
+            "content": "@@ -1147,22 +1147,20 @@\n         \n-return\n+exit\n ()%0A%0A    \n",
+            "lines": "77"
+        },
+        {
+            "label": "2026-02-13_15-09-14",
+            "content": "@@ -1090,17 +1090,17 @@\n  res = %5B\n-1\n+0\n %5D*len(v)\n@@ -1120,24 +1120,57 @@\n ) == 1:%0A    \n+    res%5B0%5D = 1%0A        return()%0A%0A\n     for i in\n@@ -1189,28 +1189,24 @@\n )):%0A        \n-    \n if v%5Bi%5D %3C 0:\n@@ -1219,28 +1219,24 @@\n nue%0A        \n-    \n if i == 0 an\n@@ -1236,33 +1236,33 @@\n == 0 and v%5Bi+1%5D \n-%3C\n+%3E\n  0: res%5Bi%5D = 0%0A \n@@ -1250,38 +1250,34 @@\n %5D %3E 0: res%5Bi%5D = \n-0%0A    \n+1%0A\n         elif i =\n@@ -1312,17 +1312,17 @@\n es%5Bi%5D = \n-0\n+1\n %0A       \n@@ -1318,28 +1318,24 @@\n = 1%0A        \n-    \n elif v%5Bi-1%5D \n@@ -1338,22 +1338,23 @@\n -1%5D \n-%3C 0 or\n+%3E 0 and\n  v%5Bi+1%5D \n %3C 0:\n@@ -1345,25 +1345,25 @@\n  and v%5Bi+1%5D \n-%3C\n+%3E\n  0: res%5Bi%5D =\n@@ -1363,18 +1363,17 @@\n es%5Bi%5D = \n-0%0A\n+1\n %0A%0A    pr\n",
+            "lines": "77"
+        },
+        {
+            "label": "2026-02-13_15-10-47",
+            "content": "@@ -1118,9 +1118,9 @@\n (v) \n-!\n+=\n = 1:\n",
+            "lines": "75"
+        },
+        {
+            "label": "2026-02-13_15-11-17",
+            "content": "@@ -1082,33 +1082,33 @@\n (v):%0A    res = %5B\n-0\n+1\n %5D*len(v)%0A    if \n@@ -1211,33 +1211,33 @@\n == 0 and v%5Bi+1%5D \n-%3E\n+%3C\n  0: res%5Bi%5D = 1%0A \n@@ -1225,33 +1225,33 @@\n %5D %3C 0: res%5Bi%5D = \n-1\n+0\n %0A            eli\n@@ -1287,25 +1287,25 @@\n 0: res%5Bi%5D = \n-1\n+0\n %0A           \n@@ -1321,23 +1321,22 @@\n -1%5D \n-%3E 0 and\n+%3C 0 or\n  v%5Bi+1%5D \n %3E 0:\n@@ -1331,17 +1331,17 @@\n  v%5Bi+1%5D \n-%3E\n+%3C\n  0: res%5B\n@@ -1349,23 +1349,11 @@\n %5D = \n-1\n+0\n %0A%0A\n-    v%5B0%5D = 1\n %0A   \n",
+            "lines": "75"
+        },
+        {
+            "label": "2026-02-13_15-12-30",
+            "content": "@@ -1353,19 +1353,17 @@\n  1%0A%0A    \n-res\n+v\n %5B0%5D = 1%0A\n",
+            "lines": "75"
+        },
+        {
+            "label": "2026-02-13_15-13-15",
+            "content": "@@ -1352,17 +1352,12 @@\n = 1%0A\n- \n+%0A\n    \n-else:\n  res\n",
+            "lines": "75"
+        },
+        {
+            "label": "2026-02-13_15-13-41",
+            "content": "@@ -1365,25 +1365,24 @@\n  res%5B0%5D = 1%0A\n-%0A\n     print(re\n@@ -1390,215 +1390,8 @@\n )%0A%0A%0A\n-def couple(v):%0A    for i in range(len(v)):%0A        if v%5Bi%5D == 0: continue%0A        for j in range(i+1, len(v)):%0A            if v%5Bj%5D == 0: continue%0A            if v%5Bi%5D == -v%5Bj%5D: v%5Bi%5D = v%5Bj%5D = 0%0A%0A    print(v)%0A%0A\n whil\n@@ -1872,89 +1872,4 @@\n )))%0A\n-    elif args%5B0%5D == %22couple%22: couple(list(map(int, args%5B1%5D.strip(%22%5B%5D%22).split(%22,%22))))%0A\n",
+            "lines": "74"
+        },
+        {
+            "label": "2026-02-13_15-24-33",
+            "content": "@@ -1402,30 +1402,16 @@\n ple(v):%0A\n-    count = 0%0A\n     for \n@@ -1562,32 +1562,16 @@\n = -v%5Bj%5D:\n-%0A               \n  v%5Bi%5D = \n@@ -1583,34 +1583,8 @@\n = 0%0A\n-                count += 1\n %0A   \n@@ -1590,21 +1590,17 @@\n   print(\n-count\n+v\n )%0A%0Awhile\n",
+            "lines": "85"
+        },
+        {
+            "label": "2026-02-13_15-26-26",
+            "content": "@@ -1658,176 +1658,8 @@\n t)%0A%0A\n-def subseq(string, substring):%0A    match = False%0A    # for i in range(len(v)):%0A    #     for j in range(i+1, len(v)):%0A    #         if()%0A%0A    print(string, substring)%0A%0A\n whil\n@@ -2225,136 +2225,4 @@\n )))%0A\n-    elif args%5B0%5D == %22subseq%22: subseq(list(map(int, args%5B1%5D.strip(%22%5B%5D%22).split(%22,%22))), list(map(int, args%5B1%5D.strip(%22%5B%5D%22).split(%22,%22))))\n",
+            "lines": "87"
+        },
+        {
+            "label": "2026-02-13_15-31-35",
+            "content": "@@ -1669,58 +1669,27 @@\n seq(\n-values, subvalues):%0A    # print(values, subvalues)\n+string, substring):\n %0A   \n@@ -1701,14 +1701,19 @@\n h = \n--1\n+False\n %0A   \n+ #\n  for\n@@ -1729,29 +1729,24 @@\n ge(len(v\n-alues\n )):%0A    \n     coun\n@@ -1737,33 +1737,17 @@\n )):%0A    \n-    count = 0%0A   \n+#\n      for\n@@ -1762,28 +1762,27 @@\n nge(\n-len(subvalues\n+i+1, len(v\n )):%0A   \n+ #\n     \n@@ -1792,278 +1792,40 @@\n   if\n- i+j %3C len(values) and values%5Bi+j%5D == subvalues%5Bj%5D: %0A                count += 1%0A                # print(f%22i=%7Bi%7D j=%7Bj%7D c=%7Bcount%7D v%5Bi+j%5D=%7Bvalues%5Bi+j%5D%7D s%5Bj%5D=%7Bsubvalues%5Bj%5D%7D%22)%0A        if count == len(subvalues): %0A            match = i%0A            break%0A    %0A    print(match)%0A\n+()%0A%0A    print(string, substring)\n %0A%0Awh\n@@ -2497,9 +2497,9 @@\n rgs%5B\n-2\n+1\n %5D.st\n",
+            "lines": "96"
+        },
+        {
+            "label": "2026-02-13_15-50-10",
+            "content": "@@ -2111,67 +2111,8 @@\n h)%0A%0A\n-def erase(values, subvalues):%0A    print(values, subvalues)%0A\n %0Awhi\n@@ -2811,135 +2811,4 @@\n ))))\n-%0A    elif args%5B0%5D == %22erase%22: erase(list(map(int, args%5B1%5D.strip(%22%5B%5D%22).split(%22,%22))), list(map(int, args%5B2%5D.strip(%22%5B%5D%22).split(%22,%22))))\n",
+            "lines": "104"
+        },
+        {
+            "label": "2026-02-13_15-51-02",
+            "content": "@@ -2115,108 +2115,59 @@\n def \n-clear(v, number):%0A    res = %5B%5D%0A    for vx in v:%0A        if vx != number: res.append(vx)%0A%0A    print(r\n+erase(values, subvalues):%0A    print(values, subvalu\n es)%0A\n@@ -2892,21 +2892,21 @@\n == %22\n-clear%22: clear\n+erase%22: erase\n (lis\n@@ -2954,17 +2954,51 @@\n )), \n-int(args%5B2%5D\n+list(map(int, args%5B2%5D.strip(%22%5B%5D%22).split(%22,%22))\n ))\n",
+            "lines": "107"
+        },
+        {
+            "label": "2026-02-13_15-55-07",
+            "content": "@@ -2220,81 +2220,8 @@\n s)%0A%0A\n-def erase(vs, ids):%0A    ids = set(ids)%0A    res = %5B%5D%0A%0A    print(vs, ids)%0A%0A\n whil\n@@ -2920,139 +2920,8 @@\n )))%0A\n-    elif args%5B0%5D == %22erase%22: erase(list(map(int, args%5B1%5D.strip(%22%5B%5D%22).split(%22,%22))), list(map(int, args%5B2%5D.strip(%22%5B%5D%22).split(%22,%22))))%0A\n     \n",
+            "lines": "111"
+        },
+        {
+            "label": "2026-02-13_15-57-43",
+            "content": "@@ -2277,89 +2277,20 @@\n     \n-for i in range(len(vs)):%0A        if i not in ids: res.append(vs%5Bi%5D)%0A%0A    print(re\n+print(vs, id\n s)%0A%0A\n@@ -3220,37 +3220,4 @@\n 2%5D))\n-%0A    else: print(%22invalid input%22)\n",
+            "lines": "118"
+        },
+        {
+            "label": "2026-02-13_16-00-09",
+            "content": "def order_tuples(v):\n    for i in range(len(v)):\n        for j in range(len(v)):\n            if v[i][0] < v[j][0]:\n                aux = v[i]\n                v[i] = v[j]\n                v[j] = aux\n    return v\ndef occurr(v):\n    uniques = set(abs(x) for x in v)\n    res = []\n\n    for u in uniques:\n        count = 0\n        for n in v:\n            n = abs(n)\n            if u == n: count += 1\n        res.append((u,count))\n    \n    print(order_tuples(res))\n\ndef teams(v):\n    absolutes = [abs(x) for x in v]\n    res = []\n    \n    i = 0\n    while i < len(absolutes):\n        j = i\n        count = 0\n        while j < len(absolutes) and absolutes[i] == absolutes[j]:\n            count += 1\n            j += 1\n\n        res.append((absolutes[i], count))\n        i = j\n\n    print(res)\n\ndef mnext(v):\n    res = [0]*len(v)\n    \n    for i in range(len(res)):\n        if v[i] < 0: continue\n        count = 0\n        if i > 0 and v[i-1] < 0: count += 1\n        if i < len(res)-1 and v[i+1] < 0: count += 1\n        # print(f\"i={i} c={count}\")\n        res[i] = count\n\n    print(res)\n\ndef alone(v):\n    res = [0]*len(v)\n    if len(v) != 1:\n        for i in range(len(v)):\n            if v[i] < 0: continue\n            if i == 0 and v[i+1] > 0: res[i] = 1\n            elif i == len(v)-1 and v[i-1] > 0: res[i] = 1\n            elif v[i-1] > 0 and v[i+1] > 0: res[i] = 1\n    else: res[0] = 1\n\n    print(res)\n\n\ndef couple(v):\n    count = 0\n    for i in range(len(v)):\n        if v[i] == 0: continue\n        for j in range(i+1, len(v)):\n            if v[j] == 0: continue\n            if v[i] == -v[j]:\n                v[i] = v[j] = 0\n                count += 1\n    print(count)\n\ndef subseq(values, subvalues):\n    # print(values, subvalues)\n    match = -1\n    for i in range(len(values)):\n        count = 0\n        for j in range(len(subvalues)):\n            if i+j < len(values) and values[i+j] == subvalues[j]: \n                count += 1\n                # print(f\"i={i} j={j} c={count} v[i+j]={values[i+j]} s[j]={subvalues[j]}\")\n        if count == len(subvalues): \n            match = i\n            break\n    \n    print(match)\n\ndef clear(v, number):\n    res = []\n    for vx in v:\n        if vx != number: res.append(vx)\n\n    print(res)\n\ndef erase(vs, ids):\n    ids = set(ids)\n    res = []\n\n    for i in range(len(vs)):\n        if i not in ids: res.append(vs[i])\n\n    print(res)\n\nwhile True:\n    line = input()\n    print(\"$\"+line)\n    args = line.split(\" \")\n\n    if args[0] == \"end\": break\n    elif args[1] == \"[]\": print(\"[]\")\n    elif args[0] == \"occurr\": occurr(list(map(int, args[1].strip(\"[]\").split(\",\"))))\n    elif args[0] == \"teams\": teams(list(map(int, args[1].strip(\"[]\").split(\",\"))))\n    elif args[0] == \"mnext\": mnext(list(map(int, args[1].strip(\"[]\").split(\",\"))))\n    elif args[0] == \"alone\": alone(list(map(int, args[1].strip(\"[]\").split(\",\"))))\n    elif args[0] == \"couple\": couple(list(map(int, args[1].strip(\"[]\").split(\",\"))))\n    elif args[0] == \"subseq\": subseq(list(map(int, args[1].strip(\"[]\").split(\",\"))), list(map(int, args[2].strip(\"[]\").split(\",\"))))\n    elif args[0] == \"erase\": erase(list(map(int, args[1].strip(\"[]\").split(\",\"))), list(map(int, args[2].strip(\"[]\").split(\",\"))))\n    elif args[0] == \"clear\": clear(list(map(int, args[1].strip(\"[]\").split(\",\"))), int(args[2]))\n    else: print(\"invalid input\")",
+            "lines": "122"
+        }
+    ]
+}
