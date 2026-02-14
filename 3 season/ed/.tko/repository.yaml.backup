@@ -32,7 +32,8 @@ tasks:
   ed@manipulacao: '{rate:100, alone:10}'
   ed@especiais: '{rate:100, other:1, alone:10}'
   ed@buscas: '{rate:100, alone:10}'
-  ed@rotacoes: '{alone:1}'
+  ed@rotacoes: '{rate:100, alone:10}'
+  ed@alternando: '{rate:100, alone:10}'
 flags:
   quests: 1
   tracks: 1
@@ -40,4 +41,4 @@ flags:
   graph: 1
   xray: 0
 lang: py
-selected: ed@rotacoes
+selected: ed@alternando
