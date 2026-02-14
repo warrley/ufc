@@ -11,3 +11,13 @@
 2026-02-14 10:06:26, EXEC, v:1, k:ed@buscas, mode:FREE, size:6
 2026-02-14 10:38:27, EXEC, v:1, k:ed@buscas, mode:FULL, rate:0, size:13
 2026-02-14 10:38:34, EXEC, v:1, k:ed@buscas, mode:FULL, rate:100, size:13
+2026-02-14 10:39:10, MOVE, v:1, k:ed@buscas, mode:BACK
+2026-02-14 10:39:22, SELF, v:1, k:ed@rotacoes, alone:1
+2026-02-14 10:39:38, SELF, v:1, k:ed@buscas, rate:100, alone:10
+2026-02-14 10:39:48, MOVE, v:1, k:ed@rotacoes, mode:DOWN
+2026-02-14 10:46:52, MOVE, v:1, k:ed@rotacoes, mode:PICK
+2026-02-14 10:46:53, EXEC, v:1, k:ed@rotacoes, mode:FREE, size:4
+2026-02-14 11:07:25, MOVE, v:1, k:ed@rotacoes, mode:PICK
+2026-02-14 11:07:25, EXEC, v:1, k:ed@rotacoes, mode:FREE, size:9
+2026-02-14 11:07:46, EXEC, v:1, k:ed@rotacoes, mode:FULL, rate:0, size:9
+2026-02-14 11:10:24, EXEC, v:1, k:ed@rotacoes, mode:FULL, rate:100, size:9
