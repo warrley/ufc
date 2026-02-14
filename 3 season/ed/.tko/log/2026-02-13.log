@@ -60,3 +60,25 @@
 2026-02-13 16:00:14, EXEC, v:1, k:ed@especiais, mode:FULL, rate:100
 2026-02-13 16:00:15, EXEC, v:1, k:ed@especiais, mode:FULL, rate:100
 2026-02-13 16:00:18, MOVE, v:1, k:ed@especiais, mode:BACK
+2026-02-13 16:03:05, SELF, v:1, k:ed@buscas
+2026-02-13 16:49:48, SELF, v:1, k:ed@pintando, rate:100, alone:10
+2026-02-13 16:50:24, SELF, v:1, k:ed@mumia, rate:100, other:1, alone:10
+2026-02-13 16:50:44, SELF, v:1, k:ed@fuga, rate:100, other:1, alone:10
+2026-02-13 16:50:51, MOVE, v:1, k:ed@pedra, mode:PICK
+2026-02-13 16:50:53, MOVE, v:1, k:ed@pedra, mode:BACK
+2026-02-13 16:51:07, SELF, v:1, k:ed@pedra, rate:100, alone:10
+2026-02-13 16:51:37, SELF, v:1, k:ed@casais, rate:100, alone:10
+2026-02-13 16:51:38, MOVE, v:1, k:ed@baruel, mode:PICK
+2026-02-13 16:51:39, MOVE, v:1, k:ed@baruel, mode:BACK
+2026-02-13 16:51:50, SELF, v:1, k:ed@baruel, rate:100, alone:10
+2026-02-13 16:52:10, SELF, v:1, k:ed@gomos, rate:100, alone:10
+2026-02-13 16:52:20, MOVE, v:1, k:ed@princesa, mode:PICK
+2026-02-13 16:52:31, MOVE, v:1, k:ed@princesa, mode:BACK
+2026-02-13 16:53:15, SELF, v:1, k:ed@princesa, rate:100, other:1, alone:9
+2026-02-13 16:53:17, MOVE, v:1, k:ed@apagando, mode:PICK
+2026-02-13 16:53:18, MOVE, v:1, k:ed@apagando, mode:BACK
+2026-02-13 16:54:07, SELF, v:1, k:ed@apagando, rate:100, other:1, alone:10
+2026-02-13 16:54:18, SELF, v:1, k:ed@manipulacao, rate:100, alone:10
+2026-02-13 16:54:22, MOVE, v:1, k:ed@especiais, mode:PICK
+2026-02-13 16:54:23, MOVE, v:1, k:ed@especiais, mode:BACK
+2026-02-13 16:55:07, SELF, v:1, k:ed@especiais, rate:100, other:1, alone:10

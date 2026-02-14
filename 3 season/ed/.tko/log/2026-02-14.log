@@ -1,0 +1,13 @@
+2026-02-14 10:02:12, MOVE, v:1, k:ed@buscas, mode:DOWN
+2026-02-14 10:05:32, MOVE, v:1, k:ed@buscas, mode:PICK
+2026-02-14 10:05:32, EXEC, v:1, k:ed@buscas, mode:FREE, size:6
+2026-02-14 10:05:46, MOVE, v:1, k:ed@buscas, mode:BACK
+2026-02-14 10:05:52, MOVE, v:1, k:ed@especiais, mode:PICK
+2026-02-14 10:05:53, EXEC, v:1, k:ed@especiais, mode:FREE
+2026-02-14 10:06:02, MOVE, v:1, k:ed@especiais, mode:BACK
+2026-02-14 10:06:04, MOVE, v:1, k:ed@buscas, mode:PICK
+2026-02-14 10:06:04, EXEC, v:1, k:ed@buscas, mode:FREE
+2026-02-14 10:06:26, MOVE, v:1, k:ed@buscas, mode:PICK
+2026-02-14 10:06:26, EXEC, v:1, k:ed@buscas, mode:FREE, size:6
+2026-02-14 10:38:27, EXEC, v:1, k:ed@buscas, mode:FULL, rate:0, size:13
+2026-02-14 10:38:34, EXEC, v:1, k:ed@buscas, mode:FULL, rate:100, size:13

@@ -1,0 +1,24 @@
+{
+    "patches": [
+        {
+            "label": "2026-02-14_10-05-32",
+            "content": "@@ -16,18 +16,16 @@\n nt(input\n-()\n )%0Astring\n@@ -73,18 +73,16 @@\n nt(input\n-()\n )%0Asubstr\n",
+            "lines": "6"
+        },
+        {
+            "label": "2026-02-14_10-06-26",
+            "content": "@@ -116,223 +116,31 @@\n %22)%0A%0A\n-res = %5B0%5D*size_substring%0A%0Afor i in range(len(substrings)):%0A    for j in range(len(strings)):%0A        if substrings%5Bi%5D == strings%5Bj%5D: res%5Bi%5D += 1%0A        # print(f%22ws=%7Bsubstrings%5Bi%5D%7D wt=%7Bstrings%5Bj%5D%7D c=%7Bres%7D%22)%0A%0Aprint(res)\n+print(strings, substrings)%0A\n",
+            "lines": "6"
+        },
+        {
+            "label": "2026-02-14_10-38-27",
+            "content": "@@ -327,13 +327,12 @@\n %0A%0Aprint(\n-*\n res)\n",
+            "lines": "13"
+        },
+        {
+            "label": "2026-02-14_10-38-34",
+            "content": "size_string = int(input())\nstrings = input().split(\" \")\nsize_substring = int(input())\nsubstrings = input().split(\" \")\n\nres = [0]*size_substring\n\nfor i in range(len(substrings)):\n    for j in range(len(strings)):\n        if substrings[i] == strings[j]: res[i] += 1\n        # print(f\"ws={substrings[i]} wt={strings[j]} c={res}\")\n\nprint(*res)",
+            "lines": "13"
+        }
+    ]
+}

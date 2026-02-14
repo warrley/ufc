@@ -12,34 +12,28 @@ sources:
   type: clone
   branch: master
   cache_path: ''
-  cache_timestamp: '2026-02-13 14:38:15'
+  cache_timestamp: '2026-02-14 10:02:05'
   filters: null
 expanded:
 - ed@main-quest
 - ed@análise
-- ed@recursão
-- ed@busca-em-profundidade
-- ed@busca-em-largura
-- ed@backtracking
-- ed@vetor
-- ed@lista
-- ed@árvore
-- ed@deque-pilha-e-fila
+- ed@side-quests
+- ed@revisão
 tasks:
-  ed@pintando: '{rate:100}'
-  ed@mumia: '{rate:100}'
-  ed@fuga: '{rate:100}'
-  ed@pedra: '{rate:100}'
-  ed@casais: '{rate:100}'
-  ed@baruel: '{rate:100}'
-  ed@gomos: '{rate:100}'
-  ed@princesa: '{rate:100}'
-  ed@apagando: '{rate:100}'
-  ed@manipulacao: '{rate:100}'
-  ed@especiais: '{rate:100}'
+  ed@pintando: '{rate:100, alone:10}'
+  ed@mumia: '{rate:100, other:1, alone:10}'
+  ed@fuga: '{rate:100, other:1, alone:10}'
+  ed@pedra: '{rate:100, alone:10}'
+  ed@casais: '{rate:100, alone:10}'
+  ed@baruel: '{rate:100, alone:10}'
+  ed@gomos: '{rate:100, alone:10}'
+  ed@princesa: '{rate:100, other:1, alone:9}'
+  ed@apagando: '{rate:100, other:1, alone:10}'
+  ed@manipulacao: '{rate:100, alone:10}'
+  ed@especiais: '{rate:100, other:1, alone:10}'
 flags:
-  quests: 0
-  tracks: 2
+  quests: 1
+  tracks: 1
   tasks: 0
   graph: 1
   xray: 0
