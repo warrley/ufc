@@ -82,3 +82,4 @@
 2026-02-14 15:09:58, EXEC, v:1, k:ed@alternando, mode:FULL, rate:100, size:41
 2026-02-14 15:10:19, MOVE, v:1, k:ed@alternando, mode:BACK
 2026-02-14 15:10:30, SELF, v:1, k:ed@alternando, rate:100, alone:10
+2026-02-14 15:11:17, MOVE, v:1, k:ed@triangulo, mode:DOWN
