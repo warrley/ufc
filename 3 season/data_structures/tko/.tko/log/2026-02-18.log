@@ -1,0 +1,13 @@
+2026-02-18 06:59:07, MOVE, v:1, k:ed@triangulo, mode:BACK
+2026-02-18 08:34:32, MOVE, v:1, k:ed@triangulo, mode:PICK
+2026-02-18 08:34:32, EXEC, v:1, k:ed@triangulo, mode:FREE, size:18
+2026-02-18 08:59:58, MOVE, v:1, k:ed@triangulo, mode:BACK
+2026-02-18 09:00:04, MOVE, v:1, k:ed@triangulo, mode:PICK
+2026-02-18 09:00:05, EXEC, v:1, k:ed@triangulo, mode:FREE, size:19
+2026-02-18 09:18:11, MOVE, v:1, k:ed@triangulo, mode:PICK
+2026-02-18 09:18:11, EXEC, v:1, k:ed@triangulo, mode:FREE, size:20
+2026-02-18 09:23:10, EXEC, v:1, k:ed@triangulo, mode:FULL, rate:0, size:22
+2026-02-18 09:23:52, EXEC, v:1, k:ed@triangulo, mode:FULL, rate:100, size:24
+2026-02-18 09:24:00, EXEC, v:1, k:ed@triangulo, mode:FULL, rate:100
+2026-02-18 09:24:01, MOVE, v:1, k:ed@triangulo, mode:BACK
+2026-02-18 09:24:34, SELF, v:1, k:ed@triangulo, rate:100, iagen:1, other:1, alone:8

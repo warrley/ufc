@@ -12,7 +12,7 @@ sources:
   type: clone
   branch: master
   cache_path: ''
-  cache_timestamp: '2026-02-17 16:01:13'
+  cache_timestamp: '2026-02-18 08:34:29'
   filters: null
 expanded:
 - ed@side-quests
@@ -33,6 +33,7 @@ tasks:
   ed@buscas: '{rate:100, alone:10}'
   ed@rotacoes: '{rate:100, alone:10}'
   ed@alternando: '{rate:100, alone:10}'
+  ed@triangulo: '{rate:100, iagen:1, other:1, alone:8}'
 flags:
   quests: 1
   tracks: 1
@@ -40,4 +41,4 @@ flags:
   graph: 1
   xray: 0
 lang: py
-selected: ed@main-quest
+selected: ed@treinando
