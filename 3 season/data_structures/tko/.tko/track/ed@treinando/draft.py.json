@@ -1,0 +1,109 @@
+{
+    "patches": [
+        {
+            "label": "2026-02-19_10-25-35",
+            "content": "@@ -9,32 +9,8 @@\n ():%0A\n-    while True:    %0A    \n     \n@@ -33,20 +33,16 @@\n t()%0A    \n- \n-   \n args: li\n@@ -63,16 +63,37 @@\n .split()\n+%0A%0A    while True:    \n %0A       \n",
+            "lines": "17"
+        },
+        {
+            "label": "2026-02-19_10-26-15",
+            "content": "@@ -94,18 +94,8 @@\n lit(\n-maxsplit=1\n )%0A  \n",
+            "lines": "16"
+        },
+        {
+            "label": "2026-02-19_10-36-06",
+            "content": "@@ -1,55 +1,4 @@\n-def tostr(v: list%5Bint%5D) -%3E str:%0A    return str(v)%0A%0A\n def \n@@ -7,16 +7,8 @@\n in()\n- -%3E None\n :%0A  \n@@ -57,32 +57,8 @@\n t()%0A\n-        print(%22$%22+line)%0A\n     \n@@ -210,16 +210,32 @@\n  %22read%22:\n+%0A               \n  vector \n@@ -284,42 +284,38 @@\n     \n-case %22tostr%22:\n+   \n  print(\n-tostr(\n vector)\n-)\n+%0A            \n %0A%0A  \n",
+            "lines": "16"
+        },
+        {
+            "label": "2026-02-19_13-09-29",
+            "content": "@@ -3,371 +3,72 @@\n f to\n-rev(v: list%5Bint%5D, i: int, j: int) -%3E None:%0A    if i %3E= j: return%0A    aux: int = v%5Bi%5D%0A    v%5Bi%5D = v%5Bj%5D%0A    v%5Bj%5D = aux%0A    torev(v, i+1, j-1)%0A%0A# torev returning a new vector%0A# def torev2(v: list%5Bint%5D, i: int) -%3E list%5Bint%5D:%0A#     if i == len(v): return %5B%5D%0A#     last = v%5Blen(v)-1-i%5D%0A#     return %5Blast%5D + torev2(v, i+1)%0A%0Adef main() -%3E None:%0A    vector: list%5Bint%5D = %5B%5D\n+str(v: list%5Bint%5D) -%3E str:%0A    return str(v)%0A%0Adef main() -%3E None:\n %0A   \n@@ -185,16 +185,47 @@\n plit=1)%0A\n+        vector: list%5Bint%5D = %5B%5D%0A\n         \n@@ -371,85 +371,21 @@\n int(\n+tostr(\n vector)\n-%0A            case %22torev%22: torev(vector, 0, len(vector)); print(vector\n )%0A%0A \n",
+            "lines": "18"
+        },
+        {
+            "label": "2026-02-19_15-53-29",
+            "content": "@@ -604,31 +604,8 @@\n it()\n- if len(args)%3E1 else %5B%5D\n ))%0A \n",
+            "lines": "29"
+        },
+        {
+            "label": "2026-02-19_15-54-39",
+            "content": "@@ -720,18 +720,16 @@\n (vector)\n--1\n ); print\n",
+            "lines": "29"
+        },
+        {
+            "label": "2026-02-19_15-56-08",
+            "content": "@@ -340,32 +340,8 @@\n ne:%0A\n-    while True:    %0A    \n     \n@@ -363,16 +363,36 @@\n t%5D = %5B%5D%0A\n+    while True:    %0A\n         \n",
+            "lines": "29"
+        },
+        {
+            "label": "2026-02-19_15-57-19",
+            "content": "@@ -332,24 +332,48 @@\n () -%3E None:%0A\n+    while True:    %0A    \n     vector: \n@@ -387,36 +387,16 @@\n t%5D = %5B%5D%0A\n-    while True:    %0A\n         \n",
+            "lines": "29"
+        },
+        {
+            "label": "2026-02-19_15-57-24",
+            "content": "@@ -1,151 +1,4 @@\n-def reverse(v: list%5Bint%5D, i: int, j:int) -%3E None:%0A    if i %3E= j: return%0A    aux: int = v%5Bi%5D%0A    v%5Bi%5D = v%5Bj%5D%0A    v%5Bj%5D = aux%0A    torev(v, i+1, j-1)%0A%0A\n def \n@@ -742,85 +742,8 @@\n tor)\n-%0A            case %22reverse%22: reverse(vector, 0, len(vector)-1); print(vector)\n %0A%0A  \n",
+            "lines": "29"
+        },
+        {
+            "label": "2026-02-19_16-00-46",
+            "content": "@@ -947,16 +947,31 @@\n ctor)-1)\n+; print(vector)\n %0A%0A      \n",
+            "lines": "37"
+        },
+        {
+            "label": "2026-02-19_16-01-24",
+            "content": "@@ -1,102 +1,4 @@\n-def sum(v: list%5Bint%5D, i: int) -%3E int:%0A    if i == len(v): return 0%0A    return v%5Bi%5D + sum(v, i+1)%0A%0A\n def \n@@ -951,47 +951,8 @@\n )-1)\n-%0A            case %22sum%22: sum(vector, 0)\n %0A%0A  \n",
+            "lines": "37"
+        },
+        {
+            "label": "2026-02-19_16-05-44",
+            "content": "@@ -1084,31 +1084,16 @@\n ctor, 0)\n-; print(vector)\n %0A%0A      \n",
+            "lines": "42"
+        },
+        {
+            "label": "2026-02-19_16-05-55",
+            "content": "@@ -1070,22 +1070,16 @@\n  %22sum%22: \n-print(\n sum(vect\n@@ -1084,16 +1084,30 @@\n ctor, 0)\n+; print(vector\n )%0A%0A     \n",
+            "lines": "42"
+        },
+        {
+            "label": "2026-02-19_16-06-09",
+            "content": "@@ -1,103 +1,4 @@\n-def mult(v: list%5Bint%5D, i: int) -%3E int:%0A    if i == len(v): return 1%0A    return v%5Bi%5D * sum(v, i+1)%0A%0A\n def \n@@ -1095,56 +1095,8 @@\n  0))\n-%0A            case %22mult%22: print(mult(vector, 0))\n %0A%0A  \n",
+            "lines": "42"
+        },
+        {
+            "label": "2026-02-19_16-06-57",
+            "content": "@@ -94,21 +94,8 @@\n i+1)\n-%0A    return 0\n %0A%0Ade\n",
+            "lines": "47"
+        },
+        {
+            "label": "2026-02-19_16-09-51",
+            "content": "@@ -1,226 +1,4 @@\n-def minv(v: list%5Bint%5D, i: int) -%3E int:%0A    if len(v) == 1: return -1%0A    if len(v)-1 == i: return v%5Bi%5D%0A    min_rest = minv(v, i+1)%0A    return min_rest if min_rest %3C v%5Bi%5D else v%5Bi%5D%0A%0A# nao entendi essa funcao, 4*5*6 = 44???%0A\n def \n@@ -86,24 +86,37 @@\n  sum(v, i+1)\n+%0A    return 0\n %0A%0Adef sum(v:\n@@ -1255,56 +1255,8 @@\n  0))\n-%0A            case %22minv%22: print(minv(vector, 0))\n %0A%0A  \n",
+            "lines": "48"
+        },
+        {
+            "label": "2026-02-19_16-25-34",
+            "content": "@@ -66,18 +66,16 @@\n  -1%0A    \n-el\n if len(v\n",
+            "lines": "55"
+        },
+        {
+            "label": "2026-02-19_16-26-11",
+            "content": "@@ -1484,16 +1484,17 @@\n ase %22min\n+v\n %22: print\n",
+            "lines": "55"
+        },
+        {
+            "label": "2026-02-19_18-28-51",
+            "content": "@@ -49,17 +49,17 @@\n n(v) == \n-0\n+1\n : return\n",
+            "lines": "55"
+        },
+        {
+            "label": "2026-02-19_18-29-38",
+            "content": "@@ -97,16 +97,17 @@\n urn \n-i\n+v%5Bi%5D\n %0A    \n-i_\n min_\n@@ -137,18 +137,16 @@\n  return \n-i_\n min_rest\n@@ -153,20 +153,16 @@\n  if \n-v%5Bi_\n min_rest\n %5D %3C \n@@ -157,17 +157,16 @@\n min_rest\n-%5D\n  %3C v%5Bi%5D \n@@ -170,17 +170,20 @@\n i%5D else \n-i\n+v%5Bi%5D\n %0A%0A# nao \n",
+            "lines": "55"
+        },
+        {
+            "label": "2026-02-19_18-36-49",
+            "content": "def minv(v: list[int], i: int) -> int:\n    if len(v) == 0: return -1\n    elif len(v)-1 == i: return i\n    i_min_rest = minv(v, i+1)\n    return i_min_rest if v[i_min_rest] < v[i] else i\n\n# nao entendi essa funcao, 4*5*6 = 44???\ndef mult(v: list[int], i: int) -> int:\n    if i == len(v): return 1\n    return v[i] * sum(v, i+1)\n\ndef sum(v: list[int], i: int) -> int:\n    if i == len(v): return 0\n    return v[i] + sum(v, i+1)\n\ndef reverse(v: list[int], i: int, j:int) -> None:\n    if i >= j: return\n    aux: int = v[i]\n    v[i] = v[j]\n    v[j] = aux\n    torev(v, i+1, j-1)\n\ndef torev(v: list[int], i: int, j: int) -> None:\n    if i >= j: return\n    aux: int = v[i]\n    v[i] = v[j]\n    v[j] = aux\n    torev(v, i+1, j-1)\n\n# torev returning a new vector\n# def torev2(v: list[int], i: int) -> list[int]:\n#     if i == len(v): return []\n#     last = v[len(v)-1-i]\n#     return [last] + torev2(v, i+1)\n\ndef main() -> None:\n    vector: list[int] = []\n    while True:    \n        line: str = input()\n        print(\"$\"+line)\n        args: list[str] = line.split(maxsplit=1)\n        match args[0]:\n            case \"end\": break\n            case \"read\": vector = list(map(int, args[1].split() if len(args)>1 else []))\n            case \"tostr\": print(vector)\n            case \"torev\": torev(vector, 0, len(vector)-1); print(vector)\n            case \"reverse\": reverse(vector, 0, len(vector)-1)\n            case \"sum\": print(sum(vector, 0))\n            case \"mult\": print(mult(vector, 0))\n            case \"min\": print(minv(vector, 0))\n\n        \n\nif __name__ == \"__main__\":\n    main()\n",
+            "lines": "55"
+        }
+    ]
+}
