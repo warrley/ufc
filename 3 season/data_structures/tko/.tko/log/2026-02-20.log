@@ -7,3 +7,9 @@
 2026-02-20 09:52:24, EXEC, v:1, k:ed@resto, mode:FULL, rate:100, size:13
 2026-02-20 09:52:56, MOVE, v:1, k:ed@resto, mode:BACK
 2026-02-20 09:53:04, SELF, v:1, k:ed@resto, rate:100, alone:10
+2026-02-20 10:04:56, MOVE, v:1, k:ed@mdc, mode:DOWN
+2026-02-20 10:23:12, MOVE, v:1, k:ed@mdc, mode:PICK
+2026-02-20 10:23:13, EXEC, v:1, k:ed@mdc, mode:FREE, size:13
+2026-02-20 10:32:39, EXEC, v:1, k:ed@mdc, mode:FULL, rate:100, size:12
+2026-02-20 10:32:48, MOVE, v:1, k:ed@mdc, mode:BACK
+2026-02-20 10:32:54, SELF, v:1, k:ed@mdc, rate:100, alone:10
