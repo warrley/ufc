@@ -1,0 +1,39 @@
+{
+    "patches": [
+        {
+            "label": "2026-02-20_10-56-47",
+            "content": "@@ -45,28 +45,8 @@\n ne:%0A\n-    # print(num, i)%0A\n     \n@@ -83,36 +83,36 @@\n     \n-return True if num == i else\n+if num == i: return True%0A   \n  pri\n",
+            "lines": "11"
+        },
+        {
+            "label": "2026-02-20_11-00-44",
+            "content": "@@ -44,16 +44,18 @@\n one:%0A   \n+ #\n  print(n\n@@ -84,20 +84,8 @@\n == 0\n- or num == 1\n : re\n",
+            "lines": "11"
+        },
+        {
+            "label": "2026-02-20_11-01-54",
+            "content": "@@ -48,10 +48,8 @@\n %0A   \n- #\n  pri\n",
+            "lines": "11"
+        },
+        {
+            "label": "2026-02-20_11-02-00",
+            "content": "@@ -211,14 +211,14 @@\n %0A   \n-res = \n+print(\n prim\n@@ -227,48 +227,8 @@\n num)\n-%0A   print(%22false%22 if not res else %22true%22\n )%0A%0Ai\n",
+            "lines": "11"
+        },
+        {
+            "label": "2026-02-20_11-02-45",
+            "content": "@@ -85,20 +85,19 @@\n = 0 \n-and\n+or\n  num \n-!= i\n+== 1\n : re\n",
+            "lines": "12"
+        },
+        {
+            "label": "2026-02-20_11-04-52",
+            "content": "@@ -68,17 +68,16 @@\n %0A    if \n-(\n num %25 i \n@@ -97,21 +97,8 @@\n != i\n-) or num == 1\n : re\n",
+            "lines": "12"
+        },
+        {
+            "label": "2026-02-20_11-05-14",
+            "content": "def prime(num: int, i: int = 2) -> bool | None:\n    # print(num, i)\n    if (num % i == 0 and num != i) or num == 1: return False\n    return True if num == i else prime(num, i+1)\n\ndef main() -> None:\n   num: int = int(input())\n   res = prime(num)\n   print(\"false\" if not res else \"true\")\n\nif __name__ == \"__main__\":\n    main()",
+            "lines": "12"
+        }
+    ]
+}

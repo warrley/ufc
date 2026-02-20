@@ -13,3 +13,16 @@
 2026-02-20 10:32:39, EXEC, v:1, k:ed@mdc, mode:FULL, rate:100, size:12
 2026-02-20 10:32:48, MOVE, v:1, k:ed@mdc, mode:BACK
 2026-02-20 10:32:54, SELF, v:1, k:ed@mdc, rate:100, alone:10
+2026-02-20 10:42:36, MOVE, v:1, k:ed@eh_primo, mode:DOWN
+2026-02-20 10:56:46, MOVE, v:1, k:ed@eh_primo, mode:PICK
+2026-02-20 10:56:47, EXEC, v:1, k:ed@eh_primo, mode:FREE, size:11
+2026-02-20 11:00:44, EXEC, v:1, k:ed@eh_primo, mode:FULL, rate:0, size:11
+2026-02-20 11:00:47, EXEC, v:1, k:ed@eh_primo, mode:FULL, rate:0
+2026-02-20 11:01:54, EXEC, v:1, k:ed@eh_primo, mode:FULL, rate:0, size:11
+2026-02-20 11:02:00, EXEC, v:1, k:ed@eh_primo, mode:FULL, rate:0, size:11
+2026-02-20 11:02:45, EXEC, v:1, k:ed@eh_primo, mode:FULL, rate:44, size:12
+2026-02-20 11:03:02, EXEC, v:1, k:ed@eh_primo, mode:FREE
+2026-02-20 11:04:52, EXEC, v:1, k:ed@eh_primo, mode:FULL, rate:0, size:12
+2026-02-20 11:05:14, EXEC, v:1, k:ed@eh_primo, mode:FULL, rate:100, size:12
+2026-02-20 11:05:17, MOVE, v:1, k:ed@eh_primo, mode:BACK
+2026-02-20 11:05:27, SELF, v:1, k:ed@eh_primo, rate:100, alone:10

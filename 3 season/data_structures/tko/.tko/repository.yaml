@@ -38,6 +38,7 @@ tasks:
   ed@treinando: '{rate:83, other:1, alone:9}'
   ed@resto: '{rate:100, alone:10}'
   ed@mdc: '{rate:100, alone:10}'
+  ed@eh_primo: '{rate:100, alone:10}'
   ed@queimada: '{rate:100, guide:1, alone:6}'
 flags:
   quests: 1
@@ -46,4 +47,4 @@ flags:
   graph: 1
   xray: 0
 lang: py
-selected: ed@mdc
+selected: ed@eh_primo
