@@ -26,3 +26,11 @@
 2026-02-20 11:05:14, EXEC, v:1, k:ed@eh_primo, mode:FULL, rate:100, size:12
 2026-02-20 11:05:17, MOVE, v:1, k:ed@eh_primo, mode:BACK
 2026-02-20 11:05:27, SELF, v:1, k:ed@eh_primo, rate:100, alone:10
+2026-02-20 11:08:07, MOVE, v:1, k:ed@enesimo, mode:DOWN
+2026-02-20 11:31:07, MOVE, v:1, k:ed@enesimo, mode:PICK
+2026-02-20 11:31:08, EXEC, v:1, k:ed@enesimo, mode:FREE, size:15
+2026-02-20 11:34:58, EXEC, v:1, k:ed@enesimo, mode:FULL, rate:0, size:16
+2026-02-20 11:35:04, EXEC, v:1, k:ed@enesimo, mode:FULL, rate:100, size:16
+2026-02-20 11:35:05, EXEC, v:1, k:ed@enesimo, mode:FULL, rate:100
+2026-02-20 11:44:20, MOVE, v:1, k:ed@enesimo, mode:BACK
+2026-02-20 11:44:28, SELF, v:1, k:ed@enesimo, rate:100, alone:10
