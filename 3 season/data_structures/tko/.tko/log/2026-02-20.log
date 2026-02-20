@@ -45,3 +45,19 @@
 2026-02-20 12:12:43, MOVE, v:1, k:ed@fractais, mode:BACK
 2026-02-20 12:12:59, SELF, v:1, k:ed@fractais
 2026-02-20 12:13:00, MOVE, v:1, k:ed@fractais_png, mode:DOWN
+2026-02-20 12:15:31, MOVE, v:1, k:ed@vetequals, mode:DOWN
+2026-02-20 12:17:34, MOVE, v:1, k:ed@vetequals, mode:PICK
+2026-02-20 12:17:34, EXEC, v:1, k:ed@vetequals, mode:FREE, size:4
+2026-02-20 12:46:07, EXEC, v:1, k:ed@vetequals, mode:FULL, rate:70, size:15
+2026-02-20 12:47:58, EXEC, v:1, k:ed@vetequals, mode:FULL, rate:40, size:16
+2026-02-20 12:48:05, EXEC, v:1, k:ed@vetequals, mode:FULL, rate:40
+2026-02-20 12:48:16, EXEC, v:1, k:ed@vetequals, mode:FULL, rate:60, size:16
+2026-02-20 12:49:22, EXEC, v:1, k:ed@vetequals, mode:FULL, rate:0, size:17
+2026-02-20 12:49:48, EXEC, v:1, k:ed@vetequals, mode:FULL, rate:0, size:17
+2026-02-20 12:50:53, EXEC, v:1, k:ed@vetequals, mode:FULL, rate:0, size:18
+2026-02-20 12:51:30, EXEC, v:1, k:ed@vetequals, mode:FULL, rate:0, size:19
+2026-02-20 13:03:19, EXEC, v:1, k:ed@vetequals, mode:FULL, rate:10, size:24
+2026-02-20 13:03:28, EXEC, v:1, k:ed@vetequals, mode:FULL, rate:100, size:24
+2026-02-20 13:03:32, MOVE, v:1, k:ed@vetequals, mode:BACK
+2026-02-20 13:03:57, SELF, v:1, k:ed@vetequals, rate:100, other:uso_do_exception, alone:8
+2026-02-20 13:04:01, MOVE, v:1, k:ed@priminhos, mode:DOWN
