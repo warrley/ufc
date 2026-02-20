@@ -1,0 +1,9 @@
+2026-02-20 09:40:09, MOVE, v:1, k:ed@queimada, mode:PICK
+2026-02-20 09:40:10, MOVE, v:1, k:ed@queimada, mode:BACK
+2026-02-20 09:40:31, SELF, v:1, k:ed@queimada, rate:100, guide:1, alone:6
+2026-02-20 09:40:54, MOVE, v:1, k:ed@resto, mode:DOWN
+2026-02-20 09:47:18, MOVE, v:1, k:ed@resto, mode:PICK
+2026-02-20 09:47:18, EXEC, v:1, k:ed@resto, mode:FREE, size:12
+2026-02-20 09:52:24, EXEC, v:1, k:ed@resto, mode:FULL, rate:100, size:13
+2026-02-20 09:52:56, MOVE, v:1, k:ed@resto, mode:BACK
+2026-02-20 09:53:04, SELF, v:1, k:ed@resto, rate:100, alone:10

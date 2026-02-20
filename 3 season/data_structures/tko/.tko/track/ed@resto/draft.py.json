@@ -1,0 +1,14 @@
+{
+    "patches": [
+        {
+            "label": "2026-02-20_09-47-18",
+            "content": "@@ -30,17 +30,39 @@\n ne:%0A    \n-#\n+if num == 0: return%0A   \n  quotien\n@@ -84,10 +84,8 @@\n %0A   \n- #\n  res\n@@ -103,32 +103,8 @@\n m%252%0A\n-    if num == 0: return%0A\n     \n@@ -113,22 +113,24 @@\n eak_num(\n-num//2\n+quotient\n )%0A    pr\n@@ -140,18 +140,14 @@\n (num\n-//2, num%252\n+, rest\n )%0A%0Ad\n@@ -196,27 +196,8 @@\n t())\n-%0A    break_num(num)\n %0A%0Aif\n",
+            "lines": "12"
+        },
+        {
+            "label": "2026-02-20_09-52-24",
+            "content": "def break_num(num: int) -> None:\n    # quotient: int = num//2\n    # rest: int = num%2\n    if num == 0: return\n    break_num(num//2)\n    print(num//2, num%2)\n\ndef main() -> None:\n    num: int = int(input())\n    break_num(num)\n\nif __name__ == \"__main__\":\n    main()",
+            "lines": "13"
+        }
+    ]
+}
