@@ -18,7 +18,6 @@ expanded:
 - ed@side-quests
 - ed@main-quest
 - ed@recursão
-- ed@busca-em-profundidade
 tasks:
   ed@pintando: '{rate:100, alone:10}'
   ed@mumia: '{rate:100, other:1, alone:10}'
@@ -48,4 +47,4 @@ flags:
   graph: 1
   xray: 0
 lang: py
-selected: ed@deque-pilha-e-fila
+selected: ed@fractais_png

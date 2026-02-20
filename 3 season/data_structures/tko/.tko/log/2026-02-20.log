@@ -34,3 +34,14 @@
 2026-02-20 11:35:05, EXEC, v:1, k:ed@enesimo, mode:FULL, rate:100
 2026-02-20 11:44:20, MOVE, v:1, k:ed@enesimo, mode:BACK
 2026-02-20 11:44:28, SELF, v:1, k:ed@enesimo, rate:100, alone:10
+2026-02-20 12:11:37, MOVE, v:1, k:ed@fractais, mode:DOWN
+2026-02-20 12:12:36, MOVE, v:1, k:ed@fractais, mode:PICK
+2026-02-20 12:12:36, EXEC, v:1, k:ed@fractais, mode:LOCK, rate:100, size:1
+2026-02-20 12:12:37, EXEC, v:1, k:ed@fractais, mode:LOCK, rate:100
+2026-02-20 12:12:38, EXEC, v:1, k:ed@fractais, mode:LOCK, rate:100
+2026-02-20 12:12:38, EXEC, v:1, k:ed@fractais, mode:LOCK, rate:100
+2026-02-20 12:12:39, EXEC, v:1, k:ed@fractais, mode:LOCK, rate:100
+2026-02-20 12:12:39, EXEC, v:1, k:ed@fractais, mode:LOCK, rate:100
+2026-02-20 12:12:43, MOVE, v:1, k:ed@fractais, mode:BACK
+2026-02-20 12:12:59, SELF, v:1, k:ed@fractais
+2026-02-20 12:13:00, MOVE, v:1, k:ed@fractais_png, mode:DOWN
