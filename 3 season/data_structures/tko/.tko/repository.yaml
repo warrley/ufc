@@ -18,6 +18,7 @@ expanded:
 - ed@side-quests
 - ed@main-quest
 - ed@recursão
+- ed@busca-em-profundidade
 tasks:
   ed@pintando: '{rate:100, alone:10}'
   ed@mumia: '{rate:100, other:1, alone:10}'
@@ -34,6 +35,8 @@ tasks:
   ed@rotacoes: '{rate:100, alone:10}'
   ed@alternando: '{rate:100, alone:10}'
   ed@triangulo: '{rate:100, iagen:1, other:1, alone:8}'
+  ed@treinando: '{rate:83, other:1, alone:9}'
+  ed@queimada: '{rate:100}'
 flags:
   quests: 1
   tracks: 1
@@ -41,4 +44,4 @@ flags:
   graph: 1
   xray: 0
 lang: py
-selected: ed@treinando
+selected: ed@recursão
