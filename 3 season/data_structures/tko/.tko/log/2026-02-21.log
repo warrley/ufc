@@ -11,3 +11,12 @@
 2026-02-21 14:23:19, MOVE, v:1, k:ed@ilhas, mode:BACK
 2026-02-21 14:23:44, SELF, v:1, k:ed@ilhas, rate:100, guide:video_disponibilizado, alone:4
 2026-02-21 14:23:54, MOVE, v:1, k:ed@cercado, mode:DOWN
+2026-02-21 14:24:27, MOVE, v:1, k:ed@cercado, mode:DOWN
+2026-02-21 14:31:14, MOVE, v:1, k:ed@cercado, mode:PICK
+2026-02-21 14:31:15, EXEC, v:1, k:ed@cercado, mode:FREE, size:12
+2026-02-21 15:19:03, EXEC, v:1, k:ed@cercado, mode:FULL, rate:33, size:41
+2026-02-21 15:19:24, EXEC, v:1, k:ed@cercado, mode:FULL, rate:100, size:41
+2026-02-21 15:19:24, EXEC, v:1, k:ed@cercado, mode:FULL, rate:100, size:41
+2026-02-21 15:28:00, EXEC, v:1, k:ed@cercado, mode:FULL, rate:100, size:41
+2026-02-21 15:28:01, MOVE, v:1, k:ed@cercado, mode:BACK
+2026-02-21 15:28:10, SELF, v:1, k:ed@cercado, rate:100, guide:1, alone:10

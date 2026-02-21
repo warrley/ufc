@@ -48,6 +48,7 @@ tasks:
   ed@dfs_bfs_bak: '{rate:100, guide:o_video_linkado}'
   ed@queimada: '{rate:100, guide:1, alone:7}'
   ed@ilhas: '{rate:100, guide:video_disponibilizado, alone:4}'
+  ed@cercado: '{rate:100, guide:1, alone:10}'
 flags:
   quests: 1
   tracks: 1
@@ -55,4 +56,4 @@ flags:
   graph: 1
   xray: 0
 lang: py
-selected: ed@cercado
+selected: ed@pintura
