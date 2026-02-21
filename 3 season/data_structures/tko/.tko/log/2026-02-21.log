@@ -20,3 +20,9 @@
 2026-02-21 15:28:00, EXEC, v:1, k:ed@cercado, mode:FULL, rate:100, size:41
 2026-02-21 15:28:01, MOVE, v:1, k:ed@cercado, mode:BACK
 2026-02-21 15:28:10, SELF, v:1, k:ed@cercado, rate:100, guide:1, alone:10
+2026-02-21 15:28:58, MOVE, v:1, k:ed@labirinto, mode:DOWN
+2026-02-21 15:31:28, MOVE, v:1, k:ed@labirinto, mode:PICK
+2026-02-21 15:31:29, EXEC, v:1, k:ed@labirinto, mode:FREE, size:11
+2026-02-21 16:08:43, EXEC, v:1, k:ed@labirinto, mode:FULL, rate:100, size:40
+2026-02-21 16:08:50, MOVE, v:1, k:ed@labirinto, mode:BACK
+2026-02-21 16:09:10, SELF, v:1, k:ed@labirinto, rate:100, guide:video_do_canal, alone:10
