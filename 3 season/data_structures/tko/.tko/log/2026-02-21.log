@@ -26,3 +26,18 @@
 2026-02-21 16:08:43, EXEC, v:1, k:ed@labirinto, mode:FULL, rate:100, size:40
 2026-02-21 16:08:50, MOVE, v:1, k:ed@labirinto, mode:BACK
 2026-02-21 16:09:10, SELF, v:1, k:ed@labirinto, rate:100, guide:video_do_canal, alone:10
+2026-02-21 16:10:26, MOVE, v:1, k:ed@pintura, mode:DOWN
+2026-02-21 16:20:39, MOVE, v:1, k:ed@pintura, mode:PICK
+2026-02-21 16:20:39, EXEC, v:1, k:ed@pintura, mode:FREE, size:32
+2026-02-21 16:36:42, EXEC, v:1, k:ed@pintura, mode:FULL, rate:0, size:43
+2026-02-21 16:36:58, EXEC, v:1, k:ed@pintura, mode:FULL, rate:50, size:43
+2026-02-21 16:37:42, EXEC, v:1, k:ed@pintura, mode:FULL, rate:100, size:43
+2026-02-21 16:38:10, MOVE, v:1, k:ed@pintura, mode:BACK
+2026-02-21 16:38:17, SELF, v:1, k:ed@pintura, rate:100, alone:10
+2026-02-21 16:43:54, MOVE, v:1, k:ed@longest, mode:DOWN
+2026-02-21 16:43:55, MOVE, v:1, k:ed@longest, mode:PICK
+2026-02-21 16:43:56, MOVE, v:1, k:ed@longest, mode:BACK
+2026-02-21 16:44:12, MOVE, v:1, k:ed@pintura, mode:PICK
+2026-02-21 16:44:12, EXEC, v:1, k:ed@pintura, mode:FULL, rate:100, size:42
+2026-02-21 16:48:15, EXEC, v:1, k:ed@pintura, mode:FULL, rate:100, size:57
+2026-02-21 16:48:21, MOVE, v:1, k:ed@pintura, mode:BACK
