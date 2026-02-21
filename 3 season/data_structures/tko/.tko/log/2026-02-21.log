@@ -1,0 +1,13 @@
+2026-02-21 13:52:14, MOVE, v:1, k:ed@ilhas, mode:PICK
+2026-02-21 13:52:18, EXEC, v:1, k:ed@ilhas, mode:FREE, size:13
+2026-02-21 13:56:54, MOVE, v:1, k:ed@ilhas, mode:BACK
+2026-02-21 14:11:28, MOVE, v:1, k:ed@fractais, mode:PICK
+2026-02-21 14:11:30, MOVE, v:1, k:ed@fractais, mode:BACK
+2026-02-21 14:11:37, MOVE, v:1, k:ed@ilhas, mode:PICK
+2026-02-21 14:11:38, EXEC, v:1, k:ed@ilhas, mode:FREE, size:32
+2026-02-21 14:18:45, MOVE, v:1, k:ed@ilhas, mode:BACK
+2026-02-21 14:23:17, MOVE, v:1, k:ed@ilhas, mode:PICK
+2026-02-21 14:23:17, EXEC, v:1, k:ed@ilhas, mode:FULL, rate:100, size:33
+2026-02-21 14:23:19, MOVE, v:1, k:ed@ilhas, mode:BACK
+2026-02-21 14:23:44, SELF, v:1, k:ed@ilhas, rate:100, guide:video_disponibilizado, alone:4
+2026-02-21 14:23:54, MOVE, v:1, k:ed@cercado, mode:DOWN

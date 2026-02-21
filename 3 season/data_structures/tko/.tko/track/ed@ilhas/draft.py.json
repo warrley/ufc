@@ -1,0 +1,29 @@
+{
+    "patches": [
+        {
+            "label": "2026-02-20_16-25-53",
+            "content": "@@ -1,262 +1,4 @@\n-def find_land(matrix: list%5Blist%5Bstr%5D%5D, k: int = 0, l: int = 0) -%3E tuple %7C None:%0A    if k == len(matrix): return None%0A    if l == len(matrix%5B0%5D): return find_land(matrix, k+1, 0)%0A    if matrix%5Bk%5D%5Bl%5D == %221%22: return (k, l)%0A    return find_land(matrix, k, l+1)%0A%0A\n def \n@@ -32,41 +32,8 @@\n tr%5D%5D\n-,  i: int, j: int, count: int = 0\n ) -%3E\n@@ -52,17 +52,16 @@\n int(\n-*\n matrix)%0A\n     \n@@ -56,16 +56,17 @@\n matrix)%0A\n+%0A\n     retu\n@@ -100,18 +100,11 @@\n    r\n-ows, cols0\n+, c\n  = m\n@@ -193,19 +193,14 @@\n ge(r\n-ows\n )%5D%0A   \n- #\n  isl\n@@ -214,42 +214,8 @@\n trix\n-, 0,0)%0A    print(find_land(matrix)\n )%0A%0Ai\n",
+            "lines": "12"
+        },
+        {
+            "label": "2026-02-20_17-12-11",
+            "content": "@@ -1,49 +1,288 @@\n-from typing import List%0A%0Adef search(m: L\n+def find_land(matrix: list%5Blist%5Bstr%5D%5D, k: int = 0, l: int = 0) -%3E tuple %7C None:%0A    if k == len(matrix): return None%0A    if l == len(matrix%5B0%5D): return find_land(matrix, k+1, 0)%0A    if matrix%5Bk%5D%5Bl%5D == %221%22: return (k, l)%0A    return find_land(matrix, k, l+1)%0A%0Adef islands(matrix: l\n ist%5B\n-L\n+l\n ist%5B\n@@ -287,16 +287,17 @@\n t%5Bstr%5D%5D,\n+ \n  i: int,\n@@ -307,17 +307,32 @@\n  int\n+, count: int = 0\n ) -%3E \n-bool\n+int\n :%0A  \n@@ -339,17 +339,23 @@\n   print(\n-m\n+*matrix\n )%0A    re\n@@ -363,13 +363,9 @@\n urn \n-False\n+0\n %0A%0Ade\n@@ -381,17 +381,16 @@\n -%3E None:\n- \n %0A    row\n@@ -399,12 +399,10 @@\n  col\n-umn\n s\n+0\n  = m\n@@ -442,14 +442,14 @@\n ix: \n-L\n+l\n ist%5B\n-L\n+l\n ist%5B\n@@ -465,17 +465,17 @@\n list\n-%5B\n+(\n input()\n-%5D\n+)\n  for\n@@ -501,14 +501,17 @@\n     \n-search\n+# islands\n (mat\n@@ -517,18 +517,46 @@\n trix, 0,\n- \n 0\n+)%0A    print(find_land(matrix)\n )%0A%0Aif __\n",
+            "lines": "18"
+        },
+        {
+            "label": "2026-02-21_13-52-18",
+            "content": "@@ -27,340 +27,88 @@\n ef s\n-how(m):%0A    for row in m:%0A        print(*row)%0A%0Adef search(m: List%5BList%5Bstr%5D%5D, i: int, j: int) -%3E None:%0A    if i %3C 0 or i %3E= len(m) or j %3C 0 or j %3E= len(m%5B0%5D) or m%5Bi%5D%5Bj%5D == %220%22 or m%5Bi%5D%5Bj%5D == %222%22: return %0A        %0A    m%5Bi%5D%5Bj%5D == %222%22%0A%0A    print(m)%0A    search(m, i+1, j)%0A    search(m, i-1, j)%0A    search(m, i, j-1)%0A    search(m, i, j+1)\n+earch(m: List%5BList%5Bstr%5D%5D, i: int, j: int) -%3E bool:%0A    print(m)%0A    return False\n %0A%0Ade\n@@ -211,17 +211,17 @@\n list\n-(\n+%5B\n input()\n-)\n+%5D\n  for\n@@ -243,145 +243,8 @@\n s)%5D%0A\n-%0A    # count: int = 0%0A    # for i in range(rows):%0A    #     for j in range(columns):%0A    #         if matrix%5Bi%5D%5Bj%5D == %221%22:%0A    #         \n     \n@@ -262,59 +262,12 @@\n ix, \n-i, j)%0A    #             count += 1%0A%0A    show(matrix\n+0, 0\n )%0A%0Ai\n",
+            "lines": "13"
+        },
+        {
+            "label": "2026-02-21_14-11-38",
+            "content": "@@ -214,17 +214,17 @@\n %5Bj%5D == %22\n-x\n+2\n %22: retur\n@@ -252,41 +252,26 @@\n j%5D =\n+=\n  %22\n-x\n+2\n %22%0A\n-    # show(m)\n %0A   \n- #\n  print(\n-%22%22\n+m\n )%0A  \n@@ -495,16 +495,18 @@\n s)%5D%0A%0A   \n+ #\n  count: \n@@ -512,24 +512,26 @@\n  int = 0%0A   \n+ #\n  for i in ra\n@@ -545,20 +545,22 @@\n s):%0A    \n+#\n     \n+ \n for j in\n@@ -575,24 +575,26 @@\n olumns):%0A   \n+ #\n          if \n@@ -614,24 +614,25 @@\n == %221%22:%0A    \n+#\n             \n@@ -627,24 +627,25 @@\n             \n+ \n search(matri\n@@ -652,24 +652,26 @@\n x, i, j)%0A   \n+ #\n             \n@@ -691,24 +691,19 @@\n     \n-%0A    print(count\n+show(matrix\n )%0A%0Ai\n",
+            "lines": "32"
+        },
+        {
+            "label": "2026-02-21_14-23-17",
+            "content": "from typing import List\n\ndef show(m):\n    for row in m:\n        print(*row)\n\ndef search(m: List[List[str]], i: int, j: int) -> None:\n    if i < 0 or i >= len(m) or j < 0 or j >= len(m[0]) or m[i][j] == \"0\" or m[i][j] == \"x\": return \n        \n    m[i][j] = \"x\"\n    # show(m)\n    # print(\"\")\n    search(m, i+1, j)\n    search(m, i-1, j)\n    search(m, i, j-1)\n    search(m, i, j+1)\n\ndef main() -> None: \n    rows, columns = map(int, input().split())\n    matrix: List[List[str]] = [list(input()) for _ in range(rows)]\n\n    count: int = 0\n    for i in range(rows):\n        for j in range(columns):\n            if matrix[i][j] == \"1\":\n                search(matrix, i, j)\n                count += 1\n\n    \n    print(count)\n\nif __name__ == \"__main__\":\n    main()",
+            "lines": "33"
+        }
+    ]
+}

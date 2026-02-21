@@ -76,3 +76,10 @@
 2026-02-20 16:07:20, SELF, v:1, k:ed@queimada, rate:100, guide:1, alone:5
 2026-02-20 16:07:23, SELF, v:1, k:ed@queimada, rate:100, guide:1, alone:6
 2026-02-20 16:07:26, SELF, v:1, k:ed@queimada, rate:100, guide:1, alone:7
+2026-02-20 16:19:24, MOVE, v:1, k:ed@ilhas, mode:DOWN
+2026-02-20 16:19:54, SELF, v:1, k:ed@dfs_bfs_bak, rate:100, guide:o_video_linkado
+2026-02-20 16:19:56, MOVE, v:1, k:ed@ilhas, mode:PICK
+2026-02-20 16:25:53, EXEC, v:1, k:ed@ilhas, mode:FREE, size:12
+2026-02-20 16:38:01, MOVE, v:1, k:ed@ilhas, mode:BACK
+2026-02-20 17:12:10, MOVE, v:1, k:ed@ilhas, mode:PICK
+2026-02-20 17:12:11, EXEC, v:1, k:ed@ilhas, mode:FREE, size:18
