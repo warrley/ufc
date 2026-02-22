@@ -12,7 +12,7 @@ sources:
   type: clone
   branch: master
   cache_path: ''
-  cache_timestamp: '2026-02-21 18:31:17'
+  cache_timestamp: '2026-02-21 21:09:13'
   filters: null
 expanded:
 - ed@main-quest
@@ -52,6 +52,7 @@ tasks:
   ed@pintura: '{rate:100, alone:10}'
   ed@longest: '{rate:100, iagen:explicacao_de_ideias, guide:explicacao_da_ideia_da_questao,
     alone:5}'
+  ed@battleship: '{rate:100, alone:10}'
 flags:
   quests: 2
   tracks: 0

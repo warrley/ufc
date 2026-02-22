@@ -51,3 +51,11 @@
 2026-02-21 21:05:40, EXEC, v:1, k:ed@longest, mode:FULL, rate:100, size:33
 2026-02-21 21:08:11, MOVE, v:1, k:ed@longest, mode:BACK
 2026-02-21 21:08:55, SELF, v:1, k:ed@longest, rate:100, iagen:explicacao_de_ideias, guide:explicacao_da_ideia_da_questao, alone:5
+2026-02-21 21:09:16, MOVE, v:1, k:ed@battleship, mode:DOWN
+2026-02-21 21:13:07, MOVE, v:1, k:ed@battleship, mode:PICK
+2026-02-21 21:13:07, EXEC, v:1, k:ed@battleship, mode:FREE, size:14
+2026-02-21 21:30:13, EXEC, v:1, k:ed@battleship, mode:FULL, rate:100, size:28
+2026-02-21 21:30:17, MOVE, v:1, k:ed@battleship, mode:BACK
+2026-02-21 21:30:21, SELF, v:1, k:ed@battleship, rate:100, alone:10
+2026-02-21 21:30:23, MOVE, v:1, k:ed@battleship, mode:PICK
+2026-02-21 21:30:26, MOVE, v:1, k:ed@battleship, mode:BACK
