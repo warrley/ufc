@@ -12,7 +12,7 @@ sources:
   type: clone
   branch: master
   cache_path: ''
-  cache_timestamp: '2026-02-22 12:14:09'
+  cache_timestamp: '2026-02-22 15:03:03'
   filters: null
 expanded:
 - ed@main-quest
@@ -55,11 +55,12 @@ tasks:
   ed@battleship: '{rate:100, alone:10}'
   ed@rotten: '{rate:100, guide:ideia_do_bfs, alone:7}'
   ed@caminho: '{rate:100, alone:10}'
+  ed@detonate: '{rate:100, guide:ideias_de_como_aplicar_o_bfs, alone:7}'
 flags:
   quests: 2
   tracks: 0
   tasks: 0
-  graph: 0
+  graph: 1
   xray: 0
 lang: py
 selected: ed@detonate
