@@ -14,3 +14,21 @@
 2026-02-22 09:14:28, EXEC, v:1, k:ed@rotten, mode:FULL, rate:100, size:58
 2026-02-22 09:14:29, MOVE, v:1, k:ed@rotten, mode:BACK
 2026-02-22 09:14:46, SELF, v:1, k:ed@rotten, rate:100, guide:ideia_do_bfs, alone:7
+2026-02-22 09:19:25, MOVE, v:1, k:ed@caminho, mode:DOWN
+2026-02-22 09:26:52, MOVE, v:1, k:ed@caminho, mode:PICK
+2026-02-22 09:26:52, EXEC, v:1, k:ed@caminho, mode:FREE, size:11
+2026-02-22 09:33:16, MOVE, v:1, k:ed@caminho, mode:BACK
+2026-02-22 09:34:07, MOVE, v:1, k:ed@caminho, mode:PICK
+2026-02-22 09:34:08, EXEC, v:1, k:ed@caminho, mode:FREE, size:27
+2026-02-22 11:13:12, MOVE, v:1, k:ed@caminho, mode:PICK
+2026-02-22 11:13:12, EXEC, v:1, k:ed@caminho, mode:FREE, size:50
+2026-02-22 12:14:15, MOVE, v:1, k:ed@caminho, mode:PICK
+2026-02-22 12:14:17, EXEC, v:1, k:ed@caminho, mode:FREE, size:56
+2026-02-22 12:16:11, EXEC, v:1, k:ed@caminho, mode:FULL, rate:16
+2026-02-22 12:16:42, EXEC, v:1, k:ed@caminho, mode:FREE
+2026-02-22 12:20:49, MOVE, v:1, k:ed@caminho, mode:PICK
+2026-02-22 12:20:49, EXEC, v:1, k:ed@caminho, mode:FREE, size:56
+2026-02-22 12:23:12, EXEC, v:1, k:ed@caminho, mode:FREE, size:57
+2026-02-22 12:34:39, EXEC, v:1, k:ed@caminho, mode:FULL, rate:100, size:53
+2026-02-22 12:34:40, MOVE, v:1, k:ed@caminho, mode:BACK
+2026-02-22 12:34:51, SELF, v:1, k:ed@caminho, rate:100, alone:10
