@@ -12,11 +12,12 @@ sources:
   type: clone
   branch: master
   cache_path: ''
-  cache_timestamp: '2026-02-21 16:38:32'
+  cache_timestamp: '2026-02-21 18:31:17'
   filters: null
 expanded:
-- ed@side-quests
 - ed@main-quest
+- ed@recursão-extra
+- ed@pilha-e-fila
 - ed@busca-em-profundidade
 tasks:
   ed@pintando: '{rate:100, alone:10}'
@@ -49,11 +50,13 @@ tasks:
   ed@cercado: '{rate:100, guide:1, alone:10}'
   ed@labirinto: '{rate:100, guide:video_do_canal, alone:10}'
   ed@pintura: '{rate:100, alone:10}'
+  ed@longest: '{rate:100, iagen:explicacao_de_ideias, guide:explicacao_da_ideia_da_questao,
+    alone:5}'
 flags:
-  quests: 1
-  tracks: 1
+  quests: 2
+  tracks: 0
   tasks: 0
   graph: 0
   xray: 0
 lang: py
-selected: ed@pintura
+selected: ed@longest

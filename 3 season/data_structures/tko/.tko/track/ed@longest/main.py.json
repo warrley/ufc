@@ -1,0 +1,19 @@
+{
+    "patches": [
+        {
+            "label": "2026-02-21_18-58-15",
+            "content": "@@ -35,16 +35,24 @@\n , j: int\n+, lenght\n  = 0) -%3E\n@@ -58,16 +58,16 @@\n %3E None:%0A\n-\n %09if i %3C \n@@ -119,17 +119,18 @@\n return %0A\n+%09\n %0A\n-\n %0Adef lon\n@@ -187,82 +187,18 @@\n : %0A%09\n-lens = %5B%5B0 for _ in range(matrix%5B0%5D)%5D for _ in range(matrix)%5D%0A%09print(lens)\n+_ = matrix\n %0A%09re\n",
+            "lines": "17"
+        },
+        {
+            "label": "2026-02-21_20-37-32",
+            "content": "@@ -25,64 +25,35 @@\n %5D%5D, \n-lens: list%5Blist%5Bint%5D%5D, prev\n+i\n : int, \n-i\n+j\n : int\n-, j: int\n+ = 0\n ) -%3E \n-int\n+None\n :%0A%09i\n@@ -72,17 +72,17 @@\n  %3C 0 or \n-i\n+j\n  %3E= len(\n@@ -105,292 +105,17 @@\n %5B0%5D)\n- or m%5Bi%5D%5Bj%5D %3C= prev: return 0%0A%09if lens%5Bi%5D%5Bj%5D != 0: return lens%5Bi%5D%5Bj%5D%0A%0A%09d = dfs(m, lens, m%5Bi%5D%5Bj%5D, i+1, j)%0A%09u = dfs(m, lens, m%5Bi%5D%5Bj%5D, i-1, j)%0A%09l = dfs(m, lens, m%5Bi%5D%5Bj%5D, i, j-1)%0A%09r = dfs(m, lens, m%5Bi%5D%5Bj%5D, i, j+1)%0A%0A%09max_len: int = 1 + max(d, u, l, r)%0A%09lens%5Bi%5D%5Bj%5D = max_len%0A%09return max_len\n+: return \n %0A%0A%0Ad\n@@ -182,49 +182,14 @@\n lens\n-: list%5Blist%5Bint%5D%5D = %5B%5B0%5D * len(matrix%5B0%5D)\n+ = %5B%5B0\n  for\n@@ -204,46 +204,25 @@\n nge(\n-len(\n matrix\n-))%5D%0A%09max_len: int = 0%0A%09\n+%5B0%5D)%5D \n for \n-i\n+_\n  in \n@@ -231,116 +231,18 @@\n nge(\n-len(\n matrix)\n-):%0A%09%09for j in range(len(matrix%5B0%5D)):%0A%09%09%09max_len = max(max_len, dfs(matrix, lens, -1, i, j))%0A%09%0A%09# \n+%5D%0A%09\n prin\n@@ -261,15 +261,9 @@\n urn \n-max_len\n+0\n %0A%0A# \n",
+            "lines": "18"
+        },
+        {
+            "label": "2026-02-21_21-05-40",
+            "content": "def dfs(m: list[list[int]], lens: list[list[int]], prev: int, i: int, j: int) -> int:\n\tif i < 0 or j < 0 or i >= len(m) or j >= len(m[0]) or m[i][j] <= prev: return 0\n\tif lens[i][j] != 0: return lens[i][j]\n\n\td = dfs(m, lens, m[i][j], i+1, j)\n\tu = dfs(m, lens, m[i][j], i-1, j)\n\tl = dfs(m, lens, m[i][j], i, j-1)\n\tr = dfs(m, lens, m[i][j], i, j+1)\n\n\tmax_len: int = 1 + max(d, u, l, r)\n\tlens[i][j] = max_len\n\treturn max_len\n\n\ndef longestIncreasingPath(matrix: list[list[int]]) -> int: \n\tlens: list[list[int]] = [[0] * len(matrix[0]) for _ in range(len(matrix))]\n\tmax_len: int = 0\n\tfor i in range(len(matrix)):\n\t\tfor j in range(len(matrix[0])):\n\t\t\tmax_len = max(max_len, dfs(matrix, lens, -1, i, j))\n\t\n\t# print(lens)\n\treturn max_len\n\n# N\u00e3o modifique a main\ndef main() -> None:\n\t\t\n\tnl, nc = map(int, input().split())\n\tmatrix = [list(map(int, input().split())) for _ in range(nl)]\n\tresult = longestIncreasingPath(matrix)\n\tprint(result)\n\nif __name__ == \"__main__\": main()",
+            "lines": "33"
+        }
+    ]
+}

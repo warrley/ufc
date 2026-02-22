@@ -41,3 +41,13 @@
 2026-02-21 16:44:12, EXEC, v:1, k:ed@pintura, mode:FULL, rate:100, size:42
 2026-02-21 16:48:15, EXEC, v:1, k:ed@pintura, mode:FULL, rate:100, size:57
 2026-02-21 16:48:21, MOVE, v:1, k:ed@pintura, mode:BACK
+2026-02-21 16:50:31, SELF, v:1, k:ed@pintura, rate:100, alone:10
+2026-02-21 16:50:41, MOVE, v:1, k:ed@longest, mode:DOWN
+2026-02-21 18:58:15, MOVE, v:1, k:ed@longest, mode:PICK
+2026-02-21 18:58:15, EXEC, v:1, k:ed@longest, mode:FREE, size:17
+2026-02-21 20:25:42, MOVE, v:1, k:ed@longest, mode:BACK
+2026-02-21 20:37:32, MOVE, v:1, k:ed@longest, mode:PICK
+2026-02-21 20:37:32, EXEC, v:1, k:ed@longest, mode:FREE, size:18
+2026-02-21 21:05:40, EXEC, v:1, k:ed@longest, mode:FULL, rate:100, size:33
+2026-02-21 21:08:11, MOVE, v:1, k:ed@longest, mode:BACK
+2026-02-21 21:08:55, SELF, v:1, k:ed@longest, rate:100, iagen:explicacao_de_ideias, guide:explicacao_da_ideia_da_questao, alone:5
