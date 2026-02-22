@@ -1,0 +1,16 @@
+2026-02-22 07:31:42, MOVE, v:1, k:ed@rotten, mode:DOWN
+2026-02-22 07:32:49, MOVE, v:1, k:ed@rotten, mode:PICK
+2026-02-22 07:32:49, EXEC, v:1, k:ed@rotten, mode:FREE, size:13
+2026-02-22 08:41:46, MOVE, v:1, k:ed@rotten, mode:PICK
+2026-02-22 08:41:46, EXEC, v:1, k:ed@rotten, mode:FULL, rate:0, size:50
+2026-02-22 08:41:47, EXEC, v:1, k:ed@rotten, mode:FULL, rate:0
+2026-02-22 08:41:47, EXEC, v:1, k:ed@rotten, mode:FULL, rate:0
+2026-02-22 08:41:52, EXEC, v:1, k:ed@rotten, mode:FREE
+2026-02-22 09:08:25, EXEC, v:1, k:ed@rotten, mode:FULL, rate:33, size:49
+2026-02-22 09:08:35, EXEC, v:1, k:ed@rotten, mode:FULL, rate:100, size:49
+2026-02-22 09:11:27, EXEC, v:1, k:ed@rotten, mode:FULL, rate:33, size:52
+2026-02-22 09:13:58, EXEC, v:1, k:ed@rotten, mode:FREE, size:58
+2026-02-22 09:14:02, EXEC, v:1, k:ed@rotten, mode:FULL, rate:100
+2026-02-22 09:14:28, EXEC, v:1, k:ed@rotten, mode:FULL, rate:100, size:58
+2026-02-22 09:14:29, MOVE, v:1, k:ed@rotten, mode:BACK
+2026-02-22 09:14:46, SELF, v:1, k:ed@rotten, rate:100, guide:ideia_do_bfs, alone:7

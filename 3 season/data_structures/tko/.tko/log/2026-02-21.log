@@ -59,3 +59,5 @@
 2026-02-21 21:30:21, SELF, v:1, k:ed@battleship, rate:100, alone:10
 2026-02-21 21:30:23, MOVE, v:1, k:ed@battleship, mode:PICK
 2026-02-21 21:30:26, MOVE, v:1, k:ed@battleship, mode:BACK
+2026-02-21 21:32:25, SELF, v:1, k:ed@ilhas, rate:100, guide:video_disponibilizado, alone:7
+2026-02-21 21:32:40, SELF, v:1, k:ed@ilhas, rate:100, guide:video_disponibilizado, alone:5

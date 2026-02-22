@@ -12,13 +12,14 @@ sources:
   type: clone
   branch: master
   cache_path: ''
-  cache_timestamp: '2026-02-21 21:09:13'
+  cache_timestamp: '2026-02-22 07:23:24'
   filters: null
 expanded:
 - ed@main-quest
 - ed@recursão-extra
 - ed@pilha-e-fila
 - ed@busca-em-profundidade
+- ed@busca-em-largura
 tasks:
   ed@pintando: '{rate:100, alone:10}'
   ed@mumia: '{rate:100, other:1, alone:10}'
@@ -46,13 +47,14 @@ tasks:
   ed@priminhos: '{rate:100, alone:10}'
   ed@dfs_bfs_bak: '{rate:100, guide:o_video_linkado}'
   ed@queimada: '{rate:100, guide:1, alone:7}'
-  ed@ilhas: '{rate:100, guide:video_disponibilizado, alone:4}'
+  ed@ilhas: '{rate:100, guide:video_disponibilizado, alone:5}'
   ed@cercado: '{rate:100, guide:1, alone:10}'
   ed@labirinto: '{rate:100, guide:video_do_canal, alone:10}'
   ed@pintura: '{rate:100, alone:10}'
   ed@longest: '{rate:100, iagen:explicacao_de_ideias, guide:explicacao_da_ideia_da_questao,
     alone:5}'
   ed@battleship: '{rate:100, alone:10}'
+  ed@rotten: '{rate:100, guide:ideia_do_bfs, alone:7}'
 flags:
   quests: 2
   tracks: 0
@@ -60,4 +62,4 @@ flags:
   graph: 0
   xray: 0
 lang: py
-selected: ed@longest
+selected: ed@caminho
