@@ -12,7 +12,7 @@ sources:
   type: clone
   branch: master
   cache_path: ''
-  cache_timestamp: '2026-02-22 15:03:03'
+  cache_timestamp: '2026-02-22 16:37:00'
   filters: null
 expanded:
 - ed@main-quest
@@ -53,9 +53,11 @@ tasks:
   ed@longest: '{rate:100, iagen:explicacao_de_ideias, guide:explicacao_da_ideia_da_questao,
     alone:5}'
   ed@battleship: '{rate:100, alone:10}'
-  ed@rotten: '{rate:100, guide:ideia_do_bfs, alone:7}'
-  ed@caminho: '{rate:100, alone:10}'
-  ed@detonate: '{rate:100, guide:ideias_de_como_aplicar_o_bfs, alone:7}'
+  ed@rotten: '{rate:100, guide:ideia_do_bfs, alone:7, study:75}'
+  ed@caminho: '{rate:100, alone:9, study:50}'
+  ed@detonate: '{rate:100, guide:ideias_de_como_aplicar_o_bfs, alone:7, study:130}'
+  ed@escapeSpread: '{rate:100, iagen:ver_oque_era_uma_busca_binaria, guide:resolucao_do_problema,
+    alone:3, study:150}'
 flags:
   quests: 2
   tracks: 0
@@ -63,4 +65,4 @@ flags:
   graph: 1
   xray: 0
 lang: py
-selected: ed@detonate
+selected: ed@escapeSpread

@@ -47,3 +47,17 @@
 2026-02-22 15:04:18, MOVE, v:1, k:ed@detonate, mode:BACK
 2026-02-22 15:04:51, SELF, v:1, k:ed@detonate, rate:100, guide:ideias_de_como_aplicar_o_bfs, alone:6
 2026-02-22 15:04:56, SELF, v:1, k:ed@detonate, rate:100, guide:ideias_de_como_aplicar_o_bfs, alone:7
+2026-02-22 15:15:26, MOVE, v:1, k:ed@escapeSpread, mode:DOWN
+2026-02-22 16:37:22, SELF, v:1, k:ed@rotten, rate:100, guide:ideia_do_bfs, alone:7, study:75
+2026-02-22 16:37:29, SELF, v:1, k:ed@rotten, rate:100, guide:ideia_do_bfs, alone:7, study:75
+2026-02-22 16:37:36, SELF, v:1, k:ed@caminho, rate:100, alone:10
+2026-02-22 16:38:25, SELF, v:1, k:ed@caminho, rate:100, alone:9, study:50
+2026-02-22 16:38:38, SELF, v:1, k:ed@detonate, rate:100, guide:ideias_de_como_aplicar_o_bfs, alone:7, study:160
+2026-02-22 16:38:44, SELF, v:1, k:ed@detonate, rate:100, guide:ideias_de_como_aplicar_o_bfs, alone:7, study:160
+2026-02-22 16:38:52, SELF, v:1, k:ed@detonate, rate:100, guide:ideias_de_como_aplicar_o_bfs, alone:7, study:130
+2026-02-22 16:42:41, MOVE, v:1, k:ed@escapeSpread, mode:PICK
+2026-02-22 16:42:41, EXEC, v:1, k:ed@escapeSpread, mode:FREE, size:16
+2026-02-22 17:36:37, EXEC, v:1, k:ed@escapeSpread, mode:FULL, rate:100, size:79
+2026-02-22 17:36:38, MOVE, v:1, k:ed@escapeSpread, mode:BACK
+2026-02-22 17:37:23, SELF, v:1, k:ed@escapeSpread, rate:100, iagen:ver_oque_era_uma_busca_binaria, guide:resolucao_do_problema, alone:3
+2026-02-22 17:37:45, SELF, v:1, k:ed@escapeSpread, rate:100, iagen:ver_oque_era_uma_busca_binaria, guide:resolucao_do_problema, alone:3, study:150
