@@ -1,12 +1,4 @@
--- Universidade Federal do Ceará
--- Campus de Quixadá
--- Programaçãop Funcional
--- Atividade 01
--- Professor Ricardo Reis
-
--- identificação
---nome = "Guilherme Warley Brito Farias"
---matricula = "582110"
+--Guilherme Warley Brito Farias 582110
 
 digs :: Int -> [Int]
 digs n = if n < 10 then [n] else digs (div n 10) ++ [mod n 10]
