@@ -1,4 +1,4 @@
---Guilherme Warley Brito Farias 582110
+Guilherme Warley Brito Farias 582110
 
 digs :: Int -> [Int]
 digs n = if n < 10 then [n] else digs (div n 10) ++ [mod n 10]
