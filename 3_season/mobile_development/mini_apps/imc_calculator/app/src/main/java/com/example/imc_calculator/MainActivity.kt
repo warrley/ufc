@@ -57,10 +57,10 @@ fun ImcCalculator(name: String, modifier: Modifier = Modifier) {
     var message by remember { mutableStateOf("") }
 
     fun calcIMC() {
-        val weightVal = weight.toFloat()
-        val heightVal = height.toFloat()
+        val weightVal = weight.toFloatOrNull()
+        val heightVal = height.toFloatOrNull()
 
-        if (weightVal > 0 && heightVal > 0) {
+        if (weightVal != null && heightVal != null && weightVal > 0 && heightVal > 0) {
             val imc = weightVal / (heightVal*heightVal)
             val category = when {
                 imc < 18.5 -> "Magro"
@@ -94,13 +94,13 @@ fun ImcCalculator(name: String, modifier: Modifier = Modifier) {
             OutlinedTextField(
                 value = weight,
                 onValueChange = { weight = it },
-                label = { Text("Weigth (m)") },
+                label = { Text("Weigth (kg)") },
                 modifier = Modifier.weight(1f)
             )
             OutlinedTextField(
                 value = height,
                 onValueChange = { height = it },
-                label = { Text("Height (kg)") },
+                label = { Text("Height (m)") },
                 modifier = Modifier.weight(1f)
             )
         }
