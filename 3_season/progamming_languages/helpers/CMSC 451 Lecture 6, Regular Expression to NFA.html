@@ -1,0 +1,175 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>CMSC 451 Lecture 6, Regular Expression to NFA</title>
+</head>
+<body>
+<pre>    <a href="https://userpages.umbc.edu/~squire/cs451_l5.html">&lt;- previous</a>    <a href="https://userpages.umbc.edu/~squire/cs451_lect1p.html#Top">index</a>    <a href="https://userpages.umbc.edu/~squire/cs451_l7.html">next -&gt;</a>
+</pre>
+<a name="Top"></a>
+
+<h3><a name="L6"> Lecture 6   Construction: machine from regular expression</a></h3>
+<pre>
+  Given a regular expression, r , there is an associated regular language L(r).
+  Since there is a finite automata for every regular language,
+  there is a machine, M, for every regular expression such that L(M) = L(r).
+
+  The constructive proof provides an algorithm for constructing a machine, M,
+  from a regular expression r.  The six constructions below correspond to
+  the cases:
+
+  1) The entire regular expression is the null string, i.e.  L={epsilon}
+     (Any regular expression that includes  epsilon  will have the
+      starting state as a final state.)
+  
+     r = epsilon
+
+  2) The entire regular expression is empty, i.e. L=phi      r = phi
+
+  3) An element of the input alphabet, sigma, is in the regular expression
+     r = a    where a is an element of sigma.
+
+  4) Two regular expressions are joined by the union operator, +
+     r1 + r2
+
+  5) Two regular expressions are joined by concatenation (no symbol)
+     r1 r2
+
+  6) A regular expression has the Kleene closure (star) applied to it
+     r*
+
+  The construction proceeds by using 1) or 2) if either applies.
+
+  The construction first converts all symbols in the regular expression
+  using construction 3).
+
+  Then working from inside outward, left to right at the same scope,
+  apply the one construction that applies from 4) 5) or 6).
+
+  <img src="CMSC%20451%20Lecture%206,%20Regular%20Expression%20to%20NFA_files/re2.gif">
+
+  Example: Convert (00 + 1)* 1 (0 +1) to a NFA-epsilon machine.
+
+  Optimization hint: We use a simple form of epsilon-closure to combine
+  any state that has only an epsilon transition to another state, into
+  one state.
+
+  chose first 0 to get
+  <img src="CMSC%20451%20Lecture%206,%20Regular%20Expression%20to%20NFA_files/epsc1.gif">
+
+  chose next 0, and concatenate
+  <img src="CMSC%20451%20Lecture%206,%20Regular%20Expression%20to%20NFA_files/epsc2.gif">
+
+  use epsilon-closure to combine states
+  <img src="CMSC%20451%20Lecture%206,%20Regular%20Expression%20to%20NFA_files/epsc3.gif">
+
+  Chose 1, then added union
+  <img src="CMSC%20451%20Lecture%206,%20Regular%20Expression%20to%20NFA_files/epsc4.gif">
+ 
+  Apply Kleene star
+  <img src="CMSC%20451%20Lecture%206,%20Regular%20Expression%20to%20NFA_files/epsc5.gif">
+
+  Chose 1, concatenate, combine states
+  <img src="CMSC%20451%20Lecture%206,%20Regular%20Expression%20to%20NFA_files/epsc6.gif">
+
+  Concatenate (0+1), combine one state
+  <img src="CMSC%20451%20Lecture%206,%20Regular%20Expression%20to%20NFA_files/epsc7.gif">
+
+
+
+  The result is a NFA with epsilon moves. This NFA can then be converted
+  to a NFA without epsilon moves. Further conversion can be performed to
+  get a DFA.  All these machines have the same language as the
+  regular expression from which they were constructed.
+
+  The construction covers all possible cases that can occur in any
+  regular expression.  Because of the generality there are many more
+  states generated than are necessary.  The unnecessary states are
+  joined by epsilon transitions.  Very careful compression may be
+  performed.  For example, the fragment regular expression  aba  would be
+
+      a       e       b       e       a
+  q0 ---&gt; q1 ---&gt; q2 ---&gt; q3 ---&gt; q4 ---&gt; q5
+
+  with  e  used for epsilon, this can be trivially reduced to
+
+      a       b       a 
+  q0 ---&gt; q1 ---&gt; q2 ---&gt; q3
+
+  A careful reduction of unnecessary states requires use of the
+  Myhill-Nerode Theorem of section 3.4 in 1st Ed. or section 4.4 in 2nd Ed.
+  This will provide a DFA that has the minimum number of states.
+  Within a renaming of the states and reordering of the delta, state
+  transition table, all minimum machines of a DFA are identical.
+
+  Conversion of a NFA to a regular expression was started in this
+  lecture and finished in the next lecture. The notes are in lecture 7.
+
+  Example: r = (0+1)* (00+11) (0+1)*
+  Solution: find the primary operator(s) that are concatenation or union.
+  In this case, the two outermost are concatenation, giving, crudely:
+        //---------------\    /----------------\\    /-----------------\
+    --&gt;|| &lt;&gt; M((0+1)*) &lt;&gt; |-&gt;| &lt;&gt; M((00+11)) &lt;&gt; ||-&gt;| &lt;&gt; M((0+1)*) &lt;&lt;&gt;&gt; |
+        \\---------------/    \----------------//    \-----------------/
+
+  There is exactly one start "--&gt;"  and exactly one final state "&lt;&lt;&gt;&gt;"
+  The unlabeled arrows should be labeled with epsilon.
+  Now recursively decompose each internal regular expression.
+
+</pre>
+
+<pre>    <a href="https://userpages.umbc.edu/~squire/cs451_l5.html">&lt;- previous</a>    <a href="https://userpages.umbc.edu/~squire/cs451_lect1p.html#Top">index</a>    <a href="https://userpages.umbc.edu/~squire/cs451_l7.html">next -&gt;</a>
+</pre>
+
+<h3><a name="Other"> Other links </a></h3>
+<ul>
+  <li> <a href="https://userpages.umbc.edu/~squire/cs451_syl.html"> <!-- built by make -->
+       Syllabus
+       </a>
+  </li><li> <a href="https://userpages.umbc.edu/~squire/cs451_hw.html">     <!-- built by make -->
+       homework details HW1..HW6, Quiz 1
+       </a>
+  </li><li> <a href="https://userpages.umbc.edu/~squire/cs451_hw2.html">   <!-- built by make -->
+       homework details HW7..HW10, Quiz 2 and Final
+       </a>
+  </li><li> <a href="https://userpages.umbc.edu/~squire/cs451_lect1p.html"> <!-- built by make -->
+       Lecture notes, one per page
+       </a>
+  </li><li> <a href="https://userpages.umbc.edu/~squire/cs451_lect.html">   <!-- built by make -->
+       Lecture notes, one big page
+       </a>
+  </li><li> <a href="https://userpages.umbc.edu/~squire/cs451_proj.html">  <!-- built by make -->
+       Project description
+       </a>
+  </li><li> <a href="https://userpages.umbc.edu/~squire/cs451_sim.html">   <!-- built by make -->
+       Turing machine and other simulators and parsers
+       </a>
+  </li><li> <a href="https://userpages.umbc.edu/~squire/cs411_down.shtml#CS451">
+       Downloadable source and executables
+       </a>
+  </li><li> <a href="https://userpages.umbc.edu/~squire/cs451.shtml">
+       CMSC 451  Course Page
+       </a>
+  </li><li> <a href="https://userpages.umbc.edu/~squire/reference/lang_def.shtml">
+       Formal Language Definitions
+       </a>
+  </li><li> <a href="https://userpages.umbc.edu/~squire/reference/grammar_def.shtml">
+       Formal grammar Definitions
+       </a>
+  </li><li> <a href="https://userpages.umbc.edu/~squire/reference/automata_def.shtml">
+       Automata Definitions
+       </a>
+  </li><li> <a href="https://userpages.umbc.edu/~squire/reference/computable.shtml">
+       Computability Definitions
+       </a>
+  </li><li> <a href="https://userpages.umbc.edu/~squire/reference/classes.shtml">
+       Language Class Definitions
+       </a>
+</li></ul>
+
+<h3><a href="#Top"> Go to top </a></h3>
+
+
+
+
+
+</body></html>
