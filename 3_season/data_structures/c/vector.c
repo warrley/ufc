@@ -31,6 +31,24 @@ void resize(vector *v, int capacity) {
   v->data = new_data;
 }
 
+vector slice(vector *v, int start, int end) {
+  start = ((start % v->size) + v->size) % v->size;
+  end = ((end % v->size) + v->size) % v->size;
+  
+  vector view;
+  view.capacity = view.size = end-start;
+  view.data = v->data+start;
+
+  return view;
+}
+
+int at(vector *v, int value) {
+  for (int i = 0; i < v->size; i++) {
+    if (v->data[i] == value) return i;
+  }
+  return -1;
+}
+
 void push(vector* v, int value) {
   if (v->capacity == 0) {
     resize(v, 1);
@@ -42,11 +60,7 @@ void push(vector* v, int value) {
 }
 
 void insert(vector *v, int index, int value) {
-  if (index < 0 || index >= v->size) {
-    printf("fail: index out of bounds");
-    return;
-  }
-
+  verify_bounds(v, index);
   for (int i = v->size; i > index; i--) {
     v->data[i] = v->data[i-1];
   }
@@ -55,12 +69,13 @@ void insert(vector *v, int index, int value) {
   v->size++;
 }
 
-void delete(vector *v, int index) {
-  if (index < 0 || index >= v->size) {
-    printf("fail: index out of bounds");
-    return;
-  }
+void set(vector *v, int index, int value) {
+  insert(v, index, value);
+  delete(v, index+1);
+}
 
+void delete(vector *v, int index) {
+  verify_bounds(v, index);
   for (int i = index; i < v->size-1; i++) {
     v->data[i] = v->data[i+1];
   }
@@ -69,8 +84,25 @@ void delete(vector *v, int index) {
   v->data[v->size] = 0;
 }
 
+void pop(vector *v, int index) {
+  delete(v, v->size-1);
+}
+
+int get(vector *v, int index) {
+  verify_bounds(v, index);
+  return v->data[index];
+}
+
+
 void freev(vector *v) {
   free(v->data);
+}
+
+void verify_bounds(vector *v, int index) {
+  if (index < 0 || index >= v->size) {
+    printf("fail: index out of bounds");
+    exit(1);
+  }
 }
 
 void status(vector *v) {
