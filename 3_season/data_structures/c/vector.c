@@ -31,9 +31,7 @@ void resize(vector *v, int capacity) {
   v->data = new_data;
 }
 
-//TODO verification
 void push(vector* v, int value) {
-
   if (v->capacity == 0) {
     resize(v, 1);
   } else if (v->size == v->capacity) {
@@ -43,10 +41,47 @@ void push(vector* v, int value) {
   v->data[v->size++] = value;
 }
 
-void printv(vector* v) {
+void insert(vector *v, int index, int value) {
+  if (index < 0 || index >= v->size) {
+    printf("fail: index out of bounds");
+    return;
+  }
+
+  for (int i = v->size; i > index; i--) {
+    v->data[i] = v->data[i-1];
+  }
+
+  v->data[index] = value;
+  v->size++;
+}
+
+void delete(vector *v, int index) {
+  if (index < 0 || index >= v->size) {
+    printf("fail: index out of bounds");
+    return;
+  }
+
+  for (int i = index; i < v->size-1; i++) {
+    v->data[i] = v->data[i+1];
+  }
+
+  v->size--;
+  v->data[v->size] = 0;
+}
+
+void freev(vector *v) {
+  free(v->data);
+}
+
+void status(vector *v) {
+  printf("size:%d\ncapacity:%d\n", v->size, v->capacity);
+}
+
+void printv(vector *v) {
   for (int i = 0; i < v->size; i++) {
     printf("%d ", v->data[i]);
   }
+  printf("\n");
 }
 
 int main() {
@@ -56,5 +91,8 @@ int main() {
     push(&v, i);
   }
 
+  // insert(&v, 3, 0);
+
   printv(&v);
+  status(&v);
 }
