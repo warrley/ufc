@@ -1,11 +1,13 @@
-data Linked a = End | Node Float (Linked a) deriving Show
+data Linked a = End | Node a (Linked a)
 
 addNode End x = Node x End
 addNode lnk x = Node x (lnk)
 
 addNodeList lnk [] = lnk
--- addNodeList lnk [a] = addNode lnk a
 addNodeList lnk (a:xs) = addNodeList (addNode lnk a) xs
 
-lnkStr End = "{"
-lnkStr (Node x lnk) = (show x) ++ " " ++ lnkStr lnk
+toStr End = ""
+toStr (Node x lnk) = show x ++ " " ++ toStr lnk
+
+instance Show a => Show (Linked a) where
+  show lnk = "{ " ++ toStr lnk ++ "}"

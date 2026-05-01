@@ -1,7 +1,8 @@
--- atividade 5
--- --1.  sejam listas de tuplas formadas cada uma por um Float e um char. A função a seguir deve ler listas desse tipo e retornar para um dado caractere de entrada  a soma de seus floats associados. Os caracteres devem ser um deeses: 'abceABCD. caractees inválidos devem retornar zero. Use casamento de padrão.
--- Aluno: Guilherme Warley Brito Farias 582110
+atividade = "04"
+nome = "Guilherme Warley Brito Farias"
+matricula = "582110"
 
+--1
 chip'sum :: [(Char, Float)] -> Char -> Float
 chip'sum [] _ = 0.0
 chip'sum ((c, f):rest) target
@@ -10,6 +11,7 @@ chip'sum ((c, f):rest) target
  | otherwise = chip'sum rest target
 
 
+--2
 chip'sum' :: [(Char, Float)] -> Char -> Float
 chip'sum' [] _ = 0.0
 chip'sum' xs target = 
@@ -19,6 +21,7 @@ chip'sum' xs target =
     else acc
     ) 0.0 xs
 
+--3
 words' :: String -> [String]
 words' [] = []
 words' (x:xs)
