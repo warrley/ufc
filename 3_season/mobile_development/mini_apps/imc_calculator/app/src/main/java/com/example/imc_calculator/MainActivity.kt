@@ -63,10 +63,13 @@ fun ImcCalculator(name: String, modifier: Modifier = Modifier) {
         if (weightVal != null && heightVal != null && weightVal > 0 && heightVal > 0) {
             val imc = weightVal / (heightVal*heightVal)
             val category = when {
-                imc < 18.5 -> "Magro"
-                imc < 24.9 -> "Normal"
-                imc < 29.9 -> "Gordo"
-                else -> "Obeso"
+                imc < 17 -> "Muito abaixo do peso"
+                imc < 18.50 -> "Abaixo do peso"
+                imc < 25 -> "Com peso normal"
+                imc < 30 -> "Acima do peso"
+                imc < 35 -> "Com obesidade I"
+                imc < 40 -> "Com obesidade II"
+                else -> "Com obesidade III"
             }
 
             message = String.format("Seu imc é %.2f\nVocê está %s", imc, category)
