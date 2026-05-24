@@ -1,8 +1,8 @@
 quicksort [] = []
 quicksort (x:rest) = left ++ [x] ++ right 
   where 
-    left = [a | a <- rest, a <= x]
-    right = [a | a <- rest, a > x]
+    left = quicksort [a | a <- rest, a <= x]
+    right = quicksort [a | a <- rest, a > x]
 
 --quicksort ls = 
 --    if length ls < 2
