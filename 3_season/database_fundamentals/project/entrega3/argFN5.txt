@@ -1,0 +1,43 @@
+================================================================================
+DEFESA TÉCNICA: QUINTA FORMA NORMAL (5NF / PJNF)
+Projeto: Sistema Unificado de Reserva e Venda de Passagens Rodoviárias
+Disciplina: QXD0011 - Fundamentos de Banco de Dados
+================================================================================
+
+1. INTRODUÇÃO E OBJETIVO
+O objetivo desta defesa é demonstrar que o modelo de banco de dados relacional 
+do sistema "Rodoviária Digital" atinge a Quinta Forma Normal (5NF), também 
+conhecida como Project-Join Normal Form (PJNF), superando as exigências 
+padrões de mercado ao tratar Dependências de Junção (Join Dependencies) no 
+processo de reservas.
+
+2. A NATUREZA DA TABELA TERNÁRIA (RESERVA)
+O núcleo da nossa adequação à 5NF reside na tabela associativa `reserva`, que 
+conecta simultaneamente três eixos de informação:
+- O faturamento (id_passagem)
+- A dimensão espacial/temporal (id_trecho)
+- A alocação física (id_onibus, numero_assento - Entidade Fraca)
+
+3. A PROVA LÓGICA (EVITANDO TUPLAS ESPÚRIAS)
+A 5NF dita que uma tabela está totalmente normalizada se, e somente se, ela não 
+puder ser decomposta em tabelas menores sem perda de informação ou criação de 
+dados falsos ao reconstruir a relação original via JOINs.
+
+Se tentássemos decompor a relação `reserva` em tabelas binárias para "simplificar" 
+o modelo (ex: Passagem-Trecho, Trecho-Assento, Passagem-Assento), incorreríamos 
+em uma anomalia grave de Dependência de Junção Cíclica. 
+
+Exemplo prático:
+Se um usuário compra uma passagem para uma viagem de dois trechos, e por restrição 
+de lotação ele senta no "Assento 10" no Trecho 1 e no "Assento 12" no Trecho 2, uma 
+modelagem decomposta faria com que o SGBD multiplicasse os conjuntos na hora do JOIN. 
+O sistema afirmaria falsamente que o passageiro também ocupou o "Assento 12" no 
+Trecho 1.
+
+Ao manter a tabela `reserva` como um bloco relacional indissociável (Ternário), 
+o nosso sistema atesta que aquele fato só existe mediante a combinação exata das 
+três chaves, impedindo matematicamente a geração de tuplas espúrias (falsas verdades).
+
+4. A GARANTIA DE INTEGRIDADE (TRAVA DE CONCORRÊNCIA)
+Para consolidar a 5NF e garantir a integridade absoluta dos dados físicos no 
+PostgreSQL, implementamos a seguinte restrição na tabela `res

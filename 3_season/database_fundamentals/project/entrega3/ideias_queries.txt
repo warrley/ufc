@@ -1,0 +1,104 @@
+pegar a quantidade de passageiros que um motorista levou em um determinado periodo (analisar os trechos)
+================================================================================
+ARQUIVO DQL - CONSULTAS AVANÇADAS (SQL PADRÃO / ÁLGEBRA RELACIONAL)
+Projeto: Sistema Unificado de Reserva e Venda de Passagens Rodoviárias
+================================================================================
+
+-- =============================================================================
+-- CONSULTA 1: DIVISÃO RELACIONAL (O "Duplo NOT EXISTS")
+-- Nível de Dificuldade: Altíssimo (Conceito clássico de Álgebra Relacional)
+-- Regra de Negócio: Encontrar os "Super Clientes" que compraram passagens 
+-- em viagens realizadas por TODOS os ônibus operados pela 'Expresso Guanabara' (id_viacao = 1).
+-- =============================================================================
+
+SELECT u.cpf, p.nome
+FROM usuario u
+JOIN pessoa p ON u.cpf = p.cpf
+WHERE NOT EXISTS (
+    -- Seleciona todos os ônibus da Expresso Guanabara
+    SELECT o.id_onibus
+    FROM onibus o
+    WHERE o.id_viacao = 1
+    AND NOT EXISTS (
+        -- Seleciona as reservas feitas por este usuário neste ônibus
+        SELECT r.id_onibus
+        FROM passagem pas
+        JOIN reserva r ON pas.id_passagem = r.id_passagem
+        WHERE pas.cpf_usuario = u.cpf 
+        AND r.id_onibus = o.id_onibus
+    )
+);
+
+
+-- =============================================================================
+-- CONSULTA 2: SUBCONSULTA ESCALAR NO HAVING
+-- Nível de Dificuldade: Alto (Agregação aninhada)
+-- Regra de Negócio: Listar o nome das Viações cujo faturamento médio por 
+-- passagem vendida seja ESTRITAMENTE MAIOR que a média geral do sistema inteiro.
+-- =============================================================================
+
+SELECT via.nome_fantasia, ROUND(AVG(pas.valor_total), 2) AS ticket_medio_empresa
+FROM viacao via
+JOIN onibus o ON via.id_viacao = o.id_viacao
+JOIN viagem v ON o.id_onibus = v.id_onibus
+JOIN passagem pas ON v.id_viagem = pas.id_viagem
+WHERE pas.status = 'Confirmada'
+GROUP BY via.id_viacao, via.nome_fantasia
+HAVING AVG(pas.valor_total) > (
+    -- Calcula a média global ignorando o agrupamento da empresa
+    SELECT AVG(valor_total) 
+    FROM passagem 
+    WHERE status = 'Confirmada'
+)
+ORDER BY ticket_medio_empresa DESC;
+
+
+-- =============================================================================
+-- CONSULTA 3: ANTI-JOIN COM LEFT JOIN E SUBCONSULTA
+-- Nível de Dificuldade: Alto (Exclusão Lógica)
+-- Regra de Negócio: Descobrir quais Motoristas cadastrados no sistema NUNCA 
+-- conduziram viagens com trechos que passaram pelo estado do Piauí ('PI').
+-- =============================================================================
+
+SELECT m.cpf, p.nome, m.cnh
+FROM motorista m
+JOIN pessoa p ON m.cpf = p.cpf
+LEFT JOIN (
+    -- Subconsulta que isola apenas os motoristas que JÁ foram ao Piauí
+    SELECT DISTINCT vm.cpf_motorista
+    FROM viagem_motorista vm
+    JOIN viagem_trecho vt ON vm.id_viagem = vt.id_viagem
+    JOIN trecho t ON vt.id_trecho = t.id_trecho
+    JOIN rodoviaria r ON t.id_destino = r.id_rodoviaria
+    JOIN cidade c ON r.id_cidade = c.id_cidade
+    WHERE c.estado = 'PI'
+) motoristas_pi ON m.cpf = motoristas_pi.cpf_motorista
+-- O filtro IS NULL garante que o motorista da query principal não está na lista do PI
+WHERE motoristas_pi.cpf_motorista IS NULL;
+
+
+-- =============================================================================
+-- CONSULTA 4: BUSCA DO VALOR MÁXIMO ABSOLUTO (SEM USAR LIMIT OU ORDER BY)
+-- Nível de Dificuldade: Médio/Alto (Subconsulta no WHERE)
+-- Regra de Negócio: Encontrar a passagem mais cara já vendida em todo o 
+-- histórico, revelando os dados do comprador e a origem do primeiro trecho.
+-- =============================================================================
+
+SELECT 
+    pas.id_passagem, 
+    pes.nome AS nome_passageiro, 
+    c.nome AS cidade_origem, 
+    pas.valor_total
+FROM passagem pas
+JOIN usuario u ON pas.cpf_usuario = u.cpf
+JOIN pessoa pes ON u.cpf = pes.cpf
+JOIN viagem_trecho vt ON pas.id_viagem = vt.id_viagem
+JOIN trecho t ON vt.id_trecho = t.id_trecho
+JOIN rodoviaria r ON t.id_origem = r.id_rodoviaria
+JOIN cidade c ON r.id_cidade = c.id_cidade
+WHERE t.ordem = 1 -- Pega apenas a cidade inicial da viagem
+AND pas.valor_total = (
+    -- Subconsulta avaliada uma única vez para achar o teto de preço
+    SELECT MAX(valor_total) 
+    FROM passagem
+);
