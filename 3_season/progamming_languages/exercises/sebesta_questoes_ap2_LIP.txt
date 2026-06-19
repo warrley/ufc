@@ -1,0 +1,190 @@
+TÓPICO: NOMES, VINCULAÇÕES E ESCOPOS
+1. Quais são as questões de projeto para nomes? 
+
+2. Qual é o perigo em potencial dos nomes sensíveis a capitalização? 
+
+3. De que forma as palavras reservadas são melhores do que as palavras-chave? 
+
+4. O que é um apelido? 
+
+5. Que categoria de variáveis de referência em C++ é sempre composta de apelidos? 
+
+6. O que é o lado esquerdo de uma variável? O que é o lado direito? 
+
+7. Defina _vinculação_ e _tempo de vinculação_ . 
+
+8. Após o projeto e implementação de uma linguagem, quais são os quatro tipos de vinculações que podem ocorrer em um programa? 
+
+9. Defina _vinculação estática_ e _vinculação dinâmica_ . 
+
+10. Quais são as vantagens e desvantagens de declarações implícitas? 
+
+11. Quais são as vantagens e desvantagens da vinculação de tipos dinâmica? 
+
+12. Defina _variáveis estáticas_ , _dinâmicas da pilha_ , _dinâmicas do monte explícitas_ e _dinâmicas do monte implícitas_ . 
+
+13. Defina _tempo de vida_ , _escopo_ , _escopo estático_ e _escopo dinâmico_ . 
+
+14. Como a referência a uma variável não local em um programa com escopo estático está conectada a sua definição? 
+
+15. Qual é o problema geral do escopo estático? 
+
+16. O que é o ambiente de referenciamento de uma sentença? 
+
+17. O que é um ancestral estático de um subprograma? O que é um ancestral dinâmico de um subprograma? 
+
+18. O que é um bloco? 
+
+19. Quais são as vantagens e as desvantagens do escopo dinâmico? 
+
+20. Quais são as vantagens das constantes nomeadas? 
+
+**262** Conceitos de Linguagens de Programação 
+
+
+
+TÓPICO: TIPOS DE DADOS
+1. O que é um descritor? 
+
+2. Quais são as vantagens e as desvantagens dos tipos de dados decimais? 
+
+3. Quais são as questões de projeto para tipos de cadeias de caracteres? 
+
+4. Descreva as três opções para tamanhos de cadeias. 
+
+5. Defina tipos _ordinais_ , de _enumeração_ e de _subfaixa_ . 
+
+6. Quais são as vantagens dos tipos de enumeração definidos pelo usuário? 
+
+7. De que maneira os tipos de enumeração definidos pelo usuário de C# são mais confiáveis do que os de C++? 
+
+8. Quais são as questões de projeto para matrizes? 
+
+9. Defina matrizes _estáticas_ , _dinâmicas da pilha fixas_ , _dinâmicas da pilha_ , _dinâmicas do monte fixas_ e _dinâmicas do monte_ . Quais são as vantagens de cada uma delas? 
+
+10. O que acontece quando um elemento não existente de uma matriz é referenciado em Perl? 
+
+11. Como JavaScript suporta matrizes esparsas? 
+
+12. Que linguagens suportam índices negativos? 
+
+13. Que linguagens suportam fatias de matrizes com tamanhos de passos ( _stepsizes_ )? 
+
+14. Que recurso de inicialização de matrizes está disponível em Ada e não está disponível em outras linguagens imperativas comuns? 
+
+15. O que é uma constante agregada? 
+
+**338** Conceitos de Linguagens de Programação 
+
+16. Que operações de matrizes são fornecidas especificamente para matrizes unidimensionais em Ada? 
+
+17. Quais são as diferenças entre as fatias do Fortran 95 e as de Ada? 
+
+18. Defina _ordem principal de linha_ e _ordem principal de coluna_ . 
+
+19. O que é uma função de acesso para uma matriz? 
+
+20. Quais são as entradas requeridas em um descritor de matriz em Java e quando elas devem ser armazenadas (em tempo de compilação ou em tempo de execução)? 
+
+21. Qual é o propósito dos números de níveis em registros no COBOL? 
+
+22. Defina _referências completamente qualificadas_ e _elípticas_ para campos em registros. 
+
+23. Defina _união_ , _união livre_ e _união discriminada_ . 
+
+24. Quais são as questões de projeto para uniões? 
+
+25. As uniões de Ada são sempre verificadas em relação ao tipo? 
+
+26. Quais são as questões de projeto para os tipos ponteiro? 
+
+27. Quais são os dois problemas comuns com ponteiros? 
+
+28. Por que os ponteiros da maioria das linguagens são restritos de forma que apontem uma única variável de tipo? 
+
+29. O que é um tipo de referência em C++ e para que ele é comumente usado? 
+
+30. Por que as variáveis de referência em C++ são melhores do que os ponteiros para parâmetros formais? 
+
+31. Quais vantagens as variáveis de tipo de referência em Java e C# têm em relação aos ponteiros em outras linguagens? 
+
+32. Descreva a abordagem preguiçosa e a ansiosa para recuperar lixo. 
+
+33. Por que a aritmética de referências em Java e C# não faz sentido? 
+
+34. O que é um tipo compatível? 
+
+35. Defina erro de tipo. 
+
+36. Defina fortemente tipada. 
+
+37. Por que Java não é fortemente tipada? 
+
+38. O que é uma conversão implícita sem conversão? 
+
+39. Por que C e C++ não são fortemente tipadas? 
+
+40. O que é a equivalência de tipos por nome? 
+
+41. O que é a equivalência de tipos por estrutura? 
+
+42. Qual é a vantagem principal da equivalência de tipos por nome? 
+
+43. Qual é a desvantagem principal da equivalência de tipos por estrutura? 
+
+44. Para que tipos o C usa a equivalência de tipos por estrutura? 
+
+45. Que operações de conjunto modelam o tipo de dados **struct** de C? 
+
+
+
+TÓPICO: EXPRESSÕES E SENTENÇAS DE ATRIBUIÇÃO
+1. Defina _precedência de operador_ e _associatividade de operador_ . 
+
+2. O que é um operador ternário? 
+
+3. O que é um operador pré-fixado? 
+
+4. Que operador normalmente tem associatividade à direita? 
+
+- 5 Note que, em Python e Ruby, os tipos são associados com objetos, não com variáveis, então não existe algo como atribuições de modo misto nessas linguagens. 
+
+- 6 Não é exatamente verdade: se um literal inteiro, para o qual o compilador atribui por padrão o tipo **int** , é atribuído para uma variável **char** , **byte** ou **short** , e o literal está na faixa do tipo da variável, o valor **int** sofre coerção para o tipo da variável em uma conversão de estreitamento, que não pode resultar em um erro.
+
+TÓPICO: SUBPROGRAMAS
+1. Quais são as três características gerais dos subprogramas? 
+
+2. O que significa para um subprograma estar ativo? 
+
+3. O que é informado no cabeçalho de um subprograma? 
+
+4. Que característica dos subprogramas em Python os separaram daqueles das outras linguagens? 
+
+5. Que linguagens permitem um número variável de parâmetros? 
+
+6. O que é um parâmetro formal de matriz em Ruby? 
+
+7. O que é um perfil de parâmetro? O que é um protocolo de subprograma? 
+
+8. O que são parâmetros formais? O que são parâmetros reais? 
+
+9. Quais são as vantagens e desvantagens de parâmetros com palavras-chave? 
+
+10. Qual é o uso mais comum de blocos Ruby na linguagem propriamente dita? 
+
+11. Quais são as diferenças entre uma função e um procedimento? 
+
+12. Quais são as questões de projeto para subprogramas? 
+
+13. Quais são as vantagens e desvantagens das variáveis locais dinâmicas? 
+
+14. Quais são as vantagens e desvantagens das variáveis locais estáticas? 
+
+15. Que linguagens permitem que as definições de subprogramas sejam aninhadas? 
+
+16. Quais são os três modelos semânticos de passagem de parâmetros? 
+
+17. Quais são os modos, os modelos conceituais de transferência, as vantagens e as desvantagens dos seguintes métodos de passagem de parâmetros: por valor, por resultado, por valor-resultado e por referência? 
+
+18. Descreva as maneiras pelas quais os apelidos podem ocorrer com parâmetros com passagem por referência.
+
