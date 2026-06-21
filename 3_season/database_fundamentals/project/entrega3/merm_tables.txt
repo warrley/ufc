@@ -1,3 +1,4 @@
+
 Enum "tipo_onibus" {
   "Convencional"
   "Executivo"
@@ -23,15 +24,15 @@ Enum "status_passagem" {
 }
 
 Table "pessoa" {
-  "cpf" VARCHAR(11) [pk]
+  "cpf" VARCHAR(15) [pk]
   "nome" VARCHAR(100) [not null]
   "email" VARCHAR(100) [unique, not null]
   "data_nascimento" DATE [not null]
 }
 
 Table "pessoa_telefone" {
-  "cpf" VARCHAR(11)
-  "telefone" VARCHAR(11) [not null]
+  "cpf" VARCHAR(15)
+  "telefone" VARCHAR(15) [not null]
 
   Indexes {
     (cpf, telefone) [pk]
@@ -40,23 +41,23 @@ Table "pessoa_telefone" {
 
 Table "viacao" {
   "id_viacao" SERIAL [pk, increment]
-  "cnpj" VARCHAR(14) [unique, not null]
-  "nome_fantasia" VARCHAR(100) [not null]
+  "cnpj" VARCHAR(18) [unique, not null]
+  "nome" VARCHAR(100) [not null]
 }
 
 Table "motorista" {
-  "cpf" VARCHAR(11) [pk]
+  "cpf" VARCHAR(15) [pk]
   "cnh" VARCHAR(15) [unique, not null]
   "id_viacao" INT [not null]
 }
 
 Table "usuario" {
-  "cpf" VARCHAR(11) [pk]
+  "cpf" VARCHAR(15) [pk]
 }
 
 Table "onibus" {
   "id_onibus" SERIAL [pk, increment]
-  "placa" VARCHAR(10) [unique, not null]
+  "placa" VARCHAR(8) [unique, not null]
   "capacidade" INT [not null]
   "tipo" tipo_onibus [not null]
   "id_viacao" INT [not null]
@@ -95,7 +96,7 @@ Table "viagem" {
 
 Table "viagem_motorista" {
   "id_viagem" INT
-  "cpf_motorista" VARCHAR(11)
+  "cpf_motorista" VARCHAR(15)
 
   Indexes {
     (id_viagem, cpf_motorista) [pk]
@@ -104,6 +105,7 @@ Table "viagem_motorista" {
 
 Table "trecho" {
   "id_trecho" SERIAL [pk, increment]
+  "id_viagem" INT [not null]
   "ordem" INT [not null]
   "data_hora_saida" TIMESTAMP [not null]
   "data_hora_chegada" TIMESTAMP [not null]
@@ -112,21 +114,12 @@ Table "trecho" {
   "id_destino" INT [not null]
 }
 
-Table "viagem_trecho" {
-  "id_viagem" INT
-  "id_trecho" INT
-
-  Indexes {
-    (id_viagem, id_trecho) [pk]
-  }
-}
-
 Table "passagem" {
   "id_passagem" SERIAL [pk, increment]
   "data_compra" TIMESTAMP [not null]
   "valor_total" DECIMAL(10,2) [not null]
   "status" status_passagem [not null]
-  "cpf_usuario" VARCHAR(11) [not null]
+  "cpf_usuario" VARCHAR(15) [not null]
   "id_viagem" INT [not null]
 }
 
@@ -162,13 +155,11 @@ Ref:"viagem"."id_viagem" < "viagem_motorista"."id_viagem"
 
 Ref:"motorista"."cpf" < "viagem_motorista"."cpf_motorista"
 
+Ref:"viagem"."id_viagem" < "trecho"."id_viagem"
+
 Ref:"rodoviaria"."id_rodoviaria" < "trecho"."id_origem"
 
 Ref:"rodoviaria"."id_rodoviaria" < "trecho"."id_destino"
-
-Ref:"viagem"."id_viagem" < "viagem_trecho"."id_viagem"
-
-Ref:"trecho"."id_trecho" < "viagem_trecho"."id_trecho"
 
 Ref:"usuario"."cpf" < "passagem"."cpf_usuario"
 

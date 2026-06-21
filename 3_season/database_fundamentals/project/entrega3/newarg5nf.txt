@@ -1,0 +1,70 @@
+PROVA QUE A TABELA RESERVA ESTÁ NA 5FN
+======================================
+
+SITUAÇÃO REAL (TABELA TERNÁRIA):
+- João (passagem 1) viaja SP→Campinas (trecho 1) no assento A1 do ônibus 10
+- Maria (passagem 2) viaja SP→Campinas (trecho 1) no assento A2 do ônibus 10
+- João (passagem 1) viaja Campinas→Ribeirão (trecho 2) no assento A1 do ônibus 10
+
+Tabela reserva (3 tuplas):
+(1, 1, 10, A1)
+(2, 1, 10, A2)
+(1, 2, 10, A1)
+
+SE EU DECOMPOR EM DUAS TABELAS BINÁRIAS:
+
+Tabela A: passageiro_trecho
+(1, 1) -- João no trecho 1
+(2, 1) -- Maria no trecho 1
+(1, 2) -- João no trecho 2
+
+Tabela B: trecho_assento
+(1, 10, A1) -- Trecho 1, assento A1 ocupado
+(1, 10, A2) -- Trecho 1, assento A2 ocupado
+(2, 10, A1) -- Trecho 2, assento A1 ocupado
+
+AO FAZER JOIN PARA RECONSTRUIR OS DADOS:
+
+SELECT * FROM A JOIN B ON A.trecho = B.trecho
+
+RESULTADO (6 tuplas):
+(1, 1, 10, A1) ✓ CORRETO
+(1, 1, 10, A2) ✗ ERRADO - João NÃO reservou assento A2!
+(2, 1, 10, A1) ✗ ERRADO - Maria NÃO reservou assento A1!
+(2, 1, 10, A2) ✓ CORRETO
+(1, 2, 10, A1) ✓ CORRETO
+(ERRO: Maria não aparece no trecho 2 porque A não tem (2,2), mas se tivesse, também geraria lixo)
+
+PROBLEMA GRAVÍSSIMO:
+- Tabela original: 3 tuplas
+- JOIN das projeções: 5 ou mais tuplas
+- 3 ≠ 5, portanto a decomposição NÃO reconstrói os dados corretamente
+- Isso se chama DEPENDÊNCIA DE JUNÇÃO não trivial
+- É exatamente isso que a 5FN PROÍBE
+
+POR QUE ISSO ACONTECE?
+O JOIN força o produto cartesiano: para cada trecho, combina TODOS os passageiros 
+com TODOS os assentos, mesmo quando essa combinação não existe na realidade.
+
+EXEMPLO VISUAL DO ERRO:
+Trecho 1 tem: passageiros {João, Maria} × assentos {A1, A2}
+= {(João,A1), (João,A2), (Maria,A1), (Maria,A2)}
+
+Realidade: apenas (João,A1) e (Maria,A2) existem
+Lixo gerado: (João,A2) e (Maria,A1)
+
+Se o sistema permitisse isso, duas pessoas diferentes comprariam 
+o mesmo assento no mesmo trecho, um CAOS total!
+
+RESTRIÇÃO QUE IMPEDE O CAOS:
+CONSTRAINT assento_unico_por_trecho UNIQUE (id_trecho, id_onibus, numero_assento)
+
+Esta constraint só funciona na tabela ternária. Nas tabelas decompostas,
+o JOIN criaria múltiplas passagens para o mesmo assento, violando a regra de negócio.
+
+CONCLUSÃO:
+- A tabela reserva NÃO pode ser decomposta sem perder informação
+- Existe uma dependência de junção cíclica entre as 4 entidades
+- Esta dependência NÃO é consequência apenas da chave candidata
+- Portanto, a tabela ESTÁ na 5FN
+- Qualquer tentativa de decompor VIOLA a 5FN e CORROMPE os dados
