@@ -10,7 +10,7 @@ Enum "tipo_onibus" {
 Enum "status_viagem" {
   "Agendada"
   "Em Andamento"
-  "Concluída"
+  "Concluida"
   "Cancelada"
   "Atrasada"
 }
@@ -107,6 +107,7 @@ Table "trecho" {
   "id_trecho" SERIAL [pk, increment]
   "id_viagem" INT [not null]
   "ordem" INT [not null]
+  "distancia" DECIMAL(6,2) [not null]
   "data_hora_saida" TIMESTAMP [not null]
   "data_hora_chegada" TIMESTAMP [not null]
   "preco_trecho" DECIMAL(10,2) [not null]

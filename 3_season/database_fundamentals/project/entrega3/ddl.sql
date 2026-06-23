@@ -1,7 +1,7 @@
 ------------------------------------------------------ CRIACAO DO BANCO
 -- Enums
 CREATE TYPE tipo_onibus AS ENUM ('Convencional', 'Executivo', 'Semi-Leito', 'Leito', 'Leito-Cama');
-CREATE TYPE status_viagem AS ENUM ('Agendada', 'Em Andamento', 'Concluída', 'Cancelada', 'Atrasada');
+CREATE TYPE status_viagem AS ENUM ('Agendada', 'Em Andamento', 'Concluida', 'Cancelada', 'Atrasada');
 CREATE TYPE status_passagem AS ENUM ('Pendente', 'Confirmada', 'Cancelada', 'Reembolsada', 'Utilizada');
 
 -- Pessoa para heranca
@@ -86,6 +86,7 @@ CREATE TABLE trecho (
     id_trecho SERIAL PRIMARY KEY,
     id_viagem INT NOT NULL REFERENCES viagem(id_viagem),
     ordem INT NOT NULL,
+    distancia DECIMAL(6,2) NOT NULL,
     data_hora_saida TIMESTAMP NOT NULL,
     data_hora_chegada TIMESTAMP NOT NULL,
     preco_trecho DECIMAL(10,2) NOT NULL,
