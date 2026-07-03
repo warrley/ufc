@@ -1,0 +1,64 @@
+========================================
+       Resultados Correcao              
+========================================
+
+
+>>> ALUNO: graderv2.hs
+Matrícula: não informada
+
+temp_run.hs:110:1: error:
+    Multiple declarations of ‘testar’
+    Declared at: temp_run.hs:2:1
+                 temp_run.hs:110:1
+    |
+110 | testar nome esperado obtido =
+    | ^^^^^^
+
+temp_run.hs:116:1: error:
+    Multiple declarations of ‘runTests’
+    Declared at: temp_run.hs:8:1
+                 temp_run.hs:116:1
+    |
+116 | runTests = do
+    | ^^^^^^^^
+
+temp_run.hs:199:1: error:
+    Multiple declarations of ‘rodarQuestao’
+    Declared at: temp_run.hs:89:1
+                 temp_run.hs:199:1
+    |
+199 | rodarQuestao nomeQuestao resultados = do
+    | ^^^^^^^^^^^^
+
+temp_run.hs:213:1: error:
+    Multiple declarations of ‘imprimirErros’
+    Declared at: temp_run.hs:103:1
+                 temp_run.hs:213:1
+    |
+213 | imprimirErros [] = return ()
+    | ^^^^^^^^^^^^^
+
+
+>>> ALUNO: Guilherme Warley Brito Farias
+Matrícula: 582110
+
+========================================
+   CORRECAO DA SEGUNDA CHAMADA
+========================================
+
+--- Q1 (soma) ---
+[ OK ] Passou em 10/10 testes.
+
+--- Q2 (ultimo) ---
+[ OK ] Passou em 10/10 testes.
+
+--- Q3 (reduzir) ---
+[ OK ] Passou em 10/10 testes.
+
+--- Q4 (maiuscula) ---
+[ OK ] Passou em 10/10 testes.
+
+--- Q5 (capitalizar) ---
+[ OK ] Passou em 10/10 testes.
+========================================
+
