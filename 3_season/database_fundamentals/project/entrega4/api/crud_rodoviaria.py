@@ -26,7 +26,7 @@ async def criar_rodoviaria(rod: Rodoviaria):
         conn.close()
     return {"msg": "Rodoviaria criada com sucesso"}
 
-@router.get("/rodoviaria")
+@router.get("/rodoviarias", response_model=List[Rodoviaria])
 async def listar_rodoviarias():
     conn = get_connection()
     cur = conn.cursor()
@@ -48,6 +48,20 @@ async def listar_rodoviarias():
             id_cidade=d[6]
         ) for d in rows 
     ]
+
+@router.get("/rodoviaria/{id_rodoviaria}", response_model=Rodoviaria)
+async def get_rodoviaria(id_rodoviaria: int):
+    conn = get_connection()
+    cur = conn.cursor()
+    cur.execute("SELECT id_rodoviaria, nome, cep, rua, numero, bairro, id_cidade FROM rodoviaria WHERE id_rodoviaria=%s", (id_rodoviaria,))
+    row = cur.fetchone()
+    cur.close()
+    conn.close()
+    
+    if row:
+        return Rodoviaria(id_rodoviaria=row[0], nome=row[1], cep=row[2], rua=row[3], numero=row[4], bairro=row[5], id_cidade=row[6])
+    raise HTTPException(404, "Rodoviaria nao encontrada")
+
 
 @router.delete("/rodoviaria/{id_rodoviaria}")
 async def deletar_rodoviaria(id_rodoviaria: int):
@@ -96,4 +110,4 @@ async def atualizar_rod(id_rodoviaria: int, rod: RodoviariaUpdate):
     finally:
         cur.close()
         conn.close()
-        return {"msg": "Rodoviaria atualizada"}
+    return {"msg": "Rodoviaria atualizada"}
