@@ -1,0 +1,54 @@
+{
+    "patches": [
+        {
+            "label": "2026-02-20_12-17-34",
+            "content": "@@ -1,244 +1,6 @@\n-def equals(v1: list%5Bint%5D, v2: list%5Bint%5D, i: int = 0) -%3E bool:%0A    try: %0A        return False if v1%5Bi%5D != v2%5Bi%5D else equals(v1, v2, i+1)%0A        return True%0A    except IndexError: %0A        return False%0A%0A%0Adef main() -%3E None:%0A    v1: list%5Bint%5D\n+v1\n  = l\n@@ -48,25 +48,10 @@\n )))%0A\n-    v2: list%5Bint%5D\n+v2\n  = l\n@@ -99,97 +99,18 @@\n )))%0A\n-    \n+%0A\n print(\n-%22iuais%22 if equals(v1, v2) else %22diferentes%22)%0A%0Aif __name__ == %22__main__%22:%0A    main(\n+v1, v2\n )\n",
+            "lines": "4"
+        },
+        {
+            "label": "2026-02-20_12-46-07",
+            "content": "@@ -73,16 +73,29 @@\n         \n+return False \n if v1%5Bi%5D\n@@ -107,31 +107,13 @@\n 2%5Bi%5D\n-: return False %0A       \n+ else\n  equ\n",
+            "lines": "15"
+        },
+        {
+            "label": "2026-02-20_12-47-58",
+            "content": "@@ -369,9 +369,8 @@\n t(%22i\n-g\n uais\n",
+            "lines": "16"
+        },
+        {
+            "label": "2026-02-20_12-48-16",
+            "content": "@@ -59,56 +59,8 @@\n ol:%0A\n-    print(f%22i=%7Bi%7D v1%5Bi%5D=%7Bv1%5Bi%5D%7D v2%5Bi%5D=%7Bv2%5Bi%5D%7D%22)%0A\n     \n",
+            "lines": "16"
+        },
+        {
+            "label": "2026-02-20_12-49-22",
+            "content": "@@ -59,22 +59,8 @@\n ol:%0A\n-    try: %0A    \n     \n@@ -103,16 +103,26 @@\n 2%5Bi%5D%7D%22)%0A\n+    try: %0A\n         \n",
+            "lines": "17"
+        },
+        {
+            "label": "2026-02-20_12-49-48",
+            "content": "@@ -162,23 +162,8 @@\n se %0A\n-        i += 1%0A\n     \n@@ -182,16 +182,18 @@\n 1, v2, i\n++1\n )%0A      \n",
+            "lines": "17"
+        },
+        {
+            "label": "2026-02-20_12-50-53",
+            "content": "@@ -247,32 +247,8 @@\n r: %0A\n-        print(f%22i=%7Bi%7D%22)%0A\n     \n",
+            "lines": "18"
+        },
+        {
+            "label": "2026-02-20_12-51-30",
+            "content": "@@ -166,22 +166,30 @@\n         \n-return\n+i += 1%0A       \n  equals(\n@@ -201,71 +201,10 @@\n 2, i\n-+1\n )%0A\n-    except IndexError: %0A        try:%0A            v1%5Bi%5D%0A    \n     \n@@ -214,30 +214,25 @@\n  return \n-Fals\n+Tru\n e%0A    \n- \n-   \n except I\n@@ -233,32 +233,33 @@\n cept IndexError:\n+ \n %0A            try\n@@ -255,52 +255,32 @@\n     \n-    try:%0A                v2%5Bi%5D%0A     \n+print(f%22i=%7Bi%7D%22)%0A\n         \n    r\n@@ -271,27 +271,24 @@\n %7D%22)%0A        \n-   \n return False\n@@ -292,67 +292,8 @@\n lse%0A\n-            except IndexError:%0A                return True%0A\n %0A%0Ade\n",
+            "lines": "19"
+        },
+        {
+            "label": "2026-02-20_13-03-19",
+            "content": "@@ -76,10 +76,8 @@\n     \n- #\n  pri\n",
+            "lines": "24"
+        },
+        {
+            "label": "2026-02-20_13-03-28",
+            "content": "def equals(v1: list[int], v2: list[int], i: int = 0) -> bool:\n    try: \n        # print(f\"i={i} v1[i]={v1[i]} v2[i]={v2[i]}\")\n        if v1[i] != v2[i]: return False \n        return equals(v1, v2, i+1)\n    except IndexError: \n        try:\n            v1[i]\n            return False\n        except IndexError:\n            try:\n                v2[i]\n                return False\n            except IndexError:\n                return True\n\n\ndef main() -> None:\n    v1: list[int] = list(map(int, input().strip(\"[  ]\").split()))\n    v2: list[int] = list(map(int, input().strip(\"[  ]\").split()))\n    print(\"iguais\" if equals(v1, v2) else \"diferentes\")\n\nif __name__ == \"__main__\":\n    main()",
+            "lines": "24"
+        }
+    ]
+}

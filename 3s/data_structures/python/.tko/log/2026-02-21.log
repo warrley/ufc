@@ -1,0 +1,63 @@
+2026-02-21 13:52:14, MOVE, v:1, k:ed@ilhas, mode:PICK
+2026-02-21 13:52:18, EXEC, v:1, k:ed@ilhas, mode:FREE, size:13
+2026-02-21 13:56:54, MOVE, v:1, k:ed@ilhas, mode:BACK
+2026-02-21 14:11:28, MOVE, v:1, k:ed@fractais, mode:PICK
+2026-02-21 14:11:30, MOVE, v:1, k:ed@fractais, mode:BACK
+2026-02-21 14:11:37, MOVE, v:1, k:ed@ilhas, mode:PICK
+2026-02-21 14:11:38, EXEC, v:1, k:ed@ilhas, mode:FREE, size:32
+2026-02-21 14:18:45, MOVE, v:1, k:ed@ilhas, mode:BACK
+2026-02-21 14:23:17, MOVE, v:1, k:ed@ilhas, mode:PICK
+2026-02-21 14:23:17, EXEC, v:1, k:ed@ilhas, mode:FULL, rate:100, size:33
+2026-02-21 14:23:19, MOVE, v:1, k:ed@ilhas, mode:BACK
+2026-02-21 14:23:44, SELF, v:1, k:ed@ilhas, rate:100, guide:video_disponibilizado, alone:4
+2026-02-21 14:23:54, MOVE, v:1, k:ed@cercado, mode:DOWN
+2026-02-21 14:24:27, MOVE, v:1, k:ed@cercado, mode:DOWN
+2026-02-21 14:31:14, MOVE, v:1, k:ed@cercado, mode:PICK
+2026-02-21 14:31:15, EXEC, v:1, k:ed@cercado, mode:FREE, size:12
+2026-02-21 15:19:03, EXEC, v:1, k:ed@cercado, mode:FULL, rate:33, size:41
+2026-02-21 15:19:24, EXEC, v:1, k:ed@cercado, mode:FULL, rate:100, size:41
+2026-02-21 15:19:24, EXEC, v:1, k:ed@cercado, mode:FULL, rate:100, size:41
+2026-02-21 15:28:00, EXEC, v:1, k:ed@cercado, mode:FULL, rate:100, size:41
+2026-02-21 15:28:01, MOVE, v:1, k:ed@cercado, mode:BACK
+2026-02-21 15:28:10, SELF, v:1, k:ed@cercado, rate:100, guide:1, alone:10
+2026-02-21 15:28:58, MOVE, v:1, k:ed@labirinto, mode:DOWN
+2026-02-21 15:31:28, MOVE, v:1, k:ed@labirinto, mode:PICK
+2026-02-21 15:31:29, EXEC, v:1, k:ed@labirinto, mode:FREE, size:11
+2026-02-21 16:08:43, EXEC, v:1, k:ed@labirinto, mode:FULL, rate:100, size:40
+2026-02-21 16:08:50, MOVE, v:1, k:ed@labirinto, mode:BACK
+2026-02-21 16:09:10, SELF, v:1, k:ed@labirinto, rate:100, guide:video_do_canal, alone:10
+2026-02-21 16:10:26, MOVE, v:1, k:ed@pintura, mode:DOWN
+2026-02-21 16:20:39, MOVE, v:1, k:ed@pintura, mode:PICK
+2026-02-21 16:20:39, EXEC, v:1, k:ed@pintura, mode:FREE, size:32
+2026-02-21 16:36:42, EXEC, v:1, k:ed@pintura, mode:FULL, rate:0, size:43
+2026-02-21 16:36:58, EXEC, v:1, k:ed@pintura, mode:FULL, rate:50, size:43
+2026-02-21 16:37:42, EXEC, v:1, k:ed@pintura, mode:FULL, rate:100, size:43
+2026-02-21 16:38:10, MOVE, v:1, k:ed@pintura, mode:BACK
+2026-02-21 16:38:17, SELF, v:1, k:ed@pintura, rate:100, alone:10
+2026-02-21 16:43:54, MOVE, v:1, k:ed@longest, mode:DOWN
+2026-02-21 16:43:55, MOVE, v:1, k:ed@longest, mode:PICK
+2026-02-21 16:43:56, MOVE, v:1, k:ed@longest, mode:BACK
+2026-02-21 16:44:12, MOVE, v:1, k:ed@pintura, mode:PICK
+2026-02-21 16:44:12, EXEC, v:1, k:ed@pintura, mode:FULL, rate:100, size:42
+2026-02-21 16:48:15, EXEC, v:1, k:ed@pintura, mode:FULL, rate:100, size:57
+2026-02-21 16:48:21, MOVE, v:1, k:ed@pintura, mode:BACK
+2026-02-21 16:50:31, SELF, v:1, k:ed@pintura, rate:100, alone:10
+2026-02-21 16:50:41, MOVE, v:1, k:ed@longest, mode:DOWN
+2026-02-21 18:58:15, MOVE, v:1, k:ed@longest, mode:PICK
+2026-02-21 18:58:15, EXEC, v:1, k:ed@longest, mode:FREE, size:17
+2026-02-21 20:25:42, MOVE, v:1, k:ed@longest, mode:BACK
+2026-02-21 20:37:32, MOVE, v:1, k:ed@longest, mode:PICK
+2026-02-21 20:37:32, EXEC, v:1, k:ed@longest, mode:FREE, size:18
+2026-02-21 21:05:40, EXEC, v:1, k:ed@longest, mode:FULL, rate:100, size:33
+2026-02-21 21:08:11, MOVE, v:1, k:ed@longest, mode:BACK
+2026-02-21 21:08:55, SELF, v:1, k:ed@longest, rate:100, iagen:explicacao_de_ideias, guide:explicacao_da_ideia_da_questao, alone:5
+2026-02-21 21:09:16, MOVE, v:1, k:ed@battleship, mode:DOWN
+2026-02-21 21:13:07, MOVE, v:1, k:ed@battleship, mode:PICK
+2026-02-21 21:13:07, EXEC, v:1, k:ed@battleship, mode:FREE, size:14
+2026-02-21 21:30:13, EXEC, v:1, k:ed@battleship, mode:FULL, rate:100, size:28
+2026-02-21 21:30:17, MOVE, v:1, k:ed@battleship, mode:BACK
+2026-02-21 21:30:21, SELF, v:1, k:ed@battleship, rate:100, alone:10
+2026-02-21 21:30:23, MOVE, v:1, k:ed@battleship, mode:PICK
+2026-02-21 21:30:26, MOVE, v:1, k:ed@battleship, mode:BACK
+2026-02-21 21:32:25, SELF, v:1, k:ed@ilhas, rate:100, guide:video_disponibilizado, alone:7
+2026-02-21 21:32:40, SELF, v:1, k:ed@ilhas, rate:100, guide:video_disponibilizado, alone:5

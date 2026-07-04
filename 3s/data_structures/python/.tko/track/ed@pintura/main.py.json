@@ -1,0 +1,34 @@
+{
+    "patches": [
+        {
+            "label": "2026-02-21_16-20-39",
+            "content": "@@ -587,296 +587,20 @@\n int(\n-*row)%0A%0Adef dfs(m: list%5Blist%5Bstr%5D%5D, i: int, j: int, bc: str, ac: str) -%3E None:%0A%09if i %3C 0 or j %3C 0 or i %3E= len(m) or j %3E= len(m%5B0%5D) or m%5Bi%5D%5Bj%5D != bc: return%0A%0A%09m%5Bi%5D%5Bj%5D = ac%0A%09# print(%22%22)%0A%09# show(m)%0A%09dfs(m, i+1, j, bc, ac)%0A%09dfs(m, i-1, j, bc, ac)%0A%09dfs(m, i, j+1, bc, ac)%0A%09dfs(m, i, j-1, bc, ac\n+%22%22.join(row)\n )%0A%0Ad\n@@ -669,16 +669,25 @@\n = %5Blist(\n+map(int, \n input().\n@@ -694,16 +694,17 @@\n split())\n+)\n  for _ i\n@@ -764,60 +764,21 @@\n ))%0A%0A\n-%0A%09dfs(image, sr, sc, str(image%5Bsr%5D%5Bsc%5D), str(color))\n+%09show(image)%0A\n %0A%0A%0Ai\n",
+            "lines": "32"
+        },
+        {
+            "label": "2026-02-21_16-36-42",
+            "content": "@@ -1026,16 +1026,17 @@\n lit())%0A%0A\n+%0A\n %09dfs(ima\n@@ -1083,21 +1083,8 @@\n r))%0A\n-%09show(image)%0A\n %0A%0Aif\n",
+            "lines": "43"
+        },
+        {
+            "label": "2026-02-21_16-36-58",
+            "content": "@@ -733,20 +733,8 @@\n = bc\n- or bc == ac\n : re\n",
+            "lines": "43"
+        },
+        {
+            "label": "2026-02-21_16-37-42",
+            "content": "@@ -529,16 +529,17 @@\n TORNAR %0A\n+%0A\n def show\n@@ -729,16 +729,28 @@\n j%5D != bc\n+ or bc == ac\n : return\n@@ -1043,40 +1043,8 @@\n )%0A%0A%09\n-if str(color) != image%5Bsr%5D%5Bsc%5D: \n dfs(\n",
+            "lines": "43"
+        },
+        {
+            "label": "2026-02-21_16-44-12",
+            "content": "@@ -1,8 +1,10 @@\n+# \n from typ\n@@ -23,353 +23,11 @@\n ist%0A\n-def show(m: list%5Blist%5Bstr%5D%5D):%0A%09for row in m:%0A%09%09print(*row)%0A%0Adef dfs(m: list%5Blist%5Bstr%5D%5D, i: int, j: int, bc: str, ac: str) -%3E None:%0A%09if i %3C 0 or j %3C 0 or i %3E= len(m) or j %3E= len(m%5B0%5D) or m%5Bi%5D%5Bj%5D != bc: return%0A%0A%09m%5Bi%5D%5Bj%5D = ac%0A%09# print(%22%22)%0A%09# show(m)%0A%09dfs(m, i+1, j, bc, ac)%0A%09dfs(m, i-1, j, bc, ac)%0A%09dfs(m, i, j+1, bc, ac)%0A%09dfs(m, i, j-1, bc, ac)%0A%0A%0A\n+%0A# \n def \n@@ -114,108 +114,88 @@\n %5D%5D:%0A\n+# \n %09if \n-color == image%5Bsr%5D%5Bsc%5D: return image%0A%0A%09dfs(image, sr, sc, image%5Bsr%5D%5Bsc%5D, color)%0A%0A%09return image%0A%0A\n+sr %3C 0 or sc %3C 0 or sr %3E= len(image) or sc %3E= len(image%5B0%5D): return %5B%5D%0A%0A# \n # N%C3%A3\n@@ -213,16 +213,18 @@\n  a main%0A\n+# \n def main\n@@ -235,16 +235,18 @@\n %3E None:%0A\n+# \n %09nl, nc \n@@ -273,16 +273,18 @@\n plit())%0A\n+# \n %09image =\n@@ -337,16 +337,18 @@\n ge(nl)%5D%0A\n+# \n %09sr, sc,\n@@ -382,16 +382,18 @@\n plit())%0A\n+# \n %09result \n@@ -430,71 +430,171 @@\n or)%0A\n-%0A%09show(result)%0A%0A## ALTERANDO O PROPRIO VETOR, SEM RETORNAR %0A%0A# \n+# %09for row in result:%0A# %09%09print(%22 %22.join(map(str, row)))%0A%0A%0A## ALTERANDO O PROPRIO VETOR, SEM RETORNAR %0Adef show(m: list%5Blist%5Bstr%5D%5D):%0A%09for row in m:%0A%09%09print(*row)%0A%0A\n def \n@@ -660,18 +660,16 @@\n %3E None:%0A\n-# \n %09if i %3C \n@@ -738,18 +738,16 @@\n return%0A%0A\n-# \n %09m%5Bi%5D%5Bj%5D\n@@ -752,18 +752,16 @@\n j%5D = ac%0A\n-# \n %09# print\n@@ -765,18 +765,16 @@\n int(%22%22)%0A\n-# \n %09# show(\n@@ -776,18 +776,16 @@\n show(m)%0A\n-# \n %09dfs(m, \n@@ -792,34 +792,32 @@\n i+1, j, bc, ac)%0A\n-# \n %09dfs(m, i-1, j, \n@@ -816,34 +816,32 @@\n i-1, j, bc, ac)%0A\n-# \n %09dfs(m, i, j+1, \n@@ -848,18 +848,16 @@\n bc, ac)%0A\n-# \n %09dfs(m, \n@@ -873,18 +873,16 @@\n c, ac)%0A%0A\n-# \n def main\n@@ -885,34 +885,32 @@\n main() -%3E None:%0A\n-# \n %09nl, nc = map(in\n@@ -921,34 +921,32 @@\n nput().split())%0A\n-# \n %09image = %5Blist(i\n@@ -973,34 +973,32 @@\n _ in range(nl)%5D%0A\n-# \n %09sr, sc, color =\n@@ -1025,18 +1025,16 @@\n lit())%0A%0A\n-# \n %09if str(\n@@ -1109,18 +1109,16 @@\n color))%0A\n-# \n %09show(im\n",
+            "lines": "42"
+        },
+        {
+            "label": "2026-02-21_16-48-15",
+            "content": "from typing import List\ndef show(m: list[list[str]]):\n\tfor row in m:\n\t\tprint(*row)\n\ndef dfs(m: list[list[str]], i: int, j: int, bc: str, ac: str) -> None:\n\tif i < 0 or j < 0 or i >= len(m) or j >= len(m[0]) or m[i][j] != bc: return\n\n\tm[i][j] = ac\n\t# print(\"\")\n\t# show(m)\n\tdfs(m, i+1, j, bc, ac)\n\tdfs(m, i-1, j, bc, ac)\n\tdfs(m, i, j+1, bc, ac)\n\tdfs(m, i, j-1, bc, ac)\n\n\ndef floodFill(image: List[List[int]], sr: int, sc: int, color: int) -> List[List[int]]:\n\tif color == image[sr][sc]: return image\n\n\tdfs(image, sr, sc, image[sr][sc], color)\n\n\treturn image\n\n# N\u00e3o modifique a main\ndef main() -> None:\n\tnl, nc = map(int, input().split())\n\timage = [list(map(int, input().split())) for _ in range(nl)]\n\tsr, sc, color = map(int, input().split())\n\tresult = floodFill(image, sr, sc, color)\n\n\tshow(result)\n\n## ALTERANDO O PROPRIO VETOR, SEM RETORNAR \n\n# def dfs(m: list[list[str]], i: int, j: int, bc: str, ac: str) -> None:\n# \tif i < 0 or j < 0 or i >= len(m) or j >= len(m[0]) or m[i][j] != bc: return\n\n# \tm[i][j] = ac\n# \t# print(\"\")\n# \t# show(m)\n# \tdfs(m, i+1, j, bc, ac)\n# \tdfs(m, i-1, j, bc, ac)\n# \tdfs(m, i, j+1, bc, ac)\n# \tdfs(m, i, j-1, bc, ac)\n\n# def main() -> None:\n# \tnl, nc = map(int, input().split())\n# \timage = [list(input().split()) for _ in range(nl)]\n# \tsr, sc, color = map(int, input().split())\n\n# \tif str(color) != image[sr][sc]: dfs(image, sr, sc, str(image[sr][sc]), str(color))\n# \tshow(image)\n\n\nif __name__ == \"__main__\":\n    main()\n",
+            "lines": "57"
+        }
+    ]
+}

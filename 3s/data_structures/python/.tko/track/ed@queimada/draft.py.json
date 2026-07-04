@@ -1,0 +1,9 @@
+{
+    "patches": [
+        {
+            "label": "2026-02-19_18-46-01",
+            "content": "def printm(m):\n    for row in m:\n        print(\"\".join(row))\n\n\ndef burn(m, i, j):\n    if i<0 or i>=len(m) or j<0 or j>=len(m[0]) or  m[i][j] != \"#\": return\n    m[i][j] = \"o\"\n    burn(m, i+1, j)\n    burn(m, i-1, j)\n    burn(m, i, j-1)\n    burn(m, i, j+1)\n\nnl, nc, l, c = map(int, input().split())\nm = []\nfor _ in range(nl):\n    m.append(list(input()))\n\n# pythonic\n# m = [list(input()) for _ in range(nl)]\n\nburn(m, l, c)\nprintm(m)",
+            "lines": "23"
+        }
+    ]
+}

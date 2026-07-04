@@ -1,0 +1,39 @@
+{
+    "patches": [
+        {
+            "label": "2026-02-02_11-29-15",
+            "content": "@@ -1,21 +1,4 @@\n-n = int(input())%0A\n inpu\n@@ -37,316 +37,17 @@\n )))%0A\n-animals = %5B0 for _ in range(n)%5D%0Acouples = 0%0A%0Afor i in range(n):%0A    for j in range(n):%0A        if (input%5Bi%5D - animals%5Bj%5D) == 0:%0A           \n+%0A\n print(\n-f%22%7B\n input\n-%5Bi%5D%7D com %7Banimals%5Bj%5D%7D%22)%0A           couples += 1%0A           animals%5Bj%5D = 0%0A        else:%0A            animals%5Bi%5D = input%5Bi%5D %0A            continue%0A%0Aprint(couples\n )\n",
+            "lines": "3"
+        },
+        {
+            "label": "2026-02-02_11-38-38",
+            "content": "@@ -228,38 +228,8 @@\n %5Bj%5D%7D\n-%5Cn a fita esta assim %7Banimals%7D\n %22)%0A \n",
+            "lines": "16"
+        },
+        {
+            "label": "2026-02-02_11-39-57",
+            "content": "@@ -118,43 +118,8 @@\n n):%0A\n-    print(f%22%5Cn%7Bi%7D fita %7Banimals%7D%22)%0A\n     \n@@ -158,17 +158,17 @@\n nput%5Bi%5D \n-+\n+-\n  animals\n@@ -311,78 +311,8 @@\n = 0%0A\n-           print(f%22a fita ficou assim %7Banimals%7D%22)%0A           continue%0A\n     \n",
+            "lines": "16"
+        },
+        {
+            "label": "2026-02-02_11-50-12",
+            "content": "@@ -132,28 +132,28 @@\n f%22%5Cn\n-i=\n %7Bi%7D\n-%22)%0A    flag = 0\n+ fita %7Banimals%7D%22)\n %0A   \n@@ -228,88 +228,221 @@\n     \n-couples += 1%0A           animals%5Bj%5D = 0%0A           flag = 1%0A    if flag == False:\n+print(f%22%7Binput%5Bi%5D%7D com %7Banimals%5Bj%5D%7D%5Cn a fita esta assim %7Banimals%7D%22)%0A           couples += 1%0A           animals%5Bj%5D = 0%0A           print(f%22a fita ficou assim %7Banimals%7D%22)%0A           continue%0A        else:%0A           \n  ani\n@@ -460,16 +460,37 @@\n nput%5Bi%5D \n+%0A            continue\n %0A%0Aprint(\n",
+            "lines": "19"
+        },
+        {
+            "label": "2026-02-02_12-05-24",
+            "content": "@@ -110,24 +110,46 @@\n n range(n):%0A\n+    print(f%22%5Cni=%7Bi%7D%22)%0A\n     flag = 0\n",
+            "lines": "16"
+        },
+        {
+            "label": "2026-02-02_12-05-33",
+            "content": "@@ -15,17 +15,16 @@\n ))%0Ainput\n-s\n  = list(\n@@ -50,16 +50,16 @@\n lit()))%0A\n+\n animals \n@@ -129,13 +129,9 @@\n g = \n-False\n+0\n %0A   \n@@ -163,25 +163,24 @@\n    if (input\n-s\n %5Bi%5D + animal\n@@ -272,16 +272,21 @@\n  if \n-not \n flag\n+ == False\n : an\n@@ -301,17 +301,16 @@\n  = input\n-s\n %5Bi%5D %0A%0Apr\n",
+            "lines": "15"
+        },
+        {
+            "label": "2026-02-02_12-11-02",
+            "content": "n = int(input())\ninputs = list(map(int, input().split()))\nanimals = [0 for _ in range(n)]\ncouples = 0\n\nfor i in range(n):\n    flag = False\n    for j in range(n):\n        if (inputs[i] + animals[j]) == 0:\n           couples += 1\n           animals[j] = 0\n           flag = 1\n    if not flag: animals[i] = inputs[i] \n\nprint(couples)",
+            "lines": "15"
+        }
+    ]
+}

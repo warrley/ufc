@@ -1,0 +1,4 @@
+2026-02-23 09:32:27, MOVE, v:1, k:ed@wordsearch, mode:DOWN
+2026-02-23 09:36:29, MOVE, v:1, k:ed@wordsearch, mode:PICK
+2026-02-23 09:36:29, EXEC, v:1, k:ed@wordsearch, mode:FREE, size:5
+2026-02-23 09:38:06, MOVE, v:1, k:ed@wordsearch, mode:BACK

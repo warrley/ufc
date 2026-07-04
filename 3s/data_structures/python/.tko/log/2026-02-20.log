@@ -1,0 +1,85 @@
+2026-02-20 09:40:09, MOVE, v:1, k:ed@queimada, mode:PICK
+2026-02-20 09:40:10, MOVE, v:1, k:ed@queimada, mode:BACK
+2026-02-20 09:40:31, SELF, v:1, k:ed@queimada, rate:100, guide:1, alone:6
+2026-02-20 09:40:54, MOVE, v:1, k:ed@resto, mode:DOWN
+2026-02-20 09:47:18, MOVE, v:1, k:ed@resto, mode:PICK
+2026-02-20 09:47:18, EXEC, v:1, k:ed@resto, mode:FREE, size:12
+2026-02-20 09:52:24, EXEC, v:1, k:ed@resto, mode:FULL, rate:100, size:13
+2026-02-20 09:52:56, MOVE, v:1, k:ed@resto, mode:BACK
+2026-02-20 09:53:04, SELF, v:1, k:ed@resto, rate:100, alone:10
+2026-02-20 10:04:56, MOVE, v:1, k:ed@mdc, mode:DOWN
+2026-02-20 10:23:12, MOVE, v:1, k:ed@mdc, mode:PICK
+2026-02-20 10:23:13, EXEC, v:1, k:ed@mdc, mode:FREE, size:13
+2026-02-20 10:32:39, EXEC, v:1, k:ed@mdc, mode:FULL, rate:100, size:12
+2026-02-20 10:32:48, MOVE, v:1, k:ed@mdc, mode:BACK
+2026-02-20 10:32:54, SELF, v:1, k:ed@mdc, rate:100, alone:10
+2026-02-20 10:42:36, MOVE, v:1, k:ed@eh_primo, mode:DOWN
+2026-02-20 10:56:46, MOVE, v:1, k:ed@eh_primo, mode:PICK
+2026-02-20 10:56:47, EXEC, v:1, k:ed@eh_primo, mode:FREE, size:11
+2026-02-20 11:00:44, EXEC, v:1, k:ed@eh_primo, mode:FULL, rate:0, size:11
+2026-02-20 11:00:47, EXEC, v:1, k:ed@eh_primo, mode:FULL, rate:0
+2026-02-20 11:01:54, EXEC, v:1, k:ed@eh_primo, mode:FULL, rate:0, size:11
+2026-02-20 11:02:00, EXEC, v:1, k:ed@eh_primo, mode:FULL, rate:0, size:11
+2026-02-20 11:02:45, EXEC, v:1, k:ed@eh_primo, mode:FULL, rate:44, size:12
+2026-02-20 11:03:02, EXEC, v:1, k:ed@eh_primo, mode:FREE
+2026-02-20 11:04:52, EXEC, v:1, k:ed@eh_primo, mode:FULL, rate:0, size:12
+2026-02-20 11:05:14, EXEC, v:1, k:ed@eh_primo, mode:FULL, rate:100, size:12
+2026-02-20 11:05:17, MOVE, v:1, k:ed@eh_primo, mode:BACK
+2026-02-20 11:05:27, SELF, v:1, k:ed@eh_primo, rate:100, alone:10
+2026-02-20 11:08:07, MOVE, v:1, k:ed@enesimo, mode:DOWN
+2026-02-20 11:31:07, MOVE, v:1, k:ed@enesimo, mode:PICK
+2026-02-20 11:31:08, EXEC, v:1, k:ed@enesimo, mode:FREE, size:15
+2026-02-20 11:34:58, EXEC, v:1, k:ed@enesimo, mode:FULL, rate:0, size:16
+2026-02-20 11:35:04, EXEC, v:1, k:ed@enesimo, mode:FULL, rate:100, size:16
+2026-02-20 11:35:05, EXEC, v:1, k:ed@enesimo, mode:FULL, rate:100
+2026-02-20 11:44:20, MOVE, v:1, k:ed@enesimo, mode:BACK
+2026-02-20 11:44:28, SELF, v:1, k:ed@enesimo, rate:100, alone:10
+2026-02-20 12:11:37, MOVE, v:1, k:ed@fractais, mode:DOWN
+2026-02-20 12:12:36, MOVE, v:1, k:ed@fractais, mode:PICK
+2026-02-20 12:12:36, EXEC, v:1, k:ed@fractais, mode:LOCK, rate:100, size:1
+2026-02-20 12:12:37, EXEC, v:1, k:ed@fractais, mode:LOCK, rate:100
+2026-02-20 12:12:38, EXEC, v:1, k:ed@fractais, mode:LOCK, rate:100
+2026-02-20 12:12:38, EXEC, v:1, k:ed@fractais, mode:LOCK, rate:100
+2026-02-20 12:12:39, EXEC, v:1, k:ed@fractais, mode:LOCK, rate:100
+2026-02-20 12:12:39, EXEC, v:1, k:ed@fractais, mode:LOCK, rate:100
+2026-02-20 12:12:43, MOVE, v:1, k:ed@fractais, mode:BACK
+2026-02-20 12:12:59, SELF, v:1, k:ed@fractais
+2026-02-20 12:13:00, MOVE, v:1, k:ed@fractais_png, mode:DOWN
+2026-02-20 12:15:31, MOVE, v:1, k:ed@vetequals, mode:DOWN
+2026-02-20 12:17:34, MOVE, v:1, k:ed@vetequals, mode:PICK
+2026-02-20 12:17:34, EXEC, v:1, k:ed@vetequals, mode:FREE, size:4
+2026-02-20 12:46:07, EXEC, v:1, k:ed@vetequals, mode:FULL, rate:70, size:15
+2026-02-20 12:47:58, EXEC, v:1, k:ed@vetequals, mode:FULL, rate:40, size:16
+2026-02-20 12:48:05, EXEC, v:1, k:ed@vetequals, mode:FULL, rate:40
+2026-02-20 12:48:16, EXEC, v:1, k:ed@vetequals, mode:FULL, rate:60, size:16
+2026-02-20 12:49:22, EXEC, v:1, k:ed@vetequals, mode:FULL, rate:0, size:17
+2026-02-20 12:49:48, EXEC, v:1, k:ed@vetequals, mode:FULL, rate:0, size:17
+2026-02-20 12:50:53, EXEC, v:1, k:ed@vetequals, mode:FULL, rate:0, size:18
+2026-02-20 12:51:30, EXEC, v:1, k:ed@vetequals, mode:FULL, rate:0, size:19
+2026-02-20 13:03:19, EXEC, v:1, k:ed@vetequals, mode:FULL, rate:10, size:24
+2026-02-20 13:03:28, EXEC, v:1, k:ed@vetequals, mode:FULL, rate:100, size:24
+2026-02-20 13:03:32, MOVE, v:1, k:ed@vetequals, mode:BACK
+2026-02-20 13:03:57, SELF, v:1, k:ed@vetequals, rate:100, other:uso_do_exception, alone:8
+2026-02-20 13:04:01, MOVE, v:1, k:ed@priminhos, mode:DOWN
+2026-02-20 13:04:54, MOVE, v:1, k:ed@priminhos, mode:DOWN
+2026-02-20 13:21:48, MOVE, v:1, k:ed@priminhos, mode:PICK
+2026-02-20 13:21:49, EXEC, v:1, k:ed@priminhos, mode:FREE, size:17
+2026-02-20 13:38:27, EXEC, v:1, k:ed@priminhos, mode:FULL, rate:0, size:20
+2026-02-20 13:39:02, EXEC, v:1, k:ed@priminhos, mode:FREE
+2026-02-20 13:39:28, EXEC, v:1, k:ed@priminhos, mode:FULL, rate:100, size:20
+2026-02-20 13:39:42, MOVE, v:1, k:ed@priminhos, mode:BACK
+2026-02-20 13:39:50, SELF, v:1, k:ed@priminhos, rate:100, alone:10
+2026-02-20 13:40:07, SELF, v:1, k:ed@crec_view, rate:100, alone:10
+2026-02-20 13:40:24, SELF, v:1, k:ed@rec_read, rate:100, other:1, alone:10
+2026-02-20 13:40:56, SELF, v:1, k:ed@fractais, rate:60
+2026-02-20 13:41:01, SELF, v:1, k:ed@fractais
+2026-02-20 16:07:20, SELF, v:1, k:ed@queimada, rate:100, guide:1, alone:5
+2026-02-20 16:07:23, SELF, v:1, k:ed@queimada, rate:100, guide:1, alone:6
+2026-02-20 16:07:26, SELF, v:1, k:ed@queimada, rate:100, guide:1, alone:7
+2026-02-20 16:19:24, MOVE, v:1, k:ed@ilhas, mode:DOWN
+2026-02-20 16:19:54, SELF, v:1, k:ed@dfs_bfs_bak, rate:100, guide:o_video_linkado
+2026-02-20 16:19:56, MOVE, v:1, k:ed@ilhas, mode:PICK
+2026-02-20 16:25:53, EXEC, v:1, k:ed@ilhas, mode:FREE, size:12
+2026-02-20 16:38:01, MOVE, v:1, k:ed@ilhas, mode:BACK
+2026-02-20 17:12:10, MOVE, v:1, k:ed@ilhas, mode:PICK
+2026-02-20 17:12:11, EXEC, v:1, k:ed@ilhas, mode:FREE, size:18
