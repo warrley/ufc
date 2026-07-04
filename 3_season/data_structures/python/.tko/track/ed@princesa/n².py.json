@@ -1,9 +1,0 @@
-{
-    "patches": [
-        {
-            "label": "2026-02-12_09-00-35",
-            "content": "size, sword = map(int, input().split()); sword -= 1\nvector = [i for i in range(1, size+1)]\n\ndef printv():\n    print(\"[ \", end=\"\")\n    for i in range(size):\n        print(vector[i], end=\"\")\n        if i == sword:\n            print(\">\", end=\"\")\n        print(\" \", end=\"\")\n    print(\"]\")\n\nwhile size >= 1:\n    printv()\n\n    dead = (sword+1) % size\n    for i in range(dead, size-1):\n        vector[i] = vector[i+1]\n\n    vector.pop()\n    size -= 1\n\n    if size != 0: sword = dead % size\n\n# pythonic\n# size, sword = map(int, input().split())\n# vector = list(range(1, size + 1))\n# sword -= 1  # Adjust to 0-based indexing\n\n# while vector:\n#     # 1. Visualization using a Join expression\n#     display = [f\"{v}>\" if i == sword else str(v) for i, v in enumerate(vector)]\n#     print(f\"[ {' '.join(display)} ]\")\n\n#     # 2. Identify the target (the person to the right of the sword)\n#     kill_idx = (sword + 1) % len(vector)\n    \n#     # 3. Remove the target\n#     vector.pop(kill_idx)\n    \n#     # 4. Update sword position\n#     if vector:\n#         # If the person at the end was killed, the sword wraps to the start\n#         sword = kill_idx % len(vector)",
-            "lines": "44"
-        }
-    ]
-}
