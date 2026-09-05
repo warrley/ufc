@@ -1,0 +1,63 @@
+AVISO: Para utilizar melhor o tempo das apresentações, cada equipe deve enviar para criston@ufc.br o pdf que será projetado. Este envio deve ser feito até a véspera da apresentação da equipe. Quem não enviar na véspera terá menos tempo para apresentar, pois vou usar o tempo de apresentação da equipe para preparar a projeção.
+
+---
+30 02/12/2022 sex 08:00 - TRABALHO: apresentação das partes 2 e 3
+
+08:00 GRUPO J(10): Quantidade mínima de caracteres deletados para fazer uma string virar um palíndromo.
+WILHELM DE SOUSA STEINS, RUAN DIEGO GUIMARAES DO NASCIMENTO, FRANCISCO EDVALDO DE OLIVEIRA JUNIOR
+
+08:20 GRUPO N(14): Weighted inteval scheduling.
+DAVID ALVES SOARES, JORGE BRUNO COSTA ALVES, MATHEUS ENRICO DE ARAUJO FERRER
+
+08:40 GRUPO F(06): Problema de verificação de chapéu - contando desarranjos.
+HENRIQUE ANTONIO LUBKE FOGACA, TIAGO RODRIGUES SOUSA, THIAGO VIANA BEZERRA
+
+09:00 GRUPO A(01): Maior Subsequência Comum
+FELIPE RAULINO LEMOS, ITALO RODRIGUES NASCIMENTO, FRANCISCO WANDERSON NASCIMENTO MATIAS
+
+09:20 GRUPO H(08): Find total arrangements such that no two balls of the same color are together.
+ROBERTSON DA SILVA NASCIMENTO, GABRIEL LIMA PAIXAO ALBUQUERQUE DE RESENDE, BERGSON SERAFIM DE SOUZA
+
+09:40 GRUPO M(13): Encontre maneiras totais de chegar ao n'º degrau com no máximo 'm' passos.
+FRANCISCO BRENO DA SILVEIRA, GUILHERME DOS SANTOS CAVALCANTE, PEDRO EMANUEL FERREIRA PAIVA DAS NEVES
+
+
+---
+31 08/12/2022 qui 08:00 - TRABALHO: apresentação das partes 2 e 3
+
+08:00 GRUPO Q(17): Regular expression matching.
+ALYSSON ALEXANDRE DE OLIVEIRA ARAUJO, HENRICKY DE LIMA MONTEIRO, DAVI JOSE LIMA DE SOUSA
+
+08:20 GRUPO I(09): Dado um conjunto de inteiros positivos e um inteiro k, verifique se existe algum subconjunto não vazio cuja soma seja k.
+EWALDO DE CARVALHO BEZERRA JUNOR, ODIMAR SOUSA FALCAO FILHO, ISANIO VITOR FELIX ARAUJO
+
+08:40 GRUPO E(05): Merge K Sorted Lists
+THIAGO OLIVEIRA FERREIRA, GUILHERME SANTOS RODRIGUES
+
+09:00 GRUPO C(03): Partition problem: determine whether a given set can be partitioned into two subsets such that the sum of elements in both subsets is the same.
+DANILO CARNEIRO TELES, FRANCISCO ITALO DE ANDRADE MORAES, DHEYMISON NUNES ALEXANDRE
+
+09:20 GRUPO G(07): Maximum Independent Set Problem.
+CARLOS GABRIEL DE CASTRO RODRIGUES, GERARDO MAGELA DOS SANTOS FILHO, VITOR MANOEL ALVES DA SILVA
+
+09:40 GRUPO L(12): Encontrar o número total de formas de atingir uma determinada soma a partir de "n" lançamentos em um dado com "k" faces.
+MARIA ALICE DE SOUZA MACEDO, WESLEY LESSA PINHEIRO, ANDERSON LUIS BENTO SOARES
+
+
+---
+32 09/12/2022 sex 08:00 - TRABALHO: apresentação das partes 2 e 3
+
+08:00 GRUPO P(16): Algoritmo de multiplicação de matrizes: comparação de força-bruta com algoritmo de Strassen.
+HIGOR DA SILVA CAMELO, LUIS FERNANDO DE SA AMORIM, CARLOS RYAN SANTOS SILVA
+
+08:20 GRUPO B(02): Encontrar o número mínimo de quadrados cuja soma resulta em um determinado número.
+FRANCISCO BRUNO LOPES SILVA, WESLLEY ITALLO VIEIRA DA SILVA, RENAN MOREIRA GOMES
+
+08:40 GRUPO K(11): Dado um suprimento ilimitado de moedas, encontre o número mínimo de moedas necessário para obter o troco desejado.
+AUGUSTO CESAR ARAUJO DE OLIVEIRA, ELIZADORA MENDONCA DA SILVA, EVELINE PEREIRA SANTIAGO
+
+09:00 GRUPO O(15): Count the number of times a pattern appears in a given string as a subsequence.
+ADAILTON BEZERRA DA SILVA FILHO, FRANCISCO FAGNER FERREIRA MESQUITA, CARLOS SAMUEL SOUSA SANTOS
+
+09:20 GRUPO D(04): Coin change-making problem.
+MILLENA MACIEL DA SILVA, LARISSA PEREIRA DE SOUSA, LIOMAR RENNER ARAUJO RABELO

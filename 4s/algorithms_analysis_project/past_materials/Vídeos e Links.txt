@@ -1,0 +1,72 @@
+# VIDEOS
+
+T3
+- Quantificadores existencial e universal - https://www.youtube.com/watch?v=iBGVcYIMvpA
+- Logarítimos e Existenciais - https://www.youtube.com/watch?v=wgrX-i6kPbk
+T4
+- Crescimento Assintótico - https://www.youtube.com/watch?v=LUfloWaQAyM
+- Notação Assintótica - https://www.youtube.com/watch?v=7OoTf3NEk18
+- Complexidade de tempo - https://www.youtube.com/watch?v=uYW-4xU8ipg
+- Demonstração de propriedades da notação Theta - https://www.youtube.com/watch?v=_8Sscx1WN9g
+T5
+- Avaliação experimental de algorítmos - https://www.youtube.com/watch?v=6PpWFo657A4
+T6
+- Projeto e corretude de algorítmos iterativos - https://www.youtube.com/watch?v=CfevmUZFbkY
+- Projeto e corretude de algorítmos iterativos (exemplos) - https://www.youtube.com/watch?v=iWcjtAzLIRc
+- Aproximação de somatórios https://www.youtube.com/watch?v=29uKRyr9nQY
+- Aproximação de somatórios: demonstração das regras - https://www.youtube.com/watch?v=w5WXJ35f2xA
+T7
+- Projeto e corretude de algorítmos recursivos - https://www.youtube.com/watch?v=K2c-Dxtas9A
+- Projeto e corretude de algorítmos recursivos (exemplos) - https://www.youtube.com/watch?v=pmrH1-IHXwE
+- Aproximaçao de recorrências - https://www.youtube.com/watch?v=i2cJHCTVlmU
+- Demonstração das regras de aproximação de recorrência - https://www.youtube.com/watch?v=-zG7TFbY6ZA
+T8
+- Tipos abstratos de dados - https://www.youtube.com/watch?v=5g9tiDWIDrk
+- Tipos abstratos de dados: exemplos - https://www.youtube.com/watch?v=WdVvKzl1yQQ
+- Arrays dinâmicos com análise amortizada: https://www.youtube.com/watch?v=aSxJM1TbsHQ
+- Listas encadeadas - https://www.youtube.com/watch?v=emIHp_pYSiQ
+- Pilhas e filas - https://www.youtube.com/watch?v=BY0RK46y-2g
+- Dicionário com lista - https://www.youtube.com/watch?v=92_dFpod9RY
+- Árvore binária de busca: inserção - https://www.youtube.com/watch?v=y8jipKadwkQ
+- Fila e prioridade Array e ABB Balanceada - https://www.youtube.com/watch?v=Hizif-n4dTg
+- Tabelas hash: chaining - https://www.youtube.com/watch?v=EROuFX_7B6k
+Complementar
+* Desafios de Programação - Wladimir
+- Arrays 1D - https://www.youtube.com/watch?v=3UaPBQ4hgXg
+- Stacks - https://www.youtube.com/watch?v=hc9ZnasnKdk
+- Hashing - https://www.youtube.com/watch?v=oxmq1gtlwk4
+- Priority Queue - https://www.youtube.com/watch?v=a6U4NJxgavs
+- Binary Search - https://www.youtube.com/watch?v=9cHCeVVbUpc
+- Algorítmos Gulosos - https://www.youtube.com/watch?v=-zlOUxwEaMc
+* E
+- Aplicações da ordenação - https://www.youtube.com/watch?v=ADM52o-C0pM
+- Heps e Heapsort - https://www.youtube.com/watch?v=VM6PVx76_h0
+- Ordenação por inserção - https://www.youtube.com/watch?v=VZHfwf5yTq8
+- Mergesort - https://www.youtube.com/watch?v=9wwi4gPkHm8
+- Quicksort (ordenação por randomização) - https://www.youtube.com/watch?v=uXu1W1j13nE
+- Limite inferior para o tempo de execução de algoritmos de ordenação - https://www.youtube.com/watch?v=-dTfkrA3RP0
+- Ordenação em tempo linear - https://www.youtube.com/watch?v=QmUOWuELKRg
+T9
+- Busca em grafos - https://www.youtube.com/watch?v=rvNLZWCj7L0
+- Caminho mais curto com busca largura - https://www.youtube.com/watch?v=7H6paBiioGQ
+- Caminho mais curto com algoritmo de Dijkstra - https://www.youtube.com/watch?v=wOfiayOgXI8
+T10
+- Busca em profundidade - https://www.youtube.com/watch?v=wgoLp0mluA8
+- Busca em profundidade (aplicação) - https://www.youtube.com/watch?v=rAXBULtmSAs
+T11
+- Backtrack recursivo - https://www.youtube.com/watch?v=1HIsKz6LmIk
+- Força bruta e busca exaustiva (Wallesson) - https://www.youtube.com/watch?v=Hwn-XXvjFgQ
+T12
+- Decremento/divisão/transformação e conquista - https://www.youtube.com/watch?v=nIj6U-yc2dY
+T13
+- Caminho mais curto com gragos em camadas - https://www.youtube.com/watch?v=4QKsoYz-sAQ
+T14
+- Algorítmos gulosos - https://www.youtube.com/watch?v=hGg3j7QQWtc
+T15
+- NP completude - https://www.youtube.com/watch?v=rnM89zcyh1A
+----------------
+----------------
+OUTROS LINKS
+- Livro - Margaret M. Fleck - https://mfleck.cs.illinois.edu/building-blocks/
+- Visualizador de algoritmos - https://visualgo.net/en
+- Resolução de problemas OBI - https://www.youtube.com/playlist?list=PL7sdfFUzrD1AJGGrA0Mn9vOusg8lXtBx3

@@ -1,0 +1,30 @@
+Orientações para o trabalho
+
+#Parte 1: Descrição do problema e descrição dos algoritmos.
+Explique o problema e apresente exemplos que mostrem como as saídas são obtidas.
+Descreva as propriedades que devem ser satisfeitas pelas entradas válidas e pelas saídas do problema.
+Para cada algoritmo,
+Explique seu funcionamento.
+Forneça pseudocódigo.
+Justifique sua corretude (argumente que produz saídas corretas e tem execução finita).
+Apresente exemplos de execução do algoritmo.
+Os dois algoritmos devem ter as mesmas entradas e as mesmas saídas (ou seja, de acordo com o que foi apresentado na descrição do problema).
+Se o algoritmo utiliza estruturas de dados adicionais (ou seja, além das vistas em aula), inclua a construção destas estruturas no algoritmo.
+
+#Parte 2: Avaliação teórica (análise teórica de complexidade de pior caso).
+
+#Parte 3: Avaliação empírica (comparação dos tempos de execução no caso médio e discussão dos resultados).
+Produza entradas aleatórias para os algoritmos, variando o tamanho da entrada.
+Para algoritmos polinomiais:
+Dobre o tamanho da entrada em cada iteração, até que o tempo ultrapasse 5min.
+Use o procedimento "razão dobrando" para determinar o grau do polinômio d.
+Determine a constante c na expressão T(n)=c⋅nd,  utilizando o maior tamanho de entrada utilizado nos experimentos.
+Utilizando esta expressão, faça a previsão do tempo de execução para o próximo tamanho de entrada (dobro do maior tamanho utilizado), e determine a diferença percentual entre o valor previsto e o valor medido.
+Para algoritmos exponenciais:
+Aumente em 1 o tamanho da entrada em cada iteração, até que o tempo ultrapasse 5min.
+Para determinar a base b da função exponencial, utilize o coeficiente angular da reta de regressão no gráfico de log T(n) em função de n.
+Determine a constante c na expressão T(n)=c⋅bn, utilizando o maior tamanho de entrada utilizado nos experimentos.
+Utilizando esta expressão, faça a previsão do tempo de execução para o próximo tamanho de entrada (uma unidade a mais que o maior tamanho utilizado), e determine a diferença percentual entre o valor previsto e o valor medido.
+Compare as complexidades empíricas obtidas neste experimento com as complexidades teóricas de pior caso obtidas na submissão anterior.
+Apresentação: Parte 1 Tarefa
+Apresentação: Partes 2 e 3Tarefa

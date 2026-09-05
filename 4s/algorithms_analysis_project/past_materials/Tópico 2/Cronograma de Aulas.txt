@@ -1,0 +1,66 @@
+Cronograma de aulas
+-- 12/08/2022 sex 08:00 - SEM AULA (REPOSIÇÃO EM 09/12/2022)
+
+01 18/08/2022 qui 08:00 - Apresentação da disciplina
+02 19/08/2022 sex 08:00 - Introdução ao projeto e à análise de algoritmos
+                        - 19/08 08:00 até 25/08 23:55: Lab Avaliação, avaliação até 01/09 23:55
+
+03 25/08/2022 qui 08:00 - Introdução ao projeto e à análise de algoritmos (exercício)
+04 26/08/2022 sex 08:00 - Análise assintótica de eficiência
+                        - 26/08 08:00 até 01/09 23:55: Lab Avaliação, avaliação até 08/09 23:55
+
+05 01/09/2022 qui 08:00 - Análise assintótica de eficiência (exercício)
+06 02/09/2022 sex 08:00 - Análise empírica de eficiência
+                        - 02/09 08:00 até 08/09 23:55: Lab Avaliação, avaliação até 15/09 23:55
+
+07 08/09/2022 qui 08:00 - Análise empírica de eficiência (exercício)
+08 09/09/2022 sex 08:00 - Algoritmos iterativos: especificação, corretude e análise
+                        - 09/09 08:00 até 15/09 23:55: Lab Avaliação, avaliação até 22/09 23:55
+
+09 15/09/2022 qui 08:00 - Algoritmos iterativos: especificação, corretude e análise (exercício)
+10 16/09/2022 sex 08:00 - Algoritmos recursivos: especificação, corretude e análise
+                        - 16/09 08:00 até 22/09 23:55: Lab Avaliação, avaliação até 29/09 23:55
+
+11 22/09/2022 qui 08:00 - Algoritmos recursivos: especificação, corretude e análise (exercício)
+12 23/09/2022 sex 08:00 - Principais estruturas de dados: notação e complexidade
+                        - 23/09 08:00 até 29/09 23:55: Lab Avaliação, avaliação até 06/10 23:55
+
+13 29/09/2022 qui 08:00 - Principais estruturas de dados: notação e complexidade (exercício)
+14 30/09/2022 sex 08:00 - Algoritmos em grafos: busca em largura e caminho mais curto
+                        - 30/09 08:00 até 06/10 23:55: Lab Avaliação, avaliação até 13/10 23:55
+
+15 06/10/2022 qui 08:00 - Algoritmos em grafos: busca em largura e caminho mais curto (exercício)
+16 07/10/2022 sex 08:00 - Algoritmos em grafos: busca em profundidade e aplicações
+                        - 07/10 08:00 até 13/10 23:55: Lab Avaliação, avaliação até 20/10 23:55
+
+17 13/10/2022 qui 08:00 - Algoritmos em grafos: busca em profundidade e aplicações (exercício)
+18 14/10/2022 sex 08:00 - Força bruta, busca exaustiva e backtrack recursivo
+                        - 14/10 08:00 até 20/10 23:55: Lab Avaliação, avaliação até 27/10 23:55
+
+19 20/10/2022 qui 08:00 - Força bruta, busca exaustiva e backtrack recursivo (exercício)
+20 21/10/2022 sex 08:00 - Decremento/divisão/transformação e conquista
+                        - 21/10 08:00 até 03/11 23:55: Lab Avaliação, avaliação até 10/11 23:55
+
+-- 27/10/2022 qui 08:00 - FERIADO
+-- 28/10/2022 sex 08:00 - FERIADO
+
+21 03/11/2022 qui 08:00 - Decremento/divisão/transformação e conquista (exercício)
+22 04/11/2022 sex 08:00 - Programação dinâmica
+                        - 04/11 08:00 até 10/11 23:55: Lab Avaliação, avaliação até 17/11 23:55
+
+23 10/11/2022 qui 08:00 - Programação dinâmica (exercício)
+24 11/11/2022 sex 08:00 - TRABALHO: apresentação da parte 1
+
+25 17/11/2022 qui 08:00 - TRABALHO: apresentação da parte 1
+26 18/11/2022 sex 08:00 - TRABALHO: apresentação da parte 1
+
+27 24/11/2022 qui 08:00 - ENCONTROS UNIVERSITÁRIOS. Orientação dos trabalhos. Exercício: algoritmos gulosos.
+28 25/11/2022 sex 08:00 - ENCONTROS UNIVERSITÁRIOS. Orientação dos trabalhos. Exercício: algoritmos gulosos.
+
+29 01/12/2022 qui 08:00 - NP-Completude
+30 02/12/2022 sex 08:00 - TRABALHO: apresentação das partes 2 e 3
+
+31 08/12/2022 qui 08:00 - TRABALHO: apresentação das partes 2 e 3
+32 09/12/2022 sex 08:00 - TRABALHO: apresentação das partes 2 e 3
+
+-- 15/12/2022 qui 08:00 - PROVA FINAL

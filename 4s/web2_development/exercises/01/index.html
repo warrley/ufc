@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        margin: 0;
+    }
+
+    #pokemons {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+    .impar {
+        border: 2px solid black;
+    }
+
+    .par {
+        border: 2px solid red;
+    }
+
+    .pokemon img {
+        width: 100px;
+    }
+</style>
+<body>
+    <h1>Pokemons</h1>
+    <div id="pokemons"></div>
+</body>
+<script>
+        let id = 1;
+
+        const pegarPokemon = async () => {
+            const res = await fetch(
+                "https://pokeapi.co/api/v2/pokemon/" + id
+            );
+
+            const pokemon = await res.json();
+            adicionarPokemon(pokemon)
+
+            console.log(pokemon.sprites.front_default)
+            id++
+        }
+
+        document.addEventListener("click", pegarPokemon)
+
+        function adicionarPokemon(pokemon) {
+
+            const container = document.getElementById("pokemons");
+
+            const elemento = document.createElement("div");
+
+            elemento.classList.add("pokemon");
+
+            if (id % 2 == 0) {
+                console.log(id)
+                elemento.classList.add("par");
+            } else {
+                elemento.classList.add("impar");
+            }
+
+            elemento.innerHTML = `
+                <img
+                    src="${pokemon.sprites.front_default}"
+                    alt="${pokemon.name}"
+                >
+
+                <h2>${pokemon.name}</h2>
+
+                <p>#${pokemon.id}</p>
+            `;
+
+            container.appendChild(elemento);
+        }
+</script>
+</html>
