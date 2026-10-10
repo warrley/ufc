@@ -1,0 +1,23 @@
+{
+  "name": "exercise-03-crud-express-mongoose-ts",
+  "version": "1.0.0",
+  "description": "CRUD com Node.js, Express, TypeScript, Mongoose e MongoDB via Docker",
+  "type": "module",
+  "main": "dist/server.js",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js"
+  },
+  "dependencies": {
+    "dotenv": "^18.0.4",
+    "express": "^5.2.1",
+    "mongoose": "^9.10.3"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.13.9",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2"
+  }
+}

@@ -1,0 +1,1717 @@
+\documentclass[11pt]{article}
+
+    \usepackage[breakable]{tcolorbox}
+    \usepackage{parskip} % Stop auto-indenting (to mimic markdown behaviour)
+    
+
+    % Basic figure setup, for now with no caption control since it's done
+    % automatically by Pandoc (which extracts ![](path) syntax from Markdown).
+    \usepackage{graphicx}
+    % Keep aspect ratio if custom image width or height is specified
+    \setkeys{Gin}{keepaspectratio}
+    % Maintain compatibility with old templates. Remove in nbconvert 6.0
+    \let\Oldincludegraphics\includegraphics
+    % Ensure that by default, figures have no caption (until we provide a
+    % proper Figure object with a Caption API and a way to capture that
+    % in the conversion process - todo).
+    \usepackage{caption}
+    \DeclareCaptionFormat{nocaption}{}
+    \captionsetup{format=nocaption,aboveskip=0pt,belowskip=0pt}
+
+    \usepackage{float}
+    \floatplacement{figure}{H} % forces figures to be placed at the correct location
+    \usepackage{xcolor} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage{textcomp} % defines textquotesingle
+    % Hack from http://tex.stackexchange.com/a/47451/13684:
+    \AtBeginDocument{%
+        \def\PYZsq{\textquotesingle}% Upright quotes in Pygmentized code
+    }
+    \usepackage{upquote} % Upright quotes for verbatim code
+    \usepackage{eurosym} % defines \euro
+
+    \usepackage{iftex}
+    \ifPDFTeX
+        \usepackage[T1]{fontenc}
+        \IfFileExists{alphabeta.sty}{
+              \usepackage{alphabeta}
+          }{
+              \usepackage[mathletters]{ucs}
+              \usepackage[utf8x]{inputenc}
+          }
+    \else
+        \usepackage{fontspec}
+        \usepackage{unicode-math}
+    \fi
+
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+    \usepackage{grffile} % extends the file name processing of package graphics
+                         % to support a larger range
+    \makeatletter % fix for old versions of grffile with XeLaTeX
+    \@ifpackagelater{grffile}{2019/11/01}
+    {
+      % Do nothing on new versions
+    }
+    {
+      \def\Gread@@xetex#1{%
+        \IfFileExists{"\Gin@base".bb}%
+        {\Gread@eps{\Gin@base.bb}}%
+        {\Gread@@xetex@aux#1}%
+      }
+    }
+    \makeatother
+    \usepackage[Export]{adjustbox} % Used to constrain images to a maximum size
+    \adjustboxset{max size={0.9\linewidth}{0.9\paperheight}}
+
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    % The default LaTeX title has an obnoxious amount of whitespace. By default,
+    % titling removes some of it. It also provides customization options.
+    \usepackage{titling}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    \usepackage{booktabs}  % table support for pandoc > 1.12.2
+    \usepackage{array}     % table support for pandoc >= 2.11.3
+    \usepackage{calc}      % table minipage width calculation for pandoc >= 2.11.1
+    \usepackage[inline]{enumitem} % IRkernel/repr support (it uses the enumerate* environment)
+    \usepackage[normalem]{ulem} % ulem is needed to support strikethroughs (\sout)
+                                % normalem makes italics be italics, not underlines
+    \usepackage{soul}      % strikethrough (\st) support for pandoc >= 3.0.0
+    \usepackage{mathrsfs}
+    
+
+    
+    % Colors for the hyperref package
+    \definecolor{urlcolor}{rgb}{0,.145,.698}
+    \definecolor{linkcolor}{rgb}{.71,0.21,0.01}
+    \definecolor{citecolor}{rgb}{.12,.54,.11}
+
+    % ANSI colors
+    \definecolor{ansi-black}{HTML}{3E424D}
+    \definecolor{ansi-black-intense}{HTML}{282C36}
+    \definecolor{ansi-red}{HTML}{E75C58}
+    \definecolor{ansi-red-intense}{HTML}{B22B31}
+    \definecolor{ansi-green}{HTML}{00A250}
+    \definecolor{ansi-green-intense}{HTML}{007427}
+    \definecolor{ansi-yellow}{HTML}{DDB62B}
+    \definecolor{ansi-yellow-intense}{HTML}{B27D12}
+    \definecolor{ansi-blue}{HTML}{208FFB}
+    \definecolor{ansi-blue-intense}{HTML}{0065CA}
+    \definecolor{ansi-magenta}{HTML}{D160C4}
+    \definecolor{ansi-magenta-intense}{HTML}{A03196}
+    \definecolor{ansi-cyan}{HTML}{60C6C8}
+    \definecolor{ansi-cyan-intense}{HTML}{258F8F}
+    \definecolor{ansi-white}{HTML}{C5C1B4}
+    \definecolor{ansi-white-intense}{HTML}{A1A6B2}
+    \definecolor{ansi-default-inverse-fg}{HTML}{FFFFFF}
+    \definecolor{ansi-default-inverse-bg}{HTML}{000000}
+
+    % common color for the border for error outputs.
+    \definecolor{outerrorbackground}{HTML}{FFDFDF}
+
+    % commands and environments needed by pandoc snippets
+    % extracted from the output of `pandoc -s`
+    \providecommand{\tightlist}{%
+      \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+    % Add ',fontsize=\small' for more characters per line
+    \newenvironment{Shaded}{}{}
+    \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+    \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+    \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+    \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+    \newcommand{\RegionMarkerTok}[1]{{#1}}
+    \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\NormalTok}[1]{{#1}}
+
+    % Additional commands for more recent versions of Pandoc
+    \newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{{#1}}}
+    \newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{{#1}}}
+    \newcommand{\ImportTok}[1]{{#1}}
+    \newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{{#1}}}}
+    \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{{#1}}}
+    \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{{#1}}}
+    \newcommand{\BuiltInTok}[1]{{#1}}
+    \newcommand{\ExtensionTok}[1]{{#1}}
+    \newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{{#1}}}
+    \newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{{#1}}}
+    \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \makeatletter
+    \newsavebox\pandoc@box
+    \newcommand*\pandocbounded[1]{%
+      \sbox\pandoc@box{#1}%
+      % scaling factors for width and height
+      \Gscale@div\@tempa\textheight{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+      \Gscale@div\@tempb\linewidth{\wd\pandoc@box}%
+      % select the smaller of both
+      \ifdim\@tempb\p@<\@tempa\p@
+        \let\@tempa\@tempb
+      \fi
+      % scaling accordingly (\@tempa < 1)
+      \ifdim\@tempa\p@<\p@
+        \scalebox{\@tempa}{\usebox\pandoc@box}%
+      % scaling not needed, use as it is
+      \else
+        \usebox{\pandoc@box}%
+      \fi
+    }
+    \makeatother
+
+    % Define a nice break command that doesn't care if a line doesn't already
+    % exist.
+    \def\br{\hspace*{\fill} \\* }
+    % Math Jax compatibility definitions
+    \def\gt{>}
+    \def\lt{<}
+    \let\Oldtex\TeX
+    \let\Oldlatex\LaTeX
+    \renewcommand{\TeX}{\textrm{\Oldtex}}
+    \renewcommand{\LaTeX}{\textrm{\Oldlatex}}
+    % Document parameters
+    % Document title
+    \title{Notebook}
+    
+    
+    
+    
+    
+    
+    
+% Pygments definitions
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\@namedef{PY@tok@w}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\@namedef{PY@tok@c}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@cp}{\def\PY@tc##1{\textcolor[rgb]{0.61,0.40,0.00}{##1}}}
+\@namedef{PY@tok@k}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kp}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kt}{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\@namedef{PY@tok@o}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@ow}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\@namedef{PY@tok@nb}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@nf}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\@namedef{PY@tok@nc}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\@namedef{PY@tok@nn}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\@namedef{PY@tok@ne}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.80,0.25,0.22}{##1}}}
+\@namedef{PY@tok@nv}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@no}{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\@namedef{PY@tok@nl}{\def\PY@tc##1{\textcolor[rgb]{0.46,0.46,0.00}{##1}}}
+\@namedef{PY@tok@ni}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.44,0.44,0.44}{##1}}}
+\@namedef{PY@tok@na}{\def\PY@tc##1{\textcolor[rgb]{0.41,0.47,0.13}{##1}}}
+\@namedef{PY@tok@nt}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@nd}{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\@namedef{PY@tok@s}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@sd}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@si}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.64,0.35,0.47}{##1}}}
+\@namedef{PY@tok@se}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.36,0.12}{##1}}}
+\@namedef{PY@tok@sr}{\def\PY@tc##1{\textcolor[rgb]{0.64,0.35,0.47}{##1}}}
+\@namedef{PY@tok@ss}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@sx}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@m}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@gh}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\@namedef{PY@tok@gu}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\@namedef{PY@tok@gd}{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\@namedef{PY@tok@gi}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.52,0.00}{##1}}}
+\@namedef{PY@tok@gr}{\def\PY@tc##1{\textcolor[rgb]{0.89,0.00,0.00}{##1}}}
+\@namedef{PY@tok@ge}{\let\PY@it=\textit}
+\@namedef{PY@tok@gs}{\let\PY@bf=\textbf}
+\@namedef{PY@tok@ges}{\let\PY@bf=\textbf\let\PY@it=\textit}
+\@namedef{PY@tok@gp}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\@namedef{PY@tok@go}{\def\PY@tc##1{\textcolor[rgb]{0.44,0.44,0.44}{##1}}}
+\@namedef{PY@tok@gt}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\@namedef{PY@tok@err}{\def\PY@bc##1{{\setlength{\fboxsep}{\string -\fboxrule}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}}
+\@namedef{PY@tok@kc}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kd}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kn}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kr}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@bp}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@fm}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\@namedef{PY@tok@vc}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@vg}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@vi}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@vm}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@sa}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@sb}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@sc}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@dl}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@s2}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@sh}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@s1}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@mb}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@mf}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@mh}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@mi}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@il}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@mo}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@ch}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@cm}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@cpf}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@c1}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@cs}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+    % For linebreaks inside Verbatim environment from package fancyvrb.
+    \makeatletter
+        \newbox\Wrappedcontinuationbox
+        \newbox\Wrappedvisiblespacebox
+        \newcommand*\Wrappedvisiblespace {\textcolor{red}{\textvisiblespace}}
+        \newcommand*\Wrappedcontinuationsymbol {\textcolor{red}{\llap{\tiny$\m@th\hookrightarrow$}}}
+        \newcommand*\Wrappedcontinuationindent {3ex }
+        \newcommand*\Wrappedafterbreak {\kern\Wrappedcontinuationindent\copy\Wrappedcontinuationbox}
+        % Take advantage of the already applied Pygments mark-up to insert
+        % potential linebreaks for TeX processing.
+        %        {, <, #, %, $, ' and ": go to next line.
+        %        _, }, ^, &, >, - and ~: stay at end of broken line.
+        % Use of \textquotesingle for straight quote.
+        \newcommand*\Wrappedbreaksatspecials {%
+            \def\PYGZus{\discretionary{\char`\_}{\Wrappedafterbreak}{\char`\_}}%
+            \def\PYGZob{\discretionary{}{\Wrappedafterbreak\char`\{}{\char`\{}}%
+            \def\PYGZcb{\discretionary{\char`\}}{\Wrappedafterbreak}{\char`\}}}%
+            \def\PYGZca{\discretionary{\char`\^}{\Wrappedafterbreak}{\char`\^}}%
+            \def\PYGZam{\discretionary{\char`\&}{\Wrappedafterbreak}{\char`\&}}%
+            \def\PYGZlt{\discretionary{}{\Wrappedafterbreak\char`\<}{\char`\<}}%
+            \def\PYGZgt{\discretionary{\char`\>}{\Wrappedafterbreak}{\char`\>}}%
+            \def\PYGZsh{\discretionary{}{\Wrappedafterbreak\char`\#}{\char`\#}}%
+            \def\PYGZpc{\discretionary{}{\Wrappedafterbreak\char`\%}{\char`\%}}%
+            \def\PYGZdl{\discretionary{}{\Wrappedafterbreak\char`\$}{\char`\$}}%
+            \def\PYGZhy{\discretionary{\char`\-}{\Wrappedafterbreak}{\char`\-}}%
+            \def\PYGZsq{\discretionary{}{\Wrappedafterbreak\textquotesingle}{\textquotesingle}}%
+            \def\PYGZdq{\discretionary{}{\Wrappedafterbreak\char`\"}{\char`\"}}%
+            \def\PYGZti{\discretionary{\char`\~}{\Wrappedafterbreak}{\char`\~}}%
+        }
+        % Some characters . , ; ? ! / are not pygmentized.
+        % This macro makes them "active" and they will insert potential linebreaks
+        \newcommand*\Wrappedbreaksatpunct {%
+            \lccode`\~`\.\lowercase{\def~}{\discretionary{\hbox{\char`\.}}{\Wrappedafterbreak}{\hbox{\char`\.}}}%
+            \lccode`\~`\,\lowercase{\def~}{\discretionary{\hbox{\char`\,}}{\Wrappedafterbreak}{\hbox{\char`\,}}}%
+            \lccode`\~`\;\lowercase{\def~}{\discretionary{\hbox{\char`\;}}{\Wrappedafterbreak}{\hbox{\char`\;}}}%
+            \lccode`\~`\:\lowercase{\def~}{\discretionary{\hbox{\char`\:}}{\Wrappedafterbreak}{\hbox{\char`\:}}}%
+            \lccode`\~`\?\lowercase{\def~}{\discretionary{\hbox{\char`\?}}{\Wrappedafterbreak}{\hbox{\char`\?}}}%
+            \lccode`\~`\!\lowercase{\def~}{\discretionary{\hbox{\char`\!}}{\Wrappedafterbreak}{\hbox{\char`\!}}}%
+            \lccode`\~`\/\lowercase{\def~}{\discretionary{\hbox{\char`\/}}{\Wrappedafterbreak}{\hbox{\char`\/}}}%
+            \catcode`\.\active
+            \catcode`\,\active
+            \catcode`\;\active
+            \catcode`\:\active
+            \catcode`\?\active
+            \catcode`\!\active
+            \catcode`\/\active
+            \lccode`\~`\~
+        }
+    \makeatother
+
+    \let\OriginalVerbatim=\Verbatim
+    \makeatletter
+    \renewcommand{\Verbatim}[1][1]{%
+        %\parskip\z@skip
+        \sbox\Wrappedcontinuationbox {\Wrappedcontinuationsymbol}%
+        \sbox\Wrappedvisiblespacebox {\FV@SetupFont\Wrappedvisiblespace}%
+        \def\FancyVerbFormatLine ##1{\hsize\linewidth
+            \vtop{\raggedright\hyphenpenalty\z@\exhyphenpenalty\z@
+                \doublehyphendemerits\z@\finalhyphendemerits\z@
+                \strut ##1\strut}%
+        }%
+        % If the linebreak is at a space, the latter will be displayed as visible
+        % space at end of first line, and a continuation symbol starts next line.
+        % Stretch/shrink are however usually zero for typewriter font.
+        \def\FV@Space {%
+            \nobreak\hskip\z@ plus\fontdimen3\font minus\fontdimen4\font
+            \discretionary{\copy\Wrappedvisiblespacebox}{\Wrappedafterbreak}
+            {\kern\fontdimen2\font}%
+        }%
+
+        % Allow breaks at special characters using \PYG... macros.
+        \Wrappedbreaksatspecials
+        % Breaks at punctuation characters . , ; ? ! and / need catcode=\active
+        \OriginalVerbatim[#1,codes*=\Wrappedbreaksatpunct]%
+    }
+    \makeatother
+
+    % Exact colors from NB
+    \definecolor{incolor}{HTML}{303F9F}
+    \definecolor{outcolor}{HTML}{D84315}
+    \definecolor{cellborder}{HTML}{CFCFCF}
+    \definecolor{cellbackground}{HTML}{F7F7F7}
+
+    % prompt
+    \makeatletter
+    \newcommand{\boxspacing}{\kern\kvtcb@left@rule\kern\kvtcb@boxsep}
+    \makeatother
+    \newcommand{\prompt}[4]{
+        {\ttfamily\llap{{\color{#2}[#3]:\hspace{3pt}#4}}\vspace{-\baselineskip}}
+    }
+    
+
+    
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy
+    % Setup hyperref package
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      colorlinks=true,
+      urlcolor=urlcolor,
+      linkcolor=linkcolor,
+      citecolor=citecolor,
+      }
+    % Slightly bigger margins than the latex defaults
+    
+    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+    
+    
+
+\newcounter{none}
+\begin{document}
+    
+    \maketitle
+    
+    
+
+    
+    \section{Atividade --- Explorando Árvores de Decisão para
+Classificação}\label{atividade-explorando-uxe1rvores-de-decisuxe3o-para-classificauxe7uxe3o}
+
+\subsection{Objetivo}\label{objetivo}
+
+Nesta atividade, você irá resolver um problema de \textbf{classificação}
+utilizando Árvores de Decisão e investigar como diferentes escolhas
+influenciam o modelo.
+
+Você deverá: - construir árvores de decisão para um conjunto de dados
+real; - comparar diferentes critérios de particionamento; - observar
+quais atributos são escolhidos pela árvore; - visualizar os primeiros
+níveis das árvores; - investigar o efeito da profundidade sobre o
+desempenho; - utilizar um mecanismo de \textbf{parada antecipada
+(pre-pruning)}; - comparar desempenho e complexidade; - escolher e
+justificar um modelo final.
+
+\begin{quote}
+\textbf{Importante:} todas as respostas devem ser preenchidas no próprio
+notebook, nas células indicadas.
+\end{quote}
+
+    \subsection{1. Conjunto de dados}\label{conjunto-de-dados}
+
+Será utilizado o conjunto \textbf{Bank Marketing}, disponibilizado pelo
+UCI Machine Learning Repository.
+
+https://archive.ics.uci.edu/dataset/222/bank+marketing
+
+O problema consiste em prever se um cliente irá contratar (\texttt{yes})
+ou não (\texttt{no}) um depósito a prazo após uma campanha de marketing
+bancário.
+
+O arquivo utilizado é \texttt{bank-full.csv}, com separador \texttt{;}.
+
+O conjunto possui 45.211 instâncias e atributos numéricos e categóricos.
+
+\textbf{Fonte:} UCI Machine Learning Repository --- Bank Marketing
+
+O arquivo \texttt{bank-full.csv} deve estar na mesma pasta deste
+notebook.
+
+    \subsection{2. Importação das
+bibliotecas}\label{importauxe7uxe3o-das-bibliotecas}
+
+Execute a célula a seguir. O código inicial já contém as principais
+bibliotecas necessárias.
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{1}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k+kn}{import}\PY{+w}{ }\PY{n+nn}{pandas}\PY{+w}{ }\PY{k}{as}\PY{+w}{ }\PY{n+nn}{pd}
+\PY{k+kn}{import}\PY{+w}{ }\PY{n+nn}{numpy}\PY{+w}{ }\PY{k}{as}\PY{+w}{ }\PY{n+nn}{np}
+\PY{k+kn}{import}\PY{+w}{ }\PY{n+nn}{matplotlib}\PY{n+nn}{.}\PY{n+nn}{pyplot}\PY{+w}{ }\PY{k}{as}\PY{+w}{ }\PY{n+nn}{plt}
+
+\PY{k+kn}{from}\PY{+w}{ }\PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{model\PYZus{}selection}\PY{+w}{ }\PY{k+kn}{import} \PY{n}{train\PYZus{}test\PYZus{}split}
+\PY{k+kn}{from}\PY{+w}{ }\PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{compose}\PY{+w}{ }\PY{k+kn}{import} \PY{n}{ColumnTransformer}
+\PY{k+kn}{from}\PY{+w}{ }\PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{preprocessing}\PY{+w}{ }\PY{k+kn}{import} \PY{n}{OneHotEncoder}
+\PY{k+kn}{from}\PY{+w}{ }\PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{tree}\PY{+w}{ }\PY{k+kn}{import} \PY{n}{DecisionTreeClassifier}\PY{p}{,} \PY{n}{plot\PYZus{}tree}
+\PY{k+kn}{from}\PY{+w}{ }\PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{metrics}\PY{+w}{ }\PY{k+kn}{import} \PY{p}{(}
+    \PY{n}{accuracy\PYZus{}score}\PY{p}{,} \PY{n}{precision\PYZus{}score}\PY{p}{,} \PY{n}{recall\PYZus{}score}\PY{p}{,} \PY{n}{f1\PYZus{}score}\PY{p}{,}
+    \PY{n}{classification\PYZus{}report}\PY{p}{,} \PY{n}{ConfusionMatrixDisplay}
+\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \subsection{3. Carregamento dos dados}\label{carregamento-dos-dados}
+
+Execute o código abaixo e observe as primeiras linhas.
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{2}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{df} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}csv}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{bank\PYZhy{}full.csv}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{sep}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{;}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\PY{n}{df}\PY{o}{.}\PY{n}{head}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{2}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+   age           job  marital  education default  balance housing loan  \textbackslash{}
+0   58    management  married   tertiary      no     2143     yes   no
+1   44    technician   single  secondary      no       29     yes   no
+2   33  entrepreneur  married  secondary      no        2     yes  yes
+3   47   blue-collar  married    unknown      no     1506     yes   no
+4   33       unknown   single    unknown      no        1      no   no
+
+   contact  day month  duration  campaign  pdays  previous poutcome   y
+0  unknown    5   may       261         1     -1         0  unknown  no
+1  unknown    5   may       151         1     -1         0  unknown  no
+2  unknown    5   may        76         1     -1         0  unknown  no
+3  unknown    5   may        92         1     -1         0  unknown  no
+4  unknown    5   may       198         1     -1         0  unknown  no
+\end{Verbatim}
+\end{tcolorbox}
+        
+    \subsubsection{Questão 1 --- Conhecendo os
+dados}\label{questuxe3o-1-conhecendo-os-dados}
+
+Investigue o conjunto utilizando \texttt{shape}, \texttt{info},
+\texttt{describe} e outros comandos que considerar adequados.
+
+Responda: 1. Quantas instâncias existem? 2. Quantos atributos existem?
+3. Qual é a variável-alvo? 4. Quais atributos são numéricos? 5. Quais
+atributos são categóricos?
+
+\textbf{Resposta:}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{3}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Shape:}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{df}\PY{o}{.}\PY{n}{shape}\PY{p}{)}
+\PY{n}{df}\PY{o}{.}\PY{n}{info}\PY{p}{(}\PY{p}{)}
+\PY{n}{df}\PY{o}{.}\PY{n}{describe}\PY{p}{(}\PY{n}{include}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{all}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Shape: (45211, 17)
+<class 'pandas.DataFrame'>
+RangeIndex: 45211 entries, 0 to 45210
+Data columns (total 17 columns):
+ \#   Column     Non-Null Count  Dtype
+---  ------     --------------  -----
+ 0   age        45211 non-null  int64
+ 1   job        45211 non-null  str
+ 2   marital    45211 non-null  str
+ 3   education  45211 non-null  str
+ 4   default    45211 non-null  str
+ 5   balance    45211 non-null  int64
+ 6   housing    45211 non-null  str
+ 7   loan       45211 non-null  str
+ 8   contact    45211 non-null  str
+ 9   day        45211 non-null  int64
+ 10  month      45211 non-null  str
+ 11  duration   45211 non-null  int64
+ 12  campaign   45211 non-null  int64
+ 13  pdays      45211 non-null  int64
+ 14  previous   45211 non-null  int64
+ 15  poutcome   45211 non-null  str
+ 16  y          45211 non-null  str
+dtypes: int64(7), str(10)
+memory usage: 5.9 MB
+    \end{Verbatim}
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{3}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+                 age          job  marital  education default        balance  \textbackslash{}
+count   45211.000000        45211    45211      45211   45211   45211.000000
+unique           NaN           12        3          4       2            NaN
+top              NaN  blue-collar  married  secondary      no            NaN
+freq             NaN         9732    27214      23202   44396            NaN
+mean       40.936210          NaN      NaN        NaN     NaN    1362.272058
+std        10.618762          NaN      NaN        NaN     NaN    3044.765829
+min        18.000000          NaN      NaN        NaN     NaN   -8019.000000
+25\%        33.000000          NaN      NaN        NaN     NaN      72.000000
+50\%        39.000000          NaN      NaN        NaN     NaN     448.000000
+75\%        48.000000          NaN      NaN        NaN     NaN    1428.000000
+max        95.000000          NaN      NaN        NaN     NaN  102127.000000
+
+       housing   loan   contact           day  month      duration  \textbackslash{}
+count    45211  45211     45211  45211.000000  45211  45211.000000
+unique       2      2         3           NaN     12           NaN
+top        yes     no  cellular           NaN    may           NaN
+freq     25130  37967     29285           NaN  13766           NaN
+mean       NaN    NaN       NaN     15.806419    NaN    258.163080
+std        NaN    NaN       NaN      8.322476    NaN    257.527812
+min        NaN    NaN       NaN      1.000000    NaN      0.000000
+25\%        NaN    NaN       NaN      8.000000    NaN    103.000000
+50\%        NaN    NaN       NaN     16.000000    NaN    180.000000
+75\%        NaN    NaN       NaN     21.000000    NaN    319.000000
+max        NaN    NaN       NaN     31.000000    NaN   4918.000000
+
+            campaign         pdays      previous poutcome      y
+count   45211.000000  45211.000000  45211.000000    45211  45211
+unique           NaN           NaN           NaN        4      2
+top              NaN           NaN           NaN  unknown     no
+freq             NaN           NaN           NaN    36959  39922
+mean        2.763841     40.197828      0.580323      NaN    NaN
+std         3.098021    100.128746      2.303441      NaN    NaN
+min         1.000000     -1.000000      0.000000      NaN    NaN
+25\%         1.000000     -1.000000      0.000000      NaN    NaN
+50\%         2.000000     -1.000000      0.000000      NaN    NaN
+75\%         3.000000     -1.000000      0.000000      NaN    NaN
+max        63.000000    871.000000    275.000000      NaN    NaN
+\end{Verbatim}
+\end{tcolorbox}
+        
+    Resposta:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  45.211 instâncias
+\item
+  17 atributos no total (16 previsores + 1 variável-alvo)
+\item
+  y (indica se o cliente contratou o depósito a prazo: `yes' ou `no')
+\item
+  age, balance, day, duration, campaign, pdays, previous (7 atributos)
+\item
+  job, marital, education, default, housing, loan, contact, month,
+  poutcome (9 atributos previsores) e y (alvo)
+\end{enumerate}
+
+    \subsection{4. Distribuição das
+classes}\label{distribuiuxe7uxe3o-das-classes}
+
+Investigue a distribuição da variável-alvo.
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{4}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{distY}\PY{o}{=} \PY{n}{df}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{y}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{o}{.}\PY{n}{value\PYZus{}counts}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{5}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{distY}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{yes}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{/}\PY{n}{distY}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{no}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+\end{Verbatim}
+\end{tcolorbox}
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{5}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+np.float64(0.1324833425179099)
+\end{Verbatim}
+\end{tcolorbox}
+        
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{6}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{df}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{y}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{o}{.}\PY{n}{value\PYZus{}counts}\PY{p}{(}\PY{n}{normalize}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{6}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+y
+no     0.883015
+yes    0.116985
+Name: proportion, dtype: float64
+\end{Verbatim}
+\end{tcolorbox}
+        
+    \subsubsection{Questão 2 --- Distribuição das
+classes}\label{questuxe3o-2-distribuiuxe7uxe3o-das-classes}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  As classes estão balanceadas?
+\item
+  Qual é a classe majoritária?
+\item
+  Por que o desbalanceamento deve ser considerado na avaliação de um
+  classificador?
+\end{enumerate}
+
+\textbf{Resposta:}
+
+    Resposta:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Não, as classes são bem desbalanceadas.
+\item
+  A classe majoritária é `no' com 88,30\% (39.922 instâncias), enquanto
+  `yes' tem apenas 11,70\% (5.289 instâncias).
+\item
+  Porque se um classificador simplesmente chutar sempre a classe
+  majoritária (`no'), ele já atinge 88,3\% de acurácia sem identificar
+  nenhum cliente positivo (`yes'). Por isso precisamos analisar métricas
+  como precisão, recall e F1-score.
+\end{enumerate}
+
+    \subsection{5. Preparação dos dados}\label{preparauxe7uxe3o-dos-dados}
+
+Separe os atributos da variável-alvo. Os atributos categóricos serão
+transformados em uma representação numérica por One-Hot Encoding.
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{7}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{X} \PY{o}{=} \PY{n}{df}\PY{o}{.}\PY{n}{drop}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{y}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{axis}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}
+\PY{n}{y} \PY{o}{=} \PY{n}{df}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{y}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{o}{.}\PY{n}{map}\PY{p}{(}\PY{p}{\PYZob{}}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{no}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:} \PY{l+m+mi}{0}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{yes}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:} \PY{l+m+mi}{1}\PY{p}{\PYZcb{}}\PY{p}{)}
+
+\PY{n}{categorical\PYZus{}features} \PY{o}{=} \PY{n}{X}\PY{o}{.}\PY{n}{select\PYZus{}dtypes}\PY{p}{(}\PY{n}{include}\PY{o}{=}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{object}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{)}\PY{o}{.}\PY{n}{columns}
+\PY{n}{numeric\PYZus{}features} \PY{o}{=} \PY{n}{X}\PY{o}{.}\PY{n}{select\PYZus{}dtypes}\PY{p}{(}\PY{n}{exclude}\PY{o}{=}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{object}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{)}\PY{o}{.}\PY{n}{columns}
+
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Categóricos:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n+nb}{list}\PY{p}{(}\PY{n}{categorical\PYZus{}features}\PY{p}{)}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Numéricos:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n+nb}{list}\PY{p}{(}\PY{n}{numeric\PYZus{}features}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Categóricos: ['job', 'marital', 'education', 'default', 'housing', 'loan',
+'contact', 'month', 'poutcome']
+Numéricos: ['age', 'balance', 'day', 'duration', 'campaign', 'pdays',
+'previous']
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+/tmp/ipykernel\_467984/2409206470.py:4: Pandas4Warning: For backward
+compatibility, 'str' dtypes are included by select\_dtypes when 'object' dtype is
+specified. This behavior is deprecated and will be removed in a future version.
+Explicitly pass 'str' to `include` to select them, or to `exclude` to remove
+them and silence this warning.
+See https://pandas.pydata.org/docs/user\_guide/migration-3-strings.html\#string-
+migration-select-dtypes for details on how to write code that works with pandas
+2 and 3.
+  categorical\_features = X.select\_dtypes(include=["object"]).columns
+    \end{Verbatim}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{8}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{preprocessor} \PY{o}{=} \PY{n}{ColumnTransformer}\PY{p}{(}
+    \PY{n}{transformers}\PY{o}{=}\PY{p}{[}
+        \PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{cat}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{OneHotEncoder}\PY{p}{(}\PY{n}{handle\PYZus{}unknown}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{ignore}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{,} \PY{n}{categorical\PYZus{}features}\PY{p}{)}
+    \PY{p}{]}\PY{p}{,}
+    \PY{n}{remainder}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{passthrough}\PY{l+s+s2}{\PYZdq{}}
+\PY{p}{)}
+
+\PY{n}{X\PYZus{}encoded} \PY{o}{=} \PY{n}{preprocessor}\PY{o}{.}\PY{n}{fit\PYZus{}transform}\PY{p}{(}\PY{n}{X}\PY{p}{)}
+
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Dimensão original:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{X}\PY{o}{.}\PY{n}{shape}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Dimensão após codificação:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{X\PYZus{}encoded}\PY{o}{.}\PY{n}{shape}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{n}{X}\PY{o}{.}\PY{n}{head}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Dimensão original: (45211, 16)
+Dimensão após codificação: (45211, 51)
+   age           job  marital  education default  balance housing loan  \textbackslash{}
+0   58    management  married   tertiary      no     2143     yes   no
+1   44    technician   single  secondary      no       29     yes   no
+2   33  entrepreneur  married  secondary      no        2     yes  yes
+3   47   blue-collar  married    unknown      no     1506     yes   no
+4   33       unknown   single    unknown      no        1      no   no
+
+   contact  day month  duration  campaign  pdays  previous poutcome
+0  unknown    5   may       261         1     -1         0  unknown
+1  unknown    5   may       151         1     -1         0  unknown
+2  unknown    5   may        76         1     -1         0  unknown
+3  unknown    5   may        92         1     -1         0  unknown
+4  unknown    5   may       198         1     -1         0  unknown
+    \end{Verbatim}
+
+    \subsubsection{Questão 3 --- Explique o código acima faz. Como funciona
+o
+OneHotEncoder?}\label{questuxe3o-3-explique-o-cuxf3digo-acima-faz.-como-funciona-o-onehotencoder}
+
+Resposta:
+
+\begin{itemize}
+\tightlist
+\item
+  O que o código faz: Separa as features em X e a variável-alvo em y
+  (mapeando `no'-\textgreater0 e `yes'-\textgreater1). Identifica quais
+  colunas são categóricas e numéricas e usa o ColumnTransformer para
+  aplicar o OneHotEncoder nas colunas categóricas e manter as numéricas
+  inalteradas (remainder=`passthrough'), gerando uma matriz final com 51
+  atributos numéricos.
+\item
+  OneHotEncoderc ria uma colunbinária (0 ou 1) para cada categoria única
+  de um atributo. A categoria correspondente recebe 1 e as outras 0.
+  Isso evita que o modelo atribua uma ordem de grandeza artificial entre
+  categorias nominais.
+\end{itemize}
+
+    \subsection{6. Separação entre treinamento e
+teste}\label{separauxe7uxe3o-entre-treinamento-e-teste}
+
+Utilize 70\% dos dados para treinamento e 30\% para teste.
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{9}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{X\PYZus{}test}\PY{p}{,} \PY{n}{y\PYZus{}train}\PY{p}{,} \PY{n}{y\PYZus{}test} \PY{o}{=} \PY{n}{train\PYZus{}test\PYZus{}split}\PY{p}{(}
+    \PY{n}{X\PYZus{}encoded}\PY{p}{,} \PY{n}{y}\PY{p}{,}
+    \PY{n}{test\PYZus{}size}\PY{o}{=}\PY{l+m+mf}{0.30}\PY{p}{,}
+    \PY{n}{random\PYZus{}state}\PY{o}{=}\PY{l+m+mi}{42}\PY{p}{,}
+    \PY{n}{stratify}\PY{o}{=}\PY{n}{y}
+\PY{p}{)}
+
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Treinamento:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{X\PYZus{}train}\PY{o}{.}\PY{n}{shape}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Teste:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{X\PYZus{}test}\PY{o}{.}\PY{n}{shape}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Treinamento: (31647, 51)
+Teste: (13564, 51)
+    \end{Verbatim}
+
+    \subsubsection{Questão 4 --- Treinamento e
+teste}\label{questuxe3o-4-treinamento-e-teste}
+
+Explique por que o conjunto de teste não deve ser utilizado para ajustar
+o modelo.
+
+Em sua resposta, explique a relação entre treinamento, teste,
+generalização e overfitting.
+
+\textbf{Resposta:}
+
+    Resposta:
+
+\begin{itemize}
+\tightlist
+\item
+  Por que não usar o teste no ajuste: O conjunto de teste serve para
+  simular dados novos que o modelo nunca viu. Se usarmos o teste para
+  ajustar o modelo, ocorre vazamento de dados (data leakage) e a
+  avaliação fica enviesada e irreal.
+\item
+  Relação entre os conceitos:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Treinamento: onde o modelo ajusta seus parâmetros e aprende as
+    regras da árvore.
+  \item
+    Generalização: capacidade do modelo de acertar previsões em novos
+    dados reais.
+  \item
+    Overfitting: quando o modelo decora os dados de treino (acurácia
+    \textasciitilde100\% no treino), mas tem desempenho ruim no teste.
+  \item
+    Teste: serve justamente para medir a capacidade real de
+    generalização e detectar se houve overfitting.
+  \end{itemize}
+\end{itemize}
+
+    \section{Parte I --- Critérios de
+particionamento}\label{parte-i-crituxe9rios-de-particionamento}
+
+\subsection{7. Árvore de Decisão com
+Gini}\label{uxe1rvore-de-decisuxe3o-com-gini}
+
+Construa uma árvore utilizando o critério gini.
+
+Inicialmente, não limite a profundidade. O objetivo é observar uma
+árvore que cresça livremente.
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{10}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{tree\PYZus{}gini} \PY{o}{=} \PY{n}{DecisionTreeClassifier}\PY{p}{(}
+    \PY{n}{criterion}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{gini}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}
+    \PY{n}{random\PYZus{}state}\PY{o}{=}\PY{l+m+mi}{42}
+\PY{p}{)}
+
+\PY{n}{tree\PYZus{}gini}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{y\PYZus{}train}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{10}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+DecisionTreeClassifier(random\_state=42)
+\end{Verbatim}
+\end{tcolorbox}
+        
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{11}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{y\PYZus{}pred\PYZus{}gini} \PY{o}{=} \PY{n}{tree\PYZus{}gini}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{)}
+
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Acurácia:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{accuracy\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,} \PY{n}{y\PYZus{}pred\PYZus{}gini}\PY{p}{)}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Precisão:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{precision\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,} \PY{n}{y\PYZus{}pred\PYZus{}gini}\PY{p}{)}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Recall:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{recall\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,} \PY{n}{y\PYZus{}pred\PYZus{}gini}\PY{p}{)}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{F1:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{f1\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,} \PY{n}{y\PYZus{}pred\PYZus{}gini}\PY{p}{)}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Profundidade:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{tree\PYZus{}gini}\PY{o}{.}\PY{n}{get\PYZus{}depth}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Número de folhas:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{tree\PYZus{}gini}\PY{o}{.}\PY{n}{get\PYZus{}n\PYZus{}leaves}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Acurácia: 0.8731200235918608
+Precisão: 0.45934466019417475
+Recall: 0.47700063011972277
+F1: 0.4680061823802164
+Profundidade: 36
+Número de folhas: 2562
+    \end{Verbatim}
+
+    \subsection{8. Visualização da
+árvore}\label{visualizauxe7uxe3o-da-uxe1rvore}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{12}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{feature\PYZus{}names} \PY{o}{=} \PY{n}{preprocessor}\PY{o}{.}\PY{n}{get\PYZus{}feature\PYZus{}names\PYZus{}out}\PY{p}{(}\PY{p}{)}
+
+\PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{24}\PY{p}{,} \PY{l+m+mi}{12}\PY{p}{)}\PY{p}{)}
+\PY{n}{plot\PYZus{}tree}\PY{p}{(}
+    \PY{n}{tree\PYZus{}gini}\PY{p}{,}
+    \PY{n}{max\PYZus{}depth}\PY{o}{=}\PY{l+m+mi}{10}\PY{p}{,}
+    \PY{n}{feature\PYZus{}names}\PY{o}{=}\PY{n}{feature\PYZus{}names}\PY{p}{,}
+    \PY{n}{class\PYZus{}names}\PY{o}{=}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{no}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{yes}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{,}
+    \PY{n}{filled}\PY{o}{=}\PY{k+kc}{True}\PY{p}{,}
+    \PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{8}
+\PY{p}{)}
+\PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_27_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \subsubsection{Questão 5 --- Observando os
+particionamentos}\label{questuxe3o-5-observando-os-particionamentos}
+
+Observe os primeiros níveis da árvore.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Qual atributo foi escolhido na raiz?
+\item
+  Qual condição de particionamento foi utilizada?
+\item
+  Quais atributos aparecem nos níveis seguintes?
+\item
+  O atributo escolhido na raiz é necessariamente o atributo mais
+  importante de todo o modelo? Explique.
+\item
+  O que representam gini, samples, value e class em um nó?
+\end{enumerate}
+
+Resposta:
+
+    \textbf{Resposta:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  remainder\_\_duration (duração do último contato em segundos).
+\item
+  duration \textless= 518.5
+\item
+  Nos níveis seguintes aparecem cat\_\_poutcome\_success, duration
+  \textless= 827.5, age, day, month\_oct, month\_mar, pdays,
+  housing\_yes, etc.
+\item
+  Não necessariamente. A árvore escolhe na raiz o melhor atributo de
+  forma local/imediata (algoritmo guloso). Mas atributos que aparecem
+  várias vezes ao longo da árvore podem somar mais importância no modelo
+  geral.
+\item
+  \begin{itemize}
+  \tightlist
+  \item
+    gini: nível de impureza do nó (0 significa nó puro);
+  \item
+    samples: número de exemplos de treino que chegaram ao nó;
+  \item
+    value: contagem de amostras de cada classe no nó ({[}no, yes{]});
+  \item
+    class: classe majoritária naquele nó.
+  \end{itemize}
+\end{enumerate}
+
+    \subsection{9. Árvore de Decisão com
+Entropy}\label{uxe1rvore-de-decisuxe3o-com-entropy}
+
+Agora construa outra árvore, utilizando entropy como critério.
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{13}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{tree\PYZus{}entropy} \PY{o}{=} \PY{n}{DecisionTreeClassifier}\PY{p}{(}
+    \PY{n}{criterion}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{entropy}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}
+    \PY{n}{random\PYZus{}state}\PY{o}{=}\PY{l+m+mi}{42}
+\PY{p}{)}
+
+\PY{n}{tree\PYZus{}entropy}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{y\PYZus{}train}\PY{p}{)}
+
+\PY{n}{y\PYZus{}pred\PYZus{}entropy} \PY{o}{=} \PY{n}{tree\PYZus{}entropy}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{)}
+
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Acurácia:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{accuracy\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,} \PY{n}{y\PYZus{}pred\PYZus{}entropy}\PY{p}{)}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Precisão:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{precision\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,} \PY{n}{y\PYZus{}pred\PYZus{}entropy}\PY{p}{)}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Recall:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{recall\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,} \PY{n}{y\PYZus{}pred\PYZus{}entropy}\PY{p}{)}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{F1:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{f1\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,} \PY{n}{y\PYZus{}pred\PYZus{}entropy}\PY{p}{)}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Profundidade:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{tree\PYZus{}entropy}\PY{o}{.}\PY{n}{get\PYZus{}depth}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Número de folhas:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{tree\PYZus{}entropy}\PY{o}{.}\PY{n}{get\PYZus{}n\PYZus{}leaves}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Acurácia: 0.8805662046593925
+Precisão: 0.4892367906066536
+Recall: 0.4725897920604915
+F1: 0.4807692307692308
+Profundidade: 36
+Número de folhas: 2358
+    \end{Verbatim}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{14}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{24}\PY{p}{,} \PY{l+m+mi}{12}\PY{p}{)}\PY{p}{)}
+\PY{n}{plot\PYZus{}tree}\PY{p}{(}
+    \PY{n}{tree\PYZus{}entropy}\PY{p}{,}
+    \PY{n}{max\PYZus{}depth}\PY{o}{=}\PY{l+m+mi}{3}\PY{p}{,}
+    \PY{n}{feature\PYZus{}names}\PY{o}{=}\PY{n}{feature\PYZus{}names}\PY{p}{,}
+    \PY{n}{class\PYZus{}names}\PY{o}{=}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{no}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{yes}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{,}
+    \PY{n}{filled}\PY{o}{=}\PY{k+kc}{True}\PY{p}{,}
+    \PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{8}
+\PY{p}{)}
+\PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_32_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \subsubsection{Questão 6 --- Gini ×
+Entropy}\label{questuxe3o-6-gini-entropy}
+
+Preencha a tabela:
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}lrr@{}}
+\toprule\noalign{}
+Característica & Gini & Entropy \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Acurácia & 0.8731 & 0.8806 \\
+Precisão & 0.4593 & 0.4892 \\
+Recall & 0.4770 & 0.4726 \\
+F1 & 0.4680 & 0.4808 \\
+Profundidade & 36 & 36 \\
+Número de folhas & 2562 & 2358 \\
+Atributo da raiz & duration \textless= 518.5 & duration \textless=
+452.5 \\
+\end{longtable}
+}
+
+Depois responda: 1. As árvores são iguais? 2. O atributo escolhido na
+raiz é o mesmo? 3. A ordem dos atributos é a mesma? 4. Qual árvore é
+mais complexa? 5. Qual apresentou melhor desempenho no teste? 6. Uma
+diferença pequena de desempenho permite afirmar que um critério é sempre
+melhor que o outro?
+
+\textbf{Resposta:}
+
+    \begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Não, elas têm número de folhas e divisões diferentes.
+\item
+  Sim, ambas escolheram duration na raiz.
+\item
+  Não é idêntica nos níveis mais profundos.
+\item
+  A árvore com critério Gini é mais complexa (2562 folhas contra 2358 de
+  Entropy).
+\item
+  Entropy teve desempenho um pouco melhor no teste (acurácia 88,06\% vs
+  87,31\% e F1 0,4808 vs 0,4680).
+\item
+  Não, a diferença é pequena e na prática os dois critérios são muito
+  semelhantes. O controle de profundidade e poda influenciam muito mais
+  o resultado final.
+\end{enumerate}
+
+    \section{Parte II --- Parada
+antecipada}\label{parte-ii-parada-antecipada}
+
+\subsection{10. Investigando o crescimento da
+árvore}\label{investigando-o-crescimento-da-uxe1rvore}
+
+Uma das características das Árvores de Decisão é que sua complexidade
+pode ser controlada por meio do parâmetro \texttt{max\_depth}.
+
+Até o momento, foram construídos modelos utilizando uma única
+configuração de profundidade. Agora, você deverá investigar \textbf{como
+o desempenho e a complexidade da árvore variam à medida que sua
+profundidade máxima aumenta}.
+
+Considere os seguintes valores para \texttt{max\_depth}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{[}\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{6}\NormalTok{, }\DecValTok{8}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DecValTok{15}\NormalTok{, }\DecValTok{20}\NormalTok{, }\VariableTok{None}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+O valor \texttt{None} representa uma árvore sem uma restrição explícita
+de profundidade.
+
+\paragraph{Tarefa}\label{tarefa}
+
+Escreva um código que, para \textbf{cada valor de \texttt{max\_depth}}:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  crie uma nova \texttt{DecisionTreeClassifier}, utilizando o critério
+  \texttt{gini};
+\item
+  treine o modelo utilizando \texttt{X\_train} e \texttt{y\_train};
+\item
+  realize previsões tanto no conjunto de treinamento quanto no conjunto
+  de teste;
+\item
+  calcule a \textbf{acurácia no treinamento};
+\item
+  calcule a \textbf{acurácia no teste};
+\item
+  calcule o \textbf{F1-score no teste};
+\item
+  obtenha a profundidade efetivamente alcançada pela árvore;
+\item
+  obtenha o número de folhas da árvore;
+\item
+  armazene todos esses resultados para posterior comparação.
+\end{enumerate}
+
+Ao final, organize os resultados em um \texttt{DataFrame} chamado
+\texttt{results\_df}.
+
+O \texttt{DataFrame} deverá permitir comparar, para cada profundidade,
+pelo menos as seguintes informações:
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Informação & Descrição \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{max\_depth} & Limite de profundidade utilizado \\
+\texttt{train\_accuracy} & Acurácia no treinamento \\
+\texttt{test\_accuracy} & Acurácia no teste \\
+\texttt{test\_f1} & F1-score no teste \\
+\texttt{tree\_depth} & Profundidade efetivamente atingida \\
+\texttt{leaves} & Número de folhas \\
+\end{longtable}
+}
+
+\textbf{Restrição:} não crie manualmente um modelo para cada
+profundidade. Utilize uma estrutura de repetição para executar o
+experimento automaticamente.
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{15}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{depth\PYZus{}list} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{2}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{,} \PY{l+m+mi}{4}\PY{p}{,} \PY{l+m+mi}{5}\PY{p}{,} \PY{l+m+mi}{6}\PY{p}{,} \PY{l+m+mi}{8}\PY{p}{,} \PY{l+m+mi}{10}\PY{p}{,} \PY{l+m+mi}{15}\PY{p}{,} \PY{l+m+mi}{20}\PY{p}{,} \PY{k+kc}{None}\PY{p}{]}
+\PY{n}{results} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+
+\PY{k}{for} \PY{n}{max\PYZus{}d} \PY{o+ow}{in} \PY{n}{depth\PYZus{}list}\PY{p}{:}
+    \PY{n}{clf} \PY{o}{=} \PY{n}{DecisionTreeClassifier}\PY{p}{(}\PY{n}{criterion}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{gini}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{max\PYZus{}depth}\PY{o}{=}\PY{n}{max\PYZus{}d}\PY{p}{,} \PY{n}{random\PYZus{}state}\PY{o}{=}\PY{l+m+mi}{42}\PY{p}{)}
+    \PY{n}{clf}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{y\PYZus{}train}\PY{p}{)}
+    
+    \PY{n}{y\PYZus{}pred\PYZus{}tr} \PY{o}{=} \PY{n}{clf}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{X\PYZus{}train}\PY{p}{)}
+    \PY{n}{y\PYZus{}pred\PYZus{}te} \PY{o}{=} \PY{n}{clf}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{)}
+    
+    \PY{n}{results}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{p}{\PYZob{}}
+        \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{max\PYZus{}depth}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{n+nb}{str}\PY{p}{(}\PY{n}{max\PYZus{}d}\PY{p}{)}\PY{p}{,}
+        \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{train\PYZus{}accuracy}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{n}{accuracy\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}train}\PY{p}{,} \PY{n}{y\PYZus{}pred\PYZus{}tr}\PY{p}{)}\PY{p}{,}
+        \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{test\PYZus{}accuracy}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{n}{accuracy\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,} \PY{n}{y\PYZus{}pred\PYZus{}te}\PY{p}{)}\PY{p}{,}
+        \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{test\PYZus{}f1}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{n}{f1\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,} \PY{n}{y\PYZus{}pred\PYZus{}te}\PY{p}{)}\PY{p}{,}
+        \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{tree\PYZus{}depth}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{n}{clf}\PY{o}{.}\PY{n}{get\PYZus{}depth}\PY{p}{(}\PY{p}{)}\PY{p}{,}
+        \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{leaves}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{n}{clf}\PY{o}{.}\PY{n}{get\PYZus{}n\PYZus{}leaves}\PY{p}{(}\PY{p}{)}
+    \PY{p}{\PYZcb{}}\PY{p}{)}
+
+\PY{n}{results\PYZus{}df} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{n}{results}\PY{p}{)}
+\PY{n}{results\PYZus{}df}
+\end{Verbatim}
+\end{tcolorbox}
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{15}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+  max\_depth  train\_accuracy  test\_accuracy   test\_f1  tree\_depth  leaves
+0         2        0.896072       0.897007  0.436466           2       4
+1         3        0.901476       0.900914  0.446914           3       8
+2         4        0.902898       0.899513  0.412753           4      16
+3         5        0.905204       0.900767  0.451060           5      31
+4         6        0.908933       0.902094  0.473434           6      61
+5         8        0.919297       0.902757  0.479684           8     191
+6        10        0.931020       0.899808  0.486589          10     432
+7        15        0.963914       0.892215  0.497940          15    1274
+8        20        0.987708       0.883663  0.485323          20    2036
+9      None        1.000000       0.873120  0.468006          36    2562
+\end{Verbatim}
+\end{tcolorbox}
+        
+    Usando o dataframe criado, observe o efeito da profundidade sobre o
+desempenho.
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{16}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,} \PY{l+m+mi}{6}\PY{p}{)}\PY{p}{)}
+\PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{results\PYZus{}df}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{tree\PYZus{}depth}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{,} \PY{n}{results\PYZus{}df}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{train\PYZus{}accuracy}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{,}
+         \PY{n}{marker}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{o}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{label}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Treinamento}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{results\PYZus{}df}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{tree\PYZus{}depth}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{,} \PY{n}{results\PYZus{}df}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{test\PYZus{}accuracy}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{,}
+         \PY{n}{marker}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{o}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{label}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Teste}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Profundidade da árvore}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Acurácia}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Efeito da profundidade sobre o desempenho}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\PY{n}{plt}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{p}{)}
+\PY{n}{plt}\PY{o}{.}\PY{n}{grid}\PY{p}{(}\PY{p}{)}
+\PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_38_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \subsubsection{Questão 7 --- Efeito da
+profundidade}\label{questuxe3o-7-efeito-da-profundidade}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  O que acontece com a acurácia de treinamento quando a árvore cresce?
+\item
+  O comportamento da acurácia de teste é igual?
+\item
+  Existe uma profundidade a partir da qual aumentar a complexidade deixa
+  de produzir benefícios claros?
+\item
+  Em qual profundidade você escolheria trabalhar?
+\item
+  Justifique sua escolha considerando \textbf{desempenho e
+  complexidade}.
+\end{enumerate}
+
+\textbf{Resposta:}
+
+    Resposta:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  A acurácia de treinamento cresce continuamente até atingir 100\%
+  (1.000) no modelo sem restrição.
+\item
+  Não. A acurácia de teste sobe até profundidades entre 5 e 8 e depois
+  começa a cair (de \textasciitilde90,3\% para 87,3\%), indicando
+  overfitting.
+\item
+  Sim, a partir de max\_depth = 5 ou 6 o ganho no teste se estabiliza e
+  depois piora.
+\item
+  Escolheria max\_depth = 5 (ou 6).
+\item
+  Com profundidade 5 o modelo atinge 90,08\% de acurácia no teste com
+  apenas 31 folhas. É um modelo simples, fácil de interpretar e que
+  evita o sobreajuste da árvore sem limite.
+\end{enumerate}
+
+    \subsection{11. Construindo o modelo com parada
+antecipada}\label{construindo-o-modelo-com-parada-antecipada}
+
+Escolha uma profundidade com base na análise anterior.
+
+\begin{quote}
+Altere SUA\_PROFUNDIDADE para o valor escolhido por você.
+\end{quote}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{17}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{SUA\PYZus{}PROFUNDIDADE} \PY{o}{=} \PY{l+m+mi}{6}  \PY{c+c1}{\PYZsh{} altere após sua análise}
+
+\PY{n}{tree\PYZus{}pruned} \PY{o}{=} \PY{n}{DecisionTreeClassifier}\PY{p}{(}
+    \PY{n}{criterion}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{gini}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}
+    \PY{n}{max\PYZus{}depth}\PY{o}{=}\PY{n}{SUA\PYZus{}PROFUNDIDADE}\PY{p}{,}
+    \PY{n}{random\PYZus{}state}\PY{o}{=}\PY{l+m+mi}{42}
+\PY{p}{)}
+
+\PY{n}{tree\PYZus{}pruned}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{y\PYZus{}train}\PY{p}{)}
+\PY{n}{y\PYZus{}pred\PYZus{}pruned} \PY{o}{=} \PY{n}{tree\PYZus{}pruned}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{)}
+
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Acurácia:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{accuracy\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,} \PY{n}{y\PYZus{}pred\PYZus{}pruned}\PY{p}{)}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Precisão:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{precision\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,} \PY{n}{y\PYZus{}pred\PYZus{}pruned}\PY{p}{)}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Recall:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{recall\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,} \PY{n}{y\PYZus{}pred\PYZus{}pruned}\PY{p}{)}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{F1:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{f1\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,} \PY{n}{y\PYZus{}pred\PYZus{}pruned}\PY{p}{)}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Profundidade:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{tree\PYZus{}pruned}\PY{o}{.}\PY{n}{get\PYZus{}depth}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Número de folhas:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{tree\PYZus{}pruned}\PY{o}{.}\PY{n}{get\PYZus{}n\PYZus{}leaves}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Acurácia: 0.9020937776467118
+Precisão: 0.6385026737967915
+Recall: 0.3761814744801512
+F1: 0.4734337827121332
+Profundidade: 6
+Número de folhas: 61
+    \end{Verbatim}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{18}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{24}\PY{p}{,} \PY{l+m+mi}{12}\PY{p}{)}\PY{p}{)}
+\PY{n}{plot\PYZus{}tree}\PY{p}{(}
+    \PY{n}{tree\PYZus{}pruned}\PY{p}{,}
+    \PY{n}{feature\PYZus{}names}\PY{o}{=}\PY{n}{feature\PYZus{}names}\PY{p}{,}
+    \PY{n}{class\PYZus{}names}\PY{o}{=}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{no}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{yes}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{,}
+    \PY{n}{filled}\PY{o}{=}\PY{k+kc}{True}\PY{p}{,}
+    \PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{8}
+\PY{p}{)}
+\PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_43_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \section{Parte III --- Análise dos
+atributos}\label{parte-iii-anuxe1lise-dos-atributos}
+
+\subsection{12. Importância dos
+atributos}\label{importuxe2ncia-dos-atributos}
+
+O código a seguir calcula as importâncias dos atributos e as ordena.
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{19}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{importance} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{p}{\PYZob{}}
+    \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{feature}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:} \PY{n}{feature\PYZus{}names}\PY{p}{,}
+    \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{importance}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:} \PY{n}{tree\PYZus{}gini}\PY{o}{.}\PY{n}{feature\PYZus{}importances\PYZus{}}
+\PY{p}{\PYZcb{}}\PY{p}{)}\PY{o}{.}\PY{n}{sort\PYZus{}values}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{importance}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{ascending}\PY{o}{=}\PY{k+kc}{False}\PY{p}{)}
+
+\PY{n}{importance}\PY{o}{.}\PY{n}{head}\PY{p}{(}\PY{l+m+mi}{15}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{19}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+                  feature  importance
+47    remainder\_\_duration    0.279931
+45     remainder\_\_balance    0.095818
+44         remainder\_\_age    0.093600
+46         remainder\_\_day    0.089978
+42  cat\_\_poutcome\_success    0.089024
+49       remainder\_\_pdays    0.039845
+48    remainder\_\_campaign    0.031905
+21        cat\_\_housing\_no    0.017494
+28         cat\_\_month\_apr    0.015839
+35         cat\_\_month\_mar    0.014490
+34         cat\_\_month\_jun    0.014359
+50    remainder\_\_previous    0.012954
+38         cat\_\_month\_oct    0.011874
+27   cat\_\_contact\_unknown    0.010367
+36         cat\_\_month\_may    0.009264
+\end{Verbatim}
+\end{tcolorbox}
+        
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{20}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{importance}\PY{o}{.}\PY{n}{head}\PY{p}{(}\PY{l+m+mi}{15}\PY{p}{)}\PY{o}{.}\PY{n}{plot}\PY{p}{(}
+    \PY{n}{x}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{feature}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}
+    \PY{n}{y}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{importance}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}
+    \PY{n}{kind}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{barh}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}
+    \PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,} \PY{l+m+mi}{6}\PY{p}{)}
+\PY{p}{)}
+\PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Importância}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Atributo}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Principais atributos segundo a árvore}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_46_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \subsubsection{Questão 8 --- Atributos
+escolhidos}\label{questuxe3o-8-atributos-escolhidos}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Quais são os cinco atributos com maior importância?
+\item
+  O atributo utilizado na raiz está entre os mais importantes?
+\item
+  Um atributo que aparece em um nível profundo da árvore necessariamente
+  é menos importante?
+\item
+  Explique a diferença entre:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    atributo escolhido para o primeiro particionamento;
+  \item
+    atributo com maior importância no modelo.
+  \end{itemize}
+\end{enumerate}
+
+\textbf{Resposta:}
+
+    \begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Os 5 atributos mais importantes são:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    duration (\textasciitilde28,0\%)
+  \item
+    balance (\textasciitilde9,6\%)
+  \item
+    age (\textasciitilde9,4\%)
+  \item
+    day (\textasciitilde9,0\%)
+  \item
+    poutcome\_success (\textasciitilde8,9\%)
+  \end{itemize}
+\item
+  Sim, duration é o atributo mais importante de todo o modelo.
+\item
+  Não necessariamente, mas no nível profundo cada divisão afeta menos
+  amostras. Contudo, se uma variável for usada muitas vezes em vários
+  nós, ela pode somar bastante importância.
+\item
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Atributo da raiz:} é o melhor atributo na primeira divisão
+    inicial (decisão local no topo da árvore).
+  \item
+    \textbf{Atributo com maior importância:} é a soma de todas as
+    reduções de impureza que a variável gerou em todas as divisões da
+    árvore (métrica global).
+  \end{itemize}
+\end{enumerate}
+
+    \section{Parte IV --- Comparação
+final}\label{parte-iv-comparauxe7uxe3o-final}
+
+\subsection{13. Comparando os modelos}\label{comparando-os-modelos}
+
+Compare: 1. Gini sem restrição; 2. Entropy sem restrição; 3. Gini com
+parada antecipada.
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{21}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{comparison} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{p}{\PYZob{}}
+    \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Modelo}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:} \PY{p}{[}
+        \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Gini \PYZhy{} sem restrição}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}
+        \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Entropy \PYZhy{} sem restrição}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}
+        \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Gini \PYZhy{} parada antecipada}\PY{l+s+s2}{\PYZdq{}}
+    \PY{p}{]}\PY{p}{,}
+    \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Acurácia}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:} \PY{p}{[}
+        \PY{n}{accuracy\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,} \PY{n}{tree\PYZus{}gini}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+        \PY{n}{accuracy\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,} \PY{n}{tree\PYZus{}entropy}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+        \PY{n}{accuracy\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,} \PY{n}{tree\PYZus{}pruned}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{)}\PY{p}{)}
+    \PY{p}{]}\PY{p}{,}
+    \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Precisão}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:} \PY{p}{[}
+        \PY{n}{precision\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,} \PY{n}{tree\PYZus{}gini}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+        \PY{n}{precision\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,} \PY{n}{tree\PYZus{}entropy}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+        \PY{n}{precision\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,} \PY{n}{tree\PYZus{}pruned}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{)}\PY{p}{)}
+    \PY{p}{]}\PY{p}{,}
+    \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Recall}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:} \PY{p}{[}
+        \PY{n}{recall\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,} \PY{n}{tree\PYZus{}gini}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+        \PY{n}{recall\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,} \PY{n}{tree\PYZus{}entropy}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+        \PY{n}{recall\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,} \PY{n}{tree\PYZus{}pruned}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{)}\PY{p}{)}
+    \PY{p}{]}\PY{p}{,}
+    \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{F1}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:} \PY{p}{[}
+        \PY{n}{f1\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,} \PY{n}{tree\PYZus{}gini}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+        \PY{n}{f1\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,} \PY{n}{tree\PYZus{}entropy}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+        \PY{n}{f1\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,} \PY{n}{tree\PYZus{}pruned}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{)}\PY{p}{)}
+    \PY{p}{]}\PY{p}{,}
+    \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Profundidade}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:} \PY{p}{[}
+        \PY{n}{tree\PYZus{}gini}\PY{o}{.}\PY{n}{get\PYZus{}depth}\PY{p}{(}\PY{p}{)}\PY{p}{,}
+        \PY{n}{tree\PYZus{}entropy}\PY{o}{.}\PY{n}{get\PYZus{}depth}\PY{p}{(}\PY{p}{)}\PY{p}{,}
+        \PY{n}{tree\PYZus{}pruned}\PY{o}{.}\PY{n}{get\PYZus{}depth}\PY{p}{(}\PY{p}{)}
+    \PY{p}{]}\PY{p}{,}
+    \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Folhas}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:} \PY{p}{[}
+        \PY{n}{tree\PYZus{}gini}\PY{o}{.}\PY{n}{get\PYZus{}n\PYZus{}leaves}\PY{p}{(}\PY{p}{)}\PY{p}{,}
+        \PY{n}{tree\PYZus{}entropy}\PY{o}{.}\PY{n}{get\PYZus{}n\PYZus{}leaves}\PY{p}{(}\PY{p}{)}\PY{p}{,}
+        \PY{n}{tree\PYZus{}pruned}\PY{o}{.}\PY{n}{get\PYZus{}n\PYZus{}leaves}\PY{p}{(}\PY{p}{)}
+    \PY{p}{]}
+\PY{p}{\PYZcb{}}\PY{p}{)}
+
+\PY{n}{comparison}
+\end{Verbatim}
+\end{tcolorbox}
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{21}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+                     Modelo  Acurácia  Precisão    Recall        F1  \textbackslash{}
+0      Gini - sem restrição  0.873120  0.459345  0.477001  0.468006
+1   Entropy - sem restrição  0.880566  0.489237  0.472590  0.480769
+2  Gini - parada antecipada  0.902094  0.638503  0.376181  0.473434
+
+   Profundidade  Folhas
+0            36    2562
+1            36    2358
+2             6      61
+\end{Verbatim}
+\end{tcolorbox}
+        
+    \subsubsection{Questão 9 --- Escolha do modelo
+final}\label{questuxe3o-9-escolha-do-modelo-final}
+
+Com base nos resultados:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Qual modelo apresenta o melhor desempenho?
+\item
+  Qual modelo apresenta menor complexidade?
+\item
+  Existe um modelo que ofereça um bom compromisso entre desempenho e
+  interpretabilidade?
+\item
+  Qual modelo você escolheria para uma aplicação real? Justifique.
+\end{enumerate}
+
+\textbf{:}
+
+    \begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  O modelo Gini com parada antecipada (max\_depth=5) teve o melhor
+  desempenho no teste (acurácia de 90,08\% e precisão de 63,93\%).
+\item
+  O modelo com parada antecipada (profundidade 5 e 31 folhas, contra
+  profundidade 36 e mais de 2300 folhas dos outros).
+\item
+  Sim, o modelo com max\_depth=5 oferece o melhor equilíbrio.
+\item
+  Escolheria a árvore com max\_depth=5 porque tem melhor acurácia no
+  teste, evita overfitting e é uma árvore compacta e fácil de
+  interpretar como regras de negócio.
+\end{enumerate}
+
+    \section{15. Outro mecanismo de parada}\label{outro-mecanismo-de-parada}
+
+Escolha \textbf{um} dos parâmetros abaixo e faça um pequeno experimento:
+- \texttt{min\_samples\_split}; - \texttt{min\_samples\_leaf}; -
+\texttt{min\_impurity\_decrease}.
+
+Compare-o com o modelo obtido utilizando \texttt{max\_depth}.
+
+Responda: 1. Qual parâmetro você escolheu? 2. Qual é seu efeito? 3. Como
+ele alterou a árvore? 4. Como alterou o desempenho? 5. Qual mecanismo de
+parada você considera mais adequado para este conjunto de dados?
+
+\textbf{Resposta:}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{22}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{leaf\PYZus{}values} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{5}\PY{p}{,} \PY{l+m+mi}{10}\PY{p}{,} \PY{l+m+mi}{20}\PY{p}{,} \PY{l+m+mi}{50}\PY{p}{,} \PY{l+m+mi}{100}\PY{p}{,} \PY{l+m+mi}{200}\PY{p}{,} \PY{l+m+mi}{500}\PY{p}{]}
+\PY{n}{leaf\PYZus{}results} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+
+\PY{k}{for} \PY{n}{min\PYZus{}leaf} \PY{o+ow}{in} \PY{n}{leaf\PYZus{}values}\PY{p}{:}
+    \PY{n}{clf\PYZus{}leaf} \PY{o}{=} \PY{n}{DecisionTreeClassifier}\PY{p}{(}\PY{n}{criterion}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{gini}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{min\PYZus{}samples\PYZus{}leaf}\PY{o}{=}\PY{n}{min\PYZus{}leaf}\PY{p}{,} \PY{n}{random\PYZus{}state}\PY{o}{=}\PY{l+m+mi}{42}\PY{p}{)}
+    \PY{n}{clf\PYZus{}leaf}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{y\PYZus{}train}\PY{p}{)}
+    
+    \PY{n}{y\PYZus{}pred\PYZus{}te} \PY{o}{=} \PY{n}{clf\PYZus{}leaf}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{)}
+    \PY{n}{leaf\PYZus{}results}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{p}{\PYZob{}}
+        \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{min\PYZus{}samples\PYZus{}leaf}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{n}{min\PYZus{}leaf}\PY{p}{,}
+        \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{test\PYZus{}accuracy}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{n}{accuracy\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,} \PY{n}{y\PYZus{}pred\PYZus{}te}\PY{p}{)}\PY{p}{,}
+        \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{test\PYZus{}precision}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{n}{precision\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,} \PY{n}{y\PYZus{}pred\PYZus{}te}\PY{p}{)}\PY{p}{,}
+        \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{test\PYZus{}recall}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{n}{recall\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,} \PY{n}{y\PYZus{}pred\PYZus{}te}\PY{p}{)}\PY{p}{,}
+        \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{test\PYZus{}f1}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{n}{f1\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,} \PY{n}{y\PYZus{}pred\PYZus{}te}\PY{p}{)}\PY{p}{,}
+        \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{tree\PYZus{}depth}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{n}{clf\PYZus{}leaf}\PY{o}{.}\PY{n}{get\PYZus{}depth}\PY{p}{(}\PY{p}{)}\PY{p}{,}
+        \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{leaves}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{n}{clf\PYZus{}leaf}\PY{o}{.}\PY{n}{get\PYZus{}n\PYZus{}leaves}\PY{p}{(}\PY{p}{)}
+    \PY{p}{\PYZcb{}}\PY{p}{)}
+
+\PY{n}{leaf\PYZus{}df} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{n}{leaf\PYZus{}results}\PY{p}{)}
+\PY{n}{display}\PY{p}{(}\PY{n}{leaf\PYZus{}df}\PY{p}{)}
+
+\PY{n}{best\PYZus{}leaf\PYZus{}model} \PY{o}{=} \PY{n}{DecisionTreeClassifier}\PY{p}{(}\PY{n}{criterion}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{gini}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{min\PYZus{}samples\PYZus{}leaf}\PY{o}{=}\PY{l+m+mi}{20}\PY{p}{,} \PY{n}{random\PYZus{}state}\PY{o}{=}\PY{l+m+mi}{42}\PY{p}{)}
+\PY{n}{best\PYZus{}leaf\PYZus{}model}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{y\PYZus{}train}\PY{p}{)}
+
+\PY{n}{final\PYZus{}comp} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{p}{\PYZob{}}
+    \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Modelo}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Sem restrição}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{max\PYZus{}depth=5}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{min\PYZus{}samples\PYZus{}leaf=20}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,}
+    \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Acurácia}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{p}{[}\PY{n}{accuracy\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,} \PY{n}{tree\PYZus{}gini}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{)}\PY{p}{)}\PY{p}{,} \PY{n}{accuracy\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,} \PY{n}{tree\PYZus{}pruned}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{)}\PY{p}{)}\PY{p}{,} \PY{n}{accuracy\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,} \PY{n}{best\PYZus{}leaf\PYZus{}model}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{)}\PY{p}{)}\PY{p}{]}\PY{p}{,}
+    \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Precisão}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{p}{[}\PY{n}{precision\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,} \PY{n}{tree\PYZus{}gini}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{)}\PY{p}{)}\PY{p}{,} \PY{n}{precision\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,} \PY{n}{tree\PYZus{}pruned}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{)}\PY{p}{)}\PY{p}{,} \PY{n}{precision\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,} \PY{n}{best\PYZus{}leaf\PYZus{}model}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{)}\PY{p}{)}\PY{p}{]}\PY{p}{,}
+    \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Recall}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{p}{[}\PY{n}{recall\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,} \PY{n}{tree\PYZus{}gini}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{)}\PY{p}{)}\PY{p}{,} \PY{n}{recall\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,} \PY{n}{tree\PYZus{}pruned}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{)}\PY{p}{)}\PY{p}{,} \PY{n}{recall\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,} \PY{n}{best\PYZus{}leaf\PYZus{}model}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{)}\PY{p}{)}\PY{p}{]}\PY{p}{,}
+    \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{F1}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{p}{[}\PY{n}{f1\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,} \PY{n}{tree\PYZus{}gini}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{)}\PY{p}{)}\PY{p}{,} \PY{n}{f1\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,} \PY{n}{tree\PYZus{}pruned}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{)}\PY{p}{)}\PY{p}{,} \PY{n}{f1\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,} \PY{n}{best\PYZus{}leaf\PYZus{}model}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{)}\PY{p}{)}\PY{p}{]}\PY{p}{,}
+    \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Profundidade}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{p}{[}\PY{n}{tree\PYZus{}gini}\PY{o}{.}\PY{n}{get\PYZus{}depth}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{n}{tree\PYZus{}pruned}\PY{o}{.}\PY{n}{get\PYZus{}depth}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{n}{best\PYZus{}leaf\PYZus{}model}\PY{o}{.}\PY{n}{get\PYZus{}depth}\PY{p}{(}\PY{p}{)}\PY{p}{]}\PY{p}{,}
+    \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Folhas}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{p}{[}\PY{n}{tree\PYZus{}gini}\PY{o}{.}\PY{n}{get\PYZus{}n\PYZus{}leaves}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{n}{tree\PYZus{}pruned}\PY{o}{.}\PY{n}{get\PYZus{}n\PYZus{}leaves}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{n}{best\PYZus{}leaf\PYZus{}model}\PY{o}{.}\PY{n}{get\PYZus{}n\PYZus{}leaves}\PY{p}{(}\PY{p}{)}\PY{p}{]}
+\PY{p}{\PYZcb{}}\PY{p}{)}
+\PY{n}{final\PYZus{}comp}
+\end{Verbatim}
+\end{tcolorbox}
+
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+   min\_samples\_leaf  test\_accuracy  test\_precision  test\_recall   test\_f1  \textbackslash{}
+0                 1       0.873120        0.459345     0.477001  0.468006   
+1                 5       0.886390        0.516476     0.454316  0.483406   
+2                10       0.896343        0.574486     0.439824  0.498216   
+3                20       0.899882        0.598283     0.439193  0.506541   
+4                50       0.898924        0.608216     0.382483  0.469632   
+5               100       0.897965        0.613408     0.345936  0.442385   
+6               200       0.898186        0.601378     0.385003  0.469458   
+7               500       0.897007        0.606502     0.340895  0.436466   
+
+   tree\_depth  leaves  
+0          36    2562  
+1          33    1411  
+2          31     892  
+3          26     541  
+4          21     269  
+5          19     162  
+6          15      93  
+7          11      43  
+    \end{Verbatim}
+
+    
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{22}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+                Modelo  Acurácia  Precisão    Recall        F1  Profundidade  \textbackslash{}
+0        Sem restrição  0.873120  0.459345  0.477001  0.468006            36
+1          max\_depth=5  0.902094  0.638503  0.376181  0.473434             6
+2  min\_samples\_leaf=20  0.899882  0.598283  0.439193  0.506541            26
+
+   Folhas
+0    2562
+1      61
+2     541
+\end{Verbatim}
+\end{tcolorbox}
+        
+    \textbf{Resposta:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Escolhi o parâmetro min\_samples\_leaf.
+\item
+  Ele define o número mínimo de amostras que uma folha precisa ter para
+  ser criada, evitando que a árvore crie folhas com 1 ou 2 exemplos para
+  decorar ruídos.
+\item
+  A profundidade reduziu de 36 para 26 e o número de folhas caiu de 2562
+  para 541 (com min\_samples\_leaf=20).
+\item
+  A acurácia de teste subiu de 87,31\% para 89,99\% e o F1-Score subiu
+  de 0,4680 para 0,5065 (o melhor F1 entre todos os modelos).
+\item
+  min\_samples\_leaf (ou a combinação dele com max\_depth), pois permite
+  que ramos com muitos dados continuem crescendo enquanto poda ramos sem
+  suporte estatístico.
+\end{enumerate}
+
+
+    % Add a bibliography block to the postdoc
+    
+    
+    
+\end{document}

@@ -1,0 +1,42 @@
+name: Primeiro Workflow
+
+on:
+  push:
+    branches:
+      - '**'
+
+jobs:
+  execucao:
+    name: Executar Pipeline de Validacao
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar o conteudo do repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar ambiente Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Verificar versoes do Node e NPM
+        run: |
+          echo "Node.js version: $(node -v)"
+          echo "NPM version: $(npm -v)"
+
+      - name: Listar arquivos do projeto
+        run: |
+          echo "=== Listando arquivos do repositorio ==="
+          ls -la
+
+      - name: Instalar dependencias e compilar projeto TypeScript (atividade_mongo)
+        run: |
+          echo "=== Compilando atividade_mongo ==="
+          cd 4s/web2_development/exercises/atividade_mongo
+          npm install
+          npm run build
+          echo "=== Arquivos gerados no build (dist) ==="
+          ls -la dist
+
+      - name: Mensagem de finalizacao
+        run: echo "Pipeline executada com sucesso!"

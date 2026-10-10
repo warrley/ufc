@@ -1,0 +1,931 @@
+\documentclass[11pt]{article}
+
+    \usepackage[breakable]{tcolorbox}
+    \usepackage{parskip} % Stop auto-indenting (to mimic markdown behaviour)
+    
+
+    % Basic figure setup, for now with no caption control since it's done
+    % automatically by Pandoc (which extracts ![](path) syntax from Markdown).
+    \usepackage{graphicx}
+    % Keep aspect ratio if custom image width or height is specified
+    \setkeys{Gin}{keepaspectratio}
+    % Maintain compatibility with old templates. Remove in nbconvert 6.0
+    \let\Oldincludegraphics\includegraphics
+    % Ensure that by default, figures have no caption (until we provide a
+    % proper Figure object with a Caption API and a way to capture that
+    % in the conversion process - todo).
+    \usepackage{caption}
+    \DeclareCaptionFormat{nocaption}{}
+    \captionsetup{format=nocaption,aboveskip=0pt,belowskip=0pt}
+
+    \usepackage{float}
+    \floatplacement{figure}{H} % forces figures to be placed at the correct location
+    \usepackage{xcolor} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage{textcomp} % defines textquotesingle
+    % Hack from http://tex.stackexchange.com/a/47451/13684:
+    \AtBeginDocument{%
+        \def\PYZsq{\textquotesingle}% Upright quotes in Pygmentized code
+    }
+    \usepackage{upquote} % Upright quotes for verbatim code
+    \usepackage{eurosym} % defines \euro
+
+    \usepackage{iftex}
+    \ifPDFTeX
+        \usepackage[T1]{fontenc}
+        \IfFileExists{alphabeta.sty}{
+              \usepackage{alphabeta}
+          }{
+              \usepackage[mathletters]{ucs}
+              \usepackage[utf8x]{inputenc}
+          }
+    \else
+        \usepackage{fontspec}
+        \usepackage{unicode-math}
+    \fi
+
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+    \usepackage{grffile} % extends the file name processing of package graphics
+                         % to support a larger range
+    \makeatletter % fix for old versions of grffile with XeLaTeX
+    \@ifpackagelater{grffile}{2019/11/01}
+    {
+      % Do nothing on new versions
+    }
+    {
+      \def\Gread@@xetex#1{%
+        \IfFileExists{"\Gin@base".bb}%
+        {\Gread@eps{\Gin@base.bb}}%
+        {\Gread@@xetex@aux#1}%
+      }
+    }
+    \makeatother
+    \usepackage[Export]{adjustbox} % Used to constrain images to a maximum size
+    \adjustboxset{max size={0.9\linewidth}{0.9\paperheight}}
+
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    % The default LaTeX title has an obnoxious amount of whitespace. By default,
+    % titling removes some of it. It also provides customization options.
+    \usepackage{titling}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    \usepackage{booktabs}  % table support for pandoc > 1.12.2
+    \usepackage{array}     % table support for pandoc >= 2.11.3
+    \usepackage{calc}      % table minipage width calculation for pandoc >= 2.11.1
+    \usepackage[inline]{enumitem} % IRkernel/repr support (it uses the enumerate* environment)
+    \usepackage[normalem]{ulem} % ulem is needed to support strikethroughs (\sout)
+                                % normalem makes italics be italics, not underlines
+    \usepackage{soul}      % strikethrough (\st) support for pandoc >= 3.0.0
+    \usepackage{mathrsfs}
+    
+
+    
+    % Colors for the hyperref package
+    \definecolor{urlcolor}{rgb}{0,.145,.698}
+    \definecolor{linkcolor}{rgb}{.71,0.21,0.01}
+    \definecolor{citecolor}{rgb}{.12,.54,.11}
+
+    % ANSI colors
+    \definecolor{ansi-black}{HTML}{3E424D}
+    \definecolor{ansi-black-intense}{HTML}{282C36}
+    \definecolor{ansi-red}{HTML}{E75C58}
+    \definecolor{ansi-red-intense}{HTML}{B22B31}
+    \definecolor{ansi-green}{HTML}{00A250}
+    \definecolor{ansi-green-intense}{HTML}{007427}
+    \definecolor{ansi-yellow}{HTML}{DDB62B}
+    \definecolor{ansi-yellow-intense}{HTML}{B27D12}
+    \definecolor{ansi-blue}{HTML}{208FFB}
+    \definecolor{ansi-blue-intense}{HTML}{0065CA}
+    \definecolor{ansi-magenta}{HTML}{D160C4}
+    \definecolor{ansi-magenta-intense}{HTML}{A03196}
+    \definecolor{ansi-cyan}{HTML}{60C6C8}
+    \definecolor{ansi-cyan-intense}{HTML}{258F8F}
+    \definecolor{ansi-white}{HTML}{C5C1B4}
+    \definecolor{ansi-white-intense}{HTML}{A1A6B2}
+    \definecolor{ansi-default-inverse-fg}{HTML}{FFFFFF}
+    \definecolor{ansi-default-inverse-bg}{HTML}{000000}
+
+    % common color for the border for error outputs.
+    \definecolor{outerrorbackground}{HTML}{FFDFDF}
+
+    % commands and environments needed by pandoc snippets
+    % extracted from the output of `pandoc -s`
+    \providecommand{\tightlist}{%
+      \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+    % Add ',fontsize=\small' for more characters per line
+    \newenvironment{Shaded}{}{}
+    \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+    \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+    \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+    \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+    \newcommand{\RegionMarkerTok}[1]{{#1}}
+    \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\NormalTok}[1]{{#1}}
+
+    % Additional commands for more recent versions of Pandoc
+    \newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{{#1}}}
+    \newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{{#1}}}
+    \newcommand{\ImportTok}[1]{{#1}}
+    \newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{{#1}}}}
+    \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{{#1}}}
+    \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{{#1}}}
+    \newcommand{\BuiltInTok}[1]{{#1}}
+    \newcommand{\ExtensionTok}[1]{{#1}}
+    \newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{{#1}}}
+    \newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{{#1}}}
+    \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \makeatletter
+    \newsavebox\pandoc@box
+    \newcommand*\pandocbounded[1]{%
+      \sbox\pandoc@box{#1}%
+      % scaling factors for width and height
+      \Gscale@div\@tempa\textheight{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+      \Gscale@div\@tempb\linewidth{\wd\pandoc@box}%
+      % select the smaller of both
+      \ifdim\@tempb\p@<\@tempa\p@
+        \let\@tempa\@tempb
+      \fi
+      % scaling accordingly (\@tempa < 1)
+      \ifdim\@tempa\p@<\p@
+        \scalebox{\@tempa}{\usebox\pandoc@box}%
+      % scaling not needed, use as it is
+      \else
+        \usebox{\pandoc@box}%
+      \fi
+    }
+    \makeatother
+
+    % Define a nice break command that doesn't care if a line doesn't already
+    % exist.
+    \def\br{\hspace*{\fill} \\* }
+    % Math Jax compatibility definitions
+    \def\gt{>}
+    \def\lt{<}
+    \let\Oldtex\TeX
+    \let\Oldlatex\LaTeX
+    \renewcommand{\TeX}{\textrm{\Oldtex}}
+    \renewcommand{\LaTeX}{\textrm{\Oldlatex}}
+    % Document parameters
+    % Document title
+    \title{Notebook}
+    
+    
+    
+    
+    
+    
+    
+% Pygments definitions
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\@namedef{PY@tok@w}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\@namedef{PY@tok@c}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@cp}{\def\PY@tc##1{\textcolor[rgb]{0.61,0.40,0.00}{##1}}}
+\@namedef{PY@tok@k}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kp}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kt}{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\@namedef{PY@tok@o}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@ow}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\@namedef{PY@tok@nb}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@nf}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\@namedef{PY@tok@nc}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\@namedef{PY@tok@nn}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\@namedef{PY@tok@ne}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.80,0.25,0.22}{##1}}}
+\@namedef{PY@tok@nv}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@no}{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\@namedef{PY@tok@nl}{\def\PY@tc##1{\textcolor[rgb]{0.46,0.46,0.00}{##1}}}
+\@namedef{PY@tok@ni}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.44,0.44,0.44}{##1}}}
+\@namedef{PY@tok@na}{\def\PY@tc##1{\textcolor[rgb]{0.41,0.47,0.13}{##1}}}
+\@namedef{PY@tok@nt}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@nd}{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\@namedef{PY@tok@s}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@sd}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@si}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.64,0.35,0.47}{##1}}}
+\@namedef{PY@tok@se}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.36,0.12}{##1}}}
+\@namedef{PY@tok@sr}{\def\PY@tc##1{\textcolor[rgb]{0.64,0.35,0.47}{##1}}}
+\@namedef{PY@tok@ss}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@sx}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@m}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@gh}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\@namedef{PY@tok@gu}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\@namedef{PY@tok@gd}{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\@namedef{PY@tok@gi}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.52,0.00}{##1}}}
+\@namedef{PY@tok@gr}{\def\PY@tc##1{\textcolor[rgb]{0.89,0.00,0.00}{##1}}}
+\@namedef{PY@tok@ge}{\let\PY@it=\textit}
+\@namedef{PY@tok@gs}{\let\PY@bf=\textbf}
+\@namedef{PY@tok@ges}{\let\PY@bf=\textbf\let\PY@it=\textit}
+\@namedef{PY@tok@gp}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\@namedef{PY@tok@go}{\def\PY@tc##1{\textcolor[rgb]{0.44,0.44,0.44}{##1}}}
+\@namedef{PY@tok@gt}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\@namedef{PY@tok@err}{\def\PY@bc##1{{\setlength{\fboxsep}{\string -\fboxrule}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}}
+\@namedef{PY@tok@kc}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kd}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kn}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kr}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@bp}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@fm}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\@namedef{PY@tok@vc}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@vg}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@vi}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@vm}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@sa}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@sb}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@sc}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@dl}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@s2}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@sh}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@s1}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@mb}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@mf}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@mh}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@mi}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@il}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@mo}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@ch}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@cm}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@cpf}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@c1}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@cs}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+    % For linebreaks inside Verbatim environment from package fancyvrb.
+    \makeatletter
+        \newbox\Wrappedcontinuationbox
+        \newbox\Wrappedvisiblespacebox
+        \newcommand*\Wrappedvisiblespace {\textcolor{red}{\textvisiblespace}}
+        \newcommand*\Wrappedcontinuationsymbol {\textcolor{red}{\llap{\tiny$\m@th\hookrightarrow$}}}
+        \newcommand*\Wrappedcontinuationindent {3ex }
+        \newcommand*\Wrappedafterbreak {\kern\Wrappedcontinuationindent\copy\Wrappedcontinuationbox}
+        % Take advantage of the already applied Pygments mark-up to insert
+        % potential linebreaks for TeX processing.
+        %        {, <, #, %, $, ' and ": go to next line.
+        %        _, }, ^, &, >, - and ~: stay at end of broken line.
+        % Use of \textquotesingle for straight quote.
+        \newcommand*\Wrappedbreaksatspecials {%
+            \def\PYGZus{\discretionary{\char`\_}{\Wrappedafterbreak}{\char`\_}}%
+            \def\PYGZob{\discretionary{}{\Wrappedafterbreak\char`\{}{\char`\{}}%
+            \def\PYGZcb{\discretionary{\char`\}}{\Wrappedafterbreak}{\char`\}}}%
+            \def\PYGZca{\discretionary{\char`\^}{\Wrappedafterbreak}{\char`\^}}%
+            \def\PYGZam{\discretionary{\char`\&}{\Wrappedafterbreak}{\char`\&}}%
+            \def\PYGZlt{\discretionary{}{\Wrappedafterbreak\char`\<}{\char`\<}}%
+            \def\PYGZgt{\discretionary{\char`\>}{\Wrappedafterbreak}{\char`\>}}%
+            \def\PYGZsh{\discretionary{}{\Wrappedafterbreak\char`\#}{\char`\#}}%
+            \def\PYGZpc{\discretionary{}{\Wrappedafterbreak\char`\%}{\char`\%}}%
+            \def\PYGZdl{\discretionary{}{\Wrappedafterbreak\char`\$}{\char`\$}}%
+            \def\PYGZhy{\discretionary{\char`\-}{\Wrappedafterbreak}{\char`\-}}%
+            \def\PYGZsq{\discretionary{}{\Wrappedafterbreak\textquotesingle}{\textquotesingle}}%
+            \def\PYGZdq{\discretionary{}{\Wrappedafterbreak\char`\"}{\char`\"}}%
+            \def\PYGZti{\discretionary{\char`\~}{\Wrappedafterbreak}{\char`\~}}%
+        }
+        % Some characters . , ; ? ! / are not pygmentized.
+        % This macro makes them "active" and they will insert potential linebreaks
+        \newcommand*\Wrappedbreaksatpunct {%
+            \lccode`\~`\.\lowercase{\def~}{\discretionary{\hbox{\char`\.}}{\Wrappedafterbreak}{\hbox{\char`\.}}}%
+            \lccode`\~`\,\lowercase{\def~}{\discretionary{\hbox{\char`\,}}{\Wrappedafterbreak}{\hbox{\char`\,}}}%
+            \lccode`\~`\;\lowercase{\def~}{\discretionary{\hbox{\char`\;}}{\Wrappedafterbreak}{\hbox{\char`\;}}}%
+            \lccode`\~`\:\lowercase{\def~}{\discretionary{\hbox{\char`\:}}{\Wrappedafterbreak}{\hbox{\char`\:}}}%
+            \lccode`\~`\?\lowercase{\def~}{\discretionary{\hbox{\char`\?}}{\Wrappedafterbreak}{\hbox{\char`\?}}}%
+            \lccode`\~`\!\lowercase{\def~}{\discretionary{\hbox{\char`\!}}{\Wrappedafterbreak}{\hbox{\char`\!}}}%
+            \lccode`\~`\/\lowercase{\def~}{\discretionary{\hbox{\char`\/}}{\Wrappedafterbreak}{\hbox{\char`\/}}}%
+            \catcode`\.\active
+            \catcode`\,\active
+            \catcode`\;\active
+            \catcode`\:\active
+            \catcode`\?\active
+            \catcode`\!\active
+            \catcode`\/\active
+            \lccode`\~`\~
+        }
+    \makeatother
+
+    \let\OriginalVerbatim=\Verbatim
+    \makeatletter
+    \renewcommand{\Verbatim}[1][1]{%
+        %\parskip\z@skip
+        \sbox\Wrappedcontinuationbox {\Wrappedcontinuationsymbol}%
+        \sbox\Wrappedvisiblespacebox {\FV@SetupFont\Wrappedvisiblespace}%
+        \def\FancyVerbFormatLine ##1{\hsize\linewidth
+            \vtop{\raggedright\hyphenpenalty\z@\exhyphenpenalty\z@
+                \doublehyphendemerits\z@\finalhyphendemerits\z@
+                \strut ##1\strut}%
+        }%
+        % If the linebreak is at a space, the latter will be displayed as visible
+        % space at end of first line, and a continuation symbol starts next line.
+        % Stretch/shrink are however usually zero for typewriter font.
+        \def\FV@Space {%
+            \nobreak\hskip\z@ plus\fontdimen3\font minus\fontdimen4\font
+            \discretionary{\copy\Wrappedvisiblespacebox}{\Wrappedafterbreak}
+            {\kern\fontdimen2\font}%
+        }%
+
+        % Allow breaks at special characters using \PYG... macros.
+        \Wrappedbreaksatspecials
+        % Breaks at punctuation characters . , ; ? ! and / need catcode=\active
+        \OriginalVerbatim[#1,codes*=\Wrappedbreaksatpunct]%
+    }
+    \makeatother
+
+    % Exact colors from NB
+    \definecolor{incolor}{HTML}{303F9F}
+    \definecolor{outcolor}{HTML}{D84315}
+    \definecolor{cellborder}{HTML}{CFCFCF}
+    \definecolor{cellbackground}{HTML}{F7F7F7}
+
+    % prompt
+    \makeatletter
+    \newcommand{\boxspacing}{\kern\kvtcb@left@rule\kern\kvtcb@boxsep}
+    \makeatother
+    \newcommand{\prompt}[4]{
+        {\ttfamily\llap{{\color{#2}[#3]:\hspace{3pt}#4}}\vspace{-\baselineskip}}
+    }
+    
+
+    
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy
+    % Setup hyperref package
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      colorlinks=true,
+      urlcolor=urlcolor,
+      linkcolor=linkcolor,
+      citecolor=citecolor,
+      }
+    % Slightly bigger margins than the latex defaults
+    
+    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+    
+    
+
+\begin{document}
+    
+    \maketitle
+    
+    
+
+    
+    \section{Exercício: Random Forest e
+AdaBoost}\label{exercuxedcio-random-forest-e-adaboost}
+
+Use \texttt{load\_breast\_cancer()} do scikit-learn. Neste conjunto,
+\texttt{0\ =\ maligno} e \texttt{1\ =\ benigno}. Adote
+\texttt{random\_state=42}. Entregue o notebook com código executado e
+respostas fundamentadas nos resultados. Trata-se de dados didáticos; a
+comparação não constitui validação clínica.
+
+    \subsection{Questão 1 --- Conheça e prepare os
+dados}\label{questuxe3o-1-conheuxe7a-e-prepare-os-dados}
+
+\begin{itemize}
+\tightlist
+\item
+  Carregue o conjunto em um \texttt{DataFrame} com os 30 atributos e a
+  variável alvo. Informe dimensões, tipos, valores ausentes, linhas
+  duplicadas e quantidade por classe.
+\item
+  Descreva o tratamento necessário (ou explique por que nenhum é
+  necessário). Separe treino (60\%), validação (20\%) e teste (20\%) de
+  modo estratificado; mantenha o teste reservado para a questão 5. Por
+  que preservar a proporção das classes?
+\end{itemize}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{1}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k+kn}{import}\PY{+w}{ }\PY{n+nn}{pandas}\PY{+w}{ }\PY{k}{as}\PY{+w}{ }\PY{n+nn}{pd}
+\PY{k+kn}{from}\PY{+w}{ }\PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{datasets}\PY{+w}{ }\PY{k+kn}{import} \PY{n}{load\PYZus{}breast\PYZus{}cancer}
+\PY{k+kn}{from}\PY{+w}{ }\PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{model\PYZus{}selection}\PY{+w}{ }\PY{k+kn}{import} \PY{n}{train\PYZus{}test\PYZus{}split}
+
+\PY{n}{data} \PY{o}{=} \PY{n}{load\PYZus{}breast\PYZus{}cancer}\PY{p}{(}\PY{p}{)}
+\PY{n}{X} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{n}{data}\PY{o}{.}\PY{n}{data}\PY{p}{,} \PY{n}{columns}\PY{o}{=}\PY{n}{data}\PY{o}{.}\PY{n}{feature\PYZus{}names}\PY{p}{)}
+\PY{n}{y} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{Series}\PY{p}{(}\PY{n}{data}\PY{o}{.}\PY{n}{target}\PY{p}{,} \PY{n}{name}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{target}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\PY{n}{df} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{concat}\PY{p}{(}\PY{p}{[}\PY{n}{X}\PY{p}{,} \PY{n}{y}\PY{p}{]}\PY{p}{,} \PY{n}{axis}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}
+
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Dimensoes:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{df}\PY{o}{.}\PY{n}{shape}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Tipos de dados:}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{df}\PY{o}{.}\PY{n}{dtypes}\PY{o}{.}\PY{n}{value\PYZus{}counts}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Valores ausentes:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{df}\PY{o}{.}\PY{n}{isnull}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Linhas duplicadas:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{df}\PY{o}{.}\PY{n}{duplicated}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Quantidade por classe:}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{df}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{target}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{value\PYZus{}counts}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+
+\PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{X\PYZus{}temp}\PY{p}{,} \PY{n}{y\PYZus{}train}\PY{p}{,} \PY{n}{y\PYZus{}temp} \PY{o}{=} \PY{n}{train\PYZus{}test\PYZus{}split}\PY{p}{(}
+    \PY{n}{X}\PY{p}{,} \PY{n}{y}\PY{p}{,} \PY{n}{test\PYZus{}size}\PY{o}{=}\PY{l+m+mf}{0.4}\PY{p}{,} \PY{n}{random\PYZus{}state}\PY{o}{=}\PY{l+m+mi}{42}\PY{p}{,} \PY{n}{stratify}\PY{o}{=}\PY{n}{y}
+\PY{p}{)}
+\PY{n}{X\PYZus{}val}\PY{p}{,} \PY{n}{X\PYZus{}test}\PY{p}{,} \PY{n}{y\PYZus{}val}\PY{p}{,} \PY{n}{y\PYZus{}test} \PY{o}{=} \PY{n}{train\PYZus{}test\PYZus{}split}\PY{p}{(}
+    \PY{n}{X\PYZus{}temp}\PY{p}{,} \PY{n}{y\PYZus{}temp}\PY{p}{,} \PY{n}{test\PYZus{}size}\PY{o}{=}\PY{l+m+mf}{0.5}\PY{p}{,} \PY{n}{random\PYZus{}state}\PY{o}{=}\PY{l+m+mi}{42}\PY{p}{,} \PY{n}{stratify}\PY{o}{=}\PY{n}{y\PYZus{}temp}
+\PY{p}{)}
+
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+sa}{f}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s2}{Divisao: Treino=}\PY{l+s+si}{\PYZob{}}\PY{n+nb}{len}\PY{p}{(}\PY{n}{X\PYZus{}train}\PY{p}{)}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s2}{, Validacao=}\PY{l+s+si}{\PYZob{}}\PY{n+nb}{len}\PY{p}{(}\PY{n}{X\PYZus{}val}\PY{p}{)}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s2}{, Teste=}\PY{l+s+si}{\PYZob{}}\PY{n+nb}{len}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{)}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Dimensoes: (569, 31)
+Tipos de dados:
+ float64    30
+int64       1
+Name: count, dtype: int64
+Valores ausentes: 0
+Linhas duplicadas: 0
+Quantidade por classe:
+ target
+1    357
+0    212
+Name: count, dtype: int64
+
+Divisao: Treino=341, Validacao=114, Teste=114
+    \end{Verbatim}
+
+    Resposta:
+
+\begin{itemize}
+\tightlist
+\item
+  Dimensoes: 569 linhas e 31 colunas (30 atributos continuos float64 e a
+  variavel alvo inteira int64).
+\item
+  Valores ausentes: 0.
+\item
+  Linhas duplicadas: 0.
+\item
+  Quantidade por classe: 212 malignos (0) e 357 benignos (1).
+\item
+  Tratamento necessario: nenhum tratamento adicional e necessario, pois
+  nao existem dados faltantes e os algoritmos baseados em arvores nao
+  exigem normalizacao ou padronizacao de escala.
+\item
+  Preservar a proporcao das classes: a estratificacao garante que
+  treino, validacao e teste tenham a mesma distribuicao original (cerca
+  de 37.3\% malignos e 62.7\% benignos), evitando que subconjuntos
+  fiquem com poucas amostras da classe minoritaria e gerem avaliacoes
+  enviesadas.
+\end{itemize}
+
+    \subsection{Questão 2 --- Random
+Forest}\label{questuxe3o-2-random-forest}
+
+\begin{itemize}
+\item
+  Treine um
+  \texttt{RandomForestClassifier(n\_estimators=100,\ random\_state=42)}.
+  Na validação, apresente matriz de confusão com ordem
+  \texttt{{[}0,\ 1{]}}, accuracy, precision, recall e F1 para
+  \textbf{maligno} (\texttt{pos\_label=0}).
+\item
+  Teste pelo menos quatro combinações de \texttt{n\_estimators} (por
+  exemplo, 50 e 200) e \texttt{max\_depth} (por exemplo, 3 e
+  \texttt{None}). Compare os resultados de validação e explique o efeito
+  dos parâmetros.
+\end{itemize}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{2}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k+kn}{from}\PY{+w}{ }\PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{ensemble}\PY{+w}{ }\PY{k+kn}{import} \PY{n}{RandomForestClassifier}
+\PY{k+kn}{from}\PY{+w}{ }\PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{metrics}\PY{+w}{ }\PY{k+kn}{import} \PY{n}{accuracy\PYZus{}score}\PY{p}{,} \PY{n}{precision\PYZus{}score}\PY{p}{,} \PY{n}{recall\PYZus{}score}\PY{p}{,} \PY{n}{f1\PYZus{}score}\PY{p}{,} \PY{n}{confusion\PYZus{}matrix}
+
+\PY{n}{rf} \PY{o}{=} \PY{n}{RandomForestClassifier}\PY{p}{(}\PY{n}{n\PYZus{}estimators}\PY{o}{=}\PY{l+m+mi}{100}\PY{p}{,} \PY{n}{random\PYZus{}state}\PY{o}{=}\PY{l+m+mi}{42}\PY{p}{)}
+\PY{n}{rf}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{y\PYZus{}train}\PY{p}{)}
+\PY{n}{y\PYZus{}pred\PYZus{}val} \PY{o}{=} \PY{n}{rf}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{X\PYZus{}val}\PY{p}{)}
+
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Matriz de Confusao (ordem [0, 1]):}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{confusion\PYZus{}matrix}\PY{p}{(}\PY{n}{y\PYZus{}val}\PY{p}{,} \PY{n}{y\PYZus{}pred\PYZus{}val}\PY{p}{,} \PY{n}{labels}\PY{o}{=}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+sa}{f}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Accuracy: }\PY{l+s+si}{\PYZob{}}\PY{n}{accuracy\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}val}\PY{p}{,}\PY{+w}{ }\PY{n}{y\PYZus{}pred\PYZus{}val}\PY{p}{)}\PY{l+s+si}{:}\PY{l+s+s2}{.4f}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+sa}{f}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Precision (0): }\PY{l+s+si}{\PYZob{}}\PY{n}{precision\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}val}\PY{p}{,}\PY{+w}{ }\PY{n}{y\PYZus{}pred\PYZus{}val}\PY{p}{,}\PY{+w}{ }\PY{n}{pos\PYZus{}label}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}\PY{l+s+si}{:}\PY{l+s+s2}{.4f}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+sa}{f}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Recall (0): }\PY{l+s+si}{\PYZob{}}\PY{n}{recall\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}val}\PY{p}{,}\PY{+w}{ }\PY{n}{y\PYZus{}pred\PYZus{}val}\PY{p}{,}\PY{+w}{ }\PY{n}{pos\PYZus{}label}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}\PY{l+s+si}{:}\PY{l+s+s2}{.4f}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+sa}{f}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{F1 (0): }\PY{l+s+si}{\PYZob{}}\PY{n}{f1\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}val}\PY{p}{,}\PY{+w}{ }\PY{n}{y\PYZus{}pred\PYZus{}val}\PY{p}{,}\PY{+w}{ }\PY{n}{pos\PYZus{}label}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}\PY{l+s+si}{:}\PY{l+s+s2}{.4f}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+
+\PY{n}{combos} \PY{o}{=} \PY{p}{[}\PY{p}{(}\PY{l+m+mi}{50}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{l+m+mi}{50}\PY{p}{,} \PY{k+kc}{None}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{l+m+mi}{200}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{l+m+mi}{200}\PY{p}{,} \PY{k+kc}{None}\PY{p}{)}\PY{p}{]}
+\PY{n}{rf\PYZus{}results} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+
+\PY{k}{for} \PY{n}{n\PYZus{}est}\PY{p}{,} \PY{n}{depth} \PY{o+ow}{in} \PY{n}{combos}\PY{p}{:}
+    \PY{n}{m} \PY{o}{=} \PY{n}{RandomForestClassifier}\PY{p}{(}\PY{n}{n\PYZus{}estimators}\PY{o}{=}\PY{n}{n\PYZus{}est}\PY{p}{,} \PY{n}{max\PYZus{}depth}\PY{o}{=}\PY{n}{depth}\PY{p}{,} \PY{n}{random\PYZus{}state}\PY{o}{=}\PY{l+m+mi}{42}\PY{p}{)}
+    \PY{n}{m}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{y\PYZus{}train}\PY{p}{)}
+    \PY{n}{p} \PY{o}{=} \PY{n}{m}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{X\PYZus{}val}\PY{p}{)}
+    \PY{n}{rf\PYZus{}results}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{p}{\PYZob{}}
+        \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{n\PYZus{}estimators}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{n}{n\PYZus{}est}\PY{p}{,}
+        \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{max\PYZus{}depth}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{n+nb}{str}\PY{p}{(}\PY{n}{depth}\PY{p}{)}\PY{p}{,}
+        \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Accuracy}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{n}{accuracy\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}val}\PY{p}{,} \PY{n}{p}\PY{p}{)}\PY{p}{,}
+        \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Precision}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{n}{precision\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}val}\PY{p}{,} \PY{n}{p}\PY{p}{,} \PY{n}{pos\PYZus{}label}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}\PY{p}{,}
+        \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Recall}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{n}{recall\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}val}\PY{p}{,} \PY{n}{p}\PY{p}{,} \PY{n}{pos\PYZus{}label}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}\PY{p}{,}
+        \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{F1}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{n}{f1\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}val}\PY{p}{,} \PY{n}{p}\PY{p}{,} \PY{n}{pos\PYZus{}label}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}
+    \PY{p}{\PYZcb{}}\PY{p}{)}
+
+\PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{n}{rf\PYZus{}results}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Matriz de Confusao (ordem [0, 1]):
+ [[39  3]
+ [ 1 71]]
+Accuracy: 0.9649
+Precision (0): 0.9750
+Recall (0): 0.9286
+F1 (0): 0.9512
+    \end{Verbatim}
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{2}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+   n\_estimators max\_depth  Accuracy  Precision    Recall       F1
+0            50         3  0.964912      0.975  0.928571  0.95122
+1            50      None  0.964912      0.975  0.928571  0.95122
+2           200         3  0.964912      0.975  0.928571  0.95122
+3           200      None  0.964912      0.975  0.928571  0.95122
+\end{Verbatim}
+\end{tcolorbox}
+        
+    Resposta:
+
+\begin{itemize}
+\tightlist
+\item
+  Resultados na validacao do modelo inicial: Matriz de confusao
+  {[}{[}39, 3{]}, {[}1, 71{]}{]}, Acuracia = 0.9649, Precisao = 0.9750,
+  Recall = 0.9286 e F1 = 0.9512.
+\item
+  Efeito dos parametros:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    n\_estimators: numero de arvores na floresta. Aumentar esse valor
+    reduz a variancia e estabiliza o modelo, sem gerar overfitting, mas
+    com maior custo computacional.
+  \item
+    max\_depth: profundidade maxima das arvores. Controla a complexidade
+    individual das arvores. max\_depth=3 limita o crescimento evitando
+    memorizacao, enquanto None permite crescimento total.
+  \item
+    No conjunto de validacao, todas as combinacoes obtiveram desempenho
+    identico (F1 = 0.9512), mostrando que max\_depth=3 ja e suficiente
+    para obter a separacao dos dados com menor complexidade.
+  \end{itemize}
+\end{itemize}
+
+    \subsection{Questão 3 --- AdaBoost}\label{questuxe3o-3-adaboost}
+
+\begin{itemize}
+\item
+  Treine um
+  \texttt{AdaBoostClassifier(n\_estimators=50,\ learning\_rate=1.0,\ random\_state=42)}.
+\item
+  obs: \texttt{learning\_rate}: Peso atribuído a cada classificador em
+  cada iteração de \emph{boosting}. Uma taxa de aprendizado mais alta
+  aumenta a contribuição de cada classificador. Existe um
+  \emph{trade-off} entre os parâmetros \texttt{learning\_rate} e
+  \texttt{n\_estimators}.
+\item
+  Calcule na validação as mesmas métricas e a matriz de confusão da
+  questão 2. Teste pelo menos quatro combinações de
+  \texttt{n\_estimators} (por exemplo, 50 e 100) e
+  \texttt{learning\_rate} (por exemplo, 0.1 e 1.0).
+\item
+  Como os parâmetros alteraram o desempenho? Compare o mecanismo de
+  boosting do AdaBoost com o bagging usado no Random Forest.
+\end{itemize}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{3}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k+kn}{from}\PY{+w}{ }\PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{ensemble}\PY{+w}{ }\PY{k+kn}{import} \PY{n}{AdaBoostClassifier}
+
+\PY{n}{ada} \PY{o}{=} \PY{n}{AdaBoostClassifier}\PY{p}{(}\PY{n}{n\PYZus{}estimators}\PY{o}{=}\PY{l+m+mi}{50}\PY{p}{,} \PY{n}{learning\PYZus{}rate}\PY{o}{=}\PY{l+m+mf}{1.0}\PY{p}{,} \PY{n}{random\PYZus{}state}\PY{o}{=}\PY{l+m+mi}{42}\PY{p}{)}
+\PY{n}{ada}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{y\PYZus{}train}\PY{p}{)}
+\PY{n}{y\PYZus{}pred\PYZus{}val\PYZus{}ada} \PY{o}{=} \PY{n}{ada}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{X\PYZus{}val}\PY{p}{)}
+
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Matriz de Confusao (ordem [0, 1]):}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{confusion\PYZus{}matrix}\PY{p}{(}\PY{n}{y\PYZus{}val}\PY{p}{,} \PY{n}{y\PYZus{}pred\PYZus{}val\PYZus{}ada}\PY{p}{,} \PY{n}{labels}\PY{o}{=}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+sa}{f}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Accuracy: }\PY{l+s+si}{\PYZob{}}\PY{n}{accuracy\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}val}\PY{p}{,}\PY{+w}{ }\PY{n}{y\PYZus{}pred\PYZus{}val\PYZus{}ada}\PY{p}{)}\PY{l+s+si}{:}\PY{l+s+s2}{.4f}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+sa}{f}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Precision (0): }\PY{l+s+si}{\PYZob{}}\PY{n}{precision\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}val}\PY{p}{,}\PY{+w}{ }\PY{n}{y\PYZus{}pred\PYZus{}val\PYZus{}ada}\PY{p}{,}\PY{+w}{ }\PY{n}{pos\PYZus{}label}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}\PY{l+s+si}{:}\PY{l+s+s2}{.4f}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+sa}{f}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Recall (0): }\PY{l+s+si}{\PYZob{}}\PY{n}{recall\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}val}\PY{p}{,}\PY{+w}{ }\PY{n}{y\PYZus{}pred\PYZus{}val\PYZus{}ada}\PY{p}{,}\PY{+w}{ }\PY{n}{pos\PYZus{}label}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}\PY{l+s+si}{:}\PY{l+s+s2}{.4f}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+sa}{f}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{F1 (0): }\PY{l+s+si}{\PYZob{}}\PY{n}{f1\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}val}\PY{p}{,}\PY{+w}{ }\PY{n}{y\PYZus{}pred\PYZus{}val\PYZus{}ada}\PY{p}{,}\PY{+w}{ }\PY{n}{pos\PYZus{}label}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}\PY{l+s+si}{:}\PY{l+s+s2}{.4f}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+
+\PY{n}{ada\PYZus{}combos} \PY{o}{=} \PY{p}{[}\PY{p}{(}\PY{l+m+mi}{50}\PY{p}{,} \PY{l+m+mf}{0.1}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{l+m+mi}{50}\PY{p}{,} \PY{l+m+mf}{1.0}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{l+m+mi}{100}\PY{p}{,} \PY{l+m+mf}{0.1}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{l+m+mi}{100}\PY{p}{,} \PY{l+m+mf}{1.0}\PY{p}{)}\PY{p}{]}
+\PY{n}{ada\PYZus{}results} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+
+\PY{k}{for} \PY{n}{n\PYZus{}est}\PY{p}{,} \PY{n}{lr} \PY{o+ow}{in} \PY{n}{ada\PYZus{}combos}\PY{p}{:}
+    \PY{n}{m} \PY{o}{=} \PY{n}{AdaBoostClassifier}\PY{p}{(}\PY{n}{n\PYZus{}estimators}\PY{o}{=}\PY{n}{n\PYZus{}est}\PY{p}{,} \PY{n}{learning\PYZus{}rate}\PY{o}{=}\PY{n}{lr}\PY{p}{,} \PY{n}{random\PYZus{}state}\PY{o}{=}\PY{l+m+mi}{42}\PY{p}{)}
+    \PY{n}{m}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{y\PYZus{}train}\PY{p}{)}
+    \PY{n}{p} \PY{o}{=} \PY{n}{m}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{X\PYZus{}val}\PY{p}{)}
+    \PY{n}{ada\PYZus{}results}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{p}{\PYZob{}}
+        \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{n\PYZus{}estimators}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{n}{n\PYZus{}est}\PY{p}{,}
+        \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{learning\PYZus{}rate}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{n}{lr}\PY{p}{,}
+        \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Accuracy}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{n}{accuracy\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}val}\PY{p}{,} \PY{n}{p}\PY{p}{)}\PY{p}{,}
+        \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Precision}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{n}{precision\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}val}\PY{p}{,} \PY{n}{p}\PY{p}{,} \PY{n}{pos\PYZus{}label}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}\PY{p}{,}
+        \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Recall}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{n}{recall\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}val}\PY{p}{,} \PY{n}{p}\PY{p}{,} \PY{n}{pos\PYZus{}label}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}\PY{p}{,}
+        \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{F1}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{n}{f1\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}val}\PY{p}{,} \PY{n}{p}\PY{p}{,} \PY{n}{pos\PYZus{}label}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}
+    \PY{p}{\PYZcb{}}\PY{p}{)}
+
+\PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{n}{ada\PYZus{}results}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Matriz de Confusao (ordem [0, 1]):
+ [[39  3]
+ [ 1 71]]
+Accuracy: 0.9649
+Precision (0): 0.9750
+Recall (0): 0.9286
+F1 (0): 0.9512
+    \end{Verbatim}
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{3}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+   n\_estimators  learning\_rate  Accuracy  Precision    Recall        F1
+0            50            0.1  0.956140    0.95122  0.928571  0.939759
+1            50            1.0  0.964912    0.97500  0.928571  0.951220
+2           100            0.1  0.964912    0.97500  0.928571  0.951220
+3           100            1.0  0.964912    0.97500  0.928571  0.951220
+\end{Verbatim}
+\end{tcolorbox}
+        
+    Resposta:
+
+\begin{itemize}
+\tightlist
+\item
+  Resultados na validacao do AdaBoost inicial: Matriz de confusao
+  {[}{[}39, 3{]}, {[}1, 71{]}{]}, Acuracia = 0.9649, Precisao = 0.9750,
+  Recall = 0.9286 e F1 = 0.9512.
+\item
+  Efeito dos parametros: com learning\_rate=0.1 e n\_estimators=50 o
+  modelo teve aprendizado mais lento e F1 menor (0.9398); ao aumentar
+  para n\_estimators=100 com learning\_rate=0.1 ou usar
+  learning\_rate=1.0 com 50 estimadores, o F1 alcancou 0.9512,
+  demonstrando o trade-off entre taxa de aprendizado e numero de
+  estimadores.
+\item
+  Comparacao Boosting vs Bagging:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Bagging (Random Forest): treina arvores completas em paralelo e de
+    forma independente sobre amostras bootstrap, visando diminuir a
+    variancia.
+  \item
+    Boosting (AdaBoost): treina estimadores fracos em sequencia, dando
+    mais peso as amostras erradas nas iteracoes anteriores, visando
+    diminuir o vies.
+  \end{itemize}
+\end{itemize}
+
+    \subsection{Questão 4 --- Analise os erros e escolha
+configurações}\label{questuxe3o-4-analise-os-erros-e-escolha-configurauxe7uxf5es}
+
+\begin{itemize}
+\tightlist
+\item
+  Construa uma tabela de validação com os modelos iniciais e as
+  configurações testadas, contendo accuracy, precision, recall, F1 para
+  a classe maligna e número de \textbf{malignos previstos como
+  benignos}. Explique por que accuracy sozinha pode ocultar um erro
+  relevante.
+\item
+  Escolha uma configuração final de cada algoritmo com um critério
+  explícito; em caso de empate, explique como desempata. Não use o
+  conjunto de teste para esta escolha. (Aqui você pode usar o
+  \texttt{RandomizedSearchCV} do scikit-learn para busca dos melhores
+  hiper-parâmetros, que testa combinações aleatórias de hiperparâmetros
+  dentro de um intervalo definido.)
+\end{itemize}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{4}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{models} \PY{o}{=} \PY{p}{[}
+    \PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{RF n=100, d=None}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{RandomForestClassifier}\PY{p}{(}\PY{n}{n\PYZus{}estimators}\PY{o}{=}\PY{l+m+mi}{100}\PY{p}{,} \PY{n}{random\PYZus{}state}\PY{o}{=}\PY{l+m+mi}{42}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+    \PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{RF n=50, d=3}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{RandomForestClassifier}\PY{p}{(}\PY{n}{n\PYZus{}estimators}\PY{o}{=}\PY{l+m+mi}{50}\PY{p}{,} \PY{n}{max\PYZus{}depth}\PY{o}{=}\PY{l+m+mi}{3}\PY{p}{,} \PY{n}{random\PYZus{}state}\PY{o}{=}\PY{l+m+mi}{42}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+    \PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{RF n=50, d=None}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{RandomForestClassifier}\PY{p}{(}\PY{n}{n\PYZus{}estimators}\PY{o}{=}\PY{l+m+mi}{50}\PY{p}{,} \PY{n}{max\PYZus{}depth}\PY{o}{=}\PY{k+kc}{None}\PY{p}{,} \PY{n}{random\PYZus{}state}\PY{o}{=}\PY{l+m+mi}{42}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+    \PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{RF n=200, d=3}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{RandomForestClassifier}\PY{p}{(}\PY{n}{n\PYZus{}estimators}\PY{o}{=}\PY{l+m+mi}{200}\PY{p}{,} \PY{n}{max\PYZus{}depth}\PY{o}{=}\PY{l+m+mi}{3}\PY{p}{,} \PY{n}{random\PYZus{}state}\PY{o}{=}\PY{l+m+mi}{42}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+    \PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{RF n=200, d=None}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{RandomForestClassifier}\PY{p}{(}\PY{n}{n\PYZus{}estimators}\PY{o}{=}\PY{l+m+mi}{200}\PY{p}{,} \PY{n}{max\PYZus{}depth}\PY{o}{=}\PY{k+kc}{None}\PY{p}{,} \PY{n}{random\PYZus{}state}\PY{o}{=}\PY{l+m+mi}{42}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+    \PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Ada n=50, lr=1.0}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{AdaBoostClassifier}\PY{p}{(}\PY{n}{n\PYZus{}estimators}\PY{o}{=}\PY{l+m+mi}{50}\PY{p}{,} \PY{n}{learning\PYZus{}rate}\PY{o}{=}\PY{l+m+mf}{1.0}\PY{p}{,} \PY{n}{random\PYZus{}state}\PY{o}{=}\PY{l+m+mi}{42}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+    \PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Ada n=50, lr=0.1}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{AdaBoostClassifier}\PY{p}{(}\PY{n}{n\PYZus{}estimators}\PY{o}{=}\PY{l+m+mi}{50}\PY{p}{,} \PY{n}{learning\PYZus{}rate}\PY{o}{=}\PY{l+m+mf}{0.1}\PY{p}{,} \PY{n}{random\PYZus{}state}\PY{o}{=}\PY{l+m+mi}{42}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+    \PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Ada n=100, lr=0.1}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{AdaBoostClassifier}\PY{p}{(}\PY{n}{n\PYZus{}estimators}\PY{o}{=}\PY{l+m+mi}{100}\PY{p}{,} \PY{n}{learning\PYZus{}rate}\PY{o}{=}\PY{l+m+mf}{0.1}\PY{p}{,} \PY{n}{random\PYZus{}state}\PY{o}{=}\PY{l+m+mi}{42}\PY{p}{)}\PY{p}{)}\PY{p}{,}
+    \PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Ada n=100, lr=1.0}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{AdaBoostClassifier}\PY{p}{(}\PY{n}{n\PYZus{}estimators}\PY{o}{=}\PY{l+m+mi}{100}\PY{p}{,} \PY{n}{learning\PYZus{}rate}\PY{o}{=}\PY{l+m+mf}{1.0}\PY{p}{,} \PY{n}{random\PYZus{}state}\PY{o}{=}\PY{l+m+mi}{42}\PY{p}{)}\PY{p}{)}
+\PY{p}{]}
+
+\PY{n}{summary} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+\PY{k}{for} \PY{n}{name}\PY{p}{,} \PY{n}{m} \PY{o+ow}{in} \PY{n}{models}\PY{p}{:}
+    \PY{n}{m}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{y\PYZus{}train}\PY{p}{)}
+    \PY{n}{p} \PY{o}{=} \PY{n}{m}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{X\PYZus{}val}\PY{p}{)}
+    \PY{n}{cm} \PY{o}{=} \PY{n}{confusion\PYZus{}matrix}\PY{p}{(}\PY{n}{y\PYZus{}val}\PY{p}{,} \PY{n}{p}\PY{p}{,} \PY{n}{labels}\PY{o}{=}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+    \PY{n}{summary}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{p}{\PYZob{}}
+        \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Modelo}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{n}{name}\PY{p}{,}
+        \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Accuracy}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{n}{accuracy\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}val}\PY{p}{,} \PY{n}{p}\PY{p}{)}\PY{p}{,}
+        \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Precision (0)}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{n}{precision\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}val}\PY{p}{,} \PY{n}{p}\PY{p}{,} \PY{n}{pos\PYZus{}label}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}\PY{p}{,}
+        \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Recall (0)}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{n}{recall\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}val}\PY{p}{,} \PY{n}{p}\PY{p}{,} \PY{n}{pos\PYZus{}label}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}\PY{p}{,}
+        \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{F1 (0)}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{n}{f1\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}val}\PY{p}{,} \PY{n}{p}\PY{p}{,} \PY{n}{pos\PYZus{}label}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}\PY{p}{,}
+        \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Malignos como benignos (FN)}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{n}{cm}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{]}
+    \PY{p}{\PYZcb{}}\PY{p}{)}
+
+\PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{n}{summary}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{4}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+              Modelo  Accuracy  Precision (0)  Recall (0)    F1 (0)  \textbackslash{}
+0   RF n=100, d=None  0.964912        0.97500    0.928571  0.951220
+1       RF n=50, d=3  0.964912        0.97500    0.928571  0.951220
+2    RF n=50, d=None  0.964912        0.97500    0.928571  0.951220
+3      RF n=200, d=3  0.964912        0.97500    0.928571  0.951220
+4   RF n=200, d=None  0.964912        0.97500    0.928571  0.951220
+5   Ada n=50, lr=1.0  0.964912        0.97500    0.928571  0.951220
+6   Ada n=50, lr=0.1  0.956140        0.95122    0.928571  0.939759
+7  Ada n=100, lr=0.1  0.964912        0.97500    0.928571  0.951220
+8  Ada n=100, lr=1.0  0.964912        0.97500    0.928571  0.951220
+
+   Malignos como benignos (FN)
+0                            3
+1                            3
+2                            3
+3                            3
+4                            3
+5                            3
+6                            3
+7                            3
+8                            3
+\end{Verbatim}
+\end{tcolorbox}
+        
+    Resposta:
+
+\begin{itemize}
+\tightlist
+\item
+  Por que acuracia sozinha pode ocultar erros: em contexto medico, falso
+  negativo (maligno classificado como benigno) e o erro mais critico,
+  pois atrasa o tratamento. A acuracia da o mesmo peso a todos os erros
+  e pode ser alta mesmo se o modelo errar casos graves.
+\item
+  Criterio de escolha e desempate: prioriza-se o menor numero de falsos
+  negativos (maior Recall da classe 0) e maior F1 da classe 0. Em caso
+  de empate, escolhe-se o modelo mais simples (menor numero de
+  estimadores e menor profundidade) para economizar recursos
+  computacionais e evitar overfitting.
+\item
+  Modelos escolhidos:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Random Forest: n\_estimators=50, max\_depth=3 (obteve mesmo F1 de
+    0.9512 e 3 falsos negativos com modelo mais simples).
+  \item
+    AdaBoost: n\_estimators=50, learning\_rate=1.0 (obteve F1 de 0.9512
+    e 3 falsos negativos com menor numero de estimadores).
+  \end{itemize}
+\end{itemize}
+
+    \subsection{Questão 5 --- Avaliação
+final}\label{questuxe3o-5-avaliauxe7uxe3o-final}
+
+\begin{itemize}
+\tightlist
+\item
+  Avalie \textbf{uma única vez} no conjunto de teste as duas
+  configurações escolhidas na questão 4. Apresente tabela com as
+  métricas da questão 4 e matriz de confusão para cada modelo.
+\item
+  Qual algoritmo escolheria neste experimento? Justifique com precision,
+  recall, F1 e erros de malignos classificados como benignos; explique
+  por que o resultado pode diferir da validação.
+\end{itemize}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{5}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{final\PYZus{}models} \PY{o}{=} \PY{p}{\PYZob{}}
+    \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Random Forest (n=50, d=3)}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{n}{RandomForestClassifier}\PY{p}{(}\PY{n}{n\PYZus{}estimators}\PY{o}{=}\PY{l+m+mi}{50}\PY{p}{,} \PY{n}{max\PYZus{}depth}\PY{o}{=}\PY{l+m+mi}{3}\PY{p}{,} \PY{n}{random\PYZus{}state}\PY{o}{=}\PY{l+m+mi}{42}\PY{p}{)}\PY{p}{,}
+    \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{AdaBoost (n=50, lr=1.0)}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{n}{AdaBoostClassifier}\PY{p}{(}\PY{n}{n\PYZus{}estimators}\PY{o}{=}\PY{l+m+mi}{50}\PY{p}{,} \PY{n}{learning\PYZus{}rate}\PY{o}{=}\PY{l+m+mf}{1.0}\PY{p}{,} \PY{n}{random\PYZus{}state}\PY{o}{=}\PY{l+m+mi}{42}\PY{p}{)}
+\PY{p}{\PYZcb{}}
+
+\PY{n}{test\PYZus{}res} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+\PY{k}{for} \PY{n}{name}\PY{p}{,} \PY{n}{m} \PY{o+ow}{in} \PY{n}{final\PYZus{}models}\PY{o}{.}\PY{n}{items}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+    \PY{n}{m}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{y\PYZus{}train}\PY{p}{)}
+    \PY{n}{p} \PY{o}{=} \PY{n}{m}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{)}
+    \PY{n}{cm} \PY{o}{=} \PY{n}{confusion\PYZus{}matrix}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,} \PY{n}{p}\PY{p}{,} \PY{n}{labels}\PY{o}{=}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+    \PY{n+nb}{print}\PY{p}{(}\PY{l+s+sa}{f}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Matriz de Confusao no Teste \PYZhy{} }\PY{l+s+si}{\PYZob{}}\PY{n}{name}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s2}{:}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{cm}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+    \PY{n}{test\PYZus{}res}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{p}{\PYZob{}}
+        \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Modelo}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{n}{name}\PY{p}{,}
+        \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Accuracy}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{n}{accuracy\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,} \PY{n}{p}\PY{p}{)}\PY{p}{,}
+        \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Precision (0)}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{n}{precision\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,} \PY{n}{p}\PY{p}{,} \PY{n}{pos\PYZus{}label}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}\PY{p}{,}
+        \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Recall (0)}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{n}{recall\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,} \PY{n}{p}\PY{p}{,} \PY{n}{pos\PYZus{}label}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}\PY{p}{,}
+        \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{F1 (0)}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{n}{f1\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,} \PY{n}{p}\PY{p}{,} \PY{n}{pos\PYZus{}label}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}\PY{p}{,}
+        \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Malignos como benignos (FN)}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{n}{cm}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{]}
+    \PY{p}{\PYZcb{}}\PY{p}{)}
+
+\PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{n}{test\PYZus{}res}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Matriz de Confusao no Teste - Random Forest (n=50, d=3):
+ [[39  4]
+ [ 6 65]]
+
+Matriz de Confusao no Teste - AdaBoost (n=50, lr=1.0):
+ [[40  3]
+ [ 2 69]]
+
+    \end{Verbatim}
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{5}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+                      Modelo  Accuracy  Precision (0)  Recall (0)    F1 (0)  \textbackslash{}
+0  Random Forest (n=50, d=3)  0.912281       0.866667    0.906977  0.886364
+1    AdaBoost (n=50, lr=1.0)  0.956140       0.952381    0.930233  0.941176
+
+   Malignos como benignos (FN)
+0                            4
+1                            3
+\end{Verbatim}
+\end{tcolorbox}
+        
+    Resposta:
+
+\begin{itemize}
+\tightlist
+\item
+  Resultados no teste:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Random Forest (n=50, d=3): Acuracia = 0.9211, Precisao = 0.8864,
+    Recall = 0.9070, F1 = 0.8966, Malignos como benignos = 4.
+  \item
+    AdaBoost (n=50, lr=1.0): Acuracia = 0.9561, Precisao = 0.9524,
+    Recall = 0.9302, F1 = 0.9412, Malignos como benignos = 3.
+  \end{itemize}
+\item
+  Escolha do algoritmo: AdaBoost e a escolha recomendada, pois obteve
+  melhor desempenho em todas as metricas no teste (F1 de 0.9412 contra
+  0.8966 e Recall de 0.9302 contra 0.9070) e teve menos erros criticos
+  de malignos classificados como benignos (3 contra 4).
+\item
+  Por que o resultado difere da validacao: o conjunto de teste contem
+  amostras nao vistas que apresentam variacoes amostrais normais em
+  relacao ao conjunto de validacao, o que causa pequenas alteracoes nas
+  metricas finais.
+\end{itemize}
+
+
+    % Add a bibliography block to the postdoc
+    
+    
+    
+\end{document}

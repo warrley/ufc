@@ -1,0 +1,133 @@
+Questionário – Mineração de Dados (Revisão 1)
+
+1. Qual das alternativas abaixo descreve corretamente a hierarquia de tipos de atributos do mais simples ao mais complexo em termos de operações permitidas?
+A correta é a letra B, pois segue a ordem de complexidade: nominal só diferencia categorias, ordinal adiciona ordenação, intervalar permite calcular diferenças e a razão possui zero absoluto, permitindo operações como dobro ou metade.
+
+2. Um atributo como 'Grau de Instrução' (Fundamental, Médio, Superior) é classificado como qual tipo e por quê?
+A correta é a letra C, pois existe uma ordem lógica entre os níveis de escolaridade, mas não temos uma distância numérica exata entre eles.
+
+3. Qual a principal diferença entre atributos de escala intervalar e escala de razão?
+A correta é a letra B, pois a escala de razão tem um zero absoluto e real, o que permite fazer afirmações de proporção (como dizer que um valor é o dobro de outro), enquanto na intervalar o zero é arbitrário.
+
+4. Como os atributos ordinais são tratados para que possam ser utilizados em algoritmos baseados em distância numérica?
+A correta é a letra A, pois a gente mapeia as categorias para seus postos (ranks) e depois normaliza tudo para o intervalo entre 0 e 1 usando a fórmula (rank - 1)/(M - 1).
+
+5. Como se define a dissimilaridade para um atributo binário simétrico entre dois objetos?
+A correta é a letra A, pois como ambos os estados (0 e 1) têm o mesmo peso, a dissimilaridade é calculada dividindo o total de discordâncias pelo número total de atributos.
+
+6. Em mineração de dados, o que define um atributo binário simétrico?
+A correta é a letra C, pois os dois valores possíveis (0 e 1) têm a mesma relevância e carregam o mesmo peso de informação.
+
+7. Qual é a distinção crucial entre atributos binários simétricos e assimétricos no cálculo de proximidade?
+A correta é a letra C, pois nos atributos assimétricos a ausência mútua (coincidência de zeros) não traz informação de semelhança e é desconsiderada no cálculo.
+
+11. Em um conjunto de dados de salários: 30, 36, 47, 50, 52, 52, 56, 60, 63, 70, 70, 110 (em milhares), qual é o valor da mediana e por que ela é útil?
+A correta é a letra B, pois como temos 12 valores ordenados, a mediana é a média dos dois valores do meio ((52 + 56) / 2 = 54). Ela é útil porque não se deixa distorcer pelo salário de 110, que é um outlier.
+
+12. Se uma distribuição de dados é 'positivamente inclinada' (positively skewed), qual é a relação típica entre média, mediana e moda?
+A correta é a letra D, pois a cauda longa para a direita puxa a média para cima, enquanto a moda fica no pico da curva e a mediana fica no meio das duas (Moda < Mediana < Média).
+
+13. Qual a diferença fundamental entre variância e desvio padrão como medidas de dispersão?
+A correta é a letra D, pois o desvio padrão fica na mesma unidade de medida dos dados originais, facilitando o entendimento, enquanto a variância fica em unidade quadrática.
+
+14. O que o 'intervalo interquartil' (IQR) mede e como ele ajuda na detecção de outliers?
+A correta é a letra A, pois o IQR mede a amplitude dos 50% centrais dos dados (Q3 - Q1), e a regra padrão considera como possíveis outliers os pontos que ultrapassam 1,5 vezes o IQR a partir dos quartis.
+
+15. No algoritmo k-Nearest-Neighbor (KNN), qual é o efeito comum de selecionar um valor de k muito pequeno em um conjunto de dados com ruído?
+A correta é a letra B, pois com k muito baixo o algoritmo foca excessivamente em poucos pontos próximos, decorando o ruído local e gerando overfitting.
+
+16. No processo de integração de dados, qual problema ocorre quando um mesmo conceito possui nomes diferentes em bases distintas?
+A correta é a letra B, pois se trata do problema de identificação de entidade, onde duas tabelas chamam a mesma coisa por nomes diferentes no esquema.
+
+17. Qual técnica de limpeza de dados é considerada a mais robusta para lidar com valores ausentes ao aproveitar as correlações entre atributos?
+A correta é a letra B, pois ao invés de usar uma média simples, usa modelos preditivos (como árvores ou Bayes) para inferir o valor ausente com base nas outras colunas do registro.
+
+18. Ao lidar com dados 'sujos' onde muitos registros de renda estão ausentes, qual estratégia de limpeza é preferível se a distribuição da renda por classe for assimétrica (skewed)?
+A correta é a letra B, pois a mediana não é distorcida pela assimetria dos dados e calcular a mediana dentro da própria classe mantém o padrão de cada grupo.
+
+19. Como a técnica de 'Binning' auxilia no tratamento de dados ruidosos em atributos numéricos?
+A correta é a letra C, pois ela agrupa os dados ordenados em pequenos baldes e substitui os valores pela média ou mediana de cada balde, suavizando oscilações causadas por ruído.
+
+20. Como a técnica de 'smoothing by bin means' atua na redução de ruído nos dados?
+A correta é a letra B, pois divide a base ordenada em intervalos (bins) e substitui todos os valores daquele intervalo pela média deles.
+
+21. Ao comparar a eficácia de algoritmos com dados ruidosos, por que o Naive Bayes é frequentemente considerado mais robusto ao ruído do que o KNN?
+A correta é a letra A, pois o Naive Bayes calcula probabilidades agregando o conjunto todo (diluindo anomalias), enquanto o KNN depende diretamente de poucos vizinhos locais, que podem ser ruído.
+
+22. Em relação à eficácia com dados ruidosos, por que modelos de Árvores de Decisão podem sofrer mais do que SVMs se não forem devidamente ajustados?
+A correta é a letra B, pois sem poda a árvore tenta criar ramificações específicas para cada outlier isolado, enquanto o SVM procura uma margem de separação mais ampla e global.
+
+23. Cenário: Você precisa classificar documentos de texto em categorias temáticas. Os dados são vetores de frequência de termos esparsos e de alta dimensão. Qual métrica de similaridade e algoritmo seriam ideais?
+A correta é a letra B, pois a similaridade de cosseno analisa a direção dos termos sem se importar com o tamanho do texto, e o Naive Bayes Multinomial lida muito bem com contagem de palavras em dados esparsos.
+
+24. Dadas as tuplas de atributos numéricos A = (22, 1, 42, 10) e B = (20, 0, 36, 8), qual é a distância Euclidiana entre esses dois objetos?
+A correta é a letra C, pois calculando as diferenças ao quadrado temos (22-20)^2 + (1-0)^2 + (42-36)^2 + (10-8)^2 = 4 + 1 + 36 + 4 = 45, resultando na raiz quadrada de 45, que dá aproximadamente 6,71.
+
+25. Qual é a principal aplicação da medida de dissimilaridade de Minkowski no contexto de mineração de dados?
+A correta é a letra A, pois ela é a fórmula geral de distância que vira a de Manhattan quando h=1 e a Euclidiana quando h=2.
+
+26. A distância de Manhattan é frequentemente preferida à Euclidiana em quais situações específicas?
+A correta é a letra A, pois ela representa deslocamentos em eixos ortogonais, como andar em quarteirões numa grade de ruas.
+
+27. Para calcular a dissimilaridade entre dois objetos descritos por atributos nominais, qual fórmula é utilizada?
+A correta é a letra C, pois a dissimilaridade é calculada pela razão entre os atributos que deram diferente (p - m) e a quantidade total de atributos (p).
+
+28. O coeficiente de Jaccard é uma medida de similaridade aplicada preferencialmente a qual tipo de dado?
+A correta é a letra B, pois ele foi feito para atributos binários assimétricos, onde a presença conjunta (1-1) importa, mas a ausência em ambos (0-0) é ignorada.
+
+29. Ao lidar com atributos de tipos mistos em um banco de dados, qual é o procedimento padrão para calcular uma matriz de dissimilaridade única?
+A correta é a letra C, pois calcula-se a distância específica de cada tipo de atributo normalizada entre 0 e 1 e depois combina tudo numa média ponderada (método de Gower).
+
+30. O que diferencia fundamentalmente um classificador k-nearest-neighbor (KNN) de métodos como árvores de decisão ou máquinas de vetores de suporte (SVM)?
+A correta é a letra A, pois o KNN é preguiçoso (lazy learner), ou seja, ele não constrói um modelo durante o treino, apenas guarda os dados e faz o cálculo das distâncias quando chega uma amostra nova.
+
+31. Por que a normalização de atributos numéricos, como 'renda' e 'idade', é considerada um passo crítico antes de aplicar o classificador KNN?
+A correta é a letra B, pois se não normalizar, atributos com valores muito altos (como renda na casa dos milhares) vão dominar o cálculo da distância euclidiana, anulando o peso de atributos menores como a idade.
+
+32. Qual é a principal desvantagem computacional do classificador KNN em comparação com algoritmos de 'aprendizado ávido' (eager learners)?
+A correta é a letra D, pois a classificação é lenta, já que a cada nova consulta ele precisa calcular a distância para todas as instâncias da base de treino.
+
+33. Na construção de uma Árvore de Decisão, o que o conceito de 'Entropia' busca medir ao selecionar um atributo para divisão?
+A correta é a letra A, pois a entropia mede o nível de desordem ou impureza da partição, servindo para encontrar divisões que deixem os nós o mais puros possível.
+
+34. Qual é o objetivo principal da técnica de 'poda posterior' (postpruning) em algoritmos de árvore de decisão como o CART?
+A correta é a letra A, pois ela remove ramos excessivos que memorizaram ruído do treino, melhorando a capacidade da árvore de acertar dados novos (generalização).
+
+35. Como o método RainForest aborda o desafio da escalabilidade na indução de árvores de decisão em grandes bases de dados?
+A correta é a letra C, pois ele monta pequenas tabelas de contagem (conjuntos AVC) em memória, conseguindo avaliar os melhores pontos de corte sem ter que carregar a base inteira.
+
+36. Qual é a principal distinção no funcionamento dos algoritmos de ensemble Bagging e Boosting?
+A correta é a letra B, pois o Bagging treina vários modelos em paralelo e de forma independente, enquanto o Boosting treina um modelo de cada vez, fazendo com que cada novo modelo tente corrigir os erros do anterior.
+
+37. Como o algoritmo Random Forest expande o conceito de Bagging para melhorar a diversidade entre as árvores?
+A correta é a letra B, pois além de sortear amostras dos dados, ele escolhe aleatoriamente um subconjunto de atributos em cada nó, garantindo que as árvores não fiquem muito parecidas.
+
+38. Cenário: Um banco quer prever a inadimplência de clientes. Os dados históricos têm pouquíssimos exemplos de inadimplentes (classe minoritária). Qual estratégia de ensemble é mais agressiva para melhorar a detecção dessa classe?
+A correta é a letra B, pois o Boosting aumenta o peso dos erros a cada rodada, forçando o algoritmo a focar na classe minoritária que os outros erraram.
+
+39. Qual é a suposição simplificadora do classificador Naive Bayes e como ela afeta sua aplicação?
+A correta é a letra D, pois ele assume que todas as variáveis são independentes entre si dada a classe. Isso deixa o cálculo muito rápido e simples, mas ignora correlações reais entre variáveis.
+
+40. Se um atributo categórico no Naive Bayes apresenta uma probabilidade de zero para uma determinada classe no conjunto de treinamento, qual é a consequência no cálculo da probabilidade posterior?
+A correta é a letra D, pois como o modelo multiplica as probabilidades condicionais, ter um zero no meio anula toda a conta, zerando a chance final daquela classe.
+
+41. Qual das seguintes situações representa um cenário ideal para o uso do classificador Naive Bayes?
+A correta é a letra C, pois ele brilha na classificação de textos e filtros de spam em larga escala, onde o volume de palavras é gigante e a premissa de independência funciona muito bem na prática.
+
+42. O que define o 'Hiperplano de Margem Máxima' (MMH) em um modelo de Support Vector Machines (SVM)?
+A correta é a letra A, pois o objetivo do SVM é justamente traçar a linha/hiperplano que fica o mais afastada possível dos pontos mais próximos de cada classe.
+
+43. Em uma Máquina de Vetores de Suporte (SVM), qual é a função dos 'vetores de suporte'?
+A correta é a letra D, pois eles são justamente os pontos críticos mais próximos da fronteira que sustentam e definem a posição e a largura da margem de separação.
+
+44. Como o 'truque do kernel' (kernel trick) permite que o SVM lide com dados que não são linearmente separáveis?
+A correta é a letra D, pois ele permite calcular a relação entre os pontos em uma dimensão maior usando produtos escalares diretos, sem precisar transformar explicitamente as coordenadas de cada ponto.
+
+45. Cenário: Você possui um conjunto de dados médico com 50 atributos complexos e correlações desconhecidas. A precisão é vital, mas os médicos precisam entender o porquê de cada diagnóstico. Qual algoritmo é mais adequado?
+A correta é a letra C, pois a árvore de decisão gera regras visuais e claras (se/então), permitindo que os médicos vejam e confiem no caminho tomado para o diagnóstico.
+
+46. Cenário: Uma empresa de e-commerce precisa classificar milhões de transações em tempo real para detectar fraudes. O sistema recebe um fluxo constante de novos dados. Qual abordagem minimiza o custo de treinamento contínuo?
+A correta é a letra D, pois como o KNN é um aprendiz preguiçoso, ele não precisa ser retreinado quando chegam dados novos, bastando armazenar as novas transações na base.
+
+47. Cenário: Você está trabalhando com um conjunto de dados de bioinformática onde o número de atributos (genes) é muito maior que o número de amostras (pacientes) e os dados não são linearmente separáveis. Qual técnica é recomendada?
+A correta é a letra C, pois o SVM lida muito bem com espaços onde há muito mais colunas do que linhas (genes vs pacientes) e o kernel resolve o problema da não-linearidade.

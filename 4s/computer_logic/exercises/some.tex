@@ -1,0 +1,195 @@
+\begin{logicproof}{6}
+\begin{subproof}
+\lnot(P\rightarrow Q) & hipótese\\
+\begin{subproof}
+\lnot(P\land \lnot Q) & hipótese\\
+\begin{subproof}
+P & hipótese\\
+\begin{subproof}
+\lnot Q & hipótese\\
+P\land \lnot Q & $\land i$ 3,4\\
+\bot & $\lnot e$ 2, 5
+\end{subproof}
+Q & raa 4-6
+\end{subproof}
+P\rightarrow Q & $\rightarrow i$ 3-7\\
+\bot & $\lnot e$ 1, 8
+\end{subproof}
+P\land \lnot Q & raa 2-9
+\end{subproof}
+\lnot(P\rightarrow Q)\rightarrow (P\land \lnot Q) & $\rightarrow i$ 1-10
+\end{logicproof}
+
+
+---- 
+
+\begin{logicproof}{6}
+\begin{subproof}
+(\lnot P\lor R)\land (P\lor R) & hipótese\\
+\lnot P\lor R & $\land e$ 1\\
+P\lor R & $\land e$ 1\\
+\begin{subproof}
+\lnot R & hipótese\\
+\begin{subproof}
+\lnot P & hipótese\\
+\begin{subproof}
+P & hipótese\\
+\bot & $\lnot e$ 5, 6
+\end{subproof}
+\begin{subproof}
+R & hipótese\\
+\bot & $\lnot e$ 4, 8
+\end{subproof}
+\bot & $\lor e$ 3, 6-7, 8-9
+\end{subproof}
+\begin{subproof}
+R & hipótese\\
+\bot & $\lnot e$ 4, 11
+\end{subproof}
+\bot & $\lor e$ 2, 5-10, 11-12
+\end{subproof}
+R & raa 4-13
+\end{subproof}
+((\lnot P\lor R)\land (P\lor R))\rightarrow R & $\rightarrow i$ 1-14
+\end{logicproof}
+
+---- 
+\begin{logicproof}{6}
+\begin{subproof}
+(P\lor Q)\land \lnot P & hipótese\\
+P\lor Q & $\land e$ 1\\
+\lnot P & $\land e$ 1\\
+\begin{subproof}
+\lnot Q & hipótese\\
+\begin{subproof}
+P & hipótese\\
+\bot & $\lnot e$ 3, 5
+\end{subproof}
+\begin{subproof}
+Q & hipótese\\
+\bot & $\lnot e$ 4, 7
+\end{subproof}
+\bot & $\lor e$ 2, 5-6, 7-8
+\end{subproof}
+Q & raa 4-9
+\end{subproof}
+((P\lor Q)\land \lnot P)\rightarrow Q & $\rightarrow i$ 1-10
+\end{logicproof}
+
+----
+begin{logicproof}{6}
+\begin{subproof}
+\lnot(P\land \lnot Q) & hipótese\\
+\begin{subproof}
+P & hipótese\\
+\begin{subproof}
+\lnot Q & hipótese\\
+P\land \lnot Q & $\land i$ 2,3\\
+\bot & $\lnot e$ 1, 4
+\end{subproof}
+Q & raa 3-5
+\end{subproof}
+P\rightarrow Q & $\rightarrow i$ 2-6
+\end{subproof}
+\lnot(P\land \lnot Q)\rightarrow (P\rightarrow Q) & $\rightarrow i$ 1-7
+\end{logicproof}
+
+---- 
+\begin{logicproof}{6}
+\begin{subproof}
+(\lnot P\lor R)\land (P\lor R) & hipótese\\
+\lnot P\lor R & $\land e$ 1\\
+P\lor R & $\land e$ 1\\
+\begin{subproof}
+\lnot R & hipótese\\
+\begin{subproof}
+\lnot P & hipótese\\
+\begin{subproof}
+P & hipótese\\
+\bot & $\lnot e$ 5, 6
+\end{subproof}
+\begin{subproof}
+R & hipótese\\
+\bot & $\lnot e$ 4, 8
+\end{subproof}
+\bot & $\lor e$ 3, 6-7, 8-9
+\end{subproof}
+\begin{subproof}
+R & hipótese\\
+\bot & $\lnot e$ 4, 11
+\end{subproof}
+\bot & $\lor e$ 2, 5-10, 11-12
+\end{subproof}
+R & raa 4-13
+\end{subproof}
+((\lnot P\lor R)\land (P\lor R))\rightarrow R & $\rightarrow i$ 1-14
+\end{logicproof}
+
+
+---- 
+-- (p →(q∨r)) |- ((p →q)∨(p →r))
+\begin{logicproof}{6}
+P\rightarrow (Q\lor R) & premissa\\
+\begin{subproof}
+\lnot((P\rightarrow Q)\lor (P\rightarrow R)) & hipótese\\
+\begin{subproof}
+P & hipótese\\
+Q\lor R & $\rightarrow e$ 1, 3\\
+\begin{subproof}
+Q & hipótese\\
+\begin{subproof}
+P & hipótese\\
+Q & copie 5
+\end{subproof}
+P\rightarrow Q & $\rightarrow i$ 6-7\\
+(P\rightarrow Q)\lor (P\rightarrow R) & $\lor i$ 8\\
+\bot & $\lnot e$ 2, 9
+\end{subproof}
+\begin{subproof}
+R & hipótese\\
+\begin{subproof}
+P & hipótese\\
+R & copie 11
+\end{subproof}
+P\rightarrow R & $\rightarrow i$ 12-13\\
+(P\rightarrow Q)\lor (P\rightarrow R) & $\lor i$ 14\\
+\bot & $\lnot e$ 2, 15
+\end{subproof}
+\bot & $\lor e$ 4, 5-10, 11-16\\
+Q & $\bot e$ 17
+\end{subproof}
+P\rightarrow Q & $\rightarrow i$ 3-18\\
+(P\rightarrow Q)\lor (P\rightarrow R) & $\lor i$ 19\\
+\bot & $\lnot e$ 2, 20
+\end{subproof}
+(P\rightarrow Q)\lor (P\rightarrow R) & raa 2-21
+\end{logicproof}
+
+----
+-- |- (P -> Q) | (R -> Q) -> (P & R)
+\begin{logicproof}{6}
+\begin{subproof}
+(P\rightarrow Q)\lor (R\rightarrow Q) & hipótese\\
+\begin{subproof}
+\lnot((P\land R)\rightarrow Q) & hipótese\\
+\begin{subproof}
+P\land R & hipótese\\
+P & $\land e$ 3\\
+R & $\land e$ 3\\
+\begin{subproof}
+P\rightarrow Q & hipótese\\
+Q & $\rightarrow e$ 6, 4
+\end{subproof}
+\begin{subproof}
+R\rightarrow Q & hipótese\\
+Q & $\rightarrow e$ 8, 5
+\end{subproof}
+Q & $\lor e$ 1, 6-7, 8-9
+\end{subproof}
+(P\land R)\rightarrow Q & $\rightarrow i$ 3-10\\
+\bot & $\lnot e$ 2, 11
+\end{subproof}
+(P\land R)\rightarrow Q & raa 2-12
+\end{subproof}
+((P\rightarrow Q)\lor (R\rightarrow Q))\rightarrow ((P\land R)\rightarrow Q) & $\rightarrow i$ 1-13
+\end{logicproof}

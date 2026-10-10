@@ -1,0 +1,4 @@
+project_id   = "seu-gcp-project-id"
+student_name = "Warley"
+region       = "us-central1"
+zone         = "us-central1-a"
