@@ -1,0 +1,12 @@
+sequenceDiagram
+    autonumber
+    participant App as Serviço de Pedidos
+    participant DB as Banco
+    participant Broker as Broker
+    participant Estoque as Serviço de Estoque
+    App->>DB: INSERT pedido
+    DB-->>App: COMMIT
+    Note over App,Broker: Janela de falha: aplicação pode cair aqui
+    App->>Broker: publicar PedidoCriado
+    Broker-->>Estoque: entregar evento
+    Note over DB,Estoque: Se a publicação falhar, pedido existe mas estoque não foi avisado

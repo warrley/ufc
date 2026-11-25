@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <title>Transactional Outbox Pattern — PDS UFC</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/black.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/monokai.css">
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+  <style>
+    :root {
+      --accent: #38bdf8;
+      --danger: #f87171;
+      --success: #4ade80;
+      --warning: #fbbf24;
+    }
+    .reveal {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+    .reveal h1, .reveal h2, .reveal h3 {
+      text-transform: none;
+      font-weight: 700;
+      color: #f1f5f9;
+    }
+    .reveal h2 {
+      color: var(--accent);
+      border-bottom: 2px solid #334155;
+      padding-bottom: 8px;
+    }
+    .badge {
+      display: inline-block;
+      padding: 4px 12px;
+      font-size: 0.6em;
+      border-radius: 9999px;
+      font-weight: 600;
+      vertical-align: middle;
+      margin-bottom: 10px;
+    }
+    .badge-p1 { background: #0284c7; color: white; }
+    .badge-p2 { background: #7c3aed; color: white; }
+    .badge-p3 { background: #059669; color: white; }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      text-align: left;
+      font-size: 0.85em;
+    }
+    .box {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      padding: 16px;
+    }
+    .box-danger {
+      background: #450a0a;
+      border: 1px solid var(--danger);
+    }
+    .box-success {
+      background: #052e16;
+      border: 1px solid var(--success);
+    }
+    .mermaid {
+      background: #0f172a;
+      border-radius: 8px;
+      padding: 10px;
+      font-size: 0.7em;
+    }
+    table {
+      font-size: 0.7em !important;
+      width: 100%;
+    }
+    th {
+      background: #334155;
+      color: #38bdf8 !important;
+    }
+    td, th {
+      padding: 8px 12px !important;
+      border: 1px solid #475569 !important;
+    }
+    ul {
+      font-size: 0.85em;
+      line-height: 1.5;
+    }
+    pre code {
+      font-size: 0.75em !important;
+      line-height: 1.35 !important;
+      border-radius: 6px;
+    }
+    .timer-hint {
+      color: #94a3b8;
+      font-size: 0.55em;
+      font-weight: normal;
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- SLIDE 0: CAPA -->
+      <section>
+        <p style="color: var(--accent); font-weight: 600; letter-spacing: 2px;">PROJETO DETALHADO DE SOFTWARE — UFC</p>
+        <h1 style="font-size: 2.2em; margin: 20px 0;">Transactional Outbox Pattern</h1>
+        <p style="font-size: 1.1em; color: #cbd5e1;">Consistência Eventual e Publicação Atômica em Microsserviços</p>
+        <hr style="border-color: #334155; margin: 30px auto; width: 60%;">
+        <p style="font-size: 0.75em; color: #94a3b8;">
+          Apresentação para 3 Pessoas &bull; Duração Total: 20 Minutos
+        </p>
+        <aside class="notes">
+          Boas-vindas à banca e introdução rápida do tema e dos membros do grupo.
+        </aside>
+      </section>
+
+      <!-- SLIDE 1: CENÁRIO (PESSOA 1) -->
+      <section>
+        <span class="badge badge-p1">Pessoa 1</span>
+        <h2>O Desafio em Sistemas Distribuídos <span class="timer-hint">00:00 - 01:45</span></h2>
+        <div class="grid-2">
+          <div class="box">
+            <h4 style="color: var(--accent);">Contexto: Database-per-Service</h4>
+            <ul>
+              <li>Microsserviços isolados com seus próprios bancos de dados relacionais.</li>
+              <li>Comunicação assíncrona orientada a eventos (*Event-Driven*).</li>
+              <li><strong>Caso de Uso:</strong> E-commerce (Serviço de Pedidos).</li>
+            </ul>
+          </div>
+          <div class="box">
+            <h4 style="color: var(--warning);">O Objetivo Duplo</h4>
+            <ol>
+              <li>Gravar o registro do pedido no banco de dados local (PostgreSQL).</li>
+              <li>Notificar Estoque e Pagamentos via Message Broker (Kafka / RabbitMQ).</li>
+            </ol>
+            <p style="margin-top: 15px; font-weight: 600; color: #f8fafc;">
+              ❓ <em>Como garantir que o evento seja publicado se, e somente se, o pedido for gravado?</em>
+            </p>
+          </div>
+        </div>
+        <aside class="notes">
+          Pessoa 1 introduz o cenário do e-commerce. Enfatiza o isolamento do Database-per-Service e lança a pergunta norteadora.
+        </aside>
+      </section>
+
+      <!-- SLIDE 2: DUAL WRITE (PESSOA 1) -->
+      <section>
+        <span class="badge badge-p1">Pessoa 1</span>
+        <h2>O Anti-pattern "Dual Write" <span class="timer-hint">01:45 - 04:15</span></h2>
+        <p style="font-size: 0.8em; color: #cbd5e1; margin-bottom: 15px;">Fazer duas escritas independentes em sistemas heterogêneos sem transação global.</p>
+        <div class="grid-2">
+          <div class="box box-danger">
+            <h4 style="color: var(--danger);">Falha A: Commit antes do Broker</h4>
+            <p style="font-size: 0.8em;">1. `INSERT` pedido &rarr; `COMMIT` ✅<br>
+            2. 💥 <em>Crash da aplicação / Timeout de rede</em><br>
+            3. `broker.publish()` ❌</p>
+            <p style="color: #fca5a5; font-size: 0.75em; margin-top: 10px;">
+              <strong>Resultado:</strong> Pedido salvo, mas estoque e pagamento nunca avisados! Pedido no limbo.
+            </p>
+          </div>
+          <div class="box box-danger">
+            <h4 style="color: var(--danger);">Falha B: Broker antes do Commit</h4>
+            <p style="font-size: 0.8em;">1. `broker.publish()` ✅<br>
+            2. 💥 <em>Erro de constraint / lock timeout no banco</em><br>
+            3. `ROLLBACK` no banco ❌</p>
+            <p style="color: #fca5a5; font-size: 0.75em; margin-top: 10px;">
+              <strong>Resultado:</strong> Estoque reservou peças para um pedido inexistente! Pedido Fantasma.
+            </p>
+          </div>
+        </div>
+        <aside class="notes">
+          Pessoa 1 detalha os dois cenários de desastre do Dual-Write. Enfatiza a falta de atomicidade nativa entre chamadas de rede e o banco local.
+        </aside>
+      </section>
+
+      <!-- SLIDE 3: POR QUE SOLUÇÕES TRIVIAIS FALHAM (PESSOA 1) -->
+      <section>
+        <span class="badge badge-p1">Pessoa 1</span>
+        <h2>Por que Try/Catch e 2PC não resolvem? <span class="timer-hint">04:15 - 06:30</span></h2>
+        <div class="grid-2">
+          <div class="box">
+            <h4 style="color: var(--warning);">E se usarmos Retries (Try/Catch)?</h4>
+            <ul>
+              <li><strong>Memória é volátil:</strong> Se o container reiniciar ou der OOM, retries em memória são perdidos para sempre.</li>
+              <li><strong>Efeito Dominó:</strong> Threads bloqueadas esperando o broker responder esgotam o pool de conexões da API.</li>
+            </ul>
+          </div>
+          <div class="box">
+            <h4 style="color: var(--danger);">E quanto ao Two-Phase Commit (2PC / XA)?</h4>
+            <ul>
+              <li><strong>Altíssima latência:</strong> Múltiplos round-trips de rede e bloqueios (locks) prolongados.</li>
+              <li><strong>Ponto único de falha:</strong> Coordenador central.</li>
+              <li><strong>Incompatibilidade:</strong> Kafka, RabbitMQ e bancos NoSQL <em>não suportam XA</em>.</li>
+            </ul>
+          </div>
+        </div>
+        <p style="margin-top: 25px; font-size: 0.85em; color: var(--accent);">
+          &rarr; <em>Transição para Pessoa 2: "Como obter atomicidade usando apenas transações locais?"</em>
+        </p>
+        <aside class="notes">
+          Pessoa 1 descarta as falsas soluções (retries ingênuos e 2PC clássico) e passa a palavra para a Pessoa 2.
+        </aside>
+      </section>
+
+      <!-- SLIDE 4: A IDEIA DO OUTBOX (PESSOA 2) -->
+      <section>
+        <span class="badge badge-p2">Pessoa 2</span>
+        <h2>A Ideia Central do Transactional Outbox <span class="timer-hint">06:30 - 08:30</span></h2>
+        <p style="font-size: 0.85em;">Se não podemos incluir o broker na transação do banco, <br><strong style="color: var(--accent);">trazemos a mensagem para dentro do banco de dados!</strong></p>
+        <div class="box box-success" style="margin: 20px 0; text-align: center;">
+          <h3 style="color: var(--success); margin: 0; font-size: 1.1em;">
+            BEGIN TRANSACTION &rarr; INSERT Pedido + INSERT Outbox &rarr; COMMIT ATÔMICO
+          </h3>
+        </div>
+        <div class="grid-2">
+          <div class="box">
+            <h4>Tabela Outbox = Caixa de Correio</h4>
+            <p style="font-size: 0.8em;">Uma tabela no mesmo schema do microsserviço que guarda os eventos pendentes de publicação.</p>
+          </div>
+          <div class="box">
+            <h4>Garantia ACID Local</h4>
+            <p style="font-size: 0.8em;">Ou ambos são persistidos com integridade referencial e durabilidade, ou nada é salvo.</p>
+          </div>
+        </div>
+        <aside class="notes">
+          Pessoa 2 assume. Explica o cerne do padrão criado por Chris Richardson. Mostra que o problema de rede vira escrita atômica local.
+        </aside>
+      </section>
+
+      <!-- SLIDE 5: ANATOMIA DA TABELA E FLUXO (PESSOA 2) -->
+      <section>
+        <span class="badge badge-p2">Pessoa 2</span>
+        <h2>Estrutura de Dados e Sequência <span class="timer-hint">08:30 - 11:00</span></h2>
+        <div class="grid-2">
+          <div>
+            <pre><code class="language-sql">CREATE TABLE outbox_messages (
+  id UUID PRIMARY KEY,
+  aggregate_type VARCHAR(100), -- 'Pedido'
+  aggregate_id VARCHAR(100),   -- '123' (partition key)
+  type VARCHAR(100),           -- 'PedidoCriado'
+  payload JSONB NOT NULL,      -- dados do evento
+  criado_em TIMESTAMP NOT NULL DEFAULT NOW(),
+  processado_em TIMESTAMP NULL
+);
+
+-- Índice parcial ultra eficiente:
+CREATE INDEX idx_outbox_pendentes 
+ON outbox_messages (criado_em)
+WHERE processado_em IS NULL;</code></pre>
+          </div>
+          <div class="box">
+            <h4 style="color: var(--accent);">Fluxo Atômico</h4>
+            <ol style="font-size: 0.8em; line-height: 1.6;">
+              <li>`BEGIN` transação local</li>
+              <li>`INSERT INTO pedidos (...)`</li>
+              <li>`INSERT INTO outbox_messages (...)`</li>
+              <li>`COMMIT`</li>
+              <li>API responde <code>201 Created</code></li>
+              <li>O <strong>Outbox Relay</strong> assume em segundo plano!</li>
+            </ol>
+          </div>
+        </div>
+        <aside class="notes">
+          Pessoa 2 detalha a tabela outbox e a importância do índice parcial `WHERE processado_em IS NULL`. Explica o fluxo desacoplado.
+        </aside>
+      </section>
+
+      <!-- SLIDE 6: ESTRATÉGIAS DE RELAY (PESSOA 2) -->
+      <section>
+        <span class="badge badge-p2">Pessoa 2</span>
+        <h2>Como as mensagens saem do Outbox? <span class="timer-hint">11:00 - 13:30</span></h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Critério</th>
+              <th>1. Polling Publisher (Worker)</th>
+              <th>2. Change Data Capture (CDC / Debezium)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Mecanismo</strong></td>
+              <td>`SELECT ... WHERE processado_em IS NULL LIMIT 50`</td>
+              <td>Lê o log de transações do disco (Postgres WAL / MySQL binlog)</td>
+            </tr>
+            <tr>
+              <td><strong>Complexidade</strong></td>
+              <td><span style="color: var(--success);">Baixa</span> (código de aplicação / cron / scheduler)</td>
+              <td><span style="color: var(--warning);">Média/Alta</span> (Kafka Connect, Debezium, infra dedicada)</td>
+            </tr>
+            <tr>
+              <td><strong>Latência</strong></td>
+              <td>Intervalo de polling (1s a 5s)</td>
+              <td><span style="color: var(--success);">Quase tempo real</span> (milissegundos)</td>
+            </tr>
+            <tr>
+              <td><strong>Concorrência</strong></td>
+              <td>Requer <code>FOR UPDATE SKIP LOCKED</code> para múltiplos workers</td>
+              <td>Streaming contínuo nativo da réplica lógica</td>
+            </tr>
+          </tbody>
+        </table>
+        <p style="margin-top: 20px; font-size: 0.85em; color: var(--accent);">
+          &rarr; <em>Transição para Pessoa 3: "Mas e se o Relay publicar e cair antes de atualizar o banco?"</em>
+        </p>
+        <aside class="notes">
+          Pessoa 2 compara Polling vs CDC. Destaca o segredo técnico do `SKIP LOCKED` e passa a palavra para a Pessoa 3.
+        </aside>
+      </section>
+
+      <!-- SLIDE 7: O MITO DO EXACTLY-ONCE (PESSOA 3) -->
+      <section>
+        <span class="badge badge-p3">Pessoa 3</span>
+        <h2>O Mito do "Exactly-Once" <span class="timer-hint">13:30 - 15:30</span></h2>
+        <div class="box box-danger" style="margin-bottom: 20px;">
+          <h4 style="color: var(--danger); margin: 0 0 10px 0;">O Cenário Crítico de Falha no Relay</h4>
+          <p style="font-size: 0.8em; margin: 5px 0;">1. Relay lê mensagem [PedidoCriado #100] no banco.</p>
+          <p style="font-size: 0.8em; margin: 5px 0;">2. Relay publica com sucesso no Apache Kafka! ✅</p>
+          <p style="font-size: 0.8em; margin: 5px 0; color: #fca5a5;">3. 💥 <strong>Crash da máquina / queda de rede antes do UPDATE no banco!</strong></p>
+          <p style="font-size: 0.8em; margin: 5px 0;">4. Mensagem continua como <code>processado_em = NULL</code> no banco.</p>
+          <p style="font-size: 0.8em; margin: 5px 0;">5. Próximo worker reinicia e <strong>reenvia a mesma mensagem para o broker! ⚠️</strong></p>
+        </div>
+        <div class="box box-success" style="text-align: center;">
+          <h4 style="color: var(--success); margin: 0;">Garantia Real: AT-LEAST-ONCE (Pelo Menos Uma Vez)</h4>
+          <p style="font-size: 0.8em; margin: 5px 0 0 0;">O Outbox garante que nenhuma mensagem será perdida, mas duplicações são inevitáveis!</p>
+        </div>
+        <aside class="notes">
+          Pessoa 3 assume. Desmistifica o Exactly-Once. Demonstra matematicamente a falha entre publicar e marcar como processado.
+        </aside>
+      </section>
+
+      <!-- SLIDE 8: CONSUMIDOR IDEMPOTENTE (PESSOA 3) -->
+      <section>
+        <span class="badge badge-p3">Pessoa 3</span>
+        <h2>Consumidor Idempotente (Inbox Pattern) <span class="timer-hint">15:30 - 17:15</span></h2>
+        <p style="font-size: 0.8em; color: #cbd5e1;">A outra metade obrigatória da arquitetura: o receptor deve suportar duplicatas.</p>
+        <div class="grid-2">
+          <div class="box">
+            <h4 style="color: var(--accent);">Idempotência por Chave Única</h4>
+            <pre><code class="language-sql">-- Tabela no Serviço de Estoque:
+CREATE TABLE mensagens_processadas (
+  mensagem_id UUID PRIMARY KEY,
+  processado_em TIMESTAMP DEFAULT NOW()
+);
+
+-- Inserção defensiva:
+INSERT INTO mensagens_processadas (mensagem_id)
+VALUES ($1)
+ON CONFLICT (mensagem_id) DO NOTHING;</code></pre>
+          </div>
+          <div class="box">
+            <h4 style="color: var(--success);">Princípio de Funcionamento</h4>
+            <ul>
+              <li>Se o `INSERT` gravou 1 linha &rarr; Mensagem inédita &rarr; Processa estoque.</li>
+              <li>Se o `INSERT` gravou 0 linhas &rarr; <strong>Duplicata detectada!</strong> &rarr; Descarta com segurança.</li>
+              <li>A regra de negócio e a chave da mensagem comitam na <strong>mesma transação local</strong> do consumidor.</li>
+            </ul>
+          </div>
+        </div>
+        <aside class="notes">
+          Pessoa 3 explica o Inbox Pattern / Idempotent Consumer. Mostra que a combinação de Outbox + Inbox atinge o resultado equivalente a exactly-once para o negócio.
+        </aside>
+      </section>
+
+      <!-- SLIDE 9: OUTBOX VS SAGA (PESSOA 3) -->
+      <section>
+        <span class="badge badge-p3">Pessoa 3</span>
+        <h2>Outbox NÃO é Saga! <span class="timer-hint">17:15 - 18:45</span></h2>
+        <p style="font-size: 0.8em; color: #cbd5e1;">Esclarecendo uma das maiores confusões em provas e entrevistas de PDS:</p>
+        <div class="grid-2">
+          <div class="box">
+            <h4 style="color: var(--accent);">Transactional Outbox Pattern</h4>
+            <ul>
+              <li><strong>Escopo:</strong> Local a um único microsserviço.</li>
+              <li><strong>Objetivo:</strong> Publicação confiável de eventos sem Dual-Write.</li>
+              <li>Não conhece compensações nem regras de fluxo de negócio.</li>
+            </ul>
+          </div>
+          <div class="box">
+            <h4 style="color: var(--warning);">Saga Pattern</h4>
+            <ul>
+              <li><strong>Escopo:</strong> Global entre múltiplos microsserviços.</li>
+              <li><strong>Objetivo:</strong> Orquestrar transações de longa duração e rollbacks lógicos (ações compensatórias).</li>
+              <li><strong>Relação:</strong> <em>Cada participante da Saga usa o Outbox para publicar seus eventos com segurança!</em></li>
+            </ul>
+          </div>
+        </div>
+        <aside class="notes">
+          Pessoa 3 desfaz a confusão conceitual. Usa a metáfora do correio (Outbox) vs contrato de negócio (Saga).
+        </aside>
+      </section>
+
+      <!-- SLIDE 10: TRADE-OFFS E CONCLUSÃO (PESSOA 3) -->
+      <section>
+        <span class="badge badge-p3">Pessoa 3</span>
+        <h2>Trade-offs e Conclusão <span class="timer-hint">18:45 - 20:00</span></h2>
+        <div class="grid-2">
+          <div class="box">
+            <h4 style="color: var(--warning);">Trade-offs Operacionais</h4>
+            <ul>
+              <li><strong>Inchaço do Banco:</strong> Necessidade de rotinas de expurgo (Purge / Retention) para mensagens antigas.</li>
+              <li><strong>Ordenação:</strong> Uso de <code>aggregate_id</code> como Partition Key no Kafka para preservar ordem.</li>
+              <li><strong>Custo de I/O:</strong> Toda mensagem passa pelo disco antes do broker.</li>
+            </ul>
+          </div>
+          <div class="box box-success">
+            <h4 style="color: var(--success);">Por que vale a pena?</h4>
+            <ul>
+              <li>Elimina 100% dos desastres de consistência do Dual-Write.</li>
+              <li>Zero necessidade de transações distribuídas bloqueantes (2PC).</li>
+              <li>Auditoria nativa: o banco passa a ter histórico de todos os eventos gerados.</li>
+            </ul>
+          </div>
+        </div>
+        <p style="margin-top: 25px; font-size: 1.1em; color: var(--accent); font-weight: bold;">
+          Muito obrigado! Perguntas?
+        </p>
+        <aside class="notes">
+          Pessoa 3 fecha apresentando os trade-offs de engenharia e conclui convidando a banca para a rodada de perguntas.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/notes/notes.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/highlight.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      slideNumber: 'c/t',
+      controls: true,
+      progress: true,
+      center: true,
+      plugins: [ RevealHighlight, RevealNotes ]
+    });
+    mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+  </script>
+</body>
+</html>

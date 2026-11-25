@@ -1,0 +1,8 @@
+flowchart LR
+    A[Aplicação / serviço] -->|mesma transação local| DB[(Banco de dados)]
+    DB --> B[(Dados de negócio)]
+    DB --> O[(Tabela Outbox)]
+    O -->|polling ou CDC| R[Relay / publicador]
+    R -->|publica| M[[Broker de mensagens]]
+    M --> C[Consumidor]
+    C --> D[(Banco do consumidor)]

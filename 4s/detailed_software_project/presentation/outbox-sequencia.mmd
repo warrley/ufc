@@ -1,0 +1,23 @@
+sequenceDiagram
+    autonumber
+    participant App as Serviço de Pedidos
+    participant DB as Banco + Outbox
+    participant Relay as Relay / Worker
+    participant Broker as Broker
+    participant Estoque as Serviço de Estoque
+    App->>DB: BEGIN
+    App->>DB: INSERT pedido
+    App->>DB: INSERT Outbox(PedidoCriado, pendente)
+    alt Commit
+        App->>DB: COMMIT
+        Relay->>DB: Buscar mensagens pendentes
+        DB-->>Relay: PedidoCriado
+        Relay->>Broker: Publicar evento
+        Broker-->>Relay: Confirmação
+        Relay->>DB: Marcar processada
+        Broker-->>Estoque: Entregar evento
+        Note over Estoque: Consumidor idempotente suporta repetição
+    else Erro na transação
+        App->>DB: ROLLBACK
+        Note over DB: Pedido e mensagem não persistem
+    end

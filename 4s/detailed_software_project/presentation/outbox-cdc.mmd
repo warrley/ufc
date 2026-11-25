@@ -1,0 +1,19 @@
+flowchart LR
+    subgraph ServicoPedidos["Serviço de Pedidos"]
+        App["Aplicação"] -->|1. Commit Local| DB[("PostgreSQL\n(Pedidos + Outbox)")]
+        DB -->|2. Escreve no| WAL[("Write-Ahead Log\n(WAL)")]
+    end
+
+    subgraph IngestionCDC["Captura de Mudanças (CDC)"]
+        Debezium["Debezium / Kafka Connect\n(Outbox Event Router)"]
+        WAL -->|3. Streaming de logs em tempo real| Debezium
+    end
+
+    subgraph Mensageria["Broker"]
+        Debezium -->|4. Publica evento puro| Kafka[["Apache Kafka\n(Tópicos de Negócio)"]]
+    end
+
+    subgraph Consumidores["Serviços Assinantes"]
+        Kafka --> ConsumidorEstoque["Serviço de Estoque"]
+        Kafka --> ConsumidorNotif["Serviço de Notificações"]
+    end

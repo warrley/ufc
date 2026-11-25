@@ -1,0 +1,19 @@
+sequenceDiagram
+    autonumber
+    participant Broker as Message Broker (Kafka)
+    participant Consumidor as Serviço de Estoque
+    participant DB as Banco do Consumidor
+
+    Broker->>Consumidor: Entrega mensagem (ID: 550e8400...)
+    Consumidor->>DB: BEGIN
+    Consumidor->>DB: INSERT INTO mensagens_processadas (id) VALUES ('550e8400...')
+    alt Mensagem já foi processada (Chave duplicada)
+        DB-->>Consumidor: ON CONFLICT DO NOTHING (0 linhas inseridas)
+        Consumidor->>DB: COMMIT
+        Note over Consumidor: Ignora execução de negócio com segurança (Idempotente)
+    else Mensagem nova (Inédita)
+        DB-->>Consumidor: 1 linha inserida
+        Consumidor->>DB: UPDATE estoque SET quantidade = quantidade - 2
+        Consumidor->>DB: COMMIT
+        Note over Consumidor: Estoque atualizado com sucesso
+    end

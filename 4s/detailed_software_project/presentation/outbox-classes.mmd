@@ -1,0 +1,36 @@
+classDiagram
+    class PedidoService {
+      +criarPedido(dados)
+    }
+    class PedidoRepository {
+      +salvar(pedido)
+    }
+    class OutboxRepository {
+      +adicionar(mensagem)
+      +buscarPendentes(limite)
+      +marcarProcessada(id)
+    }
+    class OutboxMessage {
+      +UUID id
+      +String tipo
+      +String payload
+      +Instant criadaEm
+      +Instant processadaEm
+      +String erro
+    }
+    class OutboxRelay {
+      +publicarPendentes()
+    }
+    class MessageBroker {
+      <<interface>>
+      +publicar(tipo, payload)
+    }
+    class ConsumidorPedidoCriado {
+      +aoReceber(mensagem)
+    }
+    PedidoService --> PedidoRepository : grava pedido
+    PedidoService --> OutboxRepository : grava evento na mesma transação
+    OutboxRepository "1" o--> "0..*" OutboxMessage : armazena
+    OutboxRelay --> OutboxRepository : consulta e atualiza
+    OutboxRelay --> MessageBroker : publica
+    MessageBroker --> ConsumidorPedidoCriado : entrega
